@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tooyi.github.io</id>
     <title>涂诣</title>
-    <updated>2020-05-26T13:49:51.476Z</updated>
+    <updated>2020-05-26T13:53:12.565Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tooyi.github.io"/>
     <link rel="self" href="https://tooyi.github.io/atom.xml"/>
@@ -44,6 +44,48 @@
 <p>未来，它一定会成为你离不开的伙伴</p>
 <p>尽情发挥你的才华吧！</p>
 <p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[小程序开发之app.json详解]]></title>
+        <id>https://tooyi.github.io/post/wechat1/</id>
+        <link href="https://tooyi.github.io/post/wechat1/">
+        </link>
+        <updated>2018-09-16T13:51:36.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="小程序开发之appjson详解">小程序开发之app.json详解</h2>
+<p>我们使用app.json文件来对微信小程序进行全局配置文件，决定页面文件的路径、窗口表现、设置网络超时时间、设置多 tab 等。</p>
+<p><strong>切记，不要在真实项目中写注释，否则会报错，以下注释是为了更好的说明</strong></p>
+<pre><code>{
+  &quot;pages&quot;:[           //这个里边都是用来配置所需要用到的界面所在的文件路径，配置为第一行的是默认显示的页面。
+    &quot;pages/index/index&quot;,
+    &quot;pages/--------/--------”,
+    &quot;pages/--------/--------&quot;,
+    &quot;pages/--------/-------&quot;//记住最后一行不要加逗号
+    
+  ],
+  &quot;window&quot;:{      //这个属性是用来配置界面的上边的标题栏的，
+    &quot;backgroundTextStyle&quot;:&quot;light&quot;,//这个用来设置文本的风格。
+    &quot;navigationBarBackgroundColor&quot;: &quot;#0066CC&quot;,//这个是背景颜色，记住用这种颜色格式的，不要用七种颜色的英文单词（red,blue）等，不然不起效果
+    &quot;navigationBarTitleText&quot;: &quot;--------&quot;,//这个就是文字内容
+    &quot;navigationBarTextStyle&quot;:&quot;white&quot;//这个是文字的颜色。
+  },
+  &quot;tabBar&quot;: {//这个的话就是配置下边的菜单栏。
+    &quot;color&quot;: &quot;#0066CC&quot;,//这个是配置文字的颜色
+    &quot;selectedColor&quot;: &quot;#FF0033&quot;,//这个是配置选中某个菜单时文字的颜色。
+    &quot;borderStyle&quot;: &quot;#336699&quot;,
+    &quot;backgroundColor&quot;: &quot;#99CC00&quot;,//这个是整个菜单栏的背景颜色
+    &quot;list&quot;: [//这个是列表，就是具体设置菜单栏
+      {
+      &quot;text&quot;: &quot;-----&quot;,//文字
+      &quot;pagePath&quot;: &quot;pages/index/index&quot;,//就是对应到那个页面
+      &quot;iconPath&quot;: &quot;image/--------&quot;,//默认的图片
+      &quot;selectedIconPath&quot;: &quot;image/--------&quot;//选中以后显示的图片。
+      }
+   --可以根据自己需要来加，tabBar至少需要两个---
+    ]
+  }
+}
+</code></pre>
 ]]></content>
     </entry>
     <entry>
