@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-<title>换一个新主题 - Gridea Themes Vant - 涂诣</title>
+<title>记录 - 学习Git遇到的坑 - 涂诣</title>
 <meta name="description" content="温故而知新">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -136,53 +136,93 @@
                     <div class="col-12 col-lg-10">
                       <div class="layout-post-main m-right m-md-right">
                         <div class="layout-post-header">
-                          <h1 class="layout-post-title">换一个新主题 - Gridea Themes Vant</h1>
+                          <h1 class="layout-post-title">记录 - 学习Git遇到的坑</h1>
                           <div class="layout-post-meta">
                             <div class="item">
-                               <a href="https://tooyi.github.io/tag/TB-SgN5VE/" class="post--keyword"
-                                data-title="themes" data-type="post_tag" data-term-id="39">themes</a>
+                               <a href="https://tooyi.github.io/tag/OeoNReumV/" class="post--keyword"
+                                data-title="git" data-type="post_tag" data-term-id="39">git</a>
                               
                             </div>
                             <div class="item">
-                              <span>2020-05-26</span>
+                              <span>2018-09-07</span>
                             </div>
                           </div>
                         </div>
                         <div class="layout-post-content">
                           <div class="layout-post-item">
                             
-                            <p class="with-img"><img src="https://tooyi.github.io/post-images/hello-gridea.png"
-                                class="attachment-full size-full wp-post-image" alt="换一个新主题 - Gridea Themes Vant" /></p>
+                            <p class="with-img"><img src="https://tooyi.github.io/post-images/git-notes.png"
+                                class="attachment-full size-full wp-post-image" alt="记录 - 学习Git遇到的坑" /></p>
                             
-                            <p><strong>新博客使用Gridea管理，旧博客文章暂时未全部搬运。若访问旧博客，请访问</strong><a href="https://tooyi.github.io/blog-old/">涂诣的官方网站</a></p>
-<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+                            <h2 id="学习git遇到的坑">学习Git遇到的坑</h2>
+<hr>
+<blockquote>
+<p>如果不明白文中指令含义，建议查看 <a href="https://smartbber.github.io/2018/01/23/Git%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/">Git 笔记整理</a></p>
+</blockquote>
+<h3 id="1-git-commit-遇到-errorpathspec">1. <code>git commit</code> 遇到 <code>error：pathspec</code></h3>
+<p>原因：输入 <code>git commit -m &quot;messages&quot;</code> 时，忘记加 <code>-u</code> 。</p>
+<h3 id="2-git-commit-am-messages-不能提交新增文件">2. <code>git commit -am &quot;messages&quot;</code> ，不能提交新增文件</h3>
+<p>先使用 <code>git add -A</code> ，提交全部新增文件，再使用 <code>git commit -m &quot;messages&quot;</code> 。</p>
+<h3 id="3-有时候-git-push-origin-master-会报错如下">3. 有时候 git push origin master 会报错，如下：</h3>
+<pre><code class="language-Git">$ git push origin master
+To github.com:smartBBer/LeetCode.git
+ ! [rejected]        master -&gt; master (fetch first)
+error: failed to push some refs to 'git@github.com:smartBBer/LeetCode.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+</code></pre>
+<p>错误原因很简单：<strong>本地库和GitHub中的库不同步</strong>，解决办法有两种。</p>
+<h4 id="第一种解决方法不要轻易使用">第一种解决方法(不要轻易使用)</h4>
+<p>加上 <code>-f</code>，强制推送上去，这时你的GitHub上的库会以本地同步，</p>
+<pre><code>$ git push -f
+Enumerating objects: 35, done.
+Counting objects: 100% (35/35), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (24/24), done.
+Writing objects: 100% (35/35), 6.35 KiB | 325.00 KiB/s, done.
+Total 35 (delta 6), reused 6 (delta 1)
+remote: Resolving deltas: 100% (6/6), done.
+To github.com:smartBBer/LeetCode.git
+ + 0794cc5...80639ea master -&gt; master (forced update)
+</code></pre>
+<h4 id="第二种解决方法推荐">第二种解决方法（推荐）</h4>
+<p>使用<code>git pull --rebase origin master</code>合并 GitHub 和 本地 的库，本地会多出之前不同步的文件，在使用 <code>git push -u origin master</code> 推送到 GitHub 库中。</p>
+<pre><code>$ git pull --rebase origin master
+$ git push origin master
+</code></pre>
+<pre><code>fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+Please make sure you have the correct access rights and the repository exists.
+</code></pre>
+<p>解决办法：重新输入一次：<code>git remote add origin git@github.com:yourusername/test.git</code></p>
+<pre><code>fatal: remote error:
+XXXXXX is not a valid repository name Email support@github.com for help
+</code></pre>
+<p>解决办法：<strong>使用git remote rm origin 然后再使用上传命令</strong></p>
+<h3 id="4-输入git-remote-add-origin-gitgithubcomyournameyourrepogit时">4. 输入：<code>git remote add origin git@github.com:yourName/yourRepo.git</code>时</h3>
+<pre><code>fatal: Not a git repository (or any of the parent directories): .git
+</code></pre>
+<p>解决办法：<strong>输入 git init ，初始化一个本地仓库</strong></p>
+<pre><code>fatal: remote origin already exists.
+</code></pre>
+<p>解决办法：<br>
+<strong>1 删除Git仓库中的origin信息：git remote rm origin</strong></p>
+<p><strong>2 重新添加Git仓库中的origin信息</strong></p>
+<h3 id="5-输入git-add-时">5. 输入git add ./时</h3>
+<pre><code>fatal: Not a git repository (or any of the parent directories): .git
+</code></pre>
+<p>解决办法：<strong>先输入git init，再add</strong></p>
 
                           </div>
                         </div>
                         <div class="layout-post-social">
                           <div class="item reader">
-                            <div id="/post/hello-gridea/" class="leancloud-visitors view"
-                              data-flag-title="换一个新主题 - Gridea Themes Vant">
+                            <div id="/post/git-notes/" class="leancloud-visitors view"
+                              data-flag-title="记录 - 学习Git遇到的坑">
                               <span class="post-meta-item-text">阅读 </span>
                               <span class="leancloud-visitors-count"></span>
                             </div>
@@ -194,22 +234,31 @@
                             
                             <div class="post-card row">
                               
-                              <div class="card-content col-12">
+                              <div class="card-content col-8 col-md-9">
                                 <div class="card-body">
                                   <div class="header">
-                                    <a href="https://tooyi.github.io/post/ji-lu-xue-xi-git-yu-dao-de-keng/" class="title">
-                                      <h4>记录 - 学习Git遇到的坑</h4>
+                                    <a href="https://tooyi.github.io/post/hello-gridea/" class="title">
+                                      <h4>换一个新主题 - Gridea Themes Vant</h4>
                                     </a>
                                   </div>
-                                  <div class="inner">
+                                  <div class="inner d-none d-sm-block">
                                     <div class="abstract">
-                                      
+                                      <p><strong>新博客使用Gridea管理，旧博客文章暂时未全部搬运。若访问旧博客，请访问</strong><a href="https://tooyi.github.io/blog-old/">涂诣的官方网站</a></p>
+<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+
                                     </div>
                                   </div>
                                 </div>
                                 <div class="card-footer">
                                   <div class="item"><span>上一篇</span></div>
                                   <div class="item">2020-05-26</div>
+                                </div>
+                              </div>
+                              <div class="card-thumb col-4 col-md-3">
+                                <div class="thumb">
+                                  <a href="https://tooyi.github.io/post/hello-gridea/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/hello-gridea.png');"></a>
                                 </div>
                               </div>
                               
@@ -220,8 +269,8 @@
                               <div class="card-content col-8 col-md-9">
                                 <div class="card-body">
                                   <div class="header">
-                                    <a href="https://tooyi.github.io/post/git-notes/" class="title">
-                                      <h4>记录 - 学习Git遇到的坑</h4>
+                                    <a href="https://tooyi.github.io/post/git/" class="title">
+                                      <h4>Git笔记整理</h4>
                                     </a>
                                   </div>
                                   <div class="inner d-none d-sm-block">
@@ -232,13 +281,13 @@
                                 </div>
                                 <div class="card-footer">
                                   <div class="item"><span>下一篇</span></div>
-                                  <div class="item">2018-09-07</div>
+                                  <div class="item">2018-01-23</div>
                                 </div>
                               </div>
                               <div class="card-thumb col-4 col-md-3">
                                 <div class="thumb">
-                                  <a href="https://tooyi.github.io/post/git-notes/"
-                                    style="background-image: url('https://tooyi.github.io/post-images/git-notes.png');"></a>
+                                  <a href="https://tooyi.github.io/post/git/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/git.png');"></a>
                                 </div>
                               </div>
                               
@@ -277,7 +326,20 @@
                           <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#%E7%89%B9%E6%80%A7">特性👇</a></li>
+<li><a href="#%E5%AD%A6%E4%B9%A0git%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91">学习Git遇到的坑</a>
+<ul>
+<li><a href="#1-git-commit-%E9%81%87%E5%88%B0-errorpathspec">1. <code>git commit</code> 遇到 <code>error：pathspec</code></a></li>
+<li><a href="#2-git-commit-am-messages-%E4%B8%8D%E8%83%BD%E6%8F%90%E4%BA%A4%E6%96%B0%E5%A2%9E%E6%96%87%E4%BB%B6">2. <code>git commit -am &quot;messages&quot;</code> ，不能提交新增文件</a></li>
+<li><a href="#3-%E6%9C%89%E6%97%B6%E5%80%99-git-push-origin-master-%E4%BC%9A%E6%8A%A5%E9%94%99%E5%A6%82%E4%B8%8B">3. 有时候 git push origin master 会报错，如下：</a>
+<ul>
+<li><a href="#%E7%AC%AC%E4%B8%80%E7%A7%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E4%B8%8D%E8%A6%81%E8%BD%BB%E6%98%93%E4%BD%BF%E7%94%A8">第一种解决方法(不要轻易使用)</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E6%8E%A8%E8%8D%90">第二种解决方法（推荐）</a></li>
+</ul>
+</li>
+<li><a href="#4-%E8%BE%93%E5%85%A5git-remote-add-origin-gitgithubcomyournameyourrepogit%E6%97%B6">4. 输入：<code>git remote add origin git@github.com:yourName/yourRepo.git</code>时</a></li>
+<li><a href="#5-%E8%BE%93%E5%85%A5git-add-%E6%97%B6">5. 输入git add ./时</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tooyi.github.io</id>
     <title>涂诣</title>
-    <updated>2020-05-26T13:39:07.296Z</updated>
+    <updated>2020-05-26T13:41:52.774Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tooyi.github.io"/>
     <link rel="self" href="https://tooyi.github.io/atom.xml"/>
@@ -10,6 +10,76 @@
     <logo>https://tooyi.github.io/images/avatar.png</logo>
     <icon>https://tooyi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 涂诣</rights>
+    <entry>
+        <title type="html"><![CDATA[记录 - 学习Git遇到的坑]]></title>
+        <id>https://tooyi.github.io/post/ji-lu-xue-xi-git-yu-dao-de-keng/</id>
+        <link href="https://tooyi.github.io/post/ji-lu-xue-xi-git-yu-dao-de-keng/">
+        </link>
+        <updated>2020-05-26T13:39:42.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="学习git遇到的坑">学习Git遇到的坑</h2>
+<hr>
+<blockquote>
+<p>如果不明白文中指令含义，建议查看 <a href="https://smartbber.github.io/2018/01/23/Git%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/">Git 笔记整理</a></p>
+</blockquote>
+<h3 id="1-git-commit-遇到-errorpathspec">1. <code>git commit</code> 遇到 <code>error：pathspec</code></h3>
+<p>原因：输入 <code>git commit -m &quot;messages&quot;</code> 时，忘记加 <code>-u</code> 。</p>
+<h3 id="2-git-commit-am-messages-不能提交新增文件">2. <code>git commit -am &quot;messages&quot;</code> ，不能提交新增文件</h3>
+<p>先使用 <code>git add -A</code> ，提交全部新增文件，再使用 <code>git commit -m &quot;messages&quot;</code> 。</p>
+<h3 id="3-有时候-git-push-origin-master-会报错如下">3. 有时候 git push origin master 会报错，如下：</h3>
+<pre><code class="language-Git">$ git push origin master
+To github.com:smartBBer/LeetCode.git
+ ! [rejected]        master -&gt; master (fetch first)
+error: failed to push some refs to 'git@github.com:smartBBer/LeetCode.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+</code></pre>
+<p>错误原因很简单：<strong>本地库和GitHub中的库不同步</strong>，解决办法有两种。</p>
+<h4 id="第一种解决方法不要轻易使用">第一种解决方法(不要轻易使用)</h4>
+<p>加上 <code>-f</code>，强制推送上去，这时你的GitHub上的库会以本地同步，</p>
+<pre><code>$ git push -f
+Enumerating objects: 35, done.
+Counting objects: 100% (35/35), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (24/24), done.
+Writing objects: 100% (35/35), 6.35 KiB | 325.00 KiB/s, done.
+Total 35 (delta 6), reused 6 (delta 1)
+remote: Resolving deltas: 100% (6/6), done.
+To github.com:smartBBer/LeetCode.git
+ + 0794cc5...80639ea master -&gt; master (forced update)
+</code></pre>
+<h4 id="第二种解决方法推荐">第二种解决方法（推荐）</h4>
+<p>使用<code>git pull --rebase origin master</code>合并 GitHub 和 本地 的库，本地会多出之前不同步的文件，在使用 <code>git push -u origin master</code> 推送到 GitHub 库中。</p>
+<pre><code>$ git pull --rebase origin master
+$ git push origin master
+</code></pre>
+<pre><code>fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+Please make sure you have the correct access rights and the repository exists.
+</code></pre>
+<p>解决办法：重新输入一次：<code>git remote add origin git@github.com:yourusername/test.git</code></p>
+<pre><code>fatal: remote error:
+XXXXXX is not a valid repository name Email support@github.com for help
+</code></pre>
+<p>解决办法：<strong>使用git remote rm origin 然后再使用上传命令</strong></p>
+<h3 id="4-输入git-remote-add-origin-gitgithubcomyournameyourrepogit时">4. 输入：<code>git remote add origin git@github.com:yourName/yourRepo.git</code>时</h3>
+<pre><code>fatal: Not a git repository (or any of the parent directories): .git
+</code></pre>
+<p>解决办法：<strong>输入 git init ，初始化一个本地仓库</strong></p>
+<pre><code>fatal: remote origin already exists.
+</code></pre>
+<p>解决办法：<br>
+<strong>1 删除Git仓库中的origin信息：git remote rm origin</strong></p>
+<p><strong>2 重新添加Git仓库中的origin信息</strong></p>
+<h3 id="5-输入git-add-时">5. 输入git add ./时</h3>
+<pre><code>fatal: Not a git repository (or any of the parent directories): .git
+</code></pre>
+<p>解决办法：<strong>先输入git init，再add</strong></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[换一个新主题 - Gridea Themes Vant]]></title>
         <id>https://tooyi.github.io/post/hello-gridea/</id>
@@ -42,6 +112,76 @@
 <p>未来，它一定会成为你离不开的伙伴</p>
 <p>尽情发挥你的才华吧！</p>
 <p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[记录 - 学习Git遇到的坑]]></title>
+        <id>https://tooyi.github.io/post/git-notes/</id>
+        <link href="https://tooyi.github.io/post/git-notes/">
+        </link>
+        <updated>2018-09-07T13:39:42.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="学习git遇到的坑">学习Git遇到的坑</h2>
+<hr>
+<blockquote>
+<p>如果不明白文中指令含义，建议查看 <a href="https://smartbber.github.io/2018/01/23/Git%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/">Git 笔记整理</a></p>
+</blockquote>
+<h3 id="1-git-commit-遇到-errorpathspec">1. <code>git commit</code> 遇到 <code>error：pathspec</code></h3>
+<p>原因：输入 <code>git commit -m &quot;messages&quot;</code> 时，忘记加 <code>-u</code> 。</p>
+<h3 id="2-git-commit-am-messages-不能提交新增文件">2. <code>git commit -am &quot;messages&quot;</code> ，不能提交新增文件</h3>
+<p>先使用 <code>git add -A</code> ，提交全部新增文件，再使用 <code>git commit -m &quot;messages&quot;</code> 。</p>
+<h3 id="3-有时候-git-push-origin-master-会报错如下">3. 有时候 git push origin master 会报错，如下：</h3>
+<pre><code class="language-Git">$ git push origin master
+To github.com:smartBBer/LeetCode.git
+ ! [rejected]        master -&gt; master (fetch first)
+error: failed to push some refs to 'git@github.com:smartBBer/LeetCode.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+</code></pre>
+<p>错误原因很简单：<strong>本地库和GitHub中的库不同步</strong>，解决办法有两种。</p>
+<h4 id="第一种解决方法不要轻易使用">第一种解决方法(不要轻易使用)</h4>
+<p>加上 <code>-f</code>，强制推送上去，这时你的GitHub上的库会以本地同步，</p>
+<pre><code>$ git push -f
+Enumerating objects: 35, done.
+Counting objects: 100% (35/35), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (24/24), done.
+Writing objects: 100% (35/35), 6.35 KiB | 325.00 KiB/s, done.
+Total 35 (delta 6), reused 6 (delta 1)
+remote: Resolving deltas: 100% (6/6), done.
+To github.com:smartBBer/LeetCode.git
+ + 0794cc5...80639ea master -&gt; master (forced update)
+</code></pre>
+<h4 id="第二种解决方法推荐">第二种解决方法（推荐）</h4>
+<p>使用<code>git pull --rebase origin master</code>合并 GitHub 和 本地 的库，本地会多出之前不同步的文件，在使用 <code>git push -u origin master</code> 推送到 GitHub 库中。</p>
+<pre><code>$ git pull --rebase origin master
+$ git push origin master
+</code></pre>
+<pre><code>fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+Please make sure you have the correct access rights and the repository exists.
+</code></pre>
+<p>解决办法：重新输入一次：<code>git remote add origin git@github.com:yourusername/test.git</code></p>
+<pre><code>fatal: remote error:
+XXXXXX is not a valid repository name Email support@github.com for help
+</code></pre>
+<p>解决办法：<strong>使用git remote rm origin 然后再使用上传命令</strong></p>
+<h3 id="4-输入git-remote-add-origin-gitgithubcomyournameyourrepogit时">4. 输入：<code>git remote add origin git@github.com:yourName/yourRepo.git</code>时</h3>
+<pre><code>fatal: Not a git repository (or any of the parent directories): .git
+</code></pre>
+<p>解决办法：<strong>输入 git init ，初始化一个本地仓库</strong></p>
+<pre><code>fatal: remote origin already exists.
+</code></pre>
+<p>解决办法：<br>
+<strong>1 删除Git仓库中的origin信息：git remote rm origin</strong></p>
+<p><strong>2 重新添加Git仓库中的origin信息</strong></p>
+<h3 id="5-输入git-add-时">5. 输入git add ./时</h3>
+<pre><code>fatal: Not a git repository (or any of the parent directories): .git
+</code></pre>
+<p>解决办法：<strong>先输入git init，再add</strong></p>
 ]]></content>
     </entry>
     <entry>
