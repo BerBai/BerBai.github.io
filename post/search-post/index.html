@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-<title>记录 - 学习Git遇到的坑 - 涂诣</title>
+<title>学会高效率使用搜索引擎 - 涂诣</title>
 <meta name="description" content="温故而知新">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -142,93 +142,82 @@
                     <div class="col-12 col-lg-10">
                       <div class="layout-post-main m-right m-md-right">
                         <div class="layout-post-header">
-                          <h1 class="layout-post-title">记录 - 学习Git遇到的坑</h1>
+                          <h1 class="layout-post-title">学会高效率使用搜索引擎</h1>
                           <div class="layout-post-meta">
                             <div class="item">
-                               <a href="https://tooyi.github.io/tag/OeoNReumV/" class="post--keyword"
-                                data-title="git" data-type="post_tag" data-term-id="39">git</a>
+                               <a href="https://tooyi.github.io/tag/1citvjv-y/" class="post--keyword"
+                                data-title="search" data-type="post_tag" data-term-id="39">search</a>
                               
                             </div>
                             <div class="item">
-                              <span>2018-09-07</span>
+                              <span>2018-09-10</span>
                             </div>
                           </div>
                         </div>
                         <div class="layout-post-content">
                           <div class="layout-post-item">
                             
-                            <p class="with-img"><img src="https://tooyi.github.io/post-images/git-notes.png"
-                                class="attachment-full size-full wp-post-image" alt="记录 - 学习Git遇到的坑" /></p>
+                            <p class="with-img"><img src="https://tooyi.github.io/post-images/search-post.png"
+                                class="attachment-full size-full wp-post-image" alt="学会高效率使用搜索引擎" /></p>
                             
-                            <h2 id="学习git遇到的坑">学习Git遇到的坑</h2>
-<hr>
-<blockquote>
-<p>如果不明白文中指令含义，建议查看 <a href="https://smartbber.github.io/2018/01/23/Git%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/">Git 笔记整理</a></p>
-</blockquote>
-<h3 id="1-git-commit-遇到-errorpathspec">1. <code>git commit</code> 遇到 <code>error：pathspec</code></h3>
-<p>原因：输入 <code>git commit -m &quot;messages&quot;</code> 时，忘记加 <code>-u</code> 。</p>
-<h3 id="2-git-commit-am-messages-不能提交新增文件">2. <code>git commit -am &quot;messages&quot;</code> ，不能提交新增文件</h3>
-<p>先使用 <code>git add -A</code> ，提交全部新增文件，再使用 <code>git commit -m &quot;messages&quot;</code> 。</p>
-<h3 id="3-有时候-git-push-origin-master-会报错如下">3. 有时候 git push origin master 会报错，如下：</h3>
-<pre><code class="language-Git">$ git push origin master
-To github.com:smartBBer/LeetCode.git
- ! [rejected]        master -&gt; master (fetch first)
-error: failed to push some refs to 'git@github.com:smartBBer/LeetCode.git'
-hint: Updates were rejected because the remote contains work that you do
-hint: not have locally. This is usually caused by another repository pushing
-hint: to the same ref. You may want to first integrate the remote changes
-hint: (e.g., 'git pull ...') before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-
-</code></pre>
-<p>错误原因很简单：<strong>本地库和GitHub中的库不同步</strong>，解决办法有两种。</p>
-<h4 id="第一种解决方法不要轻易使用">第一种解决方法(不要轻易使用)</h4>
-<p>加上 <code>-f</code>，强制推送上去，这时你的GitHub上的库会以本地同步，</p>
-<pre><code>$ git push -f
-Enumerating objects: 35, done.
-Counting objects: 100% (35/35), done.
-Delta compression using up to 4 threads
-Compressing objects: 100% (24/24), done.
-Writing objects: 100% (35/35), 6.35 KiB | 325.00 KiB/s, done.
-Total 35 (delta 6), reused 6 (delta 1)
-remote: Resolving deltas: 100% (6/6), done.
-To github.com:smartBBer/LeetCode.git
- + 0794cc5...80639ea master -&gt; master (forced update)
-</code></pre>
-<h4 id="第二种解决方法推荐">第二种解决方法（推荐）</h4>
-<p>使用<code>git pull --rebase origin master</code>合并 GitHub 和 本地 的库，本地会多出之前不同步的文件，在使用 <code>git push -u origin master</code> 推送到 GitHub 库中。</p>
-<pre><code>$ git pull --rebase origin master
-$ git push origin master
-</code></pre>
-<pre><code>fatal: 'origin' does not appear to be a git repository
-fatal: Could not read from remote repository.
-Please make sure you have the correct access rights and the repository exists.
-</code></pre>
-<p>解决办法：重新输入一次：<code>git remote add origin git@github.com:yourusername/test.git</code></p>
-<pre><code>fatal: remote error:
-XXXXXX is not a valid repository name Email support@github.com for help
-</code></pre>
-<p>解决办法：<strong>使用git remote rm origin 然后再使用上传命令</strong></p>
-<h3 id="4-输入git-remote-add-origin-gitgithubcomyournameyourrepogit时">4. 输入：<code>git remote add origin git@github.com:yourName/yourRepo.git</code>时</h3>
-<pre><code>fatal: Not a git repository (or any of the parent directories): .git
-</code></pre>
-<p>解决办法：<strong>输入 git init ，初始化一个本地仓库</strong></p>
-<pre><code>fatal: remote origin already exists.
-</code></pre>
-<p>解决办法：<br>
-<strong>1 删除Git仓库中的origin信息：git remote rm origin</strong></p>
-<p><strong>2 重新添加Git仓库中的origin信息</strong></p>
-<h3 id="5-输入git-add-时">5. 输入git add ./时</h3>
-<pre><code>fatal: Not a git repository (or any of the parent directories): .git
-</code></pre>
-<p>解决办法：<strong>先输入git init，再add</strong></p>
+                            <h1 id="学会高效率使用搜索引擎">学会高效率使用搜索引擎</h1>
+<p>看了这篇文章，你将学会如何高效使用搜索引擎。有人说：现在 谁不会使用百度。咦~ 先别急着反驳我，接着往下看。</p>
+<ul>
+<li>友情提示：看完此文，可能会颠覆你对搜索引擎的三观。</li>
+</ul>
+<h4 id="1-关键字空格减号关键字">1. 『关键字』+『空格』+『减号』+『关键字』</h4>
+<p>减号表示搜索不包含减号后面的关键字，这样搜索可以去掉有关后面关键字的显示，如果想去掉一些不想看到的搜索结果可以使用这种搜索方式，但也有可能去掉了你想看到的内容（鬼知道你想看到的内容里有没有包含要去掉的关键字）。百度和谷歌都支持该指令。</p>
+<p>这样的搜索方式也同样可以去广告，只要在关键字后面 +『空格』+『-广告』这样就可以嗒。</p>
+<p>比如输入『茶 -百度百科』，如此可以去掉原有的百度百科条列。</p>
+<figure data-type="image" tabindex="1"><img src="https://ws1.sinaimg.cn/large/006KCUaNgy1fv4nzaqm3nj30zj0donah.jpg" alt="『关键字』+『空格』+『减号』+『关键字』" loading="lazy"></figure>
+<p>注意：只有关键字『茶』和『减号』之间有空格，而『减号』与关键字『百度百科』之间没有空格，否则你可能会出现这种情况。</p>
+<figure data-type="image" tabindex="2"><img src="https://ws1.sinaimg.cn/large/006KCUaNgy1fv4ohionpbj30le0giwn2.jpg" alt="注意" loading="lazy"></figure>
+<h4 id="2-关键字空格site网址">2. 『关键字』+『空格』+『site：网址』</h4>
+<p>site是SEO最熟悉的高级搜索指令，直接搜索该网址下的所有内容，相当于直接在该网址搜索内容，很方便，当然前提是你知道目标网址，比如淘宝，京东等。</p>
+<p>比如输入：『茶 site：jd.com』 或者 『茶 site：taobao.com』，搜索结果就会直接出现该网址内的搜索内容，怎么样，很神奇吧。</p>
+<figure data-type="image" tabindex="3"><img src="https://ws1.sinaimg.cn/large/006KCUaNgy1fv4o1f76ojj30xj0d57ek.jpg" alt="『关键字』+『空格』+『site：网址』" loading="lazy"></figure>
+<h4 id="3-关键字空格filetypedocppt等文件格式">3. 『关键字』+『空格』+『filetype：+doc/ppt等文件格式』</h4>
+<p>filetype用于搜索特定的文件格式，如doc、ppt格式等，百度和谷歌都支持filetype指令。</p>
+<p>比如输入：『茶 filetype：ppt』或者『茶 filetype：doc』，这样搜索的结果就会显示对应的文档。</p>
+<figure data-type="image" tabindex="4"><img src="https://ws1.sinaimg.cn/large/006KCUaNgy1fv4o2upw9dj30z60drtjr.jpg" alt="『关键字』+『空格』+『filetype：+doc/ppt等文件格式』" loading="lazy"></figure>
+<h4 id="4-关键字">4. 『“』+『关键字』+『”』</h4>
+<p>把关键字放入双引号内表示完全匹配搜索，也就是说搜索结果返回的页面包含双引号内出现所有的内容，字出现的顺序也必须完全匹配的。百度和谷歌都支持该指令。</p>
+<p>比如输入：『“茶之道”』，搜索返回的页面就会出现包含『茶之道』的相关内容。</p>
+<figure data-type="image" tabindex="5"><img src="https://ws1.sinaimg.cn/large/006KCUaNgy1fv4o3roxhzj30lu0gido2.jpg" alt="『“』+『关键字』+『”』" loading="lazy"></figure>
+<h4 id="5-inurl关键字">5. 『inurl:』+『关键字』</h4>
+<p>inurl：指令用于搜索关键字出现在url中的页面，关键词支持中文和英文，百度和谷歌都支持该指令。</p>
+<p>比如输入：『inurl：baidu』或者『inurl：百度』，搜索返回的页面都是一样的。</p>
+<figure data-type="image" tabindex="6"><img src="https://ws1.sinaimg.cn/large/006KCUaNgy1fv4o4tth06j30yf0d8th8.jpg" alt="『inurl:』+『关键字』" loading="lazy"></figure>
+<h4 id="6-intitle关键字">6. 『intitle:』+『关键字』</h4>
+<p>intitle：指令表示搜索结果返回页面是title中包含关键字的页面，也就是说搜索内容的标题含有关键字。百度和谷歌都支持该指令。</p>
+<p>比如输入：『intitle:茶』</p>
+<figure data-type="image" tabindex="7"><img src="https://ws1.sinaimg.cn/large/006KCUaNgy1fv4o5w6pw9j30yq0de4bf.jpg" alt="『intitle:』+『关键字』" loading="lazy"></figure>
+<h4 id="7-define关键字">7. 『define:』+『关键字』</h4>
+<p>define：表示快速查询关键字意思，只有谷歌支持该指令，测试中百度不支持。</p>
+<p>比如输入：『define:茶』，搜索返回的页面就会显示『茶』的意思。</p>
+<figure data-type="image" tabindex="8"><img src="https://ws1.sinaimg.cn/large/006KCUaNgy1fv4o6vpj8bj30mt0f1q4r.jpg" alt="『define:』+『关键字』" loading="lazy"></figure>
+<h4 id="8-快速计算">8. 快速计算</h4>
+<p>地方有时候需要计算总是要打开计算机其实搜索引擎就直接可以算出答案。百度和谷歌都支持该指令。</p>
+<p>比如输入：『123*90+21』，返回的结果是答案『11091』。</p>
+<figure data-type="image" tabindex="9"><img src="https://ws1.sinaimg.cn/large/006KCUaNgy1fv4o7s0rmoj30lw0et760.jpg" alt="快速计算" loading="lazy"></figure>
+<h4 id="9-单位换算">9. 单位换算</h4>
+<p>在需要单位换算的场景下，我们也可以使用搜索引擎来计算，只要输入换算的两种单位即可。百度和谷歌都支持该指令。</p>
+<p>比如输入：『10cm = m』，返回的页面中会直接出现换算结果。</p>
+<figure data-type="image" tabindex="10"><img src="https://ws1.sinaimg.cn/large/006KCUaNgy1fv4o8hvzs8j30lr0gktee.jpg" alt="单位换算" loading="lazy"></figure>
+<h4 id="10-快速查找ctrlf">10. 快速查找『Ctrl』+『F』</h4>
+<p>最后一个无关搜索，但这是一个非常方便的页面查找功能。</p>
+<p>比如在页面中查找『茶』，页面找那个的『茶』字就会以高亮的形式显示出来，方便查找。</p>
+<figure data-type="image" tabindex="11"><img src="https://ws1.sinaimg.cn/large/006KCUaNgy1fv4o9g1oq5j30ur0hyk63.jpg" alt="快速查找『Ctrl』+『F』" loading="lazy"></figure>
+<p>好了，我总结的高效率搜索技巧全在这儿了，看完你感觉以前对搜索引擎了解多少呢？</p>
+<figure data-type="image" tabindex="12"><img src="https://upload.cc/i1/2018/09/10/yj2tJI.png" alt="柏战不殆" loading="lazy"></figure>
+<p><a href="https://mp.weixin.qq.com/s/bbdenfKEQmx7s4hkELzfbw">阅读原文</a></p>
 
                           </div>
                         </div>
                         <div class="layout-post-social">
                           <div class="item reader">
-                            <div id="/post/git-notes/" class="leancloud-visitors view"
-                              data-flag-title="记录 - 学习Git遇到的坑">
+                            <div id="/post/search-post/" class="leancloud-visitors view"
+                              data-flag-title="学会高效率使用搜索引擎">
                               <span class="post-meta-item-text">阅读 </span>
                               <span class="leancloud-visitors-count"></span>
                             </div>
@@ -243,25 +232,29 @@ XXXXXX is not a valid repository name Email support@github.com for help
                               <div class="card-content col-8 col-md-9">
                                 <div class="card-body">
                                   <div class="header">
-                                    <a href="https://tooyi.github.io/post/search-post/" class="title">
-                                      <h4>学会高效率使用搜索引擎</h4>
+                                    <a href="https://tooyi.github.io/post/hello-gridea/" class="title">
+                                      <h4>换一个新主题 - Gridea Themes Vant</h4>
                                     </a>
                                   </div>
                                   <div class="inner d-none d-sm-block">
                                     <div class="abstract">
-                                      
+                                      <h2 id="访问旧博客">访问旧博客</h2>
+<p><strong>新博客使用Gridea管理，旧博客文章暂时未全部搬运。若访问旧博客，请访问</strong><a href="https://tooyi.github.io/blog-old/">涂诣的官方网站</a></p>
+<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+
                                     </div>
                                   </div>
                                 </div>
                                 <div class="card-footer">
                                   <div class="item"><span>上一篇</span></div>
-                                  <div class="item">2018-09-10</div>
+                                  <div class="item">2020-05-26</div>
                                 </div>
                               </div>
                               <div class="card-thumb col-4 col-md-3">
                                 <div class="thumb">
-                                  <a href="https://tooyi.github.io/post/search-post/"
-                                    style="background-image: url('https://tooyi.github.io/post-images/search-post.png');"></a>
+                                  <a href="https://tooyi.github.io/post/hello-gridea/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/hello-gridea.png');"></a>
                                 </div>
                               </div>
                               
@@ -272,8 +265,8 @@ XXXXXX is not a valid repository name Email support@github.com for help
                               <div class="card-content col-8 col-md-9">
                                 <div class="card-body">
                                   <div class="header">
-                                    <a href="https://tooyi.github.io/post/git/" class="title">
-                                      <h4>Git笔记整理</h4>
+                                    <a href="https://tooyi.github.io/post/git-notes/" class="title">
+                                      <h4>记录 - 学习Git遇到的坑</h4>
                                     </a>
                                   </div>
                                   <div class="inner d-none d-sm-block">
@@ -284,13 +277,13 @@ XXXXXX is not a valid repository name Email support@github.com for help
                                 </div>
                                 <div class="card-footer">
                                   <div class="item"><span>下一篇</span></div>
-                                  <div class="item">2018-01-23</div>
+                                  <div class="item">2018-09-07</div>
                                 </div>
                               </div>
                               <div class="card-thumb col-4 col-md-3">
                                 <div class="thumb">
-                                  <a href="https://tooyi.github.io/post/git/"
-                                    style="background-image: url('https://tooyi.github.io/post-images/git.png');"></a>
+                                  <a href="https://tooyi.github.io/post/git-notes/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/git-notes.png');"></a>
                                 </div>
                               </div>
                               
@@ -327,24 +320,19 @@ XXXXXX is not a valid repository name Email support@github.com for help
                       <div class="layout-post-sidebar">
                         <div class="layout-sidebar-item">
                           <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E5%AD%A6%E4%B9%A0git%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91">学习Git遇到的坑</a>
-<ul>
-<li><a href="#1-git-commit-%E9%81%87%E5%88%B0-errorpathspec">1. <code>git commit</code> 遇到 <code>error：pathspec</code></a></li>
-<li><a href="#2-git-commit-am-messages-%E4%B8%8D%E8%83%BD%E6%8F%90%E4%BA%A4%E6%96%B0%E5%A2%9E%E6%96%87%E4%BB%B6">2. <code>git commit -am &quot;messages&quot;</code> ，不能提交新增文件</a></li>
-<li><a href="#3-%E6%9C%89%E6%97%B6%E5%80%99-git-push-origin-master-%E4%BC%9A%E6%8A%A5%E9%94%99%E5%A6%82%E4%B8%8B">3. 有时候 git push origin master 会报错，如下：</a>
-<ul>
-<li><a href="#%E7%AC%AC%E4%B8%80%E7%A7%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E4%B8%8D%E8%A6%81%E8%BD%BB%E6%98%93%E4%BD%BF%E7%94%A8">第一种解决方法(不要轻易使用)</a></li>
-<li><a href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E6%8E%A8%E8%8D%90">第二种解决方法（推荐）</a></li>
-</ul>
-</li>
-<li><a href="#4-%E8%BE%93%E5%85%A5git-remote-add-origin-gitgithubcomyournameyourrepogit%E6%97%B6">4. 输入：<code>git remote add origin git@github.com:yourName/yourRepo.git</code>时</a></li>
-<li><a href="#5-%E8%BE%93%E5%85%A5git-add-%E6%97%B6">5. 输入git add ./时</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="#%E5%AD%A6%E4%BC%9A%E9%AB%98%E6%95%88%E7%8E%87%E4%BD%BF%E7%94%A8%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E">学会高效率使用搜索引擎</a><br>
+*<br>
+*<br>
+* <a href="#1-%E5%85%B3%E9%94%AE%E5%AD%97%E7%A9%BA%E6%A0%BC%E5%87%8F%E5%8F%B7%E5%85%B3%E9%94%AE%E5%AD%97">1. 『关键字』+『空格』+『减号』+『关键字』</a><br>
+* <a href="#2-%E5%85%B3%E9%94%AE%E5%AD%97%E7%A9%BA%E6%A0%BCsite%E7%BD%91%E5%9D%80">2. 『关键字』+『空格』+『site：网址』</a><br>
+* <a href="#3-%E5%85%B3%E9%94%AE%E5%AD%97%E7%A9%BA%E6%A0%BCfiletypedocppt%E7%AD%89%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F">3. 『关键字』+『空格』+『filetype：+doc/ppt等文件格式』</a><br>
+* <a href="#4-%E5%85%B3%E9%94%AE%E5%AD%97">4. 『“』+『关键字』+『”』</a><br>
+* <a href="#5-inurl%E5%85%B3%E9%94%AE%E5%AD%97">5. 『inurl:』+『关键字』</a><br>
+* <a href="#6-intitle%E5%85%B3%E9%94%AE%E5%AD%97">6. 『intitle:』+『关键字』</a><br>
+* <a href="#7-define%E5%85%B3%E9%94%AE%E5%AD%97">7. 『define:』+『关键字』</a><br>
+* <a href="#8-%E5%BF%AB%E9%80%9F%E8%AE%A1%E7%AE%97">8. 快速计算</a><br>
+* <a href="#9-%E5%8D%95%E4%BD%8D%E6%8D%A2%E7%AE%97">9. 单位换算</a><br>
+* <a href="#10-%E5%BF%AB%E9%80%9F%E6%9F%A5%E6%89%BEctrlf">10. 快速查找『Ctrl』+『F』</a></li>
 </ul>
 
                         </div>
