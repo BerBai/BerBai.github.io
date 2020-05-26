@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-<title>记录 - 学习Git遇到的坑 - 涂诣</title>
+<title>下载微信图文中的视频 - 涂诣</title>
 <meta name="description" content="温故而知新">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -142,93 +142,69 @@
                     <div class="col-12 col-lg-10">
                       <div class="layout-post-main m-right m-md-right">
                         <div class="layout-post-header">
-                          <h1 class="layout-post-title">记录 - 学习Git遇到的坑</h1>
+                          <h1 class="layout-post-title">下载微信图文中的视频</h1>
                           <div class="layout-post-meta">
                             <div class="item">
-                               <a href="https://tooyi.github.io/tag/OeoNReumV/" class="post--keyword"
-                                data-title="git" data-type="post_tag" data-term-id="39">git</a>
+                               <a href="https://tooyi.github.io/tag/jRjM7Qrpl/" class="post--keyword"
+                                data-title="WeChat" data-type="post_tag" data-term-id="39">WeChat</a>
                               
                             </div>
                             <div class="item">
-                              <span>2018-09-07</span>
+                              <span>2018-09-23</span>
                             </div>
                           </div>
                         </div>
                         <div class="layout-post-content">
                           <div class="layout-post-item">
                             
-                            <p class="with-img"><img src="https://tooyi.github.io/post-images/git-notes.png"
-                                class="attachment-full size-full wp-post-image" alt="记录 - 学习Git遇到的坑" /></p>
+                            <p class="with-img"><img src="https://tooyi.github.io/post-images/wechat2.jpg"
+                                class="attachment-full size-full wp-post-image" alt="下载微信图文中的视频" /></p>
                             
-                            <h2 id="学习git遇到的坑">学习Git遇到的坑</h2>
-<hr>
-<blockquote>
-<p>如果不明白文中指令含义，建议查看 <a href="https://smartbber.github.io/2018/01/23/Git%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/">Git 笔记整理</a></p>
-</blockquote>
-<h3 id="1-git-commit-遇到-errorpathspec">1. <code>git commit</code> 遇到 <code>error：pathspec</code></h3>
-<p>原因：输入 <code>git commit -m &quot;messages&quot;</code> 时，忘记加 <code>-u</code> 。</p>
-<h3 id="2-git-commit-am-messages-不能提交新增文件">2. <code>git commit -am &quot;messages&quot;</code> ，不能提交新增文件</h3>
-<p>先使用 <code>git add -A</code> ，提交全部新增文件，再使用 <code>git commit -m &quot;messages&quot;</code> 。</p>
-<h3 id="3-有时候-git-push-origin-master-会报错如下">3. 有时候 git push origin master 会报错，如下：</h3>
-<pre><code class="language-Git">$ git push origin master
-To github.com:smartBBer/LeetCode.git
- ! [rejected]        master -&gt; master (fetch first)
-error: failed to push some refs to 'git@github.com:smartBBer/LeetCode.git'
-hint: Updates were rejected because the remote contains work that you do
-hint: not have locally. This is usually caused by another repository pushing
-hint: to the same ref. You may want to first integrate the remote changes
-hint: (e.g., 'git pull ...') before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-
+                            <h2 id="下载微信图文中的视频">下载微信图文中的视频</h2>
+<h5 id="摘要">摘要</h5>
+<p>在有的时候我们需要下载公众号中的视频，那么我们怎么才能下载呢？在网上搜索了下，发现很多都是抓包获取的，没有好的方法，干脆就自己动手了。</p>
+<h5 id="动手">动手</h5>
+<ul>
+<li>首先得明白，微信图文中的视频都是挂在腾讯视频上的，所以视频的 url 肯定是以 v.qq.com 开头的；</li>
+<li>用浏览器打开微信图文，这里使用的是 Chrome 浏览器；</li>
+<li>查看源码，点击鼠标右键，选择查看源码；</li>
+<li>搜索关键字，<code>Ctrl + F</code> ，输入 v.qq.com ，即可找到视频的 url 地址；</li>
+</ul>
+<pre><code>  https://v.qq.com/iframe/preview.html?vid=z0191d2jue3&amp;amp;width=500&amp;amp;height=375&amp;amp;auto=0
 </code></pre>
-<p>错误原因很简单：<strong>本地库和GitHub中的库不同步</strong>，解决办法有两种。</p>
-<h4 id="第一种解决方法不要轻易使用">第一种解决方法(不要轻易使用)</h4>
-<p>加上 <code>-f</code>，强制推送上去，这时你的GitHub上的库会以本地同步，</p>
-<pre><code>$ git push -f
-Enumerating objects: 35, done.
-Counting objects: 100% (35/35), done.
-Delta compression using up to 4 threads
-Compressing objects: 100% (24/24), done.
-Writing objects: 100% (35/35), 6.35 KiB | 325.00 KiB/s, done.
-Total 35 (delta 6), reused 6 (delta 1)
-remote: Resolving deltas: 100% (6/6), done.
-To github.com:smartBBer/LeetCode.git
- + 0794cc5...80639ea master -&gt; master (forced update)
+<ul>
+<li>
+<p>复制视频 url 地址到新窗口打开，如下图</p>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fvjupqp197j30es0but9z.jpg" alt="视频获取" loading="lazy"></figure>
+</li>
+</ul>
+<p>之后有两种方法将视频保存至本地</p>
+<h6 id="idm下载">IDM下载</h6>
+<ul>
+<li>
+<p>安装过 IDM 的，在浏览器中会有一个 IDM浮窗 很方便就可以下载，同时视频播放前的广告也会被 IDM 捕捉，下载时看清楚即可。</p>
+<figure data-type="image" tabindex="2"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fvjurm5m21j30iy0jbtaq.jpg" alt="IDM浮窗" loading="lazy"></figure>
+</li>
+</ul>
+<h6 id="抓包">抓包</h6>
+<ul>
+<li>
+<p>在之前的视频界面按 <code>F12</code> 打开浏览器的控制台，选择 <code>Network</code> ，播放视频，在右边栏找到视频地址即可。</p>
+<figure data-type="image" tabindex="3"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fvjus8qpisj311y0jh41r.jpg" alt="视频直链" loading="lazy"></figure>
+<pre><code>http://ugcbsy.qq.com/uwMRJfz-r5jAYaQXGdGnC2_ppdhgmrDlPaRvaV7F2Ic/z0191d2jue3.mp4?vkey=1CF07F9A6D07BCB2FC5C39D356208A957BD7DEFCD45E02078B70734FC6CF286D021A589AA2D1ECD86F533A44981AF98A36C72DD27E408504D008FDC9552D50FC1D53DFA7BA9BD3D6328DD26D34869FD34F87778711FF8282ECB5AD5428FB21C91B0B15F28017F4F45867291B1BF43D30423A52A90E4A0180&amp;br=60&amp;platform=2&amp;fmt=auto&amp;level=0&amp;sdtfrom=v5010&amp;guid=f0902504c2c6838dddc832e651ea45bf
 </code></pre>
-<h4 id="第二种解决方法推荐">第二种解决方法（推荐）</h4>
-<p>使用<code>git pull --rebase origin master</code>合并 GitHub 和 本地 的库，本地会多出之前不同步的文件，在使用 <code>git push -u origin master</code> 推送到 GitHub 库中。</p>
-<pre><code>$ git pull --rebase origin master
-$ git push origin master
-</code></pre>
-<pre><code>fatal: 'origin' does not appear to be a git repository
-fatal: Could not read from remote repository.
-Please make sure you have the correct access rights and the repository exists.
-</code></pre>
-<p>解决办法：重新输入一次：<code>git remote add origin git@github.com:yourusername/test.git</code></p>
-<pre><code>fatal: remote error:
-XXXXXX is not a valid repository name Email support@github.com for help
-</code></pre>
-<p>解决办法：<strong>使用git remote rm origin 然后再使用上传命令</strong></p>
-<h3 id="4-输入git-remote-add-origin-gitgithubcomyournameyourrepogit时">4. 输入：<code>git remote add origin git@github.com:yourName/yourRepo.git</code>时</h3>
-<pre><code>fatal: Not a git repository (or any of the parent directories): .git
-</code></pre>
-<p>解决办法：<strong>输入 git init ，初始化一个本地仓库</strong></p>
-<pre><code>fatal: remote origin already exists.
-</code></pre>
-<p>解决办法：<br>
-<strong>1 删除Git仓库中的origin信息：git remote rm origin</strong></p>
-<p><strong>2 重新添加Git仓库中的origin信息</strong></p>
-<h3 id="5-输入git-add-时">5. 输入git add ./时</h3>
-<pre><code>fatal: Not a git repository (or any of the parent directories): .git
-</code></pre>
-<p>解决办法：<strong>先输入git init，再add</strong></p>
+</li>
+<li>
+<p>复制视频地址，至浏览器中打开，待视频显示出来点击鼠标右键保存即可。</p>
+</li>
+</ul>
 
                           </div>
                         </div>
                         <div class="layout-post-social">
                           <div class="item reader">
-                            <div id="/post/git-notes/" class="leancloud-visitors view"
-                              data-flag-title="记录 - 学习Git遇到的坑">
+                            <div id="/post/wechat2/" class="leancloud-visitors view"
+                              data-flag-title="下载微信图文中的视频">
                               <span class="post-meta-item-text">阅读 </span>
                               <span class="leancloud-visitors-count"></span>
                             </div>
@@ -243,25 +219,29 @@ XXXXXX is not a valid repository name Email support@github.com for help
                               <div class="card-content col-8 col-md-9">
                                 <div class="card-body">
                                   <div class="header">
-                                    <a href="https://tooyi.github.io/post/search-post/" class="title">
-                                      <h4>学会高效率使用搜索引擎</h4>
+                                    <a href="https://tooyi.github.io/post/hello-gridea/" class="title">
+                                      <h4>换一个新主题 - Gridea Themes Vant</h4>
                                     </a>
                                   </div>
                                   <div class="inner d-none d-sm-block">
                                     <div class="abstract">
-                                      
+                                      <h2 id="访问旧博客">访问旧博客</h2>
+<p><strong>新博客使用Gridea管理，旧博客文章暂时未全部搬运。若访问旧博客，请访问</strong><a href="https://tooyi.github.io/blog-old/">涂诣的官方网站</a></p>
+<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+
                                     </div>
                                   </div>
                                 </div>
                                 <div class="card-footer">
                                   <div class="item"><span>上一篇</span></div>
-                                  <div class="item">2018-09-10</div>
+                                  <div class="item">2020-05-26</div>
                                 </div>
                               </div>
                               <div class="card-thumb col-4 col-md-3">
                                 <div class="thumb">
-                                  <a href="https://tooyi.github.io/post/search-post/"
-                                    style="background-image: url('https://tooyi.github.io/post-images/search-post.png');"></a>
+                                  <a href="https://tooyi.github.io/post/hello-gridea/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/hello-gridea.png');"></a>
                                 </div>
                               </div>
                               
@@ -272,8 +252,8 @@ XXXXXX is not a valid repository name Email support@github.com for help
                               <div class="card-content col-8 col-md-9">
                                 <div class="card-body">
                                   <div class="header">
-                                    <a href="https://tooyi.github.io/post/git/" class="title">
-                                      <h4>Git笔记整理</h4>
+                                    <a href="https://tooyi.github.io/post/wechat1/" class="title">
+                                      <h4>小程序开发之app.json详解</h4>
                                     </a>
                                   </div>
                                   <div class="inner d-none d-sm-block">
@@ -284,13 +264,13 @@ XXXXXX is not a valid repository name Email support@github.com for help
                                 </div>
                                 <div class="card-footer">
                                   <div class="item"><span>下一篇</span></div>
-                                  <div class="item">2018-01-23</div>
+                                  <div class="item">2018-09-16</div>
                                 </div>
                               </div>
                               <div class="card-thumb col-4 col-md-3">
                                 <div class="thumb">
-                                  <a href="https://tooyi.github.io/post/git/"
-                                    style="background-image: url('https://tooyi.github.io/post-images/git.png');"></a>
+                                  <a href="https://tooyi.github.io/post/wechat1/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/wechat1.jpg');"></a>
                                 </div>
                               </div>
                               
@@ -329,20 +309,13 @@ XXXXXX is not a valid repository name Email support@github.com for help
                           <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#%E5%AD%A6%E4%B9%A0git%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91">学习Git遇到的坑</a>
-<ul>
-<li><a href="#1-git-commit-%E9%81%87%E5%88%B0-errorpathspec">1. <code>git commit</code> 遇到 <code>error：pathspec</code></a></li>
-<li><a href="#2-git-commit-am-messages-%E4%B8%8D%E8%83%BD%E6%8F%90%E4%BA%A4%E6%96%B0%E5%A2%9E%E6%96%87%E4%BB%B6">2. <code>git commit -am &quot;messages&quot;</code> ，不能提交新增文件</a></li>
-<li><a href="#3-%E6%9C%89%E6%97%B6%E5%80%99-git-push-origin-master-%E4%BC%9A%E6%8A%A5%E9%94%99%E5%A6%82%E4%B8%8B">3. 有时候 git push origin master 会报错，如下：</a>
-<ul>
-<li><a href="#%E7%AC%AC%E4%B8%80%E7%A7%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E4%B8%8D%E8%A6%81%E8%BD%BB%E6%98%93%E4%BD%BF%E7%94%A8">第一种解决方法(不要轻易使用)</a></li>
-<li><a href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E6%8E%A8%E8%8D%90">第二种解决方法（推荐）</a></li>
-</ul>
-</li>
-<li><a href="#4-%E8%BE%93%E5%85%A5git-remote-add-origin-gitgithubcomyournameyourrepogit%E6%97%B6">4. 输入：<code>git remote add origin git@github.com:yourName/yourRepo.git</code>时</a></li>
-<li><a href="#5-%E8%BE%93%E5%85%A5git-add-%E6%97%B6">5. 输入git add ./时</a></li>
-</ul>
-</li>
+<li><a href="#%E4%B8%8B%E8%BD%BD%E5%BE%AE%E4%BF%A1%E5%9B%BE%E6%96%87%E4%B8%AD%E7%9A%84%E8%A7%86%E9%A2%91">下载微信图文中的视频</a><br>
+*<br>
+*<br>
+* <a href="#%E6%91%98%E8%A6%81">摘要</a><br>
+* <a href="#%E5%8A%A8%E6%89%8B">动手</a><br>
+* <a href="#idm%E4%B8%8B%E8%BD%BD">IDM下载</a><br>
+* <a href="#%E6%8A%93%E5%8C%85">抓包</a></li>
 </ul>
 </li>
 </ul>

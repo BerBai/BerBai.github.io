@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tooyi.github.io</id>
     <title>涂诣</title>
-    <updated>2020-05-26T13:53:12.565Z</updated>
+    <updated>2020-05-26T13:55:04.822Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tooyi.github.io"/>
     <link rel="self" href="https://tooyi.github.io/atom.xml"/>
@@ -44,6 +44,52 @@
 <p>未来，它一定会成为你离不开的伙伴</p>
 <p>尽情发挥你的才华吧！</p>
 <p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[下载微信图文中的视频]]></title>
+        <id>https://tooyi.github.io/post/wechat2/</id>
+        <link href="https://tooyi.github.io/post/wechat2/">
+        </link>
+        <updated>2018-09-23T13:53:33.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="下载微信图文中的视频">下载微信图文中的视频</h2>
+<h5 id="摘要">摘要</h5>
+<p>在有的时候我们需要下载公众号中的视频，那么我们怎么才能下载呢？在网上搜索了下，发现很多都是抓包获取的，没有好的方法，干脆就自己动手了。</p>
+<h5 id="动手">动手</h5>
+<ul>
+<li>首先得明白，微信图文中的视频都是挂在腾讯视频上的，所以视频的 url 肯定是以 v.qq.com 开头的；</li>
+<li>用浏览器打开微信图文，这里使用的是 Chrome 浏览器；</li>
+<li>查看源码，点击鼠标右键，选择查看源码；</li>
+<li>搜索关键字，<code>Ctrl + F</code> ，输入 v.qq.com ，即可找到视频的 url 地址；</li>
+</ul>
+<pre><code>  https://v.qq.com/iframe/preview.html?vid=z0191d2jue3&amp;amp;width=500&amp;amp;height=375&amp;amp;auto=0
+</code></pre>
+<ul>
+<li>
+<p>复制视频 url 地址到新窗口打开，如下图</p>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fvjupqp197j30es0but9z.jpg" alt="视频获取" loading="lazy"></figure>
+</li>
+</ul>
+<p>之后有两种方法将视频保存至本地</p>
+<h6 id="idm下载">IDM下载</h6>
+<ul>
+<li>
+<p>安装过 IDM 的，在浏览器中会有一个 IDM浮窗 很方便就可以下载，同时视频播放前的广告也会被 IDM 捕捉，下载时看清楚即可。</p>
+<figure data-type="image" tabindex="2"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fvjurm5m21j30iy0jbtaq.jpg" alt="IDM浮窗" loading="lazy"></figure>
+</li>
+</ul>
+<h6 id="抓包">抓包</h6>
+<ul>
+<li>
+<p>在之前的视频界面按 <code>F12</code> 打开浏览器的控制台，选择 <code>Network</code> ，播放视频，在右边栏找到视频地址即可。</p>
+<figure data-type="image" tabindex="3"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fvjus8qpisj311y0jh41r.jpg" alt="视频直链" loading="lazy"></figure>
+<pre><code>http://ugcbsy.qq.com/uwMRJfz-r5jAYaQXGdGnC2_ppdhgmrDlPaRvaV7F2Ic/z0191d2jue3.mp4?vkey=1CF07F9A6D07BCB2FC5C39D356208A957BD7DEFCD45E02078B70734FC6CF286D021A589AA2D1ECD86F533A44981AF98A36C72DD27E408504D008FDC9552D50FC1D53DFA7BA9BD3D6328DD26D34869FD34F87778711FF8282ECB5AD5428FB21C91B0B15F28017F4F45867291B1BF43D30423A52A90E4A0180&amp;br=60&amp;platform=2&amp;fmt=auto&amp;level=0&amp;sdtfrom=v5010&amp;guid=f0902504c2c6838dddc832e651ea45bf
+</code></pre>
+</li>
+<li>
+<p>复制视频地址，至浏览器中打开，待视频显示出来点击鼠标右键保存即可。</p>
+</li>
+</ul>
 ]]></content>
     </entry>
     <entry>
