@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tooyi.github.io</id>
     <title>涂诣</title>
-    <updated>2020-05-26T13:55:04.822Z</updated>
+    <updated>2020-05-26T13:56:43.606Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tooyi.github.io"/>
     <link rel="self" href="https://tooyi.github.io/atom.xml"/>
@@ -44,6 +44,27 @@
 <p>未来，它一定会成为你离不开的伙伴</p>
 <p>尽情发挥你的才华吧！</p>
 <p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Visual Studio Code 主题及插件推荐]]></title>
+        <id>https://tooyi.github.io/post/visual-studio/</id>
+        <link href="https://tooyi.github.io/post/visual-studio/">
+        </link>
+        <updated>2018-09-25T13:55:20.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="visual-studio-code-主题及插件推荐">Visual Studio Code 主题及插件推荐</h1>
+<h2 id="主题">主题</h2>
+<p>One Dark Pro</p>
+<p>Atom One Dark Theme</p>
+<p>Eva Theme</p>
+<h2 id="插件">插件</h2>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek">CSS Peek</a>： html和css中关联css的跳转</p>
+<h3 id="快捷键">快捷键</h3>
+<ul>
+<li><code>F12</code>：跳转 css 文件，jump directly to the css file or open it in a new editor</li>
+<li><code>Ctrl+Shift+F12</code>： load the css file inline and make quick edits right there.</li>
+<li><code>Ctrl+hover</code>：show the definition in a hover over the symbol</li>
+</ul>
 ]]></content>
     </entry>
     <entry>
