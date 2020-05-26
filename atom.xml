@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tooyi.github.io</id>
     <title>涂诣</title>
-    <updated>2020-05-26T14:00:10.915Z</updated>
+    <updated>2020-05-26T14:05:01.057Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tooyi.github.io"/>
     <link rel="self" href="https://tooyi.github.io/atom.xml"/>
@@ -220,7 +220,11 @@
         <link href="https://tooyi.github.io/post/git-notes/">
         </link>
         <updated>2018-09-07T13:39:42.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="学习git遇到的坑">学习Git遇到的坑</h2>
+        <summary type="html"><![CDATA[<p>记录向，学习Git的填坑记录</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>记录向，学习Git的填坑记录</p>
+<!-- more -->
+<h2 id="学习git遇到的坑">学习Git遇到的坑</h2>
 <hr>
 <blockquote>
 <p>如果不明白文中指令含义，建议查看 <a href="https://smartbber.github.io/2018/01/23/Git%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/">Git 笔记整理</a></p>
@@ -290,7 +294,10 @@ XXXXXX is not a valid repository name Email support@github.com for help
         <link href="https://tooyi.github.io/post/git/">
         </link>
         <updated>2018-01-23T13:25:08.000Z</updated>
+        <summary type="html"><![CDATA[<p>笔记根据廖雪峰Git教程整理</p>
+]]></summary>
         <content type="html"><![CDATA[<p>笔记根据廖雪峰Git教程整理</p>
+<!-- more -->
 <h1 id="git笔记整理">Git笔记整理</h1>
 <h2 id="git简介">Git简介</h2>
 <ul>
