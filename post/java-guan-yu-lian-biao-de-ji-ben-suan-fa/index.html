@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-<title>Java框架总结 - 涂诣</title>
+<title>Java 关于链表的基本算法 - 涂诣</title>
 <meta name="description" content="温故而知新">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -142,40 +142,352 @@
                     <div class="col-12 col-lg-10">
                       <div class="layout-post-main m-right m-md-right">
                         <div class="layout-post-header">
-                          <h1 class="layout-post-title">Java框架总结</h1>
+                          <h1 class="layout-post-title">Java 关于链表的基本算法</h1>
                           <div class="layout-post-meta">
                             <div class="item">
-                               <a href="https://tooyi.github.io/tag/9HhUh71Y9/" class="post--keyword"
-                                data-title="Java" data-type="post_tag" data-term-id="39">Java</a>
                               
                             </div>
                             <div class="item">
-                              <span>2018-10-12</span>
+                              <span>2020-05-27</span>
                             </div>
                           </div>
                         </div>
                         <div class="layout-post-content">
                           <div class="layout-post-item">
                             
-                            <p class="with-img"><img src="https://tooyi.github.io/post-images/java-zong-jie.jpg"
-                                class="attachment-full size-full wp-post-image" alt="Java框架总结" /></p>
-                            
-                            <h2 id="java框架总结">Java框架总结</h2>
-<p>使用SpringMVC + Spring + Mybatis （SSM）框架</p>
-<p>使用Struts2 + Spring + Hibernate （SSH）框架</p>
-<p>相当于 页面 -&gt; Servlet -&gt; Java（接口类） -&gt; JDBC -&gt; 数据库</p>
-<p>SpringPost</p>
-<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/tooyi/picBox/master/img/006KCUaNgy1fwaf90g4snj311h0kvwhn.jpg" alt="图示" loading="lazy"></figure>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2018/10/16/5bc5f2cb2ac77.jpg" alt="SSM SSH框架总结.jpg" loading="lazy"></figure>
+                            <p>算法代码记录</p>
+<!-- more -->
+<pre><code class="language-java">import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Stack;
+ 
+/**
+ * 
+ * @author smartBBer
+ * 关于java中链表的操作
+ * 1. 求单链表中结点的个数: getListLength 
+ * 2. 将单链表反转: reverseList（遍历），reverseListRec（递归） 
+ * 3. 查找单链表中的倒数第K个结点（k &gt; 0）: reGetKthNode 
+ * 4. 查找单链表的中间结点: getMiddleNode 
+ * 5. 从尾到头打印单链表: reversePrintListStack，reversePrintListRec（递归） 
+ * 6. 已知两个单链表pHead1 和pHead2 各自有序，把它们合并成一个链表依然有序: mergeSortedList, mergeSortedListRec 
+ * 7. 对单链表进行排序,listSort（归并）,insertionSortList（插入）
+ * 8. 判断一个单链表中是否有环: hasCycle 
+ * 9. 判断两个单链表是否相交: isIntersect 
+ * 10. 已知一个单链表中存在环，求进入环中的第一个节点: getFirstNodeInCycle, getFirstNodeInCycleHashMap 
+ * 11. 给出一单链表头指针head和一节点指针delete，O(1)时间复杂度删除节点delete: deleteNode
+ */
+public class LinkedListSummary {
+	/**
+	 * @param args
+	 * 
+	 */
+	public static class Node{
+		int value;
+		Node next;
+		public Node(int n){
+			this.value=n;
+			this.next=null;
+		}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner in=new Scanner(System.in);
+		Node head=null;
+		if(in.hasNextInt()){
+			head=new Node(in.nextInt());
+		}
+		Node temp=head;
+		while(in.hasNextInt()){
+			temp.next=new Node(in.nextInt());
+			temp=temp.next;
+		}
+		in.close();
+		//int len=getListLength(head);
+		//Node reHead=reverseList(head);
+		//reHead=reverseListRec(reHead);
+		//Node node_k=reGetKthNode(head,3);
+		//Node mid=getMiddleNode(head);
+		//reversePrintListRec(head);
+		//reversePrintListStack(head);
+		//Node mergeHead=mergeSortedList(head,null);
+		//Node sortHead=listSort(head);
+		
+	}
+	//求单链表中结点的个数: getListLength 
+	public static int getListLength(Node head){
+		int len=0;
+		while(head!=null){
+			len++;
+			head=head.next;
+		}
+		return len;
+	}
+	//将单链表反转,循环
+	public static Node reverseList(Node head){
+		if(head==null||head.next==null)return head;
+		Node pre=null;
+		Node nex=null;
+		while(head!=null){
+			nex=head.next;
+			head.next=pre;
+			pre=head;
+			head=nex;
+		}
+		return pre;
+	}
+	//将单链表反转,递归
+	public static Node reverseListRec(Node head){
+		if(head==null||head.next==null)return head;
+		Node reHead=reverseListRec(head.next);
+		head.next.next=head;
+		head.next=null;
+		return reHead;
+	}
+	//查找单链表中的倒数第K个结点（k &gt; 0）
+	public static Node reGetKthNode(Node head,int k){
+		if(head==null)return head;
+		int len=getListLength(head);
+		if(k&gt;len)return null;
+		Node target=head;
+		Node nexk=head;
+		for(int i=0;i&lt;k;i++){
+			nexk=nexk.next;
+		}
+		while(nexk!=null){
+			target=target.next;
+			nexk=nexk.next;
+		}
+		return target;
+	}
+	//查找单链表的中间结点 
+	public static Node getMiddleNode(Node head){
+		if(head==null||head.next==null)return head;
+		Node target=head;
+		Node temp=head;
+		while(temp!=null&amp;&amp;temp.next!=null){
+			target=target.next;
+			temp=temp.next.next;
+		}
+		return target;
+	}
+	//从尾到头打印单链表,递归
+	public static void reversePrintListRec(Node head){
+		if(head==null)return;
+		else{
+			reversePrintListRec(head.next);
+			System.out.println(head.value);
+		}
+	}
+	//从尾到头打印单链表,栈
+	public static void reversePrintListStack(Node head){
+		Stack&lt;Node&gt; s=new Stack&lt;Node&gt;();
+		while(head!=null){
+			s.push(head);
+			head=head.next;
+		}
+		while(!s.isEmpty()){
+			System.out.println(s.pop().value);
+		}
+	}
+	//合并两个有序的单链表head1和head2，循环
+	public static Node mergeSortedList(Node head1,Node head2){
+		if(head1==null)return head2;
+		if(head2==null)return head1;
+		Node target=null;
+		if(head1.value&gt;head2.value){
+			target=head2;
+			head2=head2.next;
+		}
+		else{
+			target=head1;
+			head1=head1.next;
+		}
+		target.next=null;
+		Node mergeHead=target;
+		while(head1!=null &amp;&amp; head2!=null){
+			if(head1.value&gt;head2.value){
+				target.next=head2;
+				head2=head2.next;
+			}
+			else{
+				target.next=head1;
+				head1=head1.next;
+			}
+			target=target.next;
+			target.next=null;
+		}
+		if(head1==null)target.next=head2;
+		else target.next=head1;
+		return mergeHead;
+	}
+	//合并两个有序的单链表head1和head2，递归
+	public static Node mergeSortedListRec(Node head1,Node head2){
+		if(head1==null)return head2;
+		if(head2==null)return head1;
+		if(head1.value&gt;head2.value){
+			head2.next=mergeSortedListRec(head2.next,head1);
+			return head2;
+		}
+		else{
+			head1.next=mergeSortedListRec(head1.next,head2);
+			return head1;
+		}
+	}
+	//对单链表进行排序,归并排序,在排序里面不建议选用递归的合并有序链表算法，如果链表长度较长，很容易出现栈溢出
+	public static Node listSort(Node head){
+		Node nex=null;
+		if(head==null||head.next==null)return head;
+		else if(head.next.next==null){
+			nex=head.next;
+			head.next=null;
+		}
+		else{
+			Node mid=getMiddleNode(head);
+			nex=mid.next;
+			mid.next=null;
+		}
+		return mergeSortedList(listSort(head),listSort(nex));//合并两个有序链表，不建议递归
+	}
+	//对单链表进行排序,插入排序
+	public Node insertionSortList(Node head) {
+        if(head==null||head.next==null)return head;
+        Node pnex=head.next;
+        Node pnex_nex=null;
+        head.next=null;
+        while(pnex!=null){
+            pnex_nex=pnex.next;
+            Node temp=head;
+            Node temp_pre=null;
+            while(temp!=null){
+                if(temp.value&gt;pnex.value)break;
+                temp_pre=temp;
+                temp=temp.next;
+            }
+            if(temp_pre==null){
+                head=pnex;
+                pnex.next=temp;
+            }
+            else{
+                temp_pre.next=pnex;
+                pnex.next=temp;
+            }
+            pnex=pnex_nex;
+        }
+        return head;
+    }
+	//判断一个单链表中是否有环,快慢指针
+	public static boolean hasCycle(Node head){
+		boolean flag=false;
+		Node p1=head;
+		Node p2=head;
+		while(p1!=null&amp;&amp;p2!=null){
+			p1=p1.next;
+			p2=p2.next.next;
+			if(p2==p1){
+				flag=true;
+				break;
+			}
+		}
+		return flag;
+	}
+	//判断两个单链表是否相交,如果相交返回第一个节点，否则返回null
+	//如果单纯的判断是否相交，只需要看最后一个指针是否相等
+	public static Node isIntersect(Node head1,Node head2){
+		Node target=null;
+		if(head1==null||head2==null)return target;
+		int len1=getListLength(head1);
+		int len2=getListLength(head2);
+		if(len1&gt;=len2){
+			for(int i=0;i&lt;len1-len2;i++){
+				head1=head1.next;
+			}
+		}else{
+			for(int i=0;i&lt;len2-len1;i++){
+				head2=head2.next;
+			}
+		}
+		while(head1!=null&amp;&amp;head2!=null){
+			if(head1==head2){
+				target=head1;
+				break;
+			}
+			else{
+				head1=head1.next;
+				head2=head2.next;
+			}
+		}
+		return target;
+	}
+	//已知一个单链表中存在环，求进入环中的第一个节点,利用hashmap，不要用ArrayList，因为判断ArrayList是否包含某个元素的效率不高
+	public static Node getFirstNodeInCycleHashMap(Node head){
+		Node target=null;
+		HashMap&lt;Node,Boolean&gt; map=new HashMap&lt;Node,Boolean&gt;();
+		while(head!=null){
+			if(map.containsKey(head)) {
+                target=head;
+                break;
+            }
+			else{
+				map.put(head, true);
+			}
+			head=head.next;
+		}
+		return target;
+	}
+	//已知一个单链表中存在环，求进入环中的第一个节点,不用hashmap
+	//用快慢指针，与判断一个单链表中是否有环一样，找到快慢指针第一次相交的节点，此时这个节点距离环开始节点的长度和链表投距离环开始的节点的长度相等
+	public static Node getFirstNodeInCycle(Node head){
+		Node fast=head;
+		Node slow=head;
+		while(fast!=null&amp;&amp;fast.next!=null){
+			slow=slow.next;
+			fast=fast.next.next;
+			if(slow==fast)
+                break;
+		}
+		if(fast==null||fast.next==null)return null;//判断是否包含环
+		//相遇节点距离环开始节点的长度和链表投距离环开始的节点的长度相等
+		slow=head;
+		while(slow!=fast){
+			slow=slow.next;
+			fast=fast.next;
+		}//同步走
+		return slow;
+		
+	}
+	//给出一单链表头指针head和一节点指针delete，O(1)时间复杂度删除节点delete
+	//可惜采用将delete节点value值与它下个节点的值互换的方法，但是如果delete是最后一个节点，则不行，但是总得复杂度还是O(1)
+	public static void deleteNode(Node head,Node delete){
+		//首先处理delete节点为最后一个节点的情况
+		if(delete==null)return;
+		if(delete.next==null){
+			if(head==delete)head=null;
+			else{
+				Node temp=head;
+				while(temp.next!=delete){
+					temp=temp.next;
+				}
+				temp.next=null;
+			}
+		}
+		else{
+			delete.value=delete.next.value;
+			delete.next=delete.next.next;
+		}
+		return;
+	}
+}
+</code></pre>
 <h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
-<figure data-type="image" tabindex="3"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
 
                           </div>
                         </div>
                         <div class="layout-post-social">
                           <div class="item reader">
-                            <div id="/post/java-zong-jie/" class="leancloud-visitors view"
-                              data-flag-title="Java框架总结">
+                            <div id="/post/java-guan-yu-lian-biao-de-ji-ben-suan-fa/" class="leancloud-visitors view"
+                              data-flag-title="Java 关于链表的基本算法">
                               <span class="post-meta-item-text">阅读 </span>
                               <span class="leancloud-visitors-count"></span>
                             </div>
@@ -190,37 +502,8 @@
                               <div class="card-content col-8 col-md-9">
                                 <div class="card-body">
                                   <div class="header">
-                                    <a href="https://tooyi.github.io/post/eclipse-diao-jiao/" class="title">
-                                      <h4>Eclipse 调教</h4>
-                                    </a>
-                                  </div>
-                                  <div class="inner d-none d-sm-block">
-                                    <div class="abstract">
-                                      
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="card-footer">
-                                  <div class="item"><span>上一篇</span></div>
-                                  <div class="item">2018-10-27</div>
-                                </div>
-                              </div>
-                              <div class="card-thumb col-4 col-md-3">
-                                <div class="thumb">
-                                  <a href="https://tooyi.github.io/post/eclipse-diao-jiao/"
-                                    style="background-image: url('https://tooyi.github.io/post-images/eclipse-diao-jiao.jpg');"></a>
-                                </div>
-                              </div>
-                              
-                            </div>
-
-                            <div class="post-card row">
-                              
-                              <div class="card-content col-8 col-md-9">
-                                <div class="card-body">
-                                  <div class="header">
-                                    <a href="https://tooyi.github.io/post/web-fehelper/" class="title">
-                                      <h4>Web前端助手(FeHelper)</h4>
+                                    <a href="https://tooyi.github.io/post/visual-studio-code/" class="title">
+                                      <h4>Visual Studio Code 使用技巧</h4>
                                     </a>
                                   </div>
                                   <div class="inner d-none d-sm-block">
@@ -231,18 +514,17 @@
                                 </div>
                                 <div class="card-footer">
                                   <div class="item"><span>下一篇</span></div>
-                                  <div class="item">2018-10-02</div>
+                                  <div class="item">2020-05-27</div>
                                 </div>
                               </div>
                               <div class="card-thumb col-4 col-md-3">
                                 <div class="thumb">
-                                  <a href="https://tooyi.github.io/post/web-fehelper/"
-                                    style="background-image: url('https://tooyi.github.io/post-images/web-fehelper.jpg');"></a>
+                                  <a href="https://tooyi.github.io/post/visual-studio-code/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/visual-studio-code.jpg');"></a>
                                 </div>
                               </div>
                               
                             </div>
-
                             
                           </div>
                         </div>
@@ -276,7 +558,7 @@
                           <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#java%E6%A1%86%E6%9E%B6%E6%80%BB%E7%BB%93">Java框架总结</a>
+<li>
 <ul>
 <li><a href="#%E6%AC%A2%E8%BF%8E%E5%85%B3%E6%B3%A8%E6%88%91%E7%9A%84%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7">欢迎关注我的微信公众号</a></li>
 </ul>
