@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-<title>小程序开发之app.json详解 - 涂诣</title>
+<title>Eclipse 调教 - 涂诣</title>
 <meta name="description" content="温故而知新">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -142,65 +142,74 @@
                     <div class="col-12 col-lg-10">
                       <div class="layout-post-main m-right m-md-right">
                         <div class="layout-post-header">
-                          <h1 class="layout-post-title">小程序开发之app.json详解</h1>
+                          <h1 class="layout-post-title">Eclipse 调教</h1>
                           <div class="layout-post-meta">
                             <div class="item">
-                               <a href="https://tooyi.github.io/tag/jRjM7Qrpl/" class="post--keyword"
-                                data-title="WeChat" data-type="post_tag" data-term-id="39">WeChat</a>
+                               <a href="https://tooyi.github.io/tag/x4-k0TQ3p/" class="post--keyword"
+                                data-title="tool" data-type="post_tag" data-term-id="39">tool</a>
                               
                             </div>
                             <div class="item">
-                              <span>2018-09-16</span>
+                              <span>2018-10-27</span>
                             </div>
                           </div>
                         </div>
                         <div class="layout-post-content">
                           <div class="layout-post-item">
                             
-                            <p class="with-img"><img src="https://tooyi.github.io/post-images/wechat1.jpg"
-                                class="attachment-full size-full wp-post-image" alt="小程序开发之app.json详解" /></p>
+                            <p class="with-img"><img src="https://tooyi.github.io/post-images/eclipse-diao-jiao.jpg"
+                                class="attachment-full size-full wp-post-image" alt="Eclipse 调教" /></p>
                             
-                            <h2 id="小程序开发之appjson详解">小程序开发之app.json详解</h2>
-<p>我们使用app.json文件来对微信小程序进行全局配置文件，决定页面文件的路径、窗口表现、设置网络超时时间、设置多 tab 等。</p>
-<p><strong>切记，不要在真实项目中写注释，否则会报错，以下注释是为了更好的说明</strong></p>
-<pre><code>{
-  &quot;pages&quot;:[           //这个里边都是用来配置所需要用到的界面所在的文件路径，配置为第一行的是默认显示的页面。
-    &quot;pages/index/index&quot;,
-    &quot;pages/--------/--------”,
-    &quot;pages/--------/--------&quot;,
-    &quot;pages/--------/-------&quot;//记住最后一行不要加逗号
-    
-  ],
-  &quot;window&quot;:{      //这个属性是用来配置界面的上边的标题栏的，
-    &quot;backgroundTextStyle&quot;:&quot;light&quot;,//这个用来设置文本的风格。
-    &quot;navigationBarBackgroundColor&quot;: &quot;#0066CC&quot;,//这个是背景颜色，记住用这种颜色格式的，不要用七种颜色的英文单词（red,blue）等，不然不起效果
-    &quot;navigationBarTitleText&quot;: &quot;--------&quot;,//这个就是文字内容
-    &quot;navigationBarTextStyle&quot;:&quot;white&quot;//这个是文字的颜色。
-  },
-  &quot;tabBar&quot;: {//这个的话就是配置下边的菜单栏。
-    &quot;color&quot;: &quot;#0066CC&quot;,//这个是配置文字的颜色
-    &quot;selectedColor&quot;: &quot;#FF0033&quot;,//这个是配置选中某个菜单时文字的颜色。
-    &quot;borderStyle&quot;: &quot;#336699&quot;,
-    &quot;backgroundColor&quot;: &quot;#99CC00&quot;,//这个是整个菜单栏的背景颜色
-    &quot;list&quot;: [//这个是列表，就是具体设置菜单栏
-      {
-      &quot;text&quot;: &quot;-----&quot;,//文字
-      &quot;pagePath&quot;: &quot;pages/index/index&quot;,//就是对应到那个页面
-      &quot;iconPath&quot;: &quot;image/--------&quot;,//默认的图片
-      &quot;selectedIconPath&quot;: &quot;image/--------&quot;//选中以后显示的图片。
-      }
-   --可以根据自己需要来加，tabBar至少需要两个---
-    ]
-  }
-}
-</code></pre>
+                            <h2 id="版本对比">版本对比</h2>
+<p>如果不知道安装什么版本，可以选择 Java EE 版本安装。</p>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fwmq8pmmm1j30un0h5gop.jpg" alt="Eclipse 个版本对比" loading="lazy"></figure>
+<h2 id="常用配置设置">常用配置设置</h2>
+<p>以下为梓涵自用配置设置，可供参考。</p>
+<h3 id="设置-utf-8-编码">设置 UTF-8 编码</h3>
+<p>设置 UTF-8 编码方式，中文才可以正常显示。</p>
+<ul>
+<li>window -&gt; preferences -&gt; General -&gt; workspace中text file encoding改为utf-8</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fwmqb0g13uj30lp0jlgpp.jpg" alt="设置UTF-8" loading="lazy"></figure>
+<h3 id="设置国际化资源编码">设置国际化资源编码</h3>
+<p>设置properties文件编码。</p>
+<ul>
+<li>window -&gt; preferences -&gt; General -&gt; Content Types —&gt; Text —&gt; Java Properties File选中，然后下面default encoding改为 utf-8</li>
+</ul>
+<figure data-type="image" tabindex="3"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fwmqgdpm0rj30lp0jl77e.jpg" alt="国际化编码设置" loading="lazy"></figure>
+<h3 id="设置jsp编码">设置jsp编码</h3>
+<p>设置为 UTF-8 编码，不然显示页面可能出现乱码。</p>
+<ul>
+<li>window -&gt; preferences -&gt; web -&gt; jsp files中 encoding 改为 utf-8</li>
+</ul>
+<figure data-type="image" tabindex="4"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fwmqjx8e2nj30lp0jltaw.jpg" alt="jsp文件编码方式" loading="lazy"></figure>
+<h2 id="优化文本编辑器显示">优化文本编辑器显示</h2>
+<p>让界面交互更直观。</p>
+<h3 id="显示行号显示空白字符">显示行号，显示空白字符</h3>
+<ul>
+<li>window -&gt; preferences -&gt; General -&gt; editor -&gt; text editors -&gt; show line numbers show whitespace characters ，然后点击configure visibility 设置如下图。</li>
+</ul>
+<figure data-type="image" tabindex="5"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fwmqqvhck3j30lp0kb784.jpg" alt="显示行号和空白字符" loading="lazy"></figure>
+<h3 id="调整编辑器字体和大小">调整编辑器字体和大小</h3>
+<ul>
+<li>window -&gt; preferences -&gt; General -&gt; appearance -&gt; colors and fonts，在点开 Basic 、 Java 等下，找到 Text Font 字样，在选择 Edit 进行调整。</li>
+</ul>
+<figure data-type="image" tabindex="6"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fwmr22b3wsj30lp0kbn0a.jpg" alt="设置字体" loading="lazy"></figure>
+<h3 id="设置java默认风格每行最大字符数量">设置java默认风格每行最大字符数量</h3>
+<p>在使用ctrl + shift + f格式化java代码时，经常会遇到换行的问题，默认风格一行最大为80个字符，</p>
+<ul>
+<li>window -&gt; preferences -&gt; java -&gt; code style -&gt; formatter -&gt; edit... -&gt; line wrapping -&gt; maximum line width 可以根据需要修改.</li>
+</ul>
+<figure data-type="image" tabindex="7"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fwmrepii6tj30lp0kb0wk.jpg" alt="最大行显示数" loading="lazy"></figure>
+<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
+<figure data-type="image" tabindex="8"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
 
                           </div>
                         </div>
                         <div class="layout-post-social">
                           <div class="item reader">
-                            <div id="/post/wechat1/" class="leancloud-visitors view"
-                              data-flag-title="小程序开发之app.json详解">
+                            <div id="/post/eclipse-diao-jiao/" class="leancloud-visitors view"
+                              data-flag-title="Eclipse 调教">
                               <span class="post-meta-item-text">阅读 </span>
                               <span class="leancloud-visitors-count"></span>
                             </div>
@@ -215,25 +224,29 @@
                               <div class="card-content col-8 col-md-9">
                                 <div class="card-body">
                                   <div class="header">
-                                    <a href="https://tooyi.github.io/post/wechat2/" class="title">
-                                      <h4>下载微信图文中的视频</h4>
+                                    <a href="https://tooyi.github.io/post/hello-gridea/" class="title">
+                                      <h4>换一个新主题 - Gridea Themes Vant</h4>
                                     </a>
                                   </div>
                                   <div class="inner d-none d-sm-block">
                                     <div class="abstract">
-                                      
+                                      <h2 id="访问旧博客">访问旧博客</h2>
+<p><strong>新博客使用Gridea管理，旧博客文章暂时未全部搬运。若访问旧博客，请访问</strong><a href="https://tooyi.github.io/blog-old/">涂诣的官方网站</a></p>
+<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+
                                     </div>
                                   </div>
                                 </div>
                                 <div class="card-footer">
                                   <div class="item"><span>上一篇</span></div>
-                                  <div class="item">2018-09-23</div>
+                                  <div class="item">2020-05-26</div>
                                 </div>
                               </div>
                               <div class="card-thumb col-4 col-md-3">
                                 <div class="thumb">
-                                  <a href="https://tooyi.github.io/post/wechat2/"
-                                    style="background-image: url('https://tooyi.github.io/post-images/wechat2.jpg');"></a>
+                                  <a href="https://tooyi.github.io/post/hello-gridea/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/hello-gridea.png');"></a>
                                 </div>
                               </div>
                               
@@ -244,8 +257,8 @@
                               <div class="card-content col-8 col-md-9">
                                 <div class="card-body">
                                   <div class="header">
-                                    <a href="https://tooyi.github.io/post/search-post/" class="title">
-                                      <h4>学会高效率使用搜索引擎</h4>
+                                    <a href="https://tooyi.github.io/post/java-zong-jie/" class="title">
+                                      <h4>Java框架总结</h4>
                                     </a>
                                   </div>
                                   <div class="inner d-none d-sm-block">
@@ -256,13 +269,13 @@
                                 </div>
                                 <div class="card-footer">
                                   <div class="item"><span>下一篇</span></div>
-                                  <div class="item">2018-09-10</div>
+                                  <div class="item">2018-10-12</div>
                                 </div>
                               </div>
                               <div class="card-thumb col-4 col-md-3">
                                 <div class="thumb">
-                                  <a href="https://tooyi.github.io/post/search-post/"
-                                    style="background-image: url('https://tooyi.github.io/post-images/search-post.png');"></a>
+                                  <a href="https://tooyi.github.io/post/java-zong-jie/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/java-zong-jie.jpg');"></a>
                                 </div>
                               </div>
                               
@@ -301,7 +314,22 @@
                           <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E4%B9%8Bappjson%E8%AF%A6%E8%A7%A3">小程序开发之app.json详解</a></li>
+<li><a href="#%E7%89%88%E6%9C%AC%E5%AF%B9%E6%AF%94">版本对比</a></li>
+<li><a href="#%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%BE%E7%BD%AE">常用配置设置</a>
+<ul>
+<li><a href="#%E8%AE%BE%E7%BD%AE-utf-8-%E7%BC%96%E7%A0%81">设置 UTF-8 编码</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AE%E5%9B%BD%E9%99%85%E5%8C%96%E8%B5%84%E6%BA%90%E7%BC%96%E7%A0%81">设置国际化资源编码</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AEjsp%E7%BC%96%E7%A0%81">设置jsp编码</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BC%98%E5%8C%96%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E6%98%BE%E7%A4%BA">优化文本编辑器显示</a>
+<ul>
+<li><a href="#%E6%98%BE%E7%A4%BA%E8%A1%8C%E5%8F%B7%E6%98%BE%E7%A4%BA%E7%A9%BA%E7%99%BD%E5%AD%97%E7%AC%A6">显示行号，显示空白字符</a></li>
+<li><a href="#%E8%B0%83%E6%95%B4%E7%BC%96%E8%BE%91%E5%99%A8%E5%AD%97%E4%BD%93%E5%92%8C%E5%A4%A7%E5%B0%8F">调整编辑器字体和大小</a></li>
+<li><a href="#%E8%AE%BE%E7%BD%AEjava%E9%BB%98%E8%AE%A4%E9%A3%8E%E6%A0%BC%E6%AF%8F%E8%A1%8C%E6%9C%80%E5%A4%A7%E5%AD%97%E7%AC%A6%E6%95%B0%E9%87%8F">设置java默认风格每行最大字符数量</a></li>
+<li><a href="#%E6%AC%A2%E8%BF%8E%E5%85%B3%E6%B3%A8%E6%88%91%E7%9A%84%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7">欢迎关注我的微信公众号</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

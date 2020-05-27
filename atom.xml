@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tooyi.github.io</id>
     <title>涂诣</title>
-    <updated>2020-05-27T00:43:40.531Z</updated>
+    <updated>2020-05-27T00:46:27.591Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tooyi.github.io"/>
     <link rel="self" href="https://tooyi.github.io/atom.xml"/>
@@ -64,11 +64,153 @@
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Eclipse 调教]]></title>
+        <id>https://tooyi.github.io/post/eclipse-diao-jiao/</id>
+        <link href="https://tooyi.github.io/post/eclipse-diao-jiao/">
+        </link>
+        <updated>2018-10-27T00:44:28.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="版本对比">版本对比</h2>
+<p>如果不知道安装什么版本，可以选择 Java EE 版本安装。</p>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fwmq8pmmm1j30un0h5gop.jpg" alt="Eclipse 个版本对比" loading="lazy"></figure>
+<h2 id="常用配置设置">常用配置设置</h2>
+<p>以下为梓涵自用配置设置，可供参考。</p>
+<h3 id="设置-utf-8-编码">设置 UTF-8 编码</h3>
+<p>设置 UTF-8 编码方式，中文才可以正常显示。</p>
+<ul>
+<li>window -&gt; preferences -&gt; General -&gt; workspace中text file encoding改为utf-8</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fwmqb0g13uj30lp0jlgpp.jpg" alt="设置UTF-8" loading="lazy"></figure>
+<h3 id="设置国际化资源编码">设置国际化资源编码</h3>
+<p>设置properties文件编码。</p>
+<ul>
+<li>window -&gt; preferences -&gt; General -&gt; Content Types —&gt; Text —&gt; Java Properties File选中，然后下面default encoding改为 utf-8</li>
+</ul>
+<figure data-type="image" tabindex="3"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fwmqgdpm0rj30lp0jl77e.jpg" alt="国际化编码设置" loading="lazy"></figure>
+<h3 id="设置jsp编码">设置jsp编码</h3>
+<p>设置为 UTF-8 编码，不然显示页面可能出现乱码。</p>
+<ul>
+<li>window -&gt; preferences -&gt; web -&gt; jsp files中 encoding 改为 utf-8</li>
+</ul>
+<figure data-type="image" tabindex="4"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fwmqjx8e2nj30lp0jltaw.jpg" alt="jsp文件编码方式" loading="lazy"></figure>
+<h2 id="优化文本编辑器显示">优化文本编辑器显示</h2>
+<p>让界面交互更直观。</p>
+<h3 id="显示行号显示空白字符">显示行号，显示空白字符</h3>
+<ul>
+<li>window -&gt; preferences -&gt; General -&gt; editor -&gt; text editors -&gt; show line numbers show whitespace characters ，然后点击configure visibility 设置如下图。</li>
+</ul>
+<figure data-type="image" tabindex="5"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fwmqqvhck3j30lp0kb784.jpg" alt="显示行号和空白字符" loading="lazy"></figure>
+<h3 id="调整编辑器字体和大小">调整编辑器字体和大小</h3>
+<ul>
+<li>window -&gt; preferences -&gt; General -&gt; appearance -&gt; colors and fonts，在点开 Basic 、 Java 等下，找到 Text Font 字样，在选择 Edit 进行调整。</li>
+</ul>
+<figure data-type="image" tabindex="6"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fwmr22b3wsj30lp0kbn0a.jpg" alt="设置字体" loading="lazy"></figure>
+<h3 id="设置java默认风格每行最大字符数量">设置java默认风格每行最大字符数量</h3>
+<p>在使用ctrl + shift + f格式化java代码时，经常会遇到换行的问题，默认风格一行最大为80个字符，</p>
+<ul>
+<li>window -&gt; preferences -&gt; java -&gt; code style -&gt; formatter -&gt; edit... -&gt; line wrapping -&gt; maximum line width 可以根据需要修改.</li>
+</ul>
+<figure data-type="image" tabindex="7"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fwmrepii6tj30lp0kb0wk.jpg" alt="最大行显示数" loading="lazy"></figure>
+<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
+<figure data-type="image" tabindex="8"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Java框架总结]]></title>
+        <id>https://tooyi.github.io/post/java-zong-jie/</id>
+        <link href="https://tooyi.github.io/post/java-zong-jie/">
+        </link>
+        <updated>2018-10-12T00:42:06.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="java框架总结">Java框架总结</h2>
+<p>使用SpringMVC + Spring + Mybatis （SSM）框架</p>
+<p>使用Struts2 + Spring + Hibernate （SSH）框架</p>
+<p>相当于 页面 -&gt; Servlet -&gt; Java（接口类） -&gt; JDBC -&gt; 数据库</p>
+<p>SpringPost</p>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/tooyi/picBox/master/img/006KCUaNgy1fwaf90g4snj311h0kvwhn.jpg" alt="图示" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2018/10/16/5bc5f2cb2ac77.jpg" alt="SSM SSH框架总结.jpg" loading="lazy"></figure>
+<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
+<figure data-type="image" tabindex="3"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Web前端助手(FeHelper)]]></title>
+        <id>https://tooyi.github.io/post/web-fehelper/</id>
+        <link href="https://tooyi.github.io/post/web-fehelper/">
+        </link>
+        <updated>2018-10-02T00:38:36.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="web前端助手fehelper">Web前端助手(FeHelper)</h2>
+<h3 id="获取地址">获取地址：</h3>
+<p><a href="https://chrome.google.com/webstore/detail/web%E5%89%8D%E7%AB%AF%E5%8A%A9%E6%89%8Bfehelper/pkgccpejnmalmdinmhkkfafefagiiiad">Chrome扩展商城</a></p>
+<p><a href="https://github.com/zxlie/FeHelper/tree/master/apps/static/screenshot/crx">国内地址</a></p>
+<h3 id="安装方法">安装方法</h3>
+<p>Chrome扩展商城下载不需要看此方法。</p>
+<p>下载当前最新版*.crx；</p>
+<p>chrome浏览器地址栏输入：chrome://extensions/ 并打开；</p>
+<p>右上角开启开发者模式；</p>
+<p>拖拽crx到当前页面，完成安装。</p>
+<h3 id="功能简介">功能简介</h3>
+<h4 id="fehelper-弹出菜单">FeHelper--弹出菜单</h4>
+<p>插件入口，点击ICON，插件相关的所有功能都会在这里列出来，在popup中选择所需使用的功能即可使用</p>
+<h4 id="json接口自动格式化查看">JSON接口自动格式化查看</h4>
+<p>当你访问的接口（打开的页面）返回的是一个JSON格式的数据，FeHelper会自动将内容进行格式化处理，便于您的查看</p>
+<h4 id="json查看器">JSON查看器</h4>
+<p>把你的JSON代码粘贴到JSON查看器的输入框中，点击“格式化”，在下方便会以非常友好的方式列出JSON数据，便于查看</p>
+<h4 id="代码美化">代码美化</h4>
+<p>包括Javascript代码美化、CSS代码美化、HTML代码美化；其实所有C系的代码，都可以通过Javascript代码美化工具进行格式化查看</p>
+<h4 id="代码压缩">代码压缩</h4>
+<p>包括Web前端Javascript代码压缩、CSS代码压缩、HTML代码压缩</p>
+<h4 id="字符串编解码">字符串编解码</h4>
+<p>包括Unicode编码和解码、UTF-8字符串编码和解码、Base64字符串编解码、字符串MD5编码，前端非常实用的工具</p>
+<h4 id="图片base64编码">图片Base64编码</h4>
+<p>对图片文件进行base64编码，直接拷贝datauri格式的数据</p>
+<h4 id="二维码生成器">二维码生成器</h4>
+<p>能对网址、普通文本内容、电话号码、通讯录、短信等编码并生成二维码，很实用的二维码生成工具</p>
+<h4 id="二维码解码">二维码解码</h4>
+<p>针对网页上的二维码，点击右键，选择【二维码解码】，可在当前页面直接看到解码结果！</p>
+<h4 id="全网页截图">全网页截图</h4>
+<p>针对整个网页进行滚动截屏，在新窗口可预览后再手动保存</p>
+<h4 id="时间戳转换工具">时间（戳）转换工具</h4>
+<p>支持任意时间到对应时间戳的转换；支持任意时间戳到对应日期的转换</p>
+<h4 id="正则表达式工具">正则表达式工具</h4>
+<p>提供一个正则表达式的及时测试工具，并能将匹配结果进行高亮显示、高亮定位等；同时还罗列了一些常用的正则表达式供开发者使用</p>
+<h4 id="页面取色工具">页面取色工具</h4>
+<p>提供一个网页取色的工具，任意页面均可使用，方便大家在开发过程中能精准获取某元素的颜色值，再也不用截图后再通过Photoshop取色了</p>
+<h4 id="编码规范检测">编码规范检测</h4>
+<p>对当前网页进行Javascript、CSS、HTML编码规范的检测，包括文件是否压缩、标签是否正确闭合、cookie管理等等</p>
+<h4 id="页面性能检测">页面性能检测</h4>
+<p>对当前页面的性能进行检测，如HTTP响应时间、页面渲染时间、是否启用gzip压缩等等</p>
+<h4 id="fehelper配置页">FeHelper配置页</h4>
+<p>在这里，你可以随意定制属于你自己的FeHelper常用功能！</p>
+<h3 id="关注我的微信公众号">关注我的微信公众号</h3>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2018/10/13/5bc1d8c55f18a.png" alt="微信公众号：柏战不殆" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Visual Studio Code 主题及插件推荐]]></title>
+        <id>https://tooyi.github.io/post/visual-studio/</id>
+        <link href="https://tooyi.github.io/post/visual-studio/">
+        </link>
+        <updated>2018-09-25T13:55:20.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="visual-studio-code-主题及插件推荐">Visual Studio Code 主题及插件推荐</h1>
+<h2 id="主题">主题</h2>
+<p>One Dark Pro</p>
+<p>Atom One Dark Theme</p>
+<p>Eva Theme</p>
+<h2 id="插件">插件</h2>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek">CSS Peek</a>： html和css中关联css的跳转</p>
+<h3 id="快捷键">快捷键</h3>
+<ul>
+<li><code>F12</code>：跳转 css 文件，jump directly to the css file or open it in a new editor</li>
+<li><code>Ctrl+Shift+F12</code>： load the css file inline and make quick edits right there.</li>
+<li><code>Ctrl+hover</code>：show the definition in a hover over the symbol</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[微信小程序开发]]></title>
         <id>https://tooyi.github.io/post/wechat3/</id>
         <link href="https://tooyi.github.io/post/wechat3/">
         </link>
-        <updated>2019-09-25T00:23:10.000Z</updated>
+        <updated>2018-09-25T00:23:10.000Z</updated>
         <content type="html"><![CDATA[<h1 id="微信小程序开发">微信小程序开发</h1>
 <h2 id="小程序文档">小程序文档</h2>
 <p>注册账号、代码构成、小程序上线等请参考<a href="https://developers.weixin.qq.com/miniprogram/dev/">官方文档</a></p>
@@ -227,97 +369,6 @@
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Java框架总结]]></title>
-        <id>https://tooyi.github.io/post/java-zong-jie/</id>
-        <link href="https://tooyi.github.io/post/java-zong-jie/">
-        </link>
-        <updated>2018-10-12T00:42:06.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="java框架总结">Java框架总结</h2>
-<p>使用SpringMVC + Spring + Mybatis （SSM）框架</p>
-<p>使用Struts2 + Spring + Hibernate （SSH）框架</p>
-<p>相当于 页面 -&gt; Servlet -&gt; Java（接口类） -&gt; JDBC -&gt; 数据库</p>
-<p>SpringPost</p>
-<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/tooyi/picBox/master/img/006KCUaNgy1fwaf90g4snj311h0kvwhn.jpg" alt="图示" loading="lazy"></figure>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2018/10/16/5bc5f2cb2ac77.jpg" alt="SSM SSH框架总结.jpg" loading="lazy"></figure>
-<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
-<figure data-type="image" tabindex="3"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Web前端助手(FeHelper)]]></title>
-        <id>https://tooyi.github.io/post/web-fehelper/</id>
-        <link href="https://tooyi.github.io/post/web-fehelper/">
-        </link>
-        <updated>2018-10-02T00:38:36.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="web前端助手fehelper">Web前端助手(FeHelper)</h2>
-<h3 id="获取地址">获取地址：</h3>
-<p><a href="https://chrome.google.com/webstore/detail/web%E5%89%8D%E7%AB%AF%E5%8A%A9%E6%89%8Bfehelper/pkgccpejnmalmdinmhkkfafefagiiiad">Chrome扩展商城</a></p>
-<p><a href="https://github.com/zxlie/FeHelper/tree/master/apps/static/screenshot/crx">国内地址</a></p>
-<h3 id="安装方法">安装方法</h3>
-<p>Chrome扩展商城下载不需要看此方法。</p>
-<p>下载当前最新版*.crx；</p>
-<p>chrome浏览器地址栏输入：chrome://extensions/ 并打开；</p>
-<p>右上角开启开发者模式；</p>
-<p>拖拽crx到当前页面，完成安装。</p>
-<h3 id="功能简介">功能简介</h3>
-<h4 id="fehelper-弹出菜单">FeHelper--弹出菜单</h4>
-<p>插件入口，点击ICON，插件相关的所有功能都会在这里列出来，在popup中选择所需使用的功能即可使用</p>
-<h4 id="json接口自动格式化查看">JSON接口自动格式化查看</h4>
-<p>当你访问的接口（打开的页面）返回的是一个JSON格式的数据，FeHelper会自动将内容进行格式化处理，便于您的查看</p>
-<h4 id="json查看器">JSON查看器</h4>
-<p>把你的JSON代码粘贴到JSON查看器的输入框中，点击“格式化”，在下方便会以非常友好的方式列出JSON数据，便于查看</p>
-<h4 id="代码美化">代码美化</h4>
-<p>包括Javascript代码美化、CSS代码美化、HTML代码美化；其实所有C系的代码，都可以通过Javascript代码美化工具进行格式化查看</p>
-<h4 id="代码压缩">代码压缩</h4>
-<p>包括Web前端Javascript代码压缩、CSS代码压缩、HTML代码压缩</p>
-<h4 id="字符串编解码">字符串编解码</h4>
-<p>包括Unicode编码和解码、UTF-8字符串编码和解码、Base64字符串编解码、字符串MD5编码，前端非常实用的工具</p>
-<h4 id="图片base64编码">图片Base64编码</h4>
-<p>对图片文件进行base64编码，直接拷贝datauri格式的数据</p>
-<h4 id="二维码生成器">二维码生成器</h4>
-<p>能对网址、普通文本内容、电话号码、通讯录、短信等编码并生成二维码，很实用的二维码生成工具</p>
-<h4 id="二维码解码">二维码解码</h4>
-<p>针对网页上的二维码，点击右键，选择【二维码解码】，可在当前页面直接看到解码结果！</p>
-<h4 id="全网页截图">全网页截图</h4>
-<p>针对整个网页进行滚动截屏，在新窗口可预览后再手动保存</p>
-<h4 id="时间戳转换工具">时间（戳）转换工具</h4>
-<p>支持任意时间到对应时间戳的转换；支持任意时间戳到对应日期的转换</p>
-<h4 id="正则表达式工具">正则表达式工具</h4>
-<p>提供一个正则表达式的及时测试工具，并能将匹配结果进行高亮显示、高亮定位等；同时还罗列了一些常用的正则表达式供开发者使用</p>
-<h4 id="页面取色工具">页面取色工具</h4>
-<p>提供一个网页取色的工具，任意页面均可使用，方便大家在开发过程中能精准获取某元素的颜色值，再也不用截图后再通过Photoshop取色了</p>
-<h4 id="编码规范检测">编码规范检测</h4>
-<p>对当前网页进行Javascript、CSS、HTML编码规范的检测，包括文件是否压缩、标签是否正确闭合、cookie管理等等</p>
-<h4 id="页面性能检测">页面性能检测</h4>
-<p>对当前页面的性能进行检测，如HTTP响应时间、页面渲染时间、是否启用gzip压缩等等</p>
-<h4 id="fehelper配置页">FeHelper配置页</h4>
-<p>在这里，你可以随意定制属于你自己的FeHelper常用功能！</p>
-<h3 id="关注我的微信公众号">关注我的微信公众号</h3>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2018/10/13/5bc1d8c55f18a.png" alt="微信公众号：柏战不殆" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Visual Studio Code 主题及插件推荐]]></title>
-        <id>https://tooyi.github.io/post/visual-studio/</id>
-        <link href="https://tooyi.github.io/post/visual-studio/">
-        </link>
-        <updated>2018-09-25T13:55:20.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="visual-studio-code-主题及插件推荐">Visual Studio Code 主题及插件推荐</h1>
-<h2 id="主题">主题</h2>
-<p>One Dark Pro</p>
-<p>Atom One Dark Theme</p>
-<p>Eva Theme</p>
-<h2 id="插件">插件</h2>
-<p><a href="https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek">CSS Peek</a>： html和css中关联css的跳转</p>
-<h3 id="快捷键">快捷键</h3>
-<ul>
-<li><code>F12</code>：跳转 css 文件，jump directly to the css file or open it in a new editor</li>
-<li><code>Ctrl+Shift+F12</code>： load the css file inline and make quick edits right there.</li>
-<li><code>Ctrl+hover</code>：show the definition in a hover over the symbol</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[下载微信图文中的视频]]></title>
         <id>https://tooyi.github.io/post/wechat2/</id>
         <link href="https://tooyi.github.io/post/wechat2/">
@@ -462,80 +513,6 @@
 <p>好了，我总结的高效率搜索技巧全在这儿了，看完你感觉以前对搜索引擎了解多少呢？</p>
 <figure data-type="image" tabindex="12"><img src="https://upload.cc/i1/2018/09/10/yj2tJI.png" alt="柏战不殆" loading="lazy"></figure>
 <p><a href="https://mp.weixin.qq.com/s/bbdenfKEQmx7s4hkELzfbw">阅读原文</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[记录 - 学习Git遇到的坑]]></title>
-        <id>https://tooyi.github.io/post/git-notes/</id>
-        <link href="https://tooyi.github.io/post/git-notes/">
-        </link>
-        <updated>2018-09-07T13:39:42.000Z</updated>
-        <summary type="html"><![CDATA[<p>记录向，学习Git的填坑记录</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>记录向，学习Git的填坑记录</p>
-<!-- more -->
-<h2 id="学习git遇到的坑">学习Git遇到的坑</h2>
-<hr>
-<blockquote>
-<p>如果不明白文中指令含义，建议查看 <a href="https://smartbber.github.io/2018/01/23/Git%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/">Git 笔记整理</a></p>
-</blockquote>
-<h3 id="1-git-commit-遇到-errorpathspec">1. <code>git commit</code> 遇到 <code>error：pathspec</code></h3>
-<p>原因：输入 <code>git commit -m &quot;messages&quot;</code> 时，忘记加 <code>-u</code> 。</p>
-<h3 id="2-git-commit-am-messages-不能提交新增文件">2. <code>git commit -am &quot;messages&quot;</code> ，不能提交新增文件</h3>
-<p>先使用 <code>git add -A</code> ，提交全部新增文件，再使用 <code>git commit -m &quot;messages&quot;</code> 。</p>
-<h3 id="3-有时候-git-push-origin-master-会报错如下">3. 有时候 git push origin master 会报错，如下：</h3>
-<pre><code class="language-Git">$ git push origin master
-To github.com:smartBBer/LeetCode.git
- ! [rejected]        master -&gt; master (fetch first)
-error: failed to push some refs to 'git@github.com:smartBBer/LeetCode.git'
-hint: Updates were rejected because the remote contains work that you do
-hint: not have locally. This is usually caused by another repository pushing
-hint: to the same ref. You may want to first integrate the remote changes
-hint: (e.g., 'git pull ...') before pushing again.
-hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-
-</code></pre>
-<p>错误原因很简单：<strong>本地库和GitHub中的库不同步</strong>，解决办法有两种。</p>
-<h4 id="第一种解决方法不要轻易使用">第一种解决方法(不要轻易使用)</h4>
-<p>加上 <code>-f</code>，强制推送上去，这时你的GitHub上的库会以本地同步，</p>
-<pre><code>$ git push -f
-Enumerating objects: 35, done.
-Counting objects: 100% (35/35), done.
-Delta compression using up to 4 threads
-Compressing objects: 100% (24/24), done.
-Writing objects: 100% (35/35), 6.35 KiB | 325.00 KiB/s, done.
-Total 35 (delta 6), reused 6 (delta 1)
-remote: Resolving deltas: 100% (6/6), done.
-To github.com:smartBBer/LeetCode.git
- + 0794cc5...80639ea master -&gt; master (forced update)
-</code></pre>
-<h4 id="第二种解决方法推荐">第二种解决方法（推荐）</h4>
-<p>使用<code>git pull --rebase origin master</code>合并 GitHub 和 本地 的库，本地会多出之前不同步的文件，在使用 <code>git push -u origin master</code> 推送到 GitHub 库中。</p>
-<pre><code>$ git pull --rebase origin master
-$ git push origin master
-</code></pre>
-<pre><code>fatal: 'origin' does not appear to be a git repository
-fatal: Could not read from remote repository.
-Please make sure you have the correct access rights and the repository exists.
-</code></pre>
-<p>解决办法：重新输入一次：<code>git remote add origin git@github.com:yourusername/test.git</code></p>
-<pre><code>fatal: remote error:
-XXXXXX is not a valid repository name Email support@github.com for help
-</code></pre>
-<p>解决办法：<strong>使用git remote rm origin 然后再使用上传命令</strong></p>
-<h3 id="4-输入git-remote-add-origin-gitgithubcomyournameyourrepogit时">4. 输入：<code>git remote add origin git@github.com:yourName/yourRepo.git</code>时</h3>
-<pre><code>fatal: Not a git repository (or any of the parent directories): .git
-</code></pre>
-<p>解决办法：<strong>输入 git init ，初始化一个本地仓库</strong></p>
-<pre><code>fatal: remote origin already exists.
-</code></pre>
-<p>解决办法：<br>
-<strong>1 删除Git仓库中的origin信息：git remote rm origin</strong></p>
-<p><strong>2 重新添加Git仓库中的origin信息</strong></p>
-<h3 id="5-输入git-add-时">5. 输入git add ./时</h3>
-<pre><code>fatal: Not a git repository (or any of the parent directories): .git
-</code></pre>
-<p>解决办法：<strong>先输入git init，再add</strong></p>
 ]]></content>
     </entry>
 </feed>
