@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tooyi.github.io</id>
     <title>涂诣</title>
-    <updated>2020-05-27T00:49:22.986Z</updated>
+    <updated>2020-05-27T00:58:57.607Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tooyi.github.io"/>
     <link rel="self" href="https://tooyi.github.io/atom.xml"/>
@@ -11,11 +11,280 @@
     <icon>https://tooyi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 涂诣</rights>
     <entry>
+        <title type="html"><![CDATA[换一个新主题 - Gridea Themes Vant]]></title>
+        <id>https://tooyi.github.io/post/hello-gridea/</id>
+        <link href="https://tooyi.github.io/post/hello-gridea/">
+        </link>
+        <updated>2020-05-26T11:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<h2 id="访问旧博客">访问旧博客</h2>
+<p><strong>新博客使用Gridea管理，旧博客文章暂时未全部搬运。若访问旧博客，请访问</strong><a href="https://tooyi.github.io/blog-old/">涂诣的官方网站</a></p>
+<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<h2 id="访问旧博客">访问旧博客</h2>
+<p><strong>新博客使用Gridea管理，旧博客文章暂时未全部搬运。若访问旧博客，请访问</strong><a href="https://tooyi.github.io/blog-old/">涂诣的官方网站</a></p>
+<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+<!-- more -->
+<p><a href="https://github.com/getgridea/gridea">Github</a><br>
+<a href="https://gridea.dev/">Gridea 主页</a><br>
+<a href="http://fehey.com/">示例网站</a></p>
+<h2 id="特性">特性👇</h2>
+<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
+<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
+<p>🏷️  你可以对文章进行标签分组</p>
+<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
+<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
+<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
+<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
+<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
+<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
+<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
+<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
+<p>未来，它一定会成为你离不开的伙伴</p>
+<p>尽情发挥你的才华吧！</p>
+<p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[json格式化插件]]></title>
+        <id>https://tooyi.github.io/post/json-ge-shi-hua-cha-jian/</id>
+        <link href="https://tooyi.github.io/post/json-ge-shi-hua-cha-jian/">
+        </link>
+        <updated>2019-01-23T00:57:33.000Z</updated>
+        <summary type="html"><![CDATA[<p>chrome浏览器-json格式化插件</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>chrome浏览器-json格式化插件</p>
+<!-- more -->
+<h3 id="第一步">第一步</h3>
+<p>下载json 的JSON-Handle插件：地址：<a href="http://jsonhandle.sinaapp.com/">http://jsonhandle.sinaapp.com/</a></p>
+<h3 id="第二步">第二步</h3>
+<p>打开浏览器—&gt;右键点击三个点—&gt;更多工具—&gt;扩展程序—&gt;将crx插件拖入浏览器</p>
+<h3 id="这时候你运行你的程序">这时候你运行你的程序</h3>
+<p>出现以下结果说明已经成功安装成功。</p>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fzgln4pwpaj313g0vgmzq.jpg" alt="效果图" loading="lazy"></figure>
+<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
+<figure data-type="image" tabindex="2"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[摩尔投票算法]]></title>
+        <id>https://tooyi.github.io/post/mo-er-tou-piao-suan-fa/</id>
+        <link href="https://tooyi.github.io/post/mo-er-tou-piao-suan-fa/">
+        </link>
+        <updated>2019-01-04T00:55:35.000Z</updated>
+        <summary type="html"><![CDATA[<p>摩尔投票算法理解记录</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>摩尔投票算法理解记录</p>
+<!-- more -->
+<h3 id="摩尔投票算法">摩尔投票算法</h3>
+<blockquote>
+<p>摩尔投票算法也可以叫做多数投票算法。</p>
+</blockquote>
+<h3 id="题">题</h3>
+<blockquote>
+<p>给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。<br>
+你可以假设数组是非空的，并且给定的数组总是存在众数。</p>
+</blockquote>
+<ul>
+<li>示例 1:</li>
+</ul>
+<p><code>输入: [3,2,3]</code><br>
+<code>输出: 3</code></p>
+<ul>
+<li>示例 2:</li>
+</ul>
+<p><code>输入: [2,2,1,1,1,2,2]</code><br>
+<code>输出: 2</code></p>
+<h3 id="常规解法">常规解法</h3>
+<ul>
+<li>遍历数组，并计数，找出出现次数大于 ⌊ n/2 ⌋ 的元素。</li>
+<li>将数组排序，出现次数大于 ⌊ n/2 ⌋ 的元素必定在数组中间，返回nums[n/2]即可。</li>
+</ul>
+<h3 id="摩尔投票法求解">摩尔投票法求解</h3>
+<blockquote>
+<p>算法的时间和空间都很低，时间复杂度为O(n)，空间复杂度为O(1)</p>
+</blockquote>
+<h4 id="算法原理">算法原理</h4>
+<p>每次从数组中找出一对不同的元素，将它们从数组中删除，直到遍历完整个数组。由于这道题已经说明一定存在一个出现次数超过一半的元素，所以遍历完数组后数组中一定会存在至少一个元素。</p>
+<ul>
+<li>算法在局部变量中定义一个序列元素(m)和一个计数器(count)，初始化的情况下计数器为1；</li>
+<li>算法依次扫描序列中的元素，当处理元素x的时候，如果序列元素(m)和x相等，计数器(count)自增1；</li>
+<li>如果不等计数器(count)自减1，并判断计数器是否为0，如果为0，那么将x赋值给m，然后将计数器(count)设置为1(或将x的下一位元素赋值给m，计数器(count)设为0)；</li>
+<li>处理之后，最后存储的序列元素(m)，就是这个序列中最多的元素。<br>
+（如果不确定是否存储的元素m是最多的元素，还可以进行第二遍扫描判断是否为最多的元素）</li>
+</ul>
+<h4 id="伪码实现">伪码实现</h4>
+<pre><code class="language-java">初始化元素m=nums[0],计数器count=1;
+for i = 1 : nums.length - 1
+    if m = nums[i]
+        count++
+    else 
+        count--
+        if count = 0
+            m = numd[i + 1]
+            count = 0
+return m
+</code></pre>
+<h4 id="java实现">java实现</h4>
+<pre><code class="language-java">class Solution {
+    public int majorityElement(int[] nums) {
+        int count = 1, maj = nums[0];
+        for(int i = 1; i &lt; nums.length; i++) {
+            if(maj == nums[i]) { 
+                count++;
+            } else {
+                count--;
+                if(count == 0) {
+                    maj = nums[i + 1];
+                    count = 0;
+                }
+            }
+            
+        }
+        return maj;
+    }
+}
+</code></pre>
+<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
+<figure data-type="image" tabindex="1"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Java 字符串常用类]]></title>
+        <id>https://tooyi.github.io/post/java-zi-fu-chuan-chang-yong-lei/</id>
+        <link href="https://tooyi.github.io/post/java-zi-fu-chuan-chang-yong-lei/">
+        </link>
+        <updated>2018-12-23T00:49:42.000Z</updated>
+        <summary type="html"><![CDATA[<p>字符串知识总结</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>字符串知识总结</p>
+<!-- more -->
+<h2 id="字符串查找">字符串查找</h2>
+<p>String 提供了两种查找字符串的方法，即 <strong>indexOf</strong> 与 <strong>lastIndexOf</strong> 方法。</p>
+<h3 id="1-indexofstring-s">1、indexOf（String s）</h3>
+<p>该方法用于返回参数字符串s在指定字符串中首次出现的索引位置，当调用字符串的indexOf()方法时，会从当前字符串的开始位置搜索s的位置；如果没有检索到字符串s，该方法返回-1</p>
+<pre><code class="language-java">String str =&quot;We are students&quot;;
+int size = str.indexOf(&quot;a&quot;); // 变量size的值是3
+</code></pre>
+<h3 id="2-lastindexofstring-str">2、lastIndexOf(String str)</h3>
+<p>该方法用于返回字符串最后一次出现的索引位置。当调用字符串的lastIndexOf()方法时，会从当前字符串的开始位置检索参数字符串str，并将最后一次出现str的索引位置返回。如果没有检索到字符串str，该方法返回-1.</p>
+<p>如果lastIndexOf方法中的参数是空字符串&quot;&quot; ，，则返回的结果与length方法的返回结果相同。</p>
+<h2 id="获取指定索引位置的字符">获取指定索引位置的字符</h2>
+<p>使用charAt()方法可将指定索引处的字符返回。</p>
+<pre><code class="language-java">String str = &quot;hello word&quot;;
+char mychar =  str.charAt(4);  // mychar的结果是o
+</code></pre>
+<h2 id="获取子字符串">获取子字符串</h2>
+<p>通过String类的substring()方法可对字符串进行截取。这些方法的共同点就是都利用字符串的下标进行截取，且应明确字符串下标是从0开始的。在字符串中空格占用一个索引位置。</p>
+<h3 id="1-substringint-beginindex">1、substring(int beginIndex)</h3>
+<p>该方法返回的是从指定的索引位置开始截取知道该字符串结尾的子串。</p>
+<pre><code class="language-java">String str = &quot;Hello word&quot;;
+String substr = str.substring(3); //获取字符串，此时substr值为lo word
+</code></pre>
+<h3 id="2-substringint-beginindex-int-endindex">2、substring(int beginIndex,  int endIndex)</h3>
+<p>beginIndex : 开始截取子字符串的索引位置</p>
+<p>endIndex：子字符串在整个字符串中的结束位置</p>
+<pre><code class="language-java">String str = &quot;Hello word&quot;;
+String substr = str.substring(0,3); //substr的值为hel
+</code></pre>
+<h2 id="去除空格-标点等">去除空格、标点等</h2>
+<p>trim() 方法返回字符串的副本，忽略前导空格和尾部空格。</p>
+<pre><code class="language-java">public static void main(String[] args) {
+        //string去除空格
+        String str=&quot;  hello   world  &quot;;
+        System.out.println(str);
+ 
+        String str1=str.trim();//去除首尾空格
+        System.out.println(str1);
+ 
+        String str2=str.replace(&quot; &quot;,&quot;&quot;);//去掉所有空格,包括首尾,中间
+        System.out.println(str2);
+ 
+        String str3=str.replaceAll(&quot; +&quot;,&quot;&quot;);//去掉所有空格,包括首尾,中间
+        System.out.println(str3);
+ 
+        String str4=str.replaceAll(&quot;\\s*&quot;,&quot;&quot;); //可以替换大部分空白字符， 不限于空格 . 说明:\s 可以匹配空格、制表符、换页符等空白字符的其中任意一个
+        System.out.println(str4);
+ 
+        //string去除标点符号
+        //正则表达式去除标点
+        String stri=&quot;ss&amp;*(,.~1如果@&amp;(^-自己!!知道`什`么#是$苦%……Z，&amp;那*()么一-=定——+告诉::;\&quot;'/?.,&gt;&lt;[]{}\\||别人什么是甜。&quot;;
+        System.out.println(stri);
+ 
+        String stri1=stri.replaceAll(&quot;\\p{Punct}&quot;,&quot;&quot;);//不能完全清除标点
+        System.out.println(stri1);
+ 
+        String stri2=stri.replaceAll(&quot;\\pP&quot;,&quot;&quot;);//完全清除标点
+        System.out.println(stri2);
+ 
+        String stri3=stri.replaceAll(&quot;\\p{P}&quot;,&quot;&quot;);//同上,一样的功能
+        System.out.println(stri3);
+ 
+        String stri4=stri.replaceAll(&quot;[\\pP\\p{Punct}]&quot;,&quot;&quot;);//清除所有符号,只留下字母 数字  汉字  共3类.
+        System.out.println(stri4);
+    }
+}
+</code></pre>
+<pre><code>//**效果如下**
+hello   world  
+hello   world
+helloworld
+helloworld
+helloworld
+ss&amp;*(,.~1如果@&amp;(^-自己!!知道`什`么#是$苦%……Z，&amp;那*()么一-=定——+告诉::;&quot;'/?.,&gt;&lt;[]{}\||别人什么是甜。
+ss1如果自己知道什么是苦……Z，那么一定——告诉别人什么是甜。
+ss~1如果^自己知道`什`么是$苦Z那么一=定+告诉&gt;&lt;||别人什么是甜
+ss~1如果^自己知道`什`么是$苦Z那么一=定+告诉&gt;&lt;||别人什么是甜
+ss1如果自己知道什么是苦Z那么一定告诉别人什么是甜
+</code></pre>
+<h2 id="字符串替换">字符串替换</h2>
+<p>replace(w) 方法可实现将指定的字符或字符串替换成新的字符或字符串</p>
+<p>oldChar：要替换的字符或字符串</p>
+<p>newChar：用于替换原来字符串的内容</p>
+<p>如果要替换的字符oldChar在字符串中重复出现多次，replace()方法会将所有oldChar全部替换成newChar。需要注意的是，要替换的字符oldChar的大小写要与原字符串中字符的大小写保持一致。</p>
+<pre><code class="language-java">String str= &quot;address&quot;;
+String newstr = str.replace(&quot;a&quot;, &quot;A&quot;);// newstr的值为Address
+</code></pre>
+<h2 id="判断字符串的开始与结尾">判断字符串的开始与结尾</h2>
+<p>startsWith()方法与endsWith()方法分别用于判断字符串是否以指定的内容开始或结束。这两个方法的返回值都为boolean类型。</p>
+<h3 id="1-startswithstring-prefix">1、startsWith(String prefix)</h3>
+<p>该方法用于判断当前字符串对象的前缀是否是参数指定的字符串。</p>
+<h3 id="2-endswithstring-suffix">2、endsWith(String suffix)</h3>
+<p>该方法用于判断当前字符串是否以给定的子字符串结束</p>
+<h2 id="判断字符串是否相等">判断字符串是否相等</h2>
+<h3 id="1-equalsstring-otherstr">1、equals(String otherstr)</h3>
+<p>如果两个字符串具有相同的字符和长度，则使用equals()方法比较时，返回true。同时equals()方法比较时区分大小写。</p>
+<h3 id="2-equalsignorecasestring-otherstr">2、equalsIgnoreCase(String otherstr)</h3>
+<p>equalsIgnoreCase()方法与equals()类型，不过在比较时<strong>忽略了大小写</strong>。</p>
+<h2 id="按字典顺序比较两个字符串">按字典顺序比较两个字符串</h2>
+<p>compareTo()方法为按字典顺序比较两个字符串，该比较基于字符串中各个字符的Unicode值，按字典顺序将此String对象表示的字符序列与参数字符串所表示的字符序列进行比较。如果按字典顺序此String对象位于参数字符串之前，则比较结果为一个负整数；如果按字典顺序此String对象位于参数字符串之后，则比较结果为一个正整数；如果这两个字符串相等，则结果为0.</p>
+<pre><code class="language-java">str.compareTo(String otherstr);
+</code></pre>
+<h2 id="字母大小写转换">字母大小写转换</h2>
+<p>字符串的toLowerCase()方法可将字符串中的所有字符从大写字母改写为小写字母，而tuUpperCase()方法可将字符串中的小写字母改写为大写字母。</p>
+<pre><code class="language-java">str.toLowerCase();
+str.toUpperCase();
+</code></pre>
+<h2 id="字符串分割">字符串分割</h2>
+<p>使用split()方法可以使字符串按指定的分隔字符或字符串对内容进行分割，并将分割后的结果存放在字符数组中。</p>
+<pre><code class="language-java">1 str.split(String sign);
+</code></pre>
+<p>sign为分割字符串的分割符，也可以使用正则表达式。</p>
+<p>没有统一的对字符串进行分割的符号，如果想定义多个分割符，可使用符号“<kbd>|</kbd>”。例如，“,<kbd>|</kbd>=”表示分割符分别为“,”和“=”。</p>
+<pre><code class="language-java">str.split(String sign, in limit);
+</code></pre>
+<p>该方法可根据给定的分割符对字符串进行拆分，并限定拆分的次数。</p>
+<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
+<figure data-type="image" tabindex="1"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Java 关于链表的基本算法]]></title>
         <id>https://tooyi.github.io/post/java-guan-yu-lian-biao-de-ji-ben-suan-fa/</id>
         <link href="https://tooyi.github.io/post/java-guan-yu-lian-biao-de-ji-ben-suan-fa/">
         </link>
-        <updated>2020-05-27T00:47:26.000Z</updated>
+        <updated>2018-12-23T00:47:26.000Z</updated>
         <summary type="html"><![CDATA[<p>算法代码记录</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>算法代码记录</p>
@@ -347,64 +616,11 @@ public class LinkedListSummary {
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Visual Studio Code 使用技巧]]></title>
-        <id>https://tooyi.github.io/post/visual-studio-code/</id>
-        <link href="https://tooyi.github.io/post/visual-studio-code/">
-        </link>
-        <updated>2020-05-27T00:28:36.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="visual-studio-code-使用技巧">Visual Studio Code 使用技巧</h1>
-<h2 id="一窗口打开多项目">一窗口打开多项目</h2>
-<blockquote>
-<p>文件 -&gt; 将文件添加到工作区</p>
-</blockquote>
-<p>添加多个文件项目即可</p>
-<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/tooyi/picBox/master/img/006KCUaNgy1fvo94f9915j307c09174e.jpg" alt="工作区" loading="lazy"></figure>
-<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
-<figure data-type="image" tabindex="2"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[换一个新主题 - Gridea Themes Vant]]></title>
-        <id>https://tooyi.github.io/post/hello-gridea/</id>
-        <link href="https://tooyi.github.io/post/hello-gridea/">
-        </link>
-        <updated>2020-05-26T11:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<h2 id="访问旧博客">访问旧博客</h2>
-<p><strong>新博客使用Gridea管理，旧博客文章暂时未全部搬运。若访问旧博客，请访问</strong><a href="https://tooyi.github.io/blog-old/">涂诣的官方网站</a></p>
-<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<h2 id="访问旧博客">访问旧博客</h2>
-<p><strong>新博客使用Gridea管理，旧博客文章暂时未全部搬运。若访问旧博客，请访问</strong><a href="https://tooyi.github.io/blog-old/">涂诣的官方网站</a></p>
-<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
-]]></content>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Java 关于链表的基本算法]]></title>
         <id>https://tooyi.github.io/post/java-suan-fa/</id>
         <link href="https://tooyi.github.io/post/java-suan-fa/">
         </link>
-        <updated>2019-12-23T00:47:26.000Z</updated>
+        <updated>2018-12-23T00:47:26.000Z</updated>
         <summary type="html"><![CDATA[<p>算法代码记录</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>算法代码记录</p>
@@ -787,6 +1003,125 @@ public class LinkedListSummary {
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Java indexOf()实现]]></title>
+        <id>https://tooyi.github.io/post/java-indexof/</id>
+        <link href="https://tooyi.github.io/post/java-indexof/">
+        </link>
+        <updated>2018-10-25T00:50:43.000Z</updated>
+        <summary type="html"><![CDATA[<p>代码记录</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>代码记录</p>
+<!-- more -->
+<h3 id="indexof源码解析">indexOf源码解析</h3>
+<pre><code class="language-java">public int indexOf(String str) {
+    return indexOf(str, 0);
+}
+ 
+public int indexOf(String str, int fromIndex) {
+    return indexOf(value, 0, value.length,str.value, 0, str.value.length, fromIndex);
+}
+
+static int indexOf(char[] source, int sourceOffset, int sourceCount, char[] target, int targetOffset, int targetCount, int fromIndex) {
+    //1、当开始查找位置 大于等于 源字符串长度时,如果[查找字符串]为空,则:
+    //返回字符串的长度,否则返回-1.
+    if (fromIndex &gt;= sourceCount) { 
+        return (targetCount == 0 ? sourceCount : -1);
+    }
+    //2、如果fromIndex 小于 0,则从 0开始查找。
+    if (fromIndex &lt; 0) { 
+        fromIndex = 0;
+    }
+    //3、如果[查找字符串]为空,则返回fromIndex
+    if (targetCount == 0) { 
+        return fromIndex;
+    }
+    //4、开始查找,从[查找字符串]中得到第一个字符,标记为first
+    char first = target[targetOffset];
+    //4.1、计算[源字符串最大长度]
+    int max = sourceOffset + (sourceCount - targetCount);
+    //4.2、遍历查找
+    for (int i = sourceOffset + fromIndex; i &lt;= max; i++) { 
+        //4.2.1、从[源字符串]中,查找到第一个匹配到[目标字符串]first的位置 
+        //for循环中,增加while循环 
+        /* Look for first character. */ 
+        if (source[i] != first) { 
+            while (++i &lt;= max &amp;&amp; source[i] != first); 
+        } 
+        //4.2.2、如果在[源字符串]中,找到首个[目标字符串], 
+        //则匹配是否等于[目标字符串] 
+        /* Found first character, now look at the rest of v2 */ 
+        if (i &lt;= max) { 
+            //4.2.2.1、得到下一个要匹配的位置,标记为j 
+            int j = i + 1; 
+            //4.2.2.2、得到其余[目标字符串]的长度,标记为end 
+            int end = j + targetCount - 1; 
+            //4.2.2.3、遍历,其余[目标字符串],从k开始, 
+            //如果j不越界(小于end,表示:其余[目标字符串]的范围), 
+            //同时[源字符串]==[目标字符串],则 //自增,继续查找匹配。j++、k++ 
+            for (int k = targetOffset + 1; j &lt; end &amp;&amp; source[j] == target[k]; j++, k++); 
+            //4.2.2.4、如果j与end相等,则表示: 
+            //源字符串中匹配到目标字符串,匹配结束,返回i。 
+            if (j == end) { 
+                /* Found whole string. */ 
+                return i - sourceOffset; 
+            } 
+        }
+    }
+    //其余情况,返回-1.return -1; 
+    return -1;
+} 
+</code></pre>
+<h3 id="实现">实现</h3>
+<blockquote>
+<p>给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回  -1。</p>
+</blockquote>
+<pre><code class="language-java">public int strStr(String haystack, String needle) {
+        if(needle.length() == 0) { //当noodle为空应该返回0
+            return 0;
+        } else if(needle.length() &gt; haystack.length()) { //当needle长度大于haystack，返回-1
+            return -1;
+        } else {
+            char first = needle.charAt(0);
+            int max = haystack.length() - needle.length();
+            for(int i = 0; i &lt;= max; i++) {
+                if(haystack.charAt(i) != first) {
+                    while(++i &lt;= max &amp;&amp; haystack.charAt(i) != first);
+                }
+                if(i &lt;= max) {
+                    int j = i + 1;
+                    int end = j + needle.length() - 1;
+                    for(int k = 1; j &lt; end &amp;&amp; haystack.charAt(j) == needle.charAt(k); j++, k++);
+                    if(j == end) {
+                        return i;
+                    }
+                }
+            }
+            return -1;
+        }
+    }
+    public int strStr2(String haystack, String needle) {
+        if(needle.equals(&quot;&quot;)||haystack.equals(needle)){
+            return 0;
+        }
+        int index=-1;
+        if(haystack.contains(needle)){
+            String[] str=haystack.split(needle); 
+            if(str.length&gt;=1){
+                index=str[0].length();
+            }else {
+                index=0;
+            }
+        }else{
+                index=-1;
+            }
+        return index;
+    }
+</code></pre>
+<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
+<figure data-type="image" tabindex="1"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Java框架总结]]></title>
         <id>https://tooyi.github.io/post/java-zong-jie/</id>
         <link href="https://tooyi.github.io/post/java-zong-jie/">
@@ -854,236 +1189,6 @@ public class LinkedListSummary {
 <p>在这里，你可以随意定制属于你自己的FeHelper常用功能！</p>
 <h3 id="关注我的微信公众号">关注我的微信公众号</h3>
 <figure data-type="image" tabindex="1"><img src="https://i.loli.net/2018/10/13/5bc1d8c55f18a.png" alt="微信公众号：柏战不殆" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Visual Studio Code 主题及插件推荐]]></title>
-        <id>https://tooyi.github.io/post/visual-studio/</id>
-        <link href="https://tooyi.github.io/post/visual-studio/">
-        </link>
-        <updated>2018-09-25T13:55:20.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="visual-studio-code-主题及插件推荐">Visual Studio Code 主题及插件推荐</h1>
-<h2 id="主题">主题</h2>
-<p>One Dark Pro</p>
-<p>Atom One Dark Theme</p>
-<p>Eva Theme</p>
-<h2 id="插件">插件</h2>
-<p><a href="https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek">CSS Peek</a>： html和css中关联css的跳转</p>
-<h3 id="快捷键">快捷键</h3>
-<ul>
-<li><code>F12</code>：跳转 css 文件，jump directly to the css file or open it in a new editor</li>
-<li><code>Ctrl+Shift+F12</code>： load the css file inline and make quick edits right there.</li>
-<li><code>Ctrl+hover</code>：show the definition in a hover over the symbol</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[微信小程序开发]]></title>
-        <id>https://tooyi.github.io/post/wechat3/</id>
-        <link href="https://tooyi.github.io/post/wechat3/">
-        </link>
-        <updated>2018-09-25T00:23:10.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="微信小程序开发">微信小程序开发</h1>
-<h2 id="小程序文档">小程序文档</h2>
-<p>注册账号、代码构成、小程序上线等请参考<a href="https://developers.weixin.qq.com/miniprogram/dev/">官方文档</a></p>
-<h2 id="ide选择">IDE选择</h2>
-<p><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html?t=18092022">官方开发工具</a></p>
-<p><a href="">VScode + wept</a></p>
-<p><a href="https://egret.com/products/wing.html">Egret Wing</a></p>
-<table>
-<thead>
-<tr>
-<th>环境</th>
-<th>简述</th>
-<th>代码高亮</th>
-<th>代码提示</th>
-<th>调试</th>
-<th>实时预览</th>
-<th>软件/插件下载</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>官方工具</td>
-<td>微信小程序官方工具</td>
-<td>支持</td>
-<td>极其弱</td>
-<td>支持</td>
-<td>支持</td>
-<td><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html?t=18092022">软件</a></td>
-</tr>
-<tr>
-<td>Egret Wing</td>
-<td>首款支持微信小程序开发的IDE</td>
-<td>支持</td>
-<td>支持</td>
-<td>支持</td>
-<td>支持</td>
-<td><a href="https://egret.com/products/wing.html">软件</a></td>
-</tr>
-<tr>
-<td>VScode + wept</td>
-<td>插件作者已不在维护</td>
-<td>支持</td>
-<td>支持</td>
-<td>支持</td>
-<td>支持</td>
-<td><a href="https://chemzqm.github.io/wept/#/">插件</a></td>
-</tr>
-<tr>
-<td>Sublime Text 3</td>
-<td>代码编辑器，需要安装插件</td>
-<td>支持</td>
-<td>支持</td>
-<td>不支持</td>
-<td>不支持</td>
-<td><a href="https://github.com/Abbotton/weapp-snippet-for-sublime-text-2-3">插件</a></td>
-</tr>
-<tr>
-<td>WebStorm</td>
-<td>重量级IDE</td>
-<td>支持</td>
-<td>支持</td>
-<td>不支持</td>
-<td>不支持</td>
-<td><a href="https://github.com/lypeer/Matchmaker">插件</a></td>
-</tr>
-</tbody>
-</table>
-<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/tooyi/picBox/master/img/006KCUaNgy1fvm5h0v6uej30rs06x0sy.jpg" alt="IDE对比" loading="lazy"></figure>
-<h2 id="小程序组件">小程序组件</h2>
-<h3 id="weui">Weui</h3>
-<p>WeUI 是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信 Web 开发量身设计，可以令用户的使用感知更加统一。包含 button、cell、dialog、 progress、 toast、article、actionsheet、icon 等各式元素。</p>
-<p>GitHub 地址：<a href="https://github.com/Tencent/Weui">Weui</a></p>
-<p>演示：<a href="https://weui.io">https://weui.io</a></p>
-<h3 id="wx-charts">wx-charts</h3>
-<p>微信小程序图表工具，charts for WeChat small app</p>
-<p>基于 canvas 绘制，体积小巧</p>
-<p>GitHub 地址：<a href="https://github.com/xiaolin3303/wx-charts">wx-charts</a></p>
-<p><img src="https://ws1.sinaimg.cn/large/006KCUaNgy1fvn52y1somj30b409tt93.jpg" alt="饼图" loading="lazy"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fvn53s02c0j30b408djrf.jpg" alt="环图" loading="lazy"></p>
-<h3 id="wemark">wemark</h3>
-<p>微信小程序 Markdown 渲染库</p>
-<p>用于在小程序中渲染 Markdown 文本。</p>
-<p>在小程序诞生之前，Markdown 的渲染一般需要解析成HTML，然后渲染解析后的 HTML。然而小程序并没有提供 HTML 渲染的功能，因此在 wemark 诞生之前，几乎所有的 Markdown 渲染库全部无法在小程序下正常工作。</p>
-<p>wemark可以实现在小程序下渲染Markdown内容，支持图片、表格在内的大部分Markdown特性。</p>
-<figure data-type="image" tabindex="2"><img src="https://github.com/TooBug/wemark/blob/2.0/screenshot.png" alt="示例图" loading="lazy"></figure>
-<h3 id="wezrender">WeZRender</h3>
-<p>微信小程序 Canvas 开发</p>
-<h4 id="使用-zrender-实现">使用 ZRender 实现</h4>
-<figure data-type="image" tabindex="3"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fvn4rb938zg308v0fwhdt.gif" alt="演示图" loading="lazy"></figure>
-<p>ZRender 是二维绘图引擎，它提供 Canvas、SVG、VML 等多种渲染方式。ZRender 也是 ECharts 的渲染器。</p>
-<p>GitHub 地址：<a href="https://github.com/guyoung/WeZRender/tree/master/apps/zrenderapp">ZRender 实现</a></p>
-<h4 id="使用-echarts-实现">使用 ECharts 实现</h4>
-<figure data-type="image" tabindex="4"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fvn4w0xf8rg308w0fre81.gif" alt="演示图" loading="lazy"></figure>
-<p>ECharts 是使用 JavaScript 实现的开源可视化库，可以流畅的运行在 PC 和移动设备上，兼容当前绝大部分浏览器，底层依赖轻量级的矢量图形库 ZRender，提供直观，交互丰富，可高度个性化定制的数据可视化图表。</p>
-<p>GitHub地址：<a href="https://github.com/guyoung/WeZRender/tree/master/apps/echartsapp">ECharts 实现</a></p>
-<h3 id="wetoast">WeToast</h3>
-<p>WeToast 是仿照微信小程序提供的 showToast 功能，提供视觉一致的增强插件，弥补小程序showToast功能上的不足（如只能显示 success、loading 两种 icon ，且 icon 不可去除，持续时间最大10秒等）。</p>
-<figure data-type="image" tabindex="5"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fvn5bzacxoj308t0fqdfr.jpg" alt="演示图" loading="lazy"></figure>
-<p>GitHub 地址：<a href="https://github.com/kiinlam/wetoast">WeToast</a></p>
-<h3 id="wxapp-charts">wxapp-charts</h3>
-<p>微信小程序图表charts组件</p>
-<figure data-type="image" tabindex="6"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fvn5hn32khj309e0go0t8.jpg" alt="演示图" loading="lazy"></figure>
-<h3 id="weixinproject">WeiXinProject</h3>
-<p>微信小程序实现--列表的上拉刷新和上拉加载</p>
-<p>GitHub 地址：<a href="https://github.com/lidong1665/WeiXinProject">WeiXinProject</a></p>
-<h3 id="cityselect">citySelect</h3>
-<p>基于微信小程序的城市选择</p>
-<figure data-type="image" tabindex="7"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fvn5q4oevpj30k00zkt9k.jpg" alt="演示图" loading="lazy"></figure>
-<h2 id="小程序框架">小程序框架</h2>
-<h3 id="wepy">Wepy</h3>
-<blockquote>
-<p>微信小程序组件化开发框架</p>
-</blockquote>
-<p>通过预编译的手段让开发者可以选择自己喜欢的开发风格去开发小程序。框架的细节优化，Promise，Async Functions的引入都是为了能让开发小程序项目变得更加简单，高效。</p>
-<p>GitHub 地址：<a href="https://github.com/tencent/wepy">Wepy</a></p>
-<p>体验：<a href="https://tencent.github.io/wepy/">https://tencent.github.io/wepy/</a></p>
-<h3 id="labrador">Labrador</h3>
-<p>微信小程序组件化开发框架</p>
-<p>GitHub 地址：<a href="https://github.com/maichong/labrador">Labrador</a></p>
-<h3 id="wxapp-devframe">wxapp-devFrame</h3>
-<p>小程序基本的开发框架抽取</p>
-<p>GitHub 地址：<a href="https://github.com/hss01248/wxapp-devFrame">wxapp-devFrame</a></p>
-<h3 id="westore">Westore</h3>
-<p>受 <a href="https://github.com/Tencent/omi">Omi</a> 框架 的启发，且专门为小程序开发的 <a href="https://github.com/dntzhang/westore/blob/master/utils/diff.js">JSON Diff 库</a>，所以有了 westore 全局状态管理和跨页通讯框架让一切尽在掌握中，且受高性能 JSON Diff 库的利好，长列表滚动加载显示变得轻松可驾驭。总结下来有如下特性和优势:</p>
-<ul>
-<li>和 Omi 同样简洁的 Store API</li>
-<li>超小的代码尺寸(包括 json diff 共100多行)</li>
-<li>尊重且顺从小程序的设计(其他转译库相当于反其道行)</li>
-<li>this.update 比原生 setData 的性能更优，更加智能</li>
-</ul>
-<p>GitHub地址：<a href="https://github.com/dntzhang/westore">westore</a></p>
-<h2 id="库">库</h2>
-<h3 id="wxparse">wxParse</h3>
-<p>wxParse-微信小程序富文本解析自定义组件，支持HTML及markdown解析</p>
-<p>GitHub 地址：<a href="https://github.com/icindy/wxParse">wxParse</a></p>
-<h3 id="wechat-weapp-redux">wechat-weapp-redux</h3>
-<p>微信小程序 Redux 绑定，用于在微信小程序为页面绑定 Redux Store。</p>
-<p>代码是基于 <a href="https://github.com/reduxjs/react-redux">react-redux</a> 修改的</p>
-<p>GitHub 地址：<a href="https://github.com/charleyw/wechat-weapp-redux">wechat-weapp-redux</a></p>
-<h3 id="wilddog-weapp">wilddog-weapp</h3>
-<p>野狗微信小程序客户SDK</p>
-<blockquote>
-<p>野狗是什么?</p>
-</blockquote>
-<blockquote>
-<p>野狗科技(北京)有限公司（简称：野狗）是安全可靠的实时通信云。野狗为企业和开发者提供了可编程的实时数据、音视频通信能力，以及短信服务，可以安全地构建丰富场景化的实时通信业务。</p>
-</blockquote>
-<p>GitHub 地址：<a href="https://github.com/WildDogTeam/wilddog-weapp">wilddog-weapp</a></p>
-<h3 id="wafer-client-sdk">wafer-client-sdk</h3>
-<p>本项目是 <a href="https://github.com/tencentyun/wafer">Wafer</a> 的组成部分，为小程序客户端开发提供 SDK 支持会话服务和信道服务。</p>
-<p>GitHub 地址：<a href="https://github.com/tencentyun/wafer-client-sdk">wafer-client-sdk</a></p>
-<h3 id="wxnotificationcenter">WxNotificationCenter</h3>
-<p>微信小程序通知广播模式类,降低小程序之间的耦合度</p>
-<p>GitHub 地址：<a href="https://github.com/icindy/WxNotificationCenter">WxNotificationCenter</a></p>
-<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
-<figure data-type="image" tabindex="8"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[下载微信图文中的视频]]></title>
-        <id>https://tooyi.github.io/post/wechat2/</id>
-        <link href="https://tooyi.github.io/post/wechat2/">
-        </link>
-        <updated>2018-09-23T13:53:33.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="下载微信图文中的视频">下载微信图文中的视频</h2>
-<h5 id="摘要">摘要</h5>
-<p>在有的时候我们需要下载公众号中的视频，那么我们怎么才能下载呢？在网上搜索了下，发现很多都是抓包获取的，没有好的方法，干脆就自己动手了。</p>
-<h5 id="动手">动手</h5>
-<ul>
-<li>首先得明白，微信图文中的视频都是挂在腾讯视频上的，所以视频的 url 肯定是以 v.qq.com 开头的；</li>
-<li>用浏览器打开微信图文，这里使用的是 Chrome 浏览器；</li>
-<li>查看源码，点击鼠标右键，选择查看源码；</li>
-<li>搜索关键字，<code>Ctrl + F</code> ，输入 v.qq.com ，即可找到视频的 url 地址；</li>
-</ul>
-<pre><code>  https://v.qq.com/iframe/preview.html?vid=z0191d2jue3&amp;amp;width=500&amp;amp;height=375&amp;amp;auto=0
-</code></pre>
-<ul>
-<li>
-<p>复制视频 url 地址到新窗口打开，如下图</p>
-<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fvjupqp197j30es0but9z.jpg" alt="视频获取" loading="lazy"></figure>
-</li>
-</ul>
-<p>之后有两种方法将视频保存至本地</p>
-<h6 id="idm下载">IDM下载</h6>
-<ul>
-<li>
-<p>安装过 IDM 的，在浏览器中会有一个 IDM浮窗 很方便就可以下载，同时视频播放前的广告也会被 IDM 捕捉，下载时看清楚即可。</p>
-<figure data-type="image" tabindex="2"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fvjurm5m21j30iy0jbtaq.jpg" alt="IDM浮窗" loading="lazy"></figure>
-</li>
-</ul>
-<h6 id="抓包">抓包</h6>
-<ul>
-<li>
-<p>在之前的视频界面按 <code>F12</code> 打开浏览器的控制台，选择 <code>Network</code> ，播放视频，在右边栏找到视频地址即可。</p>
-<figure data-type="image" tabindex="3"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fvjus8qpisj311y0jh41r.jpg" alt="视频直链" loading="lazy"></figure>
-<pre><code>http://ugcbsy.qq.com/uwMRJfz-r5jAYaQXGdGnC2_ppdhgmrDlPaRvaV7F2Ic/z0191d2jue3.mp4?vkey=1CF07F9A6D07BCB2FC5C39D356208A957BD7DEFCD45E02078B70734FC6CF286D021A589AA2D1ECD86F533A44981AF98A36C72DD27E408504D008FDC9552D50FC1D53DFA7BA9BD3D6328DD26D34869FD34F87778711FF8282ECB5AD5428FB21C91B0B15F28017F4F45867291B1BF43D30423A52A90E4A0180&amp;br=60&amp;platform=2&amp;fmt=auto&amp;level=0&amp;sdtfrom=v5010&amp;guid=f0902504c2c6838dddc832e651ea45bf
-</code></pre>
-</li>
-<li>
-<p>复制视频地址，至浏览器中打开，待视频显示出来点击鼠标右键保存即可。</p>
-</li>
-</ul>
 ]]></content>
     </entry>
 </feed>

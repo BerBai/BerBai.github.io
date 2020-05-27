@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-<title>换一个新主题 - Gridea Themes Vant - 涂诣</title>
+<title>摩尔投票算法 - 涂诣</title>
 <meta name="description" content="温故而知新">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -142,54 +142,106 @@
                     <div class="col-12 col-lg-10">
                       <div class="layout-post-main m-right m-md-right">
                         <div class="layout-post-header">
-                          <h1 class="layout-post-title">换一个新主题 - Gridea Themes Vant</h1>
+                          <h1 class="layout-post-title">摩尔投票算法</h1>
                           <div class="layout-post-meta">
                             <div class="item">
-                               <a href="https://tooyi.github.io/tag/TB-SgN5VE/" class="post--keyword"
-                                data-title="themes" data-type="post_tag" data-term-id="39">themes</a>
+                               <a href="https://tooyi.github.io/tag/LTh8GyPIe/" class="post--keyword"
+                                data-title="算法" data-type="post_tag" data-term-id="39">算法</a>
+                               <a href="https://tooyi.github.io/tag/9HhUh71Y9/" class="post--keyword"
+                                data-title="Java" data-type="post_tag" data-term-id="39">Java</a>
                               
                             </div>
                             <div class="item">
-                              <span>2020-05-26</span>
+                              <span>2019-01-04</span>
                             </div>
                           </div>
                         </div>
                         <div class="layout-post-content">
                           <div class="layout-post-item">
                             
-                            <p class="with-img"><img src="https://tooyi.github.io/post-images/hello-gridea.png"
-                                class="attachment-full size-full wp-post-image" alt="换一个新主题 - Gridea Themes Vant" /></p>
+                            <p class="with-img"><img src="https://tooyi.github.io/post-images/mo-er-tou-piao-suan-fa.jpg"
+                                class="attachment-full size-full wp-post-image" alt="摩尔投票算法" /></p>
                             
-                            <h2 id="访问旧博客">访问旧博客</h2>
-<p><strong>新博客使用Gridea管理，旧博客文章暂时未全部搬运。若访问旧博客，请访问</strong><a href="https://tooyi.github.io/blog-old/">涂诣的官方网站</a></p>
-<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+                            <p>摩尔投票算法理解记录</p>
 <!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+<h3 id="摩尔投票算法">摩尔投票算法</h3>
+<blockquote>
+<p>摩尔投票算法也可以叫做多数投票算法。</p>
+</blockquote>
+<h3 id="题">题</h3>
+<blockquote>
+<p>给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。<br>
+你可以假设数组是非空的，并且给定的数组总是存在众数。</p>
+</blockquote>
+<ul>
+<li>示例 1:</li>
+</ul>
+<p><code>输入: [3,2,3]</code><br>
+<code>输出: 3</code></p>
+<ul>
+<li>示例 2:</li>
+</ul>
+<p><code>输入: [2,2,1,1,1,2,2]</code><br>
+<code>输出: 2</code></p>
+<h3 id="常规解法">常规解法</h3>
+<ul>
+<li>遍历数组，并计数，找出出现次数大于 ⌊ n/2 ⌋ 的元素。</li>
+<li>将数组排序，出现次数大于 ⌊ n/2 ⌋ 的元素必定在数组中间，返回nums[n/2]即可。</li>
+</ul>
+<h3 id="摩尔投票法求解">摩尔投票法求解</h3>
+<blockquote>
+<p>算法的时间和空间都很低，时间复杂度为O(n)，空间复杂度为O(1)</p>
+</blockquote>
+<h4 id="算法原理">算法原理</h4>
+<p>每次从数组中找出一对不同的元素，将它们从数组中删除，直到遍历完整个数组。由于这道题已经说明一定存在一个出现次数超过一半的元素，所以遍历完数组后数组中一定会存在至少一个元素。</p>
+<ul>
+<li>算法在局部变量中定义一个序列元素(m)和一个计数器(count)，初始化的情况下计数器为1；</li>
+<li>算法依次扫描序列中的元素，当处理元素x的时候，如果序列元素(m)和x相等，计数器(count)自增1；</li>
+<li>如果不等计数器(count)自减1，并判断计数器是否为0，如果为0，那么将x赋值给m，然后将计数器(count)设置为1(或将x的下一位元素赋值给m，计数器(count)设为0)；</li>
+<li>处理之后，最后存储的序列元素(m)，就是这个序列中最多的元素。<br>
+（如果不确定是否存储的元素m是最多的元素，还可以进行第二遍扫描判断是否为最多的元素）</li>
+</ul>
+<h4 id="伪码实现">伪码实现</h4>
+<pre><code class="language-java">初始化元素m=nums[0],计数器count=1;
+for i = 1 : nums.length - 1
+    if m = nums[i]
+        count++
+    else 
+        count--
+        if count = 0
+            m = numd[i + 1]
+            count = 0
+return m
+</code></pre>
+<h4 id="java实现">java实现</h4>
+<pre><code class="language-java">class Solution {
+    public int majorityElement(int[] nums) {
+        int count = 1, maj = nums[0];
+        for(int i = 1; i &lt; nums.length; i++) {
+            if(maj == nums[i]) { 
+                count++;
+            } else {
+                count--;
+                if(count == 0) {
+                    maj = nums[i + 1];
+                    count = 0;
+                }
+            }
+            
+        }
+        return maj;
+    }
+}
+</code></pre>
+<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
+<figure data-type="image" tabindex="1"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
 
                           </div>
                         </div>
                         <div class="layout-post-social">
                           <div class="item reader">
-                            <div id="/post/hello-gridea/" class="leancloud-visitors view"
-                              data-flag-title="换一个新主题 - Gridea Themes Vant">
+                            <div id="/post/mo-er-tou-piao-suan-fa/" class="leancloud-visitors view"
+                              data-flag-title="摩尔投票算法">
                               <span class="post-meta-item-text">阅读 </span>
                               <span class="leancloud-visitors-count"></span>
                             </div>
@@ -216,7 +268,7 @@
                                   </div>
                                 </div>
                                 <div class="card-footer">
-                                  <div class="item"><span>下一篇</span></div>
+                                  <div class="item"><span>上一篇</span></div>
                                   <div class="item">2019-01-23</div>
                                 </div>
                               </div>
@@ -228,6 +280,31 @@
                               </div>
                               
                             </div>
+
+                            <div class="post-card row">
+                              
+                              <div class="card-content col-12">
+                                <div class="card-body">
+                                  <div class="header">
+                                    <a href="https://tooyi.github.io/post/java-zi-fu-chuan-chang-yong-lei/" class="title">
+                                      <h4>Java 字符串常用类</h4>
+                                    </a>
+                                  </div>
+                                  <div class="inner">
+                                    <div class="abstract">
+                                      <p>字符串知识总结</p>
+
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card-footer">
+                                  <div class="item"><span>下一篇</span></div>
+                                  <div class="item">2018-12-23</div>
+                                </div>
+                              </div>
+                              
+                            </div>
+
                             
                           </div>
                         </div>
@@ -261,8 +338,21 @@
                           <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#%E8%AE%BF%E9%97%AE%E6%97%A7%E5%8D%9A%E5%AE%A2">访问旧博客</a></li>
-<li><a href="#%E7%89%B9%E6%80%A7">特性👇</a></li>
+<li>
+<ul>
+<li><a href="#%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8%E7%AE%97%E6%B3%95">摩尔投票算法</a></li>
+<li><a href="#%E9%A2%98">题</a></li>
+<li><a href="#%E5%B8%B8%E8%A7%84%E8%A7%A3%E6%B3%95">常规解法</a></li>
+<li><a href="#%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8%E6%B3%95%E6%B1%82%E8%A7%A3">摩尔投票法求解</a>
+<ul>
+<li><a href="#%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86">算法原理</a></li>
+<li><a href="#%E4%BC%AA%E7%A0%81%E5%AE%9E%E7%8E%B0">伪码实现</a></li>
+<li><a href="#java%E5%AE%9E%E7%8E%B0">java实现</a></li>
+</ul>
+</li>
+<li><a href="#%E6%AC%A2%E8%BF%8E%E5%85%B3%E6%B3%A8%E6%88%91%E7%9A%84%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7">欢迎关注我的微信公众号</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
