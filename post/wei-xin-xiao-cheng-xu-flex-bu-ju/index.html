@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-<title>json格式化插件 - 涂诣</title>
+<title>微信小程序---flex布局 - 涂诣</title>
 <meta name="description" content="温故而知新">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -142,44 +142,217 @@
                     <div class="col-12 col-lg-10">
                       <div class="layout-post-main m-right m-md-right">
                         <div class="layout-post-header">
-                          <h1 class="layout-post-title">json格式化插件</h1>
+                          <h1 class="layout-post-title">微信小程序---flex布局</h1>
                           <div class="layout-post-meta">
                             <div class="item">
-                               <a href="https://tooyi.github.io/tag/adtBcHWqN/" class="post--keyword"
-                                data-title="插件" data-type="post_tag" data-term-id="39">插件</a>
-                               <a href="https://tooyi.github.io/tag/x4-k0TQ3p/" class="post--keyword"
-                                data-title="tool" data-type="post_tag" data-term-id="39">tool</a>
+                               <a href="https://tooyi.github.io/tag/jRjM7Qrpl/" class="post--keyword"
+                                data-title="WeChat" data-type="post_tag" data-term-id="39">WeChat</a>
                               
                             </div>
                             <div class="item">
-                              <span>2019-01-23</span>
+                              <span>2019-02-16</span>
                             </div>
                           </div>
                         </div>
                         <div class="layout-post-content">
                           <div class="layout-post-item">
                             
-                            <p class="with-img"><img src="https://tooyi.github.io/post-images/json-ge-shi-hua-cha-jian.jpg"
-                                class="attachment-full size-full wp-post-image" alt="json格式化插件" /></p>
+                            <p class="with-img"><img src="https://tooyi.github.io/post-images/wei-xin-xiao-cheng-xu-flex-bu-ju.jpg"
+                                class="attachment-full size-full wp-post-image" alt="微信小程序---flex布局" /></p>
                             
-                            <p>chrome浏览器-json格式化插件</p>
+                            <p>代码记录</p>
 <!-- more -->
-<h3 id="第一步">第一步</h3>
-<p>下载json 的JSON-Handle插件：地址：<a href="http://jsonhandle.sinaapp.com/">http://jsonhandle.sinaapp.com/</a></p>
-<h3 id="第二步">第二步</h3>
-<p>打开浏览器—&gt;右键点击三个点—&gt;更多工具—&gt;扩展程序—&gt;将crx插件拖入浏览器</p>
-<h3 id="这时候你运行你的程序">这时候你运行你的程序</h3>
-<p>出现以下结果说明已经成功安装成功。</p>
-<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fzgln4pwpaj313g0vgmzq.jpg" alt="效果图" loading="lazy"></figure>
-<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
-<figure data-type="image" tabindex="2"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
+<h2 id="微信小程序-flex布局">微信小程序---flex布局</h2>
+<h3 id="基础代码">基础代码</h3>
+<pre><code class="language-html">&lt;!-- .wxml --&gt;
+&lt;view class='container'&gt;
+  &lt;view class='chunk color1'&gt;1&lt;/view&gt;
+  &lt;view class='chunk color2'&gt;2&lt;/view&gt;
+  &lt;view class='chunk color3'&gt;3&lt;/view&gt;
+&lt;/view&gt;
+</code></pre>
+<pre><code class="language-css">/* .wxss */
+.chunk{
+  height: 100px;
+  width: 100px;
+}
+.container {
+  height: 400px;
+  background: #898989;
+}
+.color1{
+  background-color: red;
+}
+.color2{
+  background-color: blue;
+}
+.color3{
+  background-color: pink;
+}
+</code></pre>
+<h3 id="view-组件">view 组件</h3>
+<p>使用 view 组件时，默认是<strong>列向</strong>排列</p>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1g08b6atmocj30af0ih0st.jpg" alt="默认view布局" loading="lazy"></figure>
+<h4 id="view-组件更改排列方向">view 组件更改排列方向</h4>
+<ol>
+<li>display: inline;</li>
+</ol>
+<p>使用 display: inline; 可以实现横向排列，但是<strong>不能设置高度和宽度</strong>，代码中虽然设置，但是无作用。</p>
+<figure data-type="image" tabindex="2"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1g08bkji2uqj30af0ih74b.jpg" alt="display: inline;" loading="lazy"></figure>
+<pre><code class="language-css">/* .wxss */
+/* 增加 display: inline; */
+.chunk{
+  height: 100px;
+  width: 100px;
+  display: inline;
+}
+.container {
+  height: 400px;
+  background: #898989;
+}
+.color1{
+  background-color: red;
+}
+.color2{
+  background-color: blue;
+}
+.color3{
+  background-color: pink;
+}
+</code></pre>
+<ol start="2">
+<li>display: inline-block;</li>
+</ol>
+<p>inline-block 可以设置高度和宽度。</p>
+<figure data-type="image" tabindex="3"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1g08blqsls0j30af0iit8q.jpg" alt="display: inline-block;" loading="lazy"></figure>
+<pre><code class="language-css">/* .wxss */
+/* 增加 display: inline-block; */
+.chunk{
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+}
+.container {
+  height: 400px;
+  background: #898989;
+}
+.color1{
+  background-color: red;
+}
+.color2{
+  background-color: blue;
+}
+.color3{
+  background-color: pink;
+}
+</code></pre>
+<h3 id="flex">flex</h3>
+<p>而当使用 flex 布局时，默认是<strong>横向</strong>排列</p>
+<figure data-type="image" tabindex="4"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1g08bc0r8eoj30af0ifdfq.jpg" alt="flex默认布局" loading="lazy"></figure>
+<pre><code class="language-css">/* .wxss */
+/* 使用flex布局 */
+.chunk{
+  height: 100px;
+  width: 100px;
+}
+.container {
+  height: 400px;
+  display: flex;
+  background: #898989;
+}
+.color1{
+  background-color: red;
+}
+.color2{
+  background-color: blue;
+}
+.color3{
+  background-color: pink;
+}
+</code></pre>
+<h4 id="更改排列方向">更改排列方向</h4>
+<figure data-type="image" tabindex="5"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1g08bt0zmt6j30af0i73yl.jpg" alt="flex-direction: column;" loading="lazy"></figure>
+<pre><code class="language-css">/* .wxss */
+/* flex-direction: row; 实现行内排列， column实现列内排列*/
+.chunk{
+  height: 100px;
+  width: 100px;
+}
+.container {
+  height: 400px;
+  display: flex;
+  background: #898989;
+}
+.color1{
+  background-color: red;
+}
+.color2{
+  background-color: blue;
+}
+.color3{
+  background-color: pink;
+}
+</code></pre>
+<p>使用 flex 布局还有一个方便实现的功能 ————实现 view 组件的倒序排列<br>
+只需要加一个 flex-direction: row-reverse;</p>
+<figure data-type="image" tabindex="6"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1g08c5qhavgj30af0ieq30.jpg" alt="flex-direction: row-reverse;" loading="lazy"></figure>
+<pre><code class="language-css">/* .wxss */
+/* flex-direction: row-reverse;  实现行内倒序排列 column-reverse;*/
+.chunk{
+  height: 100px;
+  width: 100px;
+}
+.container {
+  height: 400px;
+  display: flex;
+  background: #898989;
+  flex-direction: column-reverse;
+}
+.color1{
+  background-color: red;
+}
+.color2{
+  background-color: blue;
+}
+.color3{
+  background-color: pink;
+}
+</code></pre>
+<p>这时候发现一个问题，现在是从底部开始排列的，想要在顶部开始排列，加上 justify-content: flex-end;</p>
+<figure data-type="image" tabindex="7"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1g08c8wxg6pj30af0ijjrh.jpg" alt="justify-content: flex-end;" loading="lazy"></figure>
+<pre><code class="language-css">/* .wxss */
+/*   justify-content: flex-end;*/
+/* justify-content: space-between; 平均分布  center 剧中分布  space-around 等距分布 */
+.chunk{
+  height: 100px;
+  width: 100px;
+}
+.container {
+  height: 400px;
+  display: flex;
+  background: #898989;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+}
+.color1{
+  background-color: red;
+}
+.color2{
+  background-color: blue;
+}
+.color3{
+  background-color: pink;
+}
+</code></pre>
+<p>这时仔细的你发现，flex-end 不是应该是从底部开始排列的？</p>
+<p>再仔细的你就会发现，前面加入了 flex-direction: column-reverse; 反转了一下，所以 flex-end 就变成 flex-start 的效果了。</p>
 
                           </div>
                         </div>
                         <div class="layout-post-social">
                           <div class="item reader">
-                            <div id="/post/json-ge-shi-hua-cha-jian/" class="leancloud-visitors view"
-                              data-flag-title="json格式化插件">
+                            <div id="/post/wei-xin-xiao-cheng-xu-flex-bu-ju/" class="leancloud-visitors view"
+                              data-flag-title="微信小程序---flex布局">
                               <span class="post-meta-item-text">阅读 </span>
                               <span class="leancloud-visitors-count"></span>
                             </div>
@@ -194,26 +367,29 @@
                               <div class="card-content col-8 col-md-9">
                                 <div class="card-body">
                                   <div class="header">
-                                    <a href="https://tooyi.github.io/post/wei-xin-xiao-cheng-xu-flex-bu-ju/" class="title">
-                                      <h4>微信小程序---flex布局</h4>
+                                    <a href="https://tooyi.github.io/post/hello-gridea/" class="title">
+                                      <h4>换一个新主题 - Gridea Themes Vant</h4>
                                     </a>
                                   </div>
                                   <div class="inner d-none d-sm-block">
                                     <div class="abstract">
-                                      <p>代码记录</p>
+                                      <h2 id="访问旧博客">访问旧博客</h2>
+<p><strong>新博客使用Gridea管理，旧博客文章暂时未全部搬运。若访问旧博客，请访问</strong><a href="https://tooyi.github.io/blog-old/">涂诣的官方网站</a></p>
+<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
 
                                     </div>
                                   </div>
                                 </div>
                                 <div class="card-footer">
                                   <div class="item"><span>上一篇</span></div>
-                                  <div class="item">2019-02-16</div>
+                                  <div class="item">2020-05-26</div>
                                 </div>
                               </div>
                               <div class="card-thumb col-4 col-md-3">
                                 <div class="thumb">
-                                  <a href="https://tooyi.github.io/post/wei-xin-xiao-cheng-xu-flex-bu-ju/"
-                                    style="background-image: url('https://tooyi.github.io/post-images/wei-xin-xiao-cheng-xu-flex-bu-ju.jpg');"></a>
+                                  <a href="https://tooyi.github.io/post/hello-gridea/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/hello-gridea.png');"></a>
                                 </div>
                               </div>
                               
@@ -224,26 +400,26 @@
                               <div class="card-content col-8 col-md-9">
                                 <div class="card-body">
                                   <div class="header">
-                                    <a href="https://tooyi.github.io/post/mo-er-tou-piao-suan-fa/" class="title">
-                                      <h4>摩尔投票算法</h4>
+                                    <a href="https://tooyi.github.io/post/json-ge-shi-hua-cha-jian/" class="title">
+                                      <h4>json格式化插件</h4>
                                     </a>
                                   </div>
                                   <div class="inner d-none d-sm-block">
                                     <div class="abstract">
-                                      <p>摩尔投票算法理解记录</p>
+                                      <p>chrome浏览器-json格式化插件</p>
 
                                     </div>
                                   </div>
                                 </div>
                                 <div class="card-footer">
                                   <div class="item"><span>下一篇</span></div>
-                                  <div class="item">2019-01-04</div>
+                                  <div class="item">2019-01-23</div>
                                 </div>
                               </div>
                               <div class="card-thumb col-4 col-md-3">
                                 <div class="thumb">
-                                  <a href="https://tooyi.github.io/post/mo-er-tou-piao-suan-fa/"
-                                    style="background-image: url('https://tooyi.github.io/post-images/mo-er-tou-piao-suan-fa.jpg');"></a>
+                                  <a href="https://tooyi.github.io/post/json-ge-shi-hua-cha-jian/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/json-ge-shi-hua-cha-jian.jpg');"></a>
                                 </div>
                               </div>
                               
@@ -282,12 +458,19 @@
                           <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li>
+<li><a href="#%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-flex%E5%B8%83%E5%B1%80">微信小程序---flex布局</a>
 <ul>
-<li><a href="#%E7%AC%AC%E4%B8%80%E6%AD%A5">第一步</a></li>
-<li><a href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5">第二步</a></li>
-<li><a href="#%E8%BF%99%E6%97%B6%E5%80%99%E4%BD%A0%E8%BF%90%E8%A1%8C%E4%BD%A0%E7%9A%84%E7%A8%8B%E5%BA%8F">这时候你运行你的程序</a></li>
-<li><a href="#%E6%AC%A2%E8%BF%8E%E5%85%B3%E6%B3%A8%E6%88%91%E7%9A%84%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7">欢迎关注我的微信公众号</a></li>
+<li><a href="#%E5%9F%BA%E7%A1%80%E4%BB%A3%E7%A0%81">基础代码</a></li>
+<li><a href="#view-%E7%BB%84%E4%BB%B6">view 组件</a>
+<ul>
+<li><a href="#view-%E7%BB%84%E4%BB%B6%E6%9B%B4%E6%94%B9%E6%8E%92%E5%88%97%E6%96%B9%E5%90%91">view 组件更改排列方向</a></li>
+</ul>
+</li>
+<li><a href="#flex">flex</a>
+<ul>
+<li><a href="#%E6%9B%B4%E6%94%B9%E6%8E%92%E5%88%97%E6%96%B9%E5%90%91">更改排列方向</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

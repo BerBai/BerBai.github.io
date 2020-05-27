@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tooyi.github.io</id>
     <title>涂诣</title>
-    <updated>2020-05-27T00:58:57.607Z</updated>
+    <updated>2020-05-27T01:02:23.648Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tooyi.github.io"/>
     <link rel="self" href="https://tooyi.github.io/atom.xml"/>
@@ -44,6 +44,202 @@
 <p>未来，它一定会成为你离不开的伙伴</p>
 <p>尽情发挥你的才华吧！</p>
 <p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[微信小程序---flex布局]]></title>
+        <id>https://tooyi.github.io/post/wei-xin-xiao-cheng-xu-flex-bu-ju/</id>
+        <link href="https://tooyi.github.io/post/wei-xin-xiao-cheng-xu-flex-bu-ju/">
+        </link>
+        <updated>2019-02-16T00:59:35.000Z</updated>
+        <summary type="html"><![CDATA[<p>代码记录</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>代码记录</p>
+<!-- more -->
+<h2 id="微信小程序-flex布局">微信小程序---flex布局</h2>
+<h3 id="基础代码">基础代码</h3>
+<pre><code class="language-html">&lt;!-- .wxml --&gt;
+&lt;view class='container'&gt;
+  &lt;view class='chunk color1'&gt;1&lt;/view&gt;
+  &lt;view class='chunk color2'&gt;2&lt;/view&gt;
+  &lt;view class='chunk color3'&gt;3&lt;/view&gt;
+&lt;/view&gt;
+</code></pre>
+<pre><code class="language-css">/* .wxss */
+.chunk{
+  height: 100px;
+  width: 100px;
+}
+.container {
+  height: 400px;
+  background: #898989;
+}
+.color1{
+  background-color: red;
+}
+.color2{
+  background-color: blue;
+}
+.color3{
+  background-color: pink;
+}
+</code></pre>
+<h3 id="view-组件">view 组件</h3>
+<p>使用 view 组件时，默认是<strong>列向</strong>排列</p>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1g08b6atmocj30af0ih0st.jpg" alt="默认view布局" loading="lazy"></figure>
+<h4 id="view-组件更改排列方向">view 组件更改排列方向</h4>
+<ol>
+<li>display: inline;</li>
+</ol>
+<p>使用 display: inline; 可以实现横向排列，但是<strong>不能设置高度和宽度</strong>，代码中虽然设置，但是无作用。</p>
+<figure data-type="image" tabindex="2"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1g08bkji2uqj30af0ih74b.jpg" alt="display: inline;" loading="lazy"></figure>
+<pre><code class="language-css">/* .wxss */
+/* 增加 display: inline; */
+.chunk{
+  height: 100px;
+  width: 100px;
+  display: inline;
+}
+.container {
+  height: 400px;
+  background: #898989;
+}
+.color1{
+  background-color: red;
+}
+.color2{
+  background-color: blue;
+}
+.color3{
+  background-color: pink;
+}
+</code></pre>
+<ol start="2">
+<li>display: inline-block;</li>
+</ol>
+<p>inline-block 可以设置高度和宽度。</p>
+<figure data-type="image" tabindex="3"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1g08blqsls0j30af0iit8q.jpg" alt="display: inline-block;" loading="lazy"></figure>
+<pre><code class="language-css">/* .wxss */
+/* 增加 display: inline-block; */
+.chunk{
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+}
+.container {
+  height: 400px;
+  background: #898989;
+}
+.color1{
+  background-color: red;
+}
+.color2{
+  background-color: blue;
+}
+.color3{
+  background-color: pink;
+}
+</code></pre>
+<h3 id="flex">flex</h3>
+<p>而当使用 flex 布局时，默认是<strong>横向</strong>排列</p>
+<figure data-type="image" tabindex="4"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1g08bc0r8eoj30af0ifdfq.jpg" alt="flex默认布局" loading="lazy"></figure>
+<pre><code class="language-css">/* .wxss */
+/* 使用flex布局 */
+.chunk{
+  height: 100px;
+  width: 100px;
+}
+.container {
+  height: 400px;
+  display: flex;
+  background: #898989;
+}
+.color1{
+  background-color: red;
+}
+.color2{
+  background-color: blue;
+}
+.color3{
+  background-color: pink;
+}
+</code></pre>
+<h4 id="更改排列方向">更改排列方向</h4>
+<figure data-type="image" tabindex="5"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1g08bt0zmt6j30af0i73yl.jpg" alt="flex-direction: column;" loading="lazy"></figure>
+<pre><code class="language-css">/* .wxss */
+/* flex-direction: row; 实现行内排列， column实现列内排列*/
+.chunk{
+  height: 100px;
+  width: 100px;
+}
+.container {
+  height: 400px;
+  display: flex;
+  background: #898989;
+}
+.color1{
+  background-color: red;
+}
+.color2{
+  background-color: blue;
+}
+.color3{
+  background-color: pink;
+}
+</code></pre>
+<p>使用 flex 布局还有一个方便实现的功能 ————实现 view 组件的倒序排列<br>
+只需要加一个 flex-direction: row-reverse;</p>
+<figure data-type="image" tabindex="6"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1g08c5qhavgj30af0ieq30.jpg" alt="flex-direction: row-reverse;" loading="lazy"></figure>
+<pre><code class="language-css">/* .wxss */
+/* flex-direction: row-reverse;  实现行内倒序排列 column-reverse;*/
+.chunk{
+  height: 100px;
+  width: 100px;
+}
+.container {
+  height: 400px;
+  display: flex;
+  background: #898989;
+  flex-direction: column-reverse;
+}
+.color1{
+  background-color: red;
+}
+.color2{
+  background-color: blue;
+}
+.color3{
+  background-color: pink;
+}
+</code></pre>
+<p>这时候发现一个问题，现在是从底部开始排列的，想要在顶部开始排列，加上 justify-content: flex-end;</p>
+<figure data-type="image" tabindex="7"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1g08c8wxg6pj30af0ijjrh.jpg" alt="justify-content: flex-end;" loading="lazy"></figure>
+<pre><code class="language-css">/* .wxss */
+/*   justify-content: flex-end;*/
+/* justify-content: space-between; 平均分布  center 剧中分布  space-around 等距分布 */
+.chunk{
+  height: 100px;
+  width: 100px;
+}
+.container {
+  height: 400px;
+  display: flex;
+  background: #898989;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+}
+.color1{
+  background-color: red;
+}
+.color2{
+  background-color: blue;
+}
+.color3{
+  background-color: pink;
+}
+</code></pre>
+<p>这时仔细的你发现，flex-end 不是应该是从底部开始排列的？</p>
+<p>再仔细的你就会发现，前面加入了 flex-direction: column-reverse; 反转了一下，所以 flex-end 就变成 flex-start 的效果了。</p>
 ]]></content>
     </entry>
     <entry>
@@ -1136,59 +1332,6 @@ static int indexOf(char[] source, int sourceOffset, int sourceCount, char[] targ
 <figure data-type="image" tabindex="2"><img src="https://i.loli.net/2018/10/16/5bc5f2cb2ac77.jpg" alt="SSM SSH框架总结.jpg" loading="lazy"></figure>
 <h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
 <figure data-type="image" tabindex="3"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Web前端助手(FeHelper)]]></title>
-        <id>https://tooyi.github.io/post/web-fehelper/</id>
-        <link href="https://tooyi.github.io/post/web-fehelper/">
-        </link>
-        <updated>2018-10-02T00:38:36.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="web前端助手fehelper">Web前端助手(FeHelper)</h2>
-<h3 id="获取地址">获取地址：</h3>
-<p><a href="https://chrome.google.com/webstore/detail/web%E5%89%8D%E7%AB%AF%E5%8A%A9%E6%89%8Bfehelper/pkgccpejnmalmdinmhkkfafefagiiiad">Chrome扩展商城</a></p>
-<p><a href="https://github.com/zxlie/FeHelper/tree/master/apps/static/screenshot/crx">国内地址</a></p>
-<h3 id="安装方法">安装方法</h3>
-<p>Chrome扩展商城下载不需要看此方法。</p>
-<p>下载当前最新版*.crx；</p>
-<p>chrome浏览器地址栏输入：chrome://extensions/ 并打开；</p>
-<p>右上角开启开发者模式；</p>
-<p>拖拽crx到当前页面，完成安装。</p>
-<h3 id="功能简介">功能简介</h3>
-<h4 id="fehelper-弹出菜单">FeHelper--弹出菜单</h4>
-<p>插件入口，点击ICON，插件相关的所有功能都会在这里列出来，在popup中选择所需使用的功能即可使用</p>
-<h4 id="json接口自动格式化查看">JSON接口自动格式化查看</h4>
-<p>当你访问的接口（打开的页面）返回的是一个JSON格式的数据，FeHelper会自动将内容进行格式化处理，便于您的查看</p>
-<h4 id="json查看器">JSON查看器</h4>
-<p>把你的JSON代码粘贴到JSON查看器的输入框中，点击“格式化”，在下方便会以非常友好的方式列出JSON数据，便于查看</p>
-<h4 id="代码美化">代码美化</h4>
-<p>包括Javascript代码美化、CSS代码美化、HTML代码美化；其实所有C系的代码，都可以通过Javascript代码美化工具进行格式化查看</p>
-<h4 id="代码压缩">代码压缩</h4>
-<p>包括Web前端Javascript代码压缩、CSS代码压缩、HTML代码压缩</p>
-<h4 id="字符串编解码">字符串编解码</h4>
-<p>包括Unicode编码和解码、UTF-8字符串编码和解码、Base64字符串编解码、字符串MD5编码，前端非常实用的工具</p>
-<h4 id="图片base64编码">图片Base64编码</h4>
-<p>对图片文件进行base64编码，直接拷贝datauri格式的数据</p>
-<h4 id="二维码生成器">二维码生成器</h4>
-<p>能对网址、普通文本内容、电话号码、通讯录、短信等编码并生成二维码，很实用的二维码生成工具</p>
-<h4 id="二维码解码">二维码解码</h4>
-<p>针对网页上的二维码，点击右键，选择【二维码解码】，可在当前页面直接看到解码结果！</p>
-<h4 id="全网页截图">全网页截图</h4>
-<p>针对整个网页进行滚动截屏，在新窗口可预览后再手动保存</p>
-<h4 id="时间戳转换工具">时间（戳）转换工具</h4>
-<p>支持任意时间到对应时间戳的转换；支持任意时间戳到对应日期的转换</p>
-<h4 id="正则表达式工具">正则表达式工具</h4>
-<p>提供一个正则表达式的及时测试工具，并能将匹配结果进行高亮显示、高亮定位等；同时还罗列了一些常用的正则表达式供开发者使用</p>
-<h4 id="页面取色工具">页面取色工具</h4>
-<p>提供一个网页取色的工具，任意页面均可使用，方便大家在开发过程中能精准获取某元素的颜色值，再也不用截图后再通过Photoshop取色了</p>
-<h4 id="编码规范检测">编码规范检测</h4>
-<p>对当前网页进行Javascript、CSS、HTML编码规范的检测，包括文件是否压缩、标签是否正确闭合、cookie管理等等</p>
-<h4 id="页面性能检测">页面性能检测</h4>
-<p>对当前页面的性能进行检测，如HTTP响应时间、页面渲染时间、是否启用gzip压缩等等</p>
-<h4 id="fehelper配置页">FeHelper配置页</h4>
-<p>在这里，你可以随意定制属于你自己的FeHelper常用功能！</p>
-<h3 id="关注我的微信公众号">关注我的微信公众号</h3>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2018/10/13/5bc1d8c55f18a.png" alt="微信公众号：柏战不殆" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
