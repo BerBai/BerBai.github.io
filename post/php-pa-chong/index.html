@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-<title>composer 脱坑记 - 涂诣</title>
+<title>PHP 爬虫 - 涂诣</title>
 <meta name="description" content="温故而知新">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -142,7 +142,7 @@
                     <div class="col-12 col-lg-10">
                       <div class="layout-post-main m-right m-md-right">
                         <div class="layout-post-header">
-                          <h1 class="layout-post-title">composer 脱坑记</h1>
+                          <h1 class="layout-post-title">PHP 爬虫</h1>
                           <div class="layout-post-meta">
                             <div class="item">
                                <a href="https://tooyi.github.io/tag/lR4II0q5k/" class="post--keyword"
@@ -150,56 +150,93 @@
                               
                             </div>
                             <div class="item">
-                              <span>2019-03-02</span>
+                              <span>2019-04-02</span>
                             </div>
                           </div>
                         </div>
                         <div class="layout-post-content">
                           <div class="layout-post-item">
                             
-                            <p class="with-img"><img src="https://tooyi.github.io/post-images/composer-tuo-keng-ji.png"
-                                class="attachment-full size-full wp-post-image" alt="composer 脱坑记" /></p>
+                            <p class="with-img"><img src="https://tooyi.github.io/post-images/php-pa-chong.jpg"
+                                class="attachment-full size-full wp-post-image" alt="PHP 爬虫" /></p>
                             
-                            <p>解决composer update太慢</p>
+                            <p>学习参考小结</p>
 <!-- more -->
-<h3 id="composer-介绍">composer 介绍</h3>
-<p>Composer 是 PHP5.3以上 的一个依赖管理工具。它允许你声明项目所依赖的代码库，它会在你的项目中为你安装他们。Composer 不是一个包管理器。是的，它涉及 &quot;packages&quot; 和 &quot;libraries&quot;，但它在每个项目的基础上进行管理，在你项目的某个目录中（例如 vendor）进行安装。默认情况下它不会在全局安装任何东西。因此，这仅仅是一个依赖管理。</p>
-<h3 id="那么问题来了">那么，问题来了</h3>
-<blockquote>
-<p>composer update 太慢，怎么解决</p>
-</blockquote>
-<blockquote>
-<p>卡在这里怎么办</p>
-</blockquote>
-<pre><code>Loading composer repositories with package information
-Updating dependencies (including require-dev)
+<h2 id="简单获取百度title">简单获取百度title</h2>
+<pre><code class="language-php">&lt;?PHP
+   // 通过 file_get_contents 函数获取百度页面源码
+   $html = file_get_contents(&quot;https://www.baidu.com/index.html&quot;);
+
+   // 通过 preg_replace 函数使页面源码由多行变单行
+   $htmlOneLine = preg_replace(&quot;/\r|\n|\t/&quot;,&quot;&quot;,$html);
+
+   // 通过 preg_match 函数提取获取页面的标题信息
+   preg_match(&quot;/&lt;title&gt;(.*)&lt;\/title&gt;/iU&quot;,$htmlOneLine,$titleArr);
+
+   // 由于 preg_match 函数的结果是数组的形式
+   $title = $titleArr[1];
+
+   // 通过 echo 函数输出标题信息
+   echo $title;
+?&gt;
 </code></pre>
-<p>后来看到这里：</p>
-<p>https://pkg.phpcomposer.com/#how-to-install-composer</p>
-<h3 id="方法一">方法一</h3>
-<p>打开命令行窗口（windows用户）或控制台（Linux、Mac 用户）并执行如下命令</p>
-<pre><code>composer config -g repo.packagist composer https://packagist.phpcomposer.com
+<h2 id="乱码解决">乱码解决</h2>
+<pre><code class="language-php">&lt;?PHP
+   // 乱码解决办法，把其他编码格式通过 mb_convert_encoding 函数统一转为 UTF-8 格式
+   $html = mb_convert_encoding($html,'UTF-8','UTF-8,GBK,GB2312,BIG5');
+   // 还有一种因为gzip所以出现乱码的，我会在以后讲
+?&gt;
 </code></pre>
-<h3 id="方法二-修改当前项目的-composerjson-配置文件">方法二： 修改当前项目的 composer.json 配置文件：</h3>
-<p>打开命令行窗口（windows用户）或控制台（Linux、Mac 用户），进入你的项目的根目录（也就是 composer.json 文件所在目录），执行如下命令：</p>
-<pre><code>composer config repo.packagist composer https://packagist.phpcomposer.com
+<h2 id="获取不到标题信息">获取不到标题信息</h2>
+<pre><code class="language-php">&lt;?PHP
+// 获取不到标题信息解决办法，首先判断是否能获取到页面源码
+// 如果能获取到但还是不能获取到标题信息
+// 我猜测的问题是：因为是使用正则表达式获取的，源码没有变成一行，获取起来就会出现问题
+$htmlOneLine=preg_replace(&quot;/\r|\n|\t/&quot;,&quot;&quot;,$html);
+?&gt;
 </code></pre>
-<p>上述命令将会在当前项目中的 composer.json 文件的末尾自动添加镜像的配置信息（你也可以自己手工添加）：</p>
-<pre><code class="language-js">&quot;repositories&quot;: {
-    &quot;packagist&quot;: {
-        &quot;type&quot;: &quot;composer&quot;,
-        &quot;url&quot;: &quot;https://packagist.phpcomposer.com&quot;
-    }
+<h2 id="获取不到页面源码">获取不到页面源码</h2>
+<pre><code class="language-php">&lt;?PHP
+   // 像新浪微博你可能获取到的是“Sina Visitor System”
+   // 解决办法添加header信息
+   $opts = array(
+   	'http'=&gt;array(
+		'method'=&gt;&quot;GET&quot;,
+		&quot;timeout&quot;=&gt;20,
+		'header'=&gt;&quot;User-Agent: Spider \r\n&quot;,
+   	)
+   );
+   $context = stream_context_create($opts);
+   $html = file_get_contents($domain,0,$context,0,150000);
+   // 这样就能获取到新浪微博的页面了
+?&gt;
+</code></pre>
+<h2 id="爬取图片">爬取图片</h2>
+<pre><code class="language-php">&lt;?php
+header(&quot;Content-type:text/html;Charset=utf-8&quot;);
+
+$ch = curl_init();
+$url = &quot;https://pixabay.com/&quot;;
+curl_setopt($ch, CURLOPT_USERAGENT, &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.113 Safari/537.36&quot;);
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+$content = curl_exec($ch);
+$string = file_get_contents($url);
+preg_match_all(&quot;/&lt;img([^&gt;]*)\s*src=('|\&quot;)([^'\&quot;]+)('|\&quot;)/&quot;,
+    $string, $matches);
+$new_arr = array_unique($matches[3]);
+foreach ($new_arr as $key) {
+    echo &quot;&lt;img src=$key&gt;&quot;;
 }
+
 </code></pre>
-<p><strong>如果方法一不管用，尝试下方法二。</strong></p>
 
                           </div>
                         </div>
                         <div class="layout-post-social">
                           <div class="item reader">
-                            <div id="/post/composer-tuo-keng-ji/" class="leancloud-visitors view"
-                              data-flag-title="composer 脱坑记">
+                            <div id="/post/php-pa-chong/" class="leancloud-visitors view"
+                              data-flag-title="PHP 爬虫">
                               <span class="post-meta-item-text">阅读 </span>
                               <span class="leancloud-visitors-count"></span>
                             </div>
@@ -214,26 +251,29 @@ Updating dependencies (including require-dev)
                               <div class="card-content col-8 col-md-9">
                                 <div class="card-body">
                                   <div class="header">
-                                    <a href="https://tooyi.github.io/post/wnmp/" class="title">
-                                      <h4>WNMP 配置</h4>
+                                    <a href="https://tooyi.github.io/post/hello-gridea/" class="title">
+                                      <h4>换一个新主题 - Gridea Themes Vant</h4>
                                     </a>
                                   </div>
                                   <div class="inner d-none d-sm-block">
                                     <div class="abstract">
-                                      <p>win10 + nginx + php7 + mysql</p>
+                                      <h2 id="访问旧博客">访问旧博客</h2>
+<p><strong>新博客使用Gridea管理，旧博客文章暂时未全部搬运。若访问旧博客，请访问</strong><a href="https://tooyi.github.io/blog-old/">涂诣的官方网站</a></p>
+<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
 
                                     </div>
                                   </div>
                                 </div>
                                 <div class="card-footer">
                                   <div class="item"><span>上一篇</span></div>
-                                  <div class="item">2019-03-03</div>
+                                  <div class="item">2020-05-26</div>
                                 </div>
                               </div>
                               <div class="card-thumb col-4 col-md-3">
                                 <div class="thumb">
-                                  <a href="https://tooyi.github.io/post/wnmp/"
-                                    style="background-image: url('https://tooyi.github.io/post-images/wnmp.jpg');"></a>
+                                  <a href="https://tooyi.github.io/post/hello-gridea/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/hello-gridea.png');"></a>
                                 </div>
                               </div>
                               
@@ -244,26 +284,26 @@ Updating dependencies (including require-dev)
                               <div class="card-content col-8 col-md-9">
                                 <div class="card-body">
                                   <div class="header">
-                                    <a href="https://tooyi.github.io/post/lan-jia-zai-yu-yu-jia-zai/" class="title">
-                                      <h4>懒加载与预加载</h4>
+                                    <a href="https://tooyi.github.io/post/zai-xian-xue-xi-sql/" class="title">
+                                      <h4>在线学习SQL</h4>
                                     </a>
                                   </div>
                                   <div class="inner d-none d-sm-block">
                                     <div class="abstract">
-                                      <p>什么是懒加载、预加载？</p>
+                                      <p>推荐几个在线学习SQL的网页</p>
 
                                     </div>
                                   </div>
                                 </div>
                                 <div class="card-footer">
                                   <div class="item"><span>下一篇</span></div>
-                                  <div class="item">2019-02-20</div>
+                                  <div class="item">2019-03-28</div>
                                 </div>
                               </div>
                               <div class="card-thumb col-4 col-md-3">
                                 <div class="thumb">
-                                  <a href="https://tooyi.github.io/post/lan-jia-zai-yu-yu-jia-zai/"
-                                    style="background-image: url('https://tooyi.github.io/post-images/lan-jia-zai-yu-yu-jia-zai.jpg');"></a>
+                                  <a href="https://tooyi.github.io/post/zai-xian-xue-xi-sql/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/zai-xian-xue-xi-sql.jpg');"></a>
                                 </div>
                               </div>
                               
@@ -302,14 +342,11 @@ Updating dependencies (including require-dev)
                           <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li>
-<ul>
-<li><a href="#composer-%E4%BB%8B%E7%BB%8D">composer 介绍</a></li>
-<li><a href="#%E9%82%A3%E4%B9%88%E9%97%AE%E9%A2%98%E6%9D%A5%E4%BA%86">那么，问题来了</a></li>
-<li><a href="#%E6%96%B9%E6%B3%95%E4%B8%80">方法一</a></li>
-<li><a href="#%E6%96%B9%E6%B3%95%E4%BA%8C-%E4%BF%AE%E6%94%B9%E5%BD%93%E5%89%8D%E9%A1%B9%E7%9B%AE%E7%9A%84-composerjson-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">方法二： 修改当前项目的 composer.json 配置文件：</a></li>
-</ul>
-</li>
+<li><a href="#%E7%AE%80%E5%8D%95%E8%8E%B7%E5%8F%96%E7%99%BE%E5%BA%A6title">简单获取百度title</a></li>
+<li><a href="#%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3">乱码解决</a></li>
+<li><a href="#%E8%8E%B7%E5%8F%96%E4%B8%8D%E5%88%B0%E6%A0%87%E9%A2%98%E4%BF%A1%E6%81%AF">获取不到标题信息</a></li>
+<li><a href="#%E8%8E%B7%E5%8F%96%E4%B8%8D%E5%88%B0%E9%A1%B5%E9%9D%A2%E6%BA%90%E7%A0%81">获取不到页面源码</a></li>
+<li><a href="#%E7%88%AC%E5%8F%96%E5%9B%BE%E7%89%87">爬取图片</a></li>
 </ul>
 </li>
 </ul>

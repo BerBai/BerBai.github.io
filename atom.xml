@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tooyi.github.io</id>
     <title>涂诣</title>
-    <updated>2020-05-27T01:10:44.273Z</updated>
+    <updated>2020-05-27T01:18:20.896Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tooyi.github.io"/>
     <link rel="self" href="https://tooyi.github.io/atom.xml"/>
@@ -44,6 +44,396 @@
 <p>未来，它一定会成为你离不开的伙伴</p>
 <p>尽情发挥你的才华吧！</p>
 <p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[PHP 爬虫]]></title>
+        <id>https://tooyi.github.io/post/php-pa-chong/</id>
+        <link href="https://tooyi.github.io/post/php-pa-chong/">
+        </link>
+        <updated>2019-04-02T01:14:30.000Z</updated>
+        <summary type="html"><![CDATA[<p>学习参考小结</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>学习参考小结</p>
+<!-- more -->
+<h2 id="简单获取百度title">简单获取百度title</h2>
+<pre><code class="language-php">&lt;?PHP
+   // 通过 file_get_contents 函数获取百度页面源码
+   $html = file_get_contents(&quot;https://www.baidu.com/index.html&quot;);
+
+   // 通过 preg_replace 函数使页面源码由多行变单行
+   $htmlOneLine = preg_replace(&quot;/\r|\n|\t/&quot;,&quot;&quot;,$html);
+
+   // 通过 preg_match 函数提取获取页面的标题信息
+   preg_match(&quot;/&lt;title&gt;(.*)&lt;\/title&gt;/iU&quot;,$htmlOneLine,$titleArr);
+
+   // 由于 preg_match 函数的结果是数组的形式
+   $title = $titleArr[1];
+
+   // 通过 echo 函数输出标题信息
+   echo $title;
+?&gt;
+</code></pre>
+<h2 id="乱码解决">乱码解决</h2>
+<pre><code class="language-php">&lt;?PHP
+   // 乱码解决办法，把其他编码格式通过 mb_convert_encoding 函数统一转为 UTF-8 格式
+   $html = mb_convert_encoding($html,'UTF-8','UTF-8,GBK,GB2312,BIG5');
+   // 还有一种因为gzip所以出现乱码的，我会在以后讲
+?&gt;
+</code></pre>
+<h2 id="获取不到标题信息">获取不到标题信息</h2>
+<pre><code class="language-php">&lt;?PHP
+// 获取不到标题信息解决办法，首先判断是否能获取到页面源码
+// 如果能获取到但还是不能获取到标题信息
+// 我猜测的问题是：因为是使用正则表达式获取的，源码没有变成一行，获取起来就会出现问题
+$htmlOneLine=preg_replace(&quot;/\r|\n|\t/&quot;,&quot;&quot;,$html);
+?&gt;
+</code></pre>
+<h2 id="获取不到页面源码">获取不到页面源码</h2>
+<pre><code class="language-php">&lt;?PHP
+   // 像新浪微博你可能获取到的是“Sina Visitor System”
+   // 解决办法添加header信息
+   $opts = array(
+   	'http'=&gt;array(
+		'method'=&gt;&quot;GET&quot;,
+		&quot;timeout&quot;=&gt;20,
+		'header'=&gt;&quot;User-Agent: Spider \r\n&quot;,
+   	)
+   );
+   $context = stream_context_create($opts);
+   $html = file_get_contents($domain,0,$context,0,150000);
+   // 这样就能获取到新浪微博的页面了
+?&gt;
+</code></pre>
+<h2 id="爬取图片">爬取图片</h2>
+<pre><code class="language-php">&lt;?php
+header(&quot;Content-type:text/html;Charset=utf-8&quot;);
+
+$ch = curl_init();
+$url = &quot;https://pixabay.com/&quot;;
+curl_setopt($ch, CURLOPT_USERAGENT, &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.113 Safari/537.36&quot;);
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+$content = curl_exec($ch);
+$string = file_get_contents($url);
+preg_match_all(&quot;/&lt;img([^&gt;]*)\s*src=('|\&quot;)([^'\&quot;]+)('|\&quot;)/&quot;,
+    $string, $matches);
+$new_arr = array_unique($matches[3]);
+foreach ($new_arr as $key) {
+    echo &quot;&lt;img src=$key&gt;&quot;;
+}
+
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[在线学习SQL]]></title>
+        <id>https://tooyi.github.io/post/zai-xian-xue-xi-sql/</id>
+        <link href="https://tooyi.github.io/post/zai-xian-xue-xi-sql/">
+        </link>
+        <updated>2019-03-28T01:12:52.000Z</updated>
+        <summary type="html"><![CDATA[<p>推荐几个在线学习SQL的网页</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>推荐几个在线学习SQL的网页</p>
+<!-- more -->
+<h2 id="sql-fiddle">SQL Fiddle</h2>
+<p>地址：<a href="http://sqlfiddle.com/">http://sqlfiddle.com/</a></p>
+<p>提供有MySQL5.6、Oracle11g R2、PostgreSQL9.6及9.3、SQLite（WedSQL）、SQLite（SQL.js)、MS SQL Server 2017.</p>
+<p>总体体验不错。</p>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNly1g1iphw4eu2j31hw0u0goo.jpg" alt="" loading="lazy"></figure>
+<h2 id="sqlzoo">SQLZOO</h2>
+<p>地址：<a href="http://zh.sqlzoo.net/wiki/SELECT_basics/zh">http://zh.sqlzoo.net/wiki/SELECT_basics/zh</a></p>
+<p>SQL练习网站</p>
+<figure data-type="image" tabindex="2"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNly1g1ipi8mqyjj317y0s5gof.jpg" alt="" loading="lazy"></figure>
+<p>做了下前两篇，附上答案。</p>
+<h3 id="sqlzoo-前两节-select-basics-和-select-name-的答案">SQLZOO 前两节 SELECT basics 和 SELECT name 的答案。</h3>
+<h4 id="select-basic">SELECT basic</h4>
+<p>1.修改此例子,以顯示德國 Germany 的人口。</p>
+<pre><code>  SELECT population FROM world WHERE name = 'Germany'
+</code></pre>
+<p>2.修改此例子,查詢面積為 5,000,000 以上平方公里的國家,對每個國家顯示她的名字和人均國內生產總值(gdp/population)。</p>
+<pre><code>SELECT name, gdp/population FROM world WHERE area &gt; 5000000
+</code></pre>
+<p>3.顯示“Ireland 愛爾蘭”,“Iceland 冰島”,“Denmark 丹麥”的國家名稱和人口。</p>
+<pre><code>SELECT name, population FROM world WHERE name IN ('Ireland', 'Iceland', 'Denmark');
+</code></pre>
+<p>4.修改此例子,以顯示面積為 200,000 及 250,000 之間的國家名稱和該國面積。</p>
+<pre><code>SELECT name, area FROM world WHERE area BETWEEN 200000 AND 250000
+</code></pre>
+<h4 id="select-names">SELECT names</h4>
+<p>1.找出以 Y 為開首的國家。</p>
+<pre><code>SELECT name FROM world WHERE name LIKE 'Y%'
+</code></pre>
+<p>2.找出以 Y 為結尾的國家。</p>
+<pre><code>SELECT name FROM world WHERE name LIKE '%Y'
+</code></pre>
+<p>3.找出所有國家,其名字包括字母x。</p>
+<pre><code>SELECT name FROM world WHERE name LIKE '%x%'
+</code></pre>
+<p>4.找出所有國家,其名字以 land 作結尾。</p>
+<pre><code>SELECT name FROM world WHERE name LIKE '%land'
+</code></pre>
+<p>5.找出所有國家,其名字以 C 作開始,ia 作結尾。</p>
+<pre><code>SELECT name FROM world WHERE name LIKE 'C%ia'
+</code></pre>
+<p>6.找出所有國家,其名字包括字母oo。</p>
+<pre><code>SELECT name FROM world WHERE name LIKE '%oo%'
+</code></pre>
+<p>7.找出所有國家,其名字包括三個或以上的a。</p>
+<pre><code>SELECT name FROM world WHERE name LIKE '%a%a%a%'
+</code></pre>
+<p>8.找出所有國家,其名字以t作第二個字母。</p>
+<pre><code>SELECT name FROM world WHERE name LIKE '_t%' ORDER BY name
+</code></pre>
+<p>9.找出所有國家,其名字都有兩個字母 o,被另外兩個字母相隔着。</p>
+<pre><code>SELECT name FROM world WHERE name LIKE '%o__o%' ORDER BY name
+</code></pre>
+<p>10.找出所有國家,其名字都是 4 個字母的。</p>
+<pre><code>SELECT name FROM world WHERE name LIKE '____'
+</code></pre>
+<p>11.顯示所有國家名字,其首都和國家名字是相同的</p>
+<pre><code>SELECT name FROM world WHERE name = capital
+</code></pre>
+<p>12.顯示所有國家名字,其首都是國家名字加上” City”。</p>
+<pre><code>SELECT name  FROM world WHERE capital = concat(name, ' City')
+</code></pre>
+<p>13.找出所有首都和其國家名字,而首都要有國家名字中出現。</p>
+<pre><code>SELECT capital, name FROM world WHERE capital LIKE concat('%',name,'%')
+</code></pre>
+<p>14.找出所有首都和其國家名字,而首都是國家名字的延伸。 你應顯示 Mexico City,因它比其國家名字 Mexico 長。 你不應顯示 Luxembourg,因它的首都和國家名相是相同的。</p>
+<pre><code>SELECT name, capital FROM world WHERE capital LIKE concat('%',name,'_%')
+</code></pre>
+<p>15.&quot;Monaco-Ville&quot;是合併國家名字 &quot;Monaco&quot; 和延伸詞&quot;-Ville&quot;.<br>
+顯示國家名字，及其延伸詞，如首都是國家名字的延伸。</p>
+<pre><code>SELECT name, REPLACE(capital, name, '') FROM world WHERE capital LIKE CONCAT('%',name,'%') AND REPLACE(capital, name, '') &lt;&gt; ''
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Oracle学习小结]]></title>
+        <id>https://tooyi.github.io/post/oracle-xue-xi-xiao-jie/</id>
+        <link href="https://tooyi.github.io/post/oracle-xue-xi-xiao-jie/">
+        </link>
+        <updated>2019-03-28T01:10:46.000Z</updated>
+        <summary type="html"><![CDATA[<p>最近学习Oracle，做个小总结</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>最近学习Oracle，做个小总结</p>
+<!-- more -->
+<h1 id="oracle-预备知识">Oracle 预备知识</h1>
+<h2 id="1oracle数据库中查询操作的基本语法">1.Oracle数据库中查询操作的基本语法</h2>
+<pre><code class="language-sql">SELECT [ALL|DISTINCT]column_name[,expression…]
+FROM  table1_name[,table2_name,view_name,…]
+[WHERE condition]
+[GROUP BY column_name1[,column_name2,…] [HAVING group_condition]]
+[ORDER BY column_name2 [ASC|DESC][,column_name2,…]];
+</code></pre>
+<h2 id="2常用的统计聚集函数">2.常用的统计（聚集）函数</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函    数</th>
+<th style="text-align:center">格    式</th>
+<th style="text-align:center">功    能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">COUNT</td>
+<td style="text-align:center">COUNT([DISTINCT|ALL] *)</td>
+<td style="text-align:center">返回结果集中记录个数</td>
+</tr>
+<tr>
+<td style="text-align:center">COUNT</td>
+<td style="text-align:center">COUNT([DISTINCT|ALL] column)</td>
+<td style="text-align:center">返回结果集中非空记录个数</td>
+</tr>
+<tr>
+<td style="text-align:center">AVG</td>
+<td style="text-align:center">AVG([DISTINCT|ALL] column)</td>
+<td style="text-align:center">返回列或表达式的平均值</td>
+</tr>
+<tr>
+<td style="text-align:center">MAX</td>
+<td style="text-align:center">MAX([DISTINCT|ALL] column )</td>
+<td style="text-align:center">返回列或表达式的最大值</td>
+</tr>
+<tr>
+<td style="text-align:center">MIN</td>
+<td style="text-align:center">MIN([DISTINCT|ALL] column )</td>
+<td style="text-align:center">返回列或表达式的最小值</td>
+</tr>
+<tr>
+<td style="text-align:center">SUM</td>
+<td style="text-align:center">SUM([DISTINCT|ALL] column )</td>
+<td style="text-align:center">返回列或表达式的总和</td>
+</tr>
+<tr>
+<td style="text-align:center">STDDEV</td>
+<td style="text-align:center">STDDEV(column)</td>
+<td style="text-align:center">返回列或表达式的标准差</td>
+</tr>
+<tr>
+<td style="text-align:center">VARIANCE</td>
+<td style="text-align:center">VARIANCE(column)</td>
+<td style="text-align:center">返回列或表达式的方差</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>除了COUNT(*)函数外，其他的统计函数都不考虑返回值或表达式为NULL的情况。</li>
+<li>聚集函数只能出现在目标列表达式、ORDER BY子句、HAVING子句中，不能出现在WHERE子句和GROUP BY子句中。</li>
+<li>默认对所有的返回行进行统计，包括重复的行；如果要统计不重复的行信息，则可以使用DISTINCT选项。</li>
+<li>如果对查询结果进行了分组，则聚集函数的作用范围为各个组，否则聚集函数作用于整个查询结果。</li>
+</ul>
+<h2 id="创建表和数据">创建表和数据</h2>
+<pre><code class="language-sql">CREATE TABLE customers(
+customer_id NUMBER(2) PRIMARY KEY,
+name CHAR(10) NOT NULL,
+phone VARCHAR(15) NOT NULL,
+email VARCHAR(15),
+address VARCHAR(30),
+code VARCHAR(10)
+);
+
+CREATE TABLE publishers(
+publisher_id NUMBER(2) PRIMARY KEY,
+name VARCHAR(32),
+contact CHAR(10),
+phone VARCHAR(15)
+);
+
+CREATE TABLE books(
+isbn VARCHAR(15) PRIMARY KEY,
+title VARCHAR(15),
+pubdate DATE,
+publisher_id NUMBER(2) REFERENCES publishers(publisher_id),
+cost NUMBER(4,2),
+retail NUMBER(4,2),
+category VARCHAR(15)
+);
+
+CREATE TABLE authors(
+author_id NUMBER(2) PRIMARY KEY,
+name VARCHAR(15));
+CREATE TABLE bookauthor(
+isbn VARCHAR(15) REFERENCES books(isbn),
+author_id NUMBER(2) REFERENCES authors(author_id),
+primary key(isbn,author_id)
+);
+
+CREATE TABLE orders(
+order_id NUMBER(2) PRIMARY KEY,
+customer_id NUMBER(2) REFERENCES customers(customer_id),
+orderdate DATE NOT NULL,
+shipdate DATE NOT NULL,
+shipaddress VARCHAR(30),
+shipcode VARCHAR(10)
+);
+
+CREATE TABLE orderitem(
+ttem_id NUMBER(2) PRIMARY KEY,
+order_id NUMBER(2) REFERENCES orders(order_id),
+isbn VARCHAR(15) REFERENCES books(isbn),
+quantity NUMBER(2)
+);
+</code></pre>
+<h2 id="瞎写的数据">瞎写的数据</h2>
+<pre><code class="language-sql">INSERT INTO customers VALUES(1,'小李','13300000000','1222@qq.com','东莞','122121');
+INSERT INTO customers VALUES(2,'小刘','13300000000','1222@qq.com','上海浦东','122121');
+INSERT INTO customers VALUES(3,'小王','13300000000','1222@qq.com','北京大学','122121');
+INSERT INTO customers VALUES(4,'小张','13300000000','1222@qq.com','清华大学','122121');
+insert into customers values(5,'小宋','123456','2222@qq.com','湖南大学','421000' );
+insert into customers values(6,'小岳','234567','1111@qq.com','北京中关村','421000' );
+
+insert into publishers values(1,'东四出版社','给予','345678');
+insert into publishers values(2,'清华大学出版社','清华','345678');
+insert into publishers values(3,'电子工业出版社','电工','345678');
+
+insert into books values('0001','数据结构',sysdate,1,25.25,30.00,'计算机类');
+insert into books values('0002','算法设计',to_date('2009-01-01','yyyy-mm-dd'),1,34.24,42.00,'计算机类');
+insert into books values('0003','python',to_date('1996-12-03','yyyy-mm-dd') ,1,34.24,41.00,'计算机类');
+insert into books values('0004','数据库大全',to_date('1990-12-03','yyyy-mm-dd') ,2,34.24,90.00,'计算机类');
+insert into books values('0005','Oracle解读',to_date('2007-02-03','yyyy-mm-dd') ,3,34.40,90.00,'计算机类');
+insert into books values('0006','java',to_date('2007-02-03','yyyy-mm-dd') ,1,34.40,90.00,'计算机类');
+insert into books values('0007','大海',sysdate,1,25.25,30.00,'文学类');
+insert into books values('0008','非我',sysdate,1,25.25,30.00,'哲学类');
+
+insert into authors values(1,'廖雪峰');
+insert into authors values(2,'唐三');
+
+insert into bookauthor values('0001',1);
+insert into bookauthor values('0002',2);
+
+insert into orders values(1,1,sysdate,sysdate,'新华书店','421000');
+insert into orders values(2,2,to_date ( '2007-11-20 18:31:34' , 'YYYY-MM-DD HH24:MI:SS' ),to_date ( '2007-12-30 18:31:34' , 'YYYY-MM-DD HH24:MI:SS' ),'新华书店','421000');
+insert into orders values(3,3,sysdate,sysdate,'电子工业出版社','421000');
+insert into orders values(4,4,to_date ( '2007-12-20 18:31:34' , 'YYYY-MM-DD HH24:MI:SS' ),to_date ( '2007-12-21 18:31:34' , 'YYYY-MM-DD HH24:MI:SS' ),'清华大学出版社','421000');
+
+insert into orderitem values(1,1,'0001',20);
+insert into orderitem values(2,2,'0002',20);
+</code></pre>
+<h2 id="查询">查询</h2>
+<p>以下查询基于图书销售系统表</p>
+<p>（1） 查询当前所有客户信息。</p>
+<pre><code class="language-sql">select * from customers;
+</code></pre>
+<p>（2） 查询图书ISBN、书名、批发价以及零售价信息。</p>
+<pre><code class="language-sql">select isbn,title,cost,retail from books;
+</code></pre>
+<p>（3） 查询所有图书的种类。</p>
+<pre><code class="language-sql">select DISTINCT category from books;
+</code></pre>
+<p>（4） 查询图书ISBN、图书名及作者名信息。</p>
+<pre><code class="language-sql">select books.isbn,books.title,authors.name from books inner join bookauthor on books.isbn=bookauthor.isbn join authors on authors.author_id=bookauthor.author_id;
+</code></pre>
+<p>（5） 查询所有订单信息。</p>
+<pre><code class="language-sql">select * from orders;
+</code></pre>
+<p>（6） 查询所有出版社信息。</p>
+<pre><code class="language-sql">select * from publishers;
+</code></pre>
+<p>（7） 查询所有订单明细信息。</p>
+<pre><code class="language-sql">select * from orderitem;
+</code></pre>
+<p>（8） 查询出版日期在2009年1月1日之后的图书信息。</p>
+<pre><code class="language-sql">select * from books where pubdate &gt; to_date('2009-01-01','yyyy-mm-dd');
+</code></pre>
+<p>（9） 查询所有图书ISBN、图书名、出版日期，并按出版日期降序排序。</p>
+<pre><code class="language-sql">select isbn,title,pubdate from books order by pubdate desc;
+</code></pre>
+<p>（10）  查询所有图书ISBN、图书名、出版社、出版日期，按批发价格排序，对于批发价相同的，再按零售价排序。</p>
+<pre><code class="language-sql">select * from books inner join publishers on books.publisher_id=publishers.publisher_id order by cost,retail;
+</code></pre>
+<p>（11）  查询图书名以“数据库”开头的图书信息。</p>
+<pre><code class="language-sql">select * from books where title like '数据库%';
+</code></pre>
+<p>（12）  查询所有书名中包含“Oracle”的图书信息。</p>
+<pre><code class="language-sql">select * from books where title like '%Oracle%';
+</code></pre>
+<p>（13）  查询出版日期在2007年1月至2009年1月的所有图书。</p>
+<pre><code class="language-sql">select * from books where pubdate &gt;= to_date('2007-01-01','yyyy-mm-dd') and pubdate &lt;= to_date('2009-1-31','yyyy-mm-dd');
+</code></pre>
+<p>（14）  查询“电子工业出版社”和“清华大学出版社”出版的图书。</p>
+<pre><code class="language-sql">select * from books join publishers on books.publisher_id=publishers.publisher_id and (publishers.name like '清华大学出版社' or publishers.name like '电子工业出版社');
+</code></pre>
+<p>（15）  查询所有订单信息，按订单日期排序。对于订单日期相同的，再按发货日期排序。</p>
+<pre><code class="language-sql">select * from orders order by orderdate,shipdate; 
+</code></pre>
+<p>（16）  查询所有发货日期比订货日期晚７天的订单信息。</p>
+<pre><code class="language-sql">select * from orders where (to_number(shipdate-orderdate))&gt;=7; 
+</code></pre>
+<p>（17）  统计各类图书的数量，平均零售价格、平均批发价格。</p>
+<pre><code class="language-sql">select category,count(*),avg(retail),avg(cost) from books GROUP BY category;
+</code></pre>
+<p>（18）  统计各个出版社出版图书的数量、最高批发价格、最高零售价格、最低批发价格和最低零售价格。</p>
+<pre><code class="language-sql">select name,count(*),max(cost),max(retail),min(cost),min(retail) from books join publishers on books.publisher_id =publishers.publisher_id GROUP BY name;
+</code></pre>
+<p>（19）  统计每个客户的订单数量。</p>
+<pre><code class="language-sql">select name,count(*) from orders join customers on orders.customer_id=customers.customer_id group by name;
+</code></pre>
+<p>（20）  统计每个作者编写的图书数量。</p>
+<pre><code class="language-sql">select name,count(*) from bookauthor join authors on authors.author_id=bookauthor.author_id group by name;
+</code></pre>
 ]]></content>
     </entry>
     <entry>
@@ -577,554 +967,6 @@ $(o).position().left = o.style.left;&lt;/code&gt;&lt;br&gt;&lt;code&gt;$(o).posi
 <figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fzgln4pwpaj313g0vgmzq.jpg" alt="效果图" loading="lazy"></figure>
 <h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
 <figure data-type="image" tabindex="2"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[摩尔投票算法]]></title>
-        <id>https://tooyi.github.io/post/mo-er-tou-piao-suan-fa/</id>
-        <link href="https://tooyi.github.io/post/mo-er-tou-piao-suan-fa/">
-        </link>
-        <updated>2019-01-04T00:55:35.000Z</updated>
-        <summary type="html"><![CDATA[<p>摩尔投票算法理解记录</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>摩尔投票算法理解记录</p>
-<!-- more -->
-<h3 id="摩尔投票算法">摩尔投票算法</h3>
-<blockquote>
-<p>摩尔投票算法也可以叫做多数投票算法。</p>
-</blockquote>
-<h3 id="题">题</h3>
-<blockquote>
-<p>给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。<br>
-你可以假设数组是非空的，并且给定的数组总是存在众数。</p>
-</blockquote>
-<ul>
-<li>示例 1:</li>
-</ul>
-<p><code>输入: [3,2,3]</code><br>
-<code>输出: 3</code></p>
-<ul>
-<li>示例 2:</li>
-</ul>
-<p><code>输入: [2,2,1,1,1,2,2]</code><br>
-<code>输出: 2</code></p>
-<h3 id="常规解法">常规解法</h3>
-<ul>
-<li>遍历数组，并计数，找出出现次数大于 ⌊ n/2 ⌋ 的元素。</li>
-<li>将数组排序，出现次数大于 ⌊ n/2 ⌋ 的元素必定在数组中间，返回nums[n/2]即可。</li>
-</ul>
-<h3 id="摩尔投票法求解">摩尔投票法求解</h3>
-<blockquote>
-<p>算法的时间和空间都很低，时间复杂度为O(n)，空间复杂度为O(1)</p>
-</blockquote>
-<h4 id="算法原理">算法原理</h4>
-<p>每次从数组中找出一对不同的元素，将它们从数组中删除，直到遍历完整个数组。由于这道题已经说明一定存在一个出现次数超过一半的元素，所以遍历完数组后数组中一定会存在至少一个元素。</p>
-<ul>
-<li>算法在局部变量中定义一个序列元素(m)和一个计数器(count)，初始化的情况下计数器为1；</li>
-<li>算法依次扫描序列中的元素，当处理元素x的时候，如果序列元素(m)和x相等，计数器(count)自增1；</li>
-<li>如果不等计数器(count)自减1，并判断计数器是否为0，如果为0，那么将x赋值给m，然后将计数器(count)设置为1(或将x的下一位元素赋值给m，计数器(count)设为0)；</li>
-<li>处理之后，最后存储的序列元素(m)，就是这个序列中最多的元素。<br>
-（如果不确定是否存储的元素m是最多的元素，还可以进行第二遍扫描判断是否为最多的元素）</li>
-</ul>
-<h4 id="伪码实现">伪码实现</h4>
-<pre><code class="language-java">初始化元素m=nums[0],计数器count=1;
-for i = 1 : nums.length - 1
-    if m = nums[i]
-        count++
-    else 
-        count--
-        if count = 0
-            m = numd[i + 1]
-            count = 0
-return m
-</code></pre>
-<h4 id="java实现">java实现</h4>
-<pre><code class="language-java">class Solution {
-    public int majorityElement(int[] nums) {
-        int count = 1, maj = nums[0];
-        for(int i = 1; i &lt; nums.length; i++) {
-            if(maj == nums[i]) { 
-                count++;
-            } else {
-                count--;
-                if(count == 0) {
-                    maj = nums[i + 1];
-                    count = 0;
-                }
-            }
-            
-        }
-        return maj;
-    }
-}
-</code></pre>
-<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
-<figure data-type="image" tabindex="1"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Java 字符串常用类]]></title>
-        <id>https://tooyi.github.io/post/java-zi-fu-chuan-chang-yong-lei/</id>
-        <link href="https://tooyi.github.io/post/java-zi-fu-chuan-chang-yong-lei/">
-        </link>
-        <updated>2018-12-23T00:49:42.000Z</updated>
-        <summary type="html"><![CDATA[<p>字符串知识总结</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>字符串知识总结</p>
-<!-- more -->
-<h2 id="字符串查找">字符串查找</h2>
-<p>String 提供了两种查找字符串的方法，即 <strong>indexOf</strong> 与 <strong>lastIndexOf</strong> 方法。</p>
-<h3 id="1-indexofstring-s">1、indexOf（String s）</h3>
-<p>该方法用于返回参数字符串s在指定字符串中首次出现的索引位置，当调用字符串的indexOf()方法时，会从当前字符串的开始位置搜索s的位置；如果没有检索到字符串s，该方法返回-1</p>
-<pre><code class="language-java">String str =&quot;We are students&quot;;
-int size = str.indexOf(&quot;a&quot;); // 变量size的值是3
-</code></pre>
-<h3 id="2-lastindexofstring-str">2、lastIndexOf(String str)</h3>
-<p>该方法用于返回字符串最后一次出现的索引位置。当调用字符串的lastIndexOf()方法时，会从当前字符串的开始位置检索参数字符串str，并将最后一次出现str的索引位置返回。如果没有检索到字符串str，该方法返回-1.</p>
-<p>如果lastIndexOf方法中的参数是空字符串&quot;&quot; ，，则返回的结果与length方法的返回结果相同。</p>
-<h2 id="获取指定索引位置的字符">获取指定索引位置的字符</h2>
-<p>使用charAt()方法可将指定索引处的字符返回。</p>
-<pre><code class="language-java">String str = &quot;hello word&quot;;
-char mychar =  str.charAt(4);  // mychar的结果是o
-</code></pre>
-<h2 id="获取子字符串">获取子字符串</h2>
-<p>通过String类的substring()方法可对字符串进行截取。这些方法的共同点就是都利用字符串的下标进行截取，且应明确字符串下标是从0开始的。在字符串中空格占用一个索引位置。</p>
-<h3 id="1-substringint-beginindex">1、substring(int beginIndex)</h3>
-<p>该方法返回的是从指定的索引位置开始截取知道该字符串结尾的子串。</p>
-<pre><code class="language-java">String str = &quot;Hello word&quot;;
-String substr = str.substring(3); //获取字符串，此时substr值为lo word
-</code></pre>
-<h3 id="2-substringint-beginindex-int-endindex">2、substring(int beginIndex,  int endIndex)</h3>
-<p>beginIndex : 开始截取子字符串的索引位置</p>
-<p>endIndex：子字符串在整个字符串中的结束位置</p>
-<pre><code class="language-java">String str = &quot;Hello word&quot;;
-String substr = str.substring(0,3); //substr的值为hel
-</code></pre>
-<h2 id="去除空格-标点等">去除空格、标点等</h2>
-<p>trim() 方法返回字符串的副本，忽略前导空格和尾部空格。</p>
-<pre><code class="language-java">public static void main(String[] args) {
-        //string去除空格
-        String str=&quot;  hello   world  &quot;;
-        System.out.println(str);
- 
-        String str1=str.trim();//去除首尾空格
-        System.out.println(str1);
- 
-        String str2=str.replace(&quot; &quot;,&quot;&quot;);//去掉所有空格,包括首尾,中间
-        System.out.println(str2);
- 
-        String str3=str.replaceAll(&quot; +&quot;,&quot;&quot;);//去掉所有空格,包括首尾,中间
-        System.out.println(str3);
- 
-        String str4=str.replaceAll(&quot;\\s*&quot;,&quot;&quot;); //可以替换大部分空白字符， 不限于空格 . 说明:\s 可以匹配空格、制表符、换页符等空白字符的其中任意一个
-        System.out.println(str4);
- 
-        //string去除标点符号
-        //正则表达式去除标点
-        String stri=&quot;ss&amp;*(,.~1如果@&amp;(^-自己!!知道`什`么#是$苦%……Z，&amp;那*()么一-=定——+告诉::;\&quot;'/?.,&gt;&lt;[]{}\\||别人什么是甜。&quot;;
-        System.out.println(stri);
- 
-        String stri1=stri.replaceAll(&quot;\\p{Punct}&quot;,&quot;&quot;);//不能完全清除标点
-        System.out.println(stri1);
- 
-        String stri2=stri.replaceAll(&quot;\\pP&quot;,&quot;&quot;);//完全清除标点
-        System.out.println(stri2);
- 
-        String stri3=stri.replaceAll(&quot;\\p{P}&quot;,&quot;&quot;);//同上,一样的功能
-        System.out.println(stri3);
- 
-        String stri4=stri.replaceAll(&quot;[\\pP\\p{Punct}]&quot;,&quot;&quot;);//清除所有符号,只留下字母 数字  汉字  共3类.
-        System.out.println(stri4);
-    }
-}
-</code></pre>
-<pre><code>//**效果如下**
-hello   world  
-hello   world
-helloworld
-helloworld
-helloworld
-ss&amp;*(,.~1如果@&amp;(^-自己!!知道`什`么#是$苦%……Z，&amp;那*()么一-=定——+告诉::;&quot;'/?.,&gt;&lt;[]{}\||别人什么是甜。
-ss1如果自己知道什么是苦……Z，那么一定——告诉别人什么是甜。
-ss~1如果^自己知道`什`么是$苦Z那么一=定+告诉&gt;&lt;||别人什么是甜
-ss~1如果^自己知道`什`么是$苦Z那么一=定+告诉&gt;&lt;||别人什么是甜
-ss1如果自己知道什么是苦Z那么一定告诉别人什么是甜
-</code></pre>
-<h2 id="字符串替换">字符串替换</h2>
-<p>replace(w) 方法可实现将指定的字符或字符串替换成新的字符或字符串</p>
-<p>oldChar：要替换的字符或字符串</p>
-<p>newChar：用于替换原来字符串的内容</p>
-<p>如果要替换的字符oldChar在字符串中重复出现多次，replace()方法会将所有oldChar全部替换成newChar。需要注意的是，要替换的字符oldChar的大小写要与原字符串中字符的大小写保持一致。</p>
-<pre><code class="language-java">String str= &quot;address&quot;;
-String newstr = str.replace(&quot;a&quot;, &quot;A&quot;);// newstr的值为Address
-</code></pre>
-<h2 id="判断字符串的开始与结尾">判断字符串的开始与结尾</h2>
-<p>startsWith()方法与endsWith()方法分别用于判断字符串是否以指定的内容开始或结束。这两个方法的返回值都为boolean类型。</p>
-<h3 id="1-startswithstring-prefix">1、startsWith(String prefix)</h3>
-<p>该方法用于判断当前字符串对象的前缀是否是参数指定的字符串。</p>
-<h3 id="2-endswithstring-suffix">2、endsWith(String suffix)</h3>
-<p>该方法用于判断当前字符串是否以给定的子字符串结束</p>
-<h2 id="判断字符串是否相等">判断字符串是否相等</h2>
-<h3 id="1-equalsstring-otherstr">1、equals(String otherstr)</h3>
-<p>如果两个字符串具有相同的字符和长度，则使用equals()方法比较时，返回true。同时equals()方法比较时区分大小写。</p>
-<h3 id="2-equalsignorecasestring-otherstr">2、equalsIgnoreCase(String otherstr)</h3>
-<p>equalsIgnoreCase()方法与equals()类型，不过在比较时<strong>忽略了大小写</strong>。</p>
-<h2 id="按字典顺序比较两个字符串">按字典顺序比较两个字符串</h2>
-<p>compareTo()方法为按字典顺序比较两个字符串，该比较基于字符串中各个字符的Unicode值，按字典顺序将此String对象表示的字符序列与参数字符串所表示的字符序列进行比较。如果按字典顺序此String对象位于参数字符串之前，则比较结果为一个负整数；如果按字典顺序此String对象位于参数字符串之后，则比较结果为一个正整数；如果这两个字符串相等，则结果为0.</p>
-<pre><code class="language-java">str.compareTo(String otherstr);
-</code></pre>
-<h2 id="字母大小写转换">字母大小写转换</h2>
-<p>字符串的toLowerCase()方法可将字符串中的所有字符从大写字母改写为小写字母，而tuUpperCase()方法可将字符串中的小写字母改写为大写字母。</p>
-<pre><code class="language-java">str.toLowerCase();
-str.toUpperCase();
-</code></pre>
-<h2 id="字符串分割">字符串分割</h2>
-<p>使用split()方法可以使字符串按指定的分隔字符或字符串对内容进行分割，并将分割后的结果存放在字符数组中。</p>
-<pre><code class="language-java">1 str.split(String sign);
-</code></pre>
-<p>sign为分割字符串的分割符，也可以使用正则表达式。</p>
-<p>没有统一的对字符串进行分割的符号，如果想定义多个分割符，可使用符号“<kbd>|</kbd>”。例如，“,<kbd>|</kbd>=”表示分割符分别为“,”和“=”。</p>
-<pre><code class="language-java">str.split(String sign, in limit);
-</code></pre>
-<p>该方法可根据给定的分割符对字符串进行拆分，并限定拆分的次数。</p>
-<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
-<figure data-type="image" tabindex="1"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Java 关于链表的基本算法]]></title>
-        <id>https://tooyi.github.io/post/java-guan-yu-lian-biao-de-ji-ben-suan-fa/</id>
-        <link href="https://tooyi.github.io/post/java-guan-yu-lian-biao-de-ji-ben-suan-fa/">
-        </link>
-        <updated>2018-12-23T00:47:26.000Z</updated>
-        <summary type="html"><![CDATA[<p>算法代码记录</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>算法代码记录</p>
-<!-- more -->
-<pre><code class="language-java">import java.util.HashMap;
-import java.util.Scanner;
-import java.util.Stack;
- 
-/**
- * 
- * @author smartBBer
- * 关于java中链表的操作
- * 1. 求单链表中结点的个数: getListLength 
- * 2. 将单链表反转: reverseList（遍历），reverseListRec（递归） 
- * 3. 查找单链表中的倒数第K个结点（k &gt; 0）: reGetKthNode 
- * 4. 查找单链表的中间结点: getMiddleNode 
- * 5. 从尾到头打印单链表: reversePrintListStack，reversePrintListRec（递归） 
- * 6. 已知两个单链表pHead1 和pHead2 各自有序，把它们合并成一个链表依然有序: mergeSortedList, mergeSortedListRec 
- * 7. 对单链表进行排序,listSort（归并）,insertionSortList（插入）
- * 8. 判断一个单链表中是否有环: hasCycle 
- * 9. 判断两个单链表是否相交: isIntersect 
- * 10. 已知一个单链表中存在环，求进入环中的第一个节点: getFirstNodeInCycle, getFirstNodeInCycleHashMap 
- * 11. 给出一单链表头指针head和一节点指针delete，O(1)时间复杂度删除节点delete: deleteNode
- */
-public class LinkedListSummary {
-	/**
-	 * @param args
-	 * 
-	 */
-	public static class Node{
-		int value;
-		Node next;
-		public Node(int n){
-			this.value=n;
-			this.next=null;
-		}
-	}
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Scanner in=new Scanner(System.in);
-		Node head=null;
-		if(in.hasNextInt()){
-			head=new Node(in.nextInt());
-		}
-		Node temp=head;
-		while(in.hasNextInt()){
-			temp.next=new Node(in.nextInt());
-			temp=temp.next;
-		}
-		in.close();
-		//int len=getListLength(head);
-		//Node reHead=reverseList(head);
-		//reHead=reverseListRec(reHead);
-		//Node node_k=reGetKthNode(head,3);
-		//Node mid=getMiddleNode(head);
-		//reversePrintListRec(head);
-		//reversePrintListStack(head);
-		//Node mergeHead=mergeSortedList(head,null);
-		//Node sortHead=listSort(head);
-		
-	}
-	//求单链表中结点的个数: getListLength 
-	public static int getListLength(Node head){
-		int len=0;
-		while(head!=null){
-			len++;
-			head=head.next;
-		}
-		return len;
-	}
-	//将单链表反转,循环
-	public static Node reverseList(Node head){
-		if(head==null||head.next==null)return head;
-		Node pre=null;
-		Node nex=null;
-		while(head!=null){
-			nex=head.next;
-			head.next=pre;
-			pre=head;
-			head=nex;
-		}
-		return pre;
-	}
-	//将单链表反转,递归
-	public static Node reverseListRec(Node head){
-		if(head==null||head.next==null)return head;
-		Node reHead=reverseListRec(head.next);
-		head.next.next=head;
-		head.next=null;
-		return reHead;
-	}
-	//查找单链表中的倒数第K个结点（k &gt; 0）
-	public static Node reGetKthNode(Node head,int k){
-		if(head==null)return head;
-		int len=getListLength(head);
-		if(k&gt;len)return null;
-		Node target=head;
-		Node nexk=head;
-		for(int i=0;i&lt;k;i++){
-			nexk=nexk.next;
-		}
-		while(nexk!=null){
-			target=target.next;
-			nexk=nexk.next;
-		}
-		return target;
-	}
-	//查找单链表的中间结点 
-	public static Node getMiddleNode(Node head){
-		if(head==null||head.next==null)return head;
-		Node target=head;
-		Node temp=head;
-		while(temp!=null&amp;&amp;temp.next!=null){
-			target=target.next;
-			temp=temp.next.next;
-		}
-		return target;
-	}
-	//从尾到头打印单链表,递归
-	public static void reversePrintListRec(Node head){
-		if(head==null)return;
-		else{
-			reversePrintListRec(head.next);
-			System.out.println(head.value);
-		}
-	}
-	//从尾到头打印单链表,栈
-	public static void reversePrintListStack(Node head){
-		Stack&lt;Node&gt; s=new Stack&lt;Node&gt;();
-		while(head!=null){
-			s.push(head);
-			head=head.next;
-		}
-		while(!s.isEmpty()){
-			System.out.println(s.pop().value);
-		}
-	}
-	//合并两个有序的单链表head1和head2，循环
-	public static Node mergeSortedList(Node head1,Node head2){
-		if(head1==null)return head2;
-		if(head2==null)return head1;
-		Node target=null;
-		if(head1.value&gt;head2.value){
-			target=head2;
-			head2=head2.next;
-		}
-		else{
-			target=head1;
-			head1=head1.next;
-		}
-		target.next=null;
-		Node mergeHead=target;
-		while(head1!=null &amp;&amp; head2!=null){
-			if(head1.value&gt;head2.value){
-				target.next=head2;
-				head2=head2.next;
-			}
-			else{
-				target.next=head1;
-				head1=head1.next;
-			}
-			target=target.next;
-			target.next=null;
-		}
-		if(head1==null)target.next=head2;
-		else target.next=head1;
-		return mergeHead;
-	}
-	//合并两个有序的单链表head1和head2，递归
-	public static Node mergeSortedListRec(Node head1,Node head2){
-		if(head1==null)return head2;
-		if(head2==null)return head1;
-		if(head1.value&gt;head2.value){
-			head2.next=mergeSortedListRec(head2.next,head1);
-			return head2;
-		}
-		else{
-			head1.next=mergeSortedListRec(head1.next,head2);
-			return head1;
-		}
-	}
-	//对单链表进行排序,归并排序,在排序里面不建议选用递归的合并有序链表算法，如果链表长度较长，很容易出现栈溢出
-	public static Node listSort(Node head){
-		Node nex=null;
-		if(head==null||head.next==null)return head;
-		else if(head.next.next==null){
-			nex=head.next;
-			head.next=null;
-		}
-		else{
-			Node mid=getMiddleNode(head);
-			nex=mid.next;
-			mid.next=null;
-		}
-		return mergeSortedList(listSort(head),listSort(nex));//合并两个有序链表，不建议递归
-	}
-	//对单链表进行排序,插入排序
-	public Node insertionSortList(Node head) {
-        if(head==null||head.next==null)return head;
-        Node pnex=head.next;
-        Node pnex_nex=null;
-        head.next=null;
-        while(pnex!=null){
-            pnex_nex=pnex.next;
-            Node temp=head;
-            Node temp_pre=null;
-            while(temp!=null){
-                if(temp.value&gt;pnex.value)break;
-                temp_pre=temp;
-                temp=temp.next;
-            }
-            if(temp_pre==null){
-                head=pnex;
-                pnex.next=temp;
-            }
-            else{
-                temp_pre.next=pnex;
-                pnex.next=temp;
-            }
-            pnex=pnex_nex;
-        }
-        return head;
-    }
-	//判断一个单链表中是否有环,快慢指针
-	public static boolean hasCycle(Node head){
-		boolean flag=false;
-		Node p1=head;
-		Node p2=head;
-		while(p1!=null&amp;&amp;p2!=null){
-			p1=p1.next;
-			p2=p2.next.next;
-			if(p2==p1){
-				flag=true;
-				break;
-			}
-		}
-		return flag;
-	}
-	//判断两个单链表是否相交,如果相交返回第一个节点，否则返回null
-	//如果单纯的判断是否相交，只需要看最后一个指针是否相等
-	public static Node isIntersect(Node head1,Node head2){
-		Node target=null;
-		if(head1==null||head2==null)return target;
-		int len1=getListLength(head1);
-		int len2=getListLength(head2);
-		if(len1&gt;=len2){
-			for(int i=0;i&lt;len1-len2;i++){
-				head1=head1.next;
-			}
-		}else{
-			for(int i=0;i&lt;len2-len1;i++){
-				head2=head2.next;
-			}
-		}
-		while(head1!=null&amp;&amp;head2!=null){
-			if(head1==head2){
-				target=head1;
-				break;
-			}
-			else{
-				head1=head1.next;
-				head2=head2.next;
-			}
-		}
-		return target;
-	}
-	//已知一个单链表中存在环，求进入环中的第一个节点,利用hashmap，不要用ArrayList，因为判断ArrayList是否包含某个元素的效率不高
-	public static Node getFirstNodeInCycleHashMap(Node head){
-		Node target=null;
-		HashMap&lt;Node,Boolean&gt; map=new HashMap&lt;Node,Boolean&gt;();
-		while(head!=null){
-			if(map.containsKey(head)) {
-                target=head;
-                break;
-            }
-			else{
-				map.put(head, true);
-			}
-			head=head.next;
-		}
-		return target;
-	}
-	//已知一个单链表中存在环，求进入环中的第一个节点,不用hashmap
-	//用快慢指针，与判断一个单链表中是否有环一样，找到快慢指针第一次相交的节点，此时这个节点距离环开始节点的长度和链表投距离环开始的节点的长度相等
-	public static Node getFirstNodeInCycle(Node head){
-		Node fast=head;
-		Node slow=head;
-		while(fast!=null&amp;&amp;fast.next!=null){
-			slow=slow.next;
-			fast=fast.next.next;
-			if(slow==fast)
-                break;
-		}
-		if(fast==null||fast.next==null)return null;//判断是否包含环
-		//相遇节点距离环开始节点的长度和链表投距离环开始的节点的长度相等
-		slow=head;
-		while(slow!=fast){
-			slow=slow.next;
-			fast=fast.next;
-		}//同步走
-		return slow;
-		
-	}
-	//给出一单链表头指针head和一节点指针delete，O(1)时间复杂度删除节点delete
-	//可惜采用将delete节点value值与它下个节点的值互换的方法，但是如果delete是最后一个节点，则不行，但是总得复杂度还是O(1)
-	public static void deleteNode(Node head,Node delete){
-		//首先处理delete节点为最后一个节点的情况
-		if(delete==null)return;
-		if(delete.next==null){
-			if(head==delete)head=null;
-			else{
-				Node temp=head;
-				while(temp.next!=delete){
-					temp=temp.next;
-				}
-				temp.next=null;
-			}
-		}
-		else{
-			delete.value=delete.next.value;
-			delete.next=delete.next.next;
-		}
-		return;
-	}
-}
-</code></pre>
-<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
-<figure data-type="image" tabindex="1"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>

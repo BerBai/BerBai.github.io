@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-<title>composer 脱坑记 - 涂诣</title>
+<title>面经 - 涂诣</title>
 <meta name="description" content="温故而知新">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -142,64 +142,91 @@
                     <div class="col-12 col-lg-10">
                       <div class="layout-post-main m-right m-md-right">
                         <div class="layout-post-header">
-                          <h1 class="layout-post-title">composer 脱坑记</h1>
+                          <h1 class="layout-post-title">面经</h1>
                           <div class="layout-post-meta">
                             <div class="item">
-                               <a href="https://tooyi.github.io/tag/lR4II0q5k/" class="post--keyword"
-                                data-title="Web" data-type="post_tag" data-term-id="39">Web</a>
                               
                             </div>
                             <div class="item">
-                              <span>2019-03-02</span>
+                              <span>2019-04-15</span>
                             </div>
                           </div>
                         </div>
                         <div class="layout-post-content">
                           <div class="layout-post-item">
                             
-                            <p class="with-img"><img src="https://tooyi.github.io/post-images/composer-tuo-keng-ji.png"
-                                class="attachment-full size-full wp-post-image" alt="composer 脱坑记" /></p>
+                            <p class="with-img"><img src="https://tooyi.github.io/post-images/mian-jing.jpg"
+                                class="attachment-full size-full wp-post-image" alt="面经" /></p>
                             
-                            <p>解决composer update太慢</p>
+                            <p>分享一些大佬的面经</p>
 <!-- more -->
-<h3 id="composer-介绍">composer 介绍</h3>
-<p>Composer 是 PHP5.3以上 的一个依赖管理工具。它允许你声明项目所依赖的代码库，它会在你的项目中为你安装他们。Composer 不是一个包管理器。是的，它涉及 &quot;packages&quot; 和 &quot;libraries&quot;，但它在每个项目的基础上进行管理，在你项目的某个目录中（例如 vendor）进行安装。默认情况下它不会在全局安装任何东西。因此，这仅仅是一个依赖管理。</p>
-<h3 id="那么问题来了">那么，问题来了</h3>
-<blockquote>
-<p>composer update 太慢，怎么解决</p>
-</blockquote>
-<blockquote>
-<p>卡在这里怎么办</p>
-</blockquote>
-<pre><code>Loading composer repositories with package information
-Updating dependencies (including require-dev)
-</code></pre>
-<p>后来看到这里：</p>
-<p>https://pkg.phpcomposer.com/#how-to-install-composer</p>
-<h3 id="方法一">方法一</h3>
-<p>打开命令行窗口（windows用户）或控制台（Linux、Mac 用户）并执行如下命令</p>
-<pre><code>composer config -g repo.packagist composer https://packagist.phpcomposer.com
-</code></pre>
-<h3 id="方法二-修改当前项目的-composerjson-配置文件">方法二： 修改当前项目的 composer.json 配置文件：</h3>
-<p>打开命令行窗口（windows用户）或控制台（Linux、Mac 用户），进入你的项目的根目录（也就是 composer.json 文件所在目录），执行如下命令：</p>
-<pre><code>composer config repo.packagist composer https://packagist.phpcomposer.com
-</code></pre>
-<p>上述命令将会在当前项目中的 composer.json 文件的末尾自动添加镜像的配置信息（你也可以自己手工添加）：</p>
-<pre><code class="language-js">&quot;repositories&quot;: {
-    &quot;packagist&quot;: {
-        &quot;type&quot;: &quot;composer&quot;,
-        &quot;url&quot;: &quot;https://packagist.phpcomposer.com&quot;
-    }
-}
-</code></pre>
-<p><strong>如果方法一不管用，尝试下方法二。</strong></p>
+<p>【前端】阿里前端2面面经 [已回绝] 写个面经攒攒人品 https://www.nowcoder.com/discuss/95295</p>
+<p>【前端】阿里前端内推一面-电话面试，在线编程 https://www.nowcoder.com/discuss/95215</p>
+<p>【前端】 阿里前端一面凉经 https://www.nowcoder.com/discuss/92808</p>
+<p>【前端】 阿里前端一面面经 https://www.nowcoder.com/discuss/93672</p>
+<p>【前端】阿里二面凉透经 https://www.nowcoder.com/discuss/94724</p>
+<p>【前端】阿里前端面经 https://www.nowcoder.com/discuss/96781</p>
+<p>【前端】 阿里天猫前端一面 https://www.nowcoder.com/discuss/90347</p>
+<p>【前端】阿里菜鸟前端一面 https://www.nowcoder.com/discuss/92272</p>
+<p>【前端】时隔26天后的阿里菜鸟二面 https://www.nowcoder.com/discuss/94106</p>
+<p>【前端】发下阿里三面凉经 https://www.nowcoder.com/discuss/94400</p>
+<p>【前端】前端阿里二面（彻底凉凉血泪教训无参考价值） https://www.nowcoder.com/discuss/97247</p>
+<p>【前端】 阿里蚂蚁金服前端一面 https://www.nowcoder.com/discuss/90133</p>
+<p>【前端】 阿里一面 https://www.nowcoder.com/discuss/93483</p>
+<p>【前端】 阿里前端体验技术部 二面 https://www.nowcoder.com/discuss/96496</p>
+<p>【前端】 腾讯MIG前端一面 https://www.nowcoder.com/discuss/96724</p>
+<p>【前端】腾讯前端一面凉经 https://www.nowcoder.com/discuss/91201</p>
+<p>【前端】腾讯前端一面 https://www.nowcoder.com/discuss/90243</p>
+<p>【前端】腾讯wxg前端一面面经 https://www.nowcoder.com/discuss/92679</p>
+<p>【前端】腾讯前端一面（好凉好冷） https://www.nowcoder.com/discuss/93079</p>
+<p>【前端】秋招结束，9 offer，面经分享一波，加油骚年们！：https://www.nowcoder.com/discuss/125303</p>
+<p>【前端】硕渣百度阿里腾讯美团京东爱奇艺58面经~已签华为：https://www.nowcoder.com/discuss/122178</p>
+<p>【前端】百度阿里网易大疆等大小厂前端校招面筋：https://www.nowcoder.com/discuss/123161</p>
+<p>【前端】2019校招前端面试总结：https://www.nowcoder.com/discuss/125842</p>
+<p>【前端】前端不完全面经：https://www.nowcoder.com/discuss/122366</p>
+<p>【前端】码一篇知乎面经：https://www.nowcoder.com/discuss/122076</p>
+<p>【前端】码一篇知乎面经：https://www.nowcoder.com/discuss/122076</p>
+<p>【前端】一波前端面经，回馈牛客~：https://www.nowcoder.com/discuss/119115</p>
+<p>【前端】绿盟科技实习面经：https://www.nowcoder.com/discuss/113284</p>
+<p>【前端】百信银行校园招聘：https://www.nowcoder.com/discuss/112972</p>
+<p>【前端】2018.9.29招银网络电话面：https://www.nowcoder.com/discuss/121326</p>
+<p>【前端】招银网络科技面经：https://www.nowcoder.com/discuss/121287</p>
+<p>【前端】【有赞2019秋招前端内推面经】一面顺利通过 https://www.nowcoder.com/discuss/90535</p>
+<p>【前端】【有赞前端2019二面凉凉】一次凉凉的二面 https://www.nowcoder.com/discuss/92033</p>
+<p>【前端】 有赞前端一面 https://www.nowcoder.com/discuss/93642</p>
+<p>【前端】有赞前端js面经一面 https://www.nowcoder.com/discuss/93681</p>
+<p>【前端】 多益前端一面 https://www.nowcoder.com/discuss/96296</p>
+<p>【前端】百度秋招一面面经，武汉区：https://www.nowcoder.com/discuss/111446</p>
+<p>【智能云前端】 百度智能云前端面经 https://www.nowcoder.com/discuss/91112</p>
+<p>【前端】 百度前端面经 https://www.nowcoder.com/discuss/97957</p>
+<p>【前端】百度fex面经：https://www.nowcoder.com/discuss/103817</p>
+<p>【前端】百度前端面经：https://www.nowcoder.com/discuss/97957</p>
+<p>【前端】码一篇京东历程：https://www.nowcoder.com/discuss/122088</p>
+<p>【前端】京东广州场前端初试、复试面经：https://www.nowcoder.com/discuss/120128</p>
+<p>【前端】京东前端面试 恕我难以洞察您老人家的心：https://www.nowcoder.com/discuss/112872</p>
+<p>【前端】京东前端一面还不知道结果：https://www.nowcoder.com/discuss/111883</p>
+<p>【前端】京东北京前端1面：https://www.nowcoder.com/discuss/110831</p>
+<p>【前端】京东前端一面面筋，已过，18号二面。：https://www.nowcoder.com/discuss/110828</p>
+<p>【前端】认真写下阿里的面筋，祝福大家收到满意的offer（前端向）</p>
+<p>【前端】曾很喜欢华为现在不知道说什么 ：https://www.nowcoder.com/discuss/114010</p>
+<p>【前端】 顺丰 前端 一面 凉凉 攒人品 https://www.nowcoder.com/discuss/90509</p>
+<p>【前端】顺丰前端视频一面 https://www.nowcoder.com/discuss/90447</p>
+<p>【前端】 CVTE前端一面 https://www.nowcoder.com/discuss/88493</p>
+<p>【前端】CVTE前端电话一面 https://www.nowcoder.com/discuss/88561</p>
+<p>【前端】CVTE前端开发一面面经 https://www.nowcoder.com/discuss/88607</p>
+<p>【前端】CVTE前端一面面经 https://www.nowcoder.com/discuss/88621</p>
+<p>【前端】cvte前端一面 https://www.nowcoder.com/discuss/88627</p>
+<p>【前端】 CVTE 前端一面面经 https://www.nowcoder.com/discuss/88897</p>
+<p>【前端】 CVTE一面+二面 https://www.nowcoder.com/discuss/90334</p>
+<p>【前端】 CVTE HR 面 https://www.nowcoder.com/discuss/92649</p>
+<p>【前端】 CVTE终面 https://www.nowcoder.com/discuss/93549</p>
 
                           </div>
                         </div>
                         <div class="layout-post-social">
                           <div class="item reader">
-                            <div id="/post/composer-tuo-keng-ji/" class="leancloud-visitors view"
-                              data-flag-title="composer 脱坑记">
+                            <div id="/post/mian-jing/" class="leancloud-visitors view"
+                              data-flag-title="面经">
                               <span class="post-meta-item-text">阅读 </span>
                               <span class="leancloud-visitors-count"></span>
                             </div>
@@ -208,67 +235,6 @@ Updating dependencies (including require-dev)
 
                         <div class="layout-post-navigation">
                           <div class="navigation-list">
-                            
-                            <div class="post-card row">
-                              
-                              <div class="card-content col-8 col-md-9">
-                                <div class="card-body">
-                                  <div class="header">
-                                    <a href="https://tooyi.github.io/post/wnmp/" class="title">
-                                      <h4>WNMP 配置</h4>
-                                    </a>
-                                  </div>
-                                  <div class="inner d-none d-sm-block">
-                                    <div class="abstract">
-                                      <p>win10 + nginx + php7 + mysql</p>
-
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="card-footer">
-                                  <div class="item"><span>上一篇</span></div>
-                                  <div class="item">2019-03-03</div>
-                                </div>
-                              </div>
-                              <div class="card-thumb col-4 col-md-3">
-                                <div class="thumb">
-                                  <a href="https://tooyi.github.io/post/wnmp/"
-                                    style="background-image: url('https://tooyi.github.io/post-images/wnmp.jpg');"></a>
-                                </div>
-                              </div>
-                              
-                            </div>
-
-                            <div class="post-card row">
-                              
-                              <div class="card-content col-8 col-md-9">
-                                <div class="card-body">
-                                  <div class="header">
-                                    <a href="https://tooyi.github.io/post/lan-jia-zai-yu-yu-jia-zai/" class="title">
-                                      <h4>懒加载与预加载</h4>
-                                    </a>
-                                  </div>
-                                  <div class="inner d-none d-sm-block">
-                                    <div class="abstract">
-                                      <p>什么是懒加载、预加载？</p>
-
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="card-footer">
-                                  <div class="item"><span>下一篇</span></div>
-                                  <div class="item">2019-02-20</div>
-                                </div>
-                              </div>
-                              <div class="card-thumb col-4 col-md-3">
-                                <div class="thumb">
-                                  <a href="https://tooyi.github.io/post/lan-jia-zai-yu-yu-jia-zai/"
-                                    style="background-image: url('https://tooyi.github.io/post-images/lan-jia-zai-yu-yu-jia-zai.jpg');"></a>
-                                </div>
-                              </div>
-                              
-                            </div>
-
                             
                           </div>
                         </div>
@@ -299,21 +265,7 @@ Updating dependencies (including require-dev)
                     <div class="col-12 col-lg-2 d-none d-lg-block">
                       <div class="layout-post-sidebar">
                         <div class="layout-sidebar-item">
-                          <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#composer-%E4%BB%8B%E7%BB%8D">composer 介绍</a></li>
-<li><a href="#%E9%82%A3%E4%B9%88%E9%97%AE%E9%A2%98%E6%9D%A5%E4%BA%86">那么，问题来了</a></li>
-<li><a href="#%E6%96%B9%E6%B3%95%E4%B8%80">方法一</a></li>
-<li><a href="#%E6%96%B9%E6%B3%95%E4%BA%8C-%E4%BF%AE%E6%94%B9%E5%BD%93%E5%89%8D%E9%A1%B9%E7%9B%AE%E7%9A%84-composerjson-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">方法二： 修改当前项目的 composer.json 配置文件：</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
+                          
                         </div>
                       </div>
                     </div>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+<title>Oracle学习小结 - 涂诣</title>
+<meta name="description" content="温故而知新">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link type='text/css' rel='stylesheet' href='https://tooyi.github.io/styles/main.css' media='screen' />
+<link type="text/css" rel="stylesheet" href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css">
+<link type="text/css" rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript" src='https://tooyi.github.io/media/scripts/jquery.js'></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</head>
+
+<body>
+  <div class="layout theme-dark">
+    <div class="layout-header">
+
+	<div class="layout-header-main">
+		<div class="container">
+			<div class="row justify-content-lg-center">
+				<div class="col-12 col-lg-9">
+
+					<div class="navbar">
+
+						<div class="logo">
+							<a href="https://tooyi.github.io">
+								<img class="logo"
+									src="https://tooyi.github.io/media/images/site_avatar.png?v=1590542295752"
+									alt="">
+							</a>
+						</div>
+
+						<div class="menu d-md-inline-block d-none">
+							<ul class="layout-navigation-list">
+								
+								<li class="layout-navigation-item"><a title="首页"
+										href="/">首页</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="归档"
+										href="/archives">归档</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="标签"
+										href="/tags">标签</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="关于"
+										href="/post/about">关于</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="WeXYZ - 微信小程序"
+										href="https://xyz.125520.xyz">WeXYZ - 微信小程序</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="旧博客"
+										href="/blog-old">旧博客</a>
+								</li>
+								
+							</ul>
+						</div>
+
+						<div class="item d-md-inline-block d-none">
+							<div class="search-icon">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</div>
+						</div>
+
+
+
+						<div class="d-md-inline-block d-none">
+							<div class="search-lightbox">
+								<div class="search-body">
+
+									<form id="gridea-search-form" data-update="1590542295752" action="/search/" class="search-form">
+										<input type="text" name="q" id="s" value="" class="search-field" placeholder="请输入搜索关键词" aria-label="请输入搜索关键词" required="">
+										<button type="submit" class="submit" aria-label="Submit">
+											<i class="fa fa-search" aria-hidden="true"></i>
+										</button>
+									</form>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="nav d-md-none d-inline-block">
+							<div class="trigger">
+								<i class="fa fa-bars layout-btn-toggle" aria-hidden="true"></i>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+
+
+
+		</div>
+	</div>
+
+</div>
+    <div class="layout-collapse d-md-none">
+	<div class="layout-collapse-main">
+		<ul class="layout-collapse-list">
+			
+			<li class="layout-collapse-item"><a title="首页" href="/">首页</a></li>
+			
+			<li class="layout-collapse-item"><a title="归档" href="/archives">归档</a></li>
+			
+			<li class="layout-collapse-item"><a title="标签" href="/tags">标签</a></li>
+			
+			<li class="layout-collapse-item"><a title="关于" href="/post/about">关于</a></li>
+			
+			<li class="layout-collapse-item"><a title="WeXYZ - 微信小程序" href="https://xyz.125520.xyz">WeXYZ - 微信小程序</a></li>
+			
+			<li class="layout-collapse-item"><a title="旧博客" href="/blog-old">旧博客</a></li>
+			
+
+		</ul>
+	</div>
+</div>
+
+    <div class="layout-content">
+      <div class="layout-content-main">
+        <div class="container">
+          <div class="row justify-content-lg-center">
+            <div class="col-12 col-lg-9">
+              <div class="layout-post">
+                <div class="layout-post-body">
+                  <div class="row">
+
+                    <div class="col-12 col-lg-10">
+                      <div class="layout-post-main m-right m-md-right">
+                        <div class="layout-post-header">
+                          <h1 class="layout-post-title">Oracle学习小结</h1>
+                          <div class="layout-post-meta">
+                            <div class="item">
+                               <a href="https://tooyi.github.io/tag/SooEvoRwT/" class="post--keyword"
+                                data-title="Sql" data-type="post_tag" data-term-id="39">Sql</a>
+                              
+                            </div>
+                            <div class="item">
+                              <span>2019-03-28</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="layout-post-content">
+                          <div class="layout-post-item">
+                            
+                            <p class="with-img"><img src="https://tooyi.github.io/post-images/oracle-xue-xi-xiao-jie.jpg"
+                                class="attachment-full size-full wp-post-image" alt="Oracle学习小结" /></p>
+                            
+                            <p>最近学习Oracle，做个小总结</p>
+<!-- more -->
+<h1 id="oracle-预备知识">Oracle 预备知识</h1>
+<h2 id="1oracle数据库中查询操作的基本语法">1.Oracle数据库中查询操作的基本语法</h2>
+<pre><code class="language-sql">SELECT [ALL|DISTINCT]column_name[,expression…]
+FROM  table1_name[,table2_name,view_name,…]
+[WHERE condition]
+[GROUP BY column_name1[,column_name2,…] [HAVING group_condition]]
+[ORDER BY column_name2 [ASC|DESC][,column_name2,…]];
+</code></pre>
+<h2 id="2常用的统计聚集函数">2.常用的统计（聚集）函数</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函    数</th>
+<th style="text-align:center">格    式</th>
+<th style="text-align:center">功    能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">COUNT</td>
+<td style="text-align:center">COUNT([DISTINCT|ALL] *)</td>
+<td style="text-align:center">返回结果集中记录个数</td>
+</tr>
+<tr>
+<td style="text-align:center">COUNT</td>
+<td style="text-align:center">COUNT([DISTINCT|ALL] column)</td>
+<td style="text-align:center">返回结果集中非空记录个数</td>
+</tr>
+<tr>
+<td style="text-align:center">AVG</td>
+<td style="text-align:center">AVG([DISTINCT|ALL] column)</td>
+<td style="text-align:center">返回列或表达式的平均值</td>
+</tr>
+<tr>
+<td style="text-align:center">MAX</td>
+<td style="text-align:center">MAX([DISTINCT|ALL] column )</td>
+<td style="text-align:center">返回列或表达式的最大值</td>
+</tr>
+<tr>
+<td style="text-align:center">MIN</td>
+<td style="text-align:center">MIN([DISTINCT|ALL] column )</td>
+<td style="text-align:center">返回列或表达式的最小值</td>
+</tr>
+<tr>
+<td style="text-align:center">SUM</td>
+<td style="text-align:center">SUM([DISTINCT|ALL] column )</td>
+<td style="text-align:center">返回列或表达式的总和</td>
+</tr>
+<tr>
+<td style="text-align:center">STDDEV</td>
+<td style="text-align:center">STDDEV(column)</td>
+<td style="text-align:center">返回列或表达式的标准差</td>
+</tr>
+<tr>
+<td style="text-align:center">VARIANCE</td>
+<td style="text-align:center">VARIANCE(column)</td>
+<td style="text-align:center">返回列或表达式的方差</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>除了COUNT(*)函数外，其他的统计函数都不考虑返回值或表达式为NULL的情况。</li>
+<li>聚集函数只能出现在目标列表达式、ORDER BY子句、HAVING子句中，不能出现在WHERE子句和GROUP BY子句中。</li>
+<li>默认对所有的返回行进行统计，包括重复的行；如果要统计不重复的行信息，则可以使用DISTINCT选项。</li>
+<li>如果对查询结果进行了分组，则聚集函数的作用范围为各个组，否则聚集函数作用于整个查询结果。</li>
+</ul>
+<h2 id="创建表和数据">创建表和数据</h2>
+<pre><code class="language-sql">CREATE TABLE customers(
+customer_id NUMBER(2) PRIMARY KEY,
+name CHAR(10) NOT NULL,
+phone VARCHAR(15) NOT NULL,
+email VARCHAR(15),
+address VARCHAR(30),
+code VARCHAR(10)
+);
+
+CREATE TABLE publishers(
+publisher_id NUMBER(2) PRIMARY KEY,
+name VARCHAR(32),
+contact CHAR(10),
+phone VARCHAR(15)
+);
+
+CREATE TABLE books(
+isbn VARCHAR(15) PRIMARY KEY,
+title VARCHAR(15),
+pubdate DATE,
+publisher_id NUMBER(2) REFERENCES publishers(publisher_id),
+cost NUMBER(4,2),
+retail NUMBER(4,2),
+category VARCHAR(15)
+);
+
+CREATE TABLE authors(
+author_id NUMBER(2) PRIMARY KEY,
+name VARCHAR(15));
+CREATE TABLE bookauthor(
+isbn VARCHAR(15) REFERENCES books(isbn),
+author_id NUMBER(2) REFERENCES authors(author_id),
+primary key(isbn,author_id)
+);
+
+CREATE TABLE orders(
+order_id NUMBER(2) PRIMARY KEY,
+customer_id NUMBER(2) REFERENCES customers(customer_id),
+orderdate DATE NOT NULL,
+shipdate DATE NOT NULL,
+shipaddress VARCHAR(30),
+shipcode VARCHAR(10)
+);
+
+CREATE TABLE orderitem(
+ttem_id NUMBER(2) PRIMARY KEY,
+order_id NUMBER(2) REFERENCES orders(order_id),
+isbn VARCHAR(15) REFERENCES books(isbn),
+quantity NUMBER(2)
+);
+</code></pre>
+<h2 id="瞎写的数据">瞎写的数据</h2>
+<pre><code class="language-sql">INSERT INTO customers VALUES(1,'小李','13300000000','1222@qq.com','东莞','122121');
+INSERT INTO customers VALUES(2,'小刘','13300000000','1222@qq.com','上海浦东','122121');
+INSERT INTO customers VALUES(3,'小王','13300000000','1222@qq.com','北京大学','122121');
+INSERT INTO customers VALUES(4,'小张','13300000000','1222@qq.com','清华大学','122121');
+insert into customers values(5,'小宋','123456','2222@qq.com','湖南大学','421000' );
+insert into customers values(6,'小岳','234567','1111@qq.com','北京中关村','421000' );
+
+insert into publishers values(1,'东四出版社','给予','345678');
+insert into publishers values(2,'清华大学出版社','清华','345678');
+insert into publishers values(3,'电子工业出版社','电工','345678');
+
+insert into books values('0001','数据结构',sysdate,1,25.25,30.00,'计算机类');
+insert into books values('0002','算法设计',to_date('2009-01-01','yyyy-mm-dd'),1,34.24,42.00,'计算机类');
+insert into books values('0003','python',to_date('1996-12-03','yyyy-mm-dd') ,1,34.24,41.00,'计算机类');
+insert into books values('0004','数据库大全',to_date('1990-12-03','yyyy-mm-dd') ,2,34.24,90.00,'计算机类');
+insert into books values('0005','Oracle解读',to_date('2007-02-03','yyyy-mm-dd') ,3,34.40,90.00,'计算机类');
+insert into books values('0006','java',to_date('2007-02-03','yyyy-mm-dd') ,1,34.40,90.00,'计算机类');
+insert into books values('0007','大海',sysdate,1,25.25,30.00,'文学类');
+insert into books values('0008','非我',sysdate,1,25.25,30.00,'哲学类');
+
+insert into authors values(1,'廖雪峰');
+insert into authors values(2,'唐三');
+
+insert into bookauthor values('0001',1);
+insert into bookauthor values('0002',2);
+
+insert into orders values(1,1,sysdate,sysdate,'新华书店','421000');
+insert into orders values(2,2,to_date ( '2007-11-20 18:31:34' , 'YYYY-MM-DD HH24:MI:SS' ),to_date ( '2007-12-30 18:31:34' , 'YYYY-MM-DD HH24:MI:SS' ),'新华书店','421000');
+insert into orders values(3,3,sysdate,sysdate,'电子工业出版社','421000');
+insert into orders values(4,4,to_date ( '2007-12-20 18:31:34' , 'YYYY-MM-DD HH24:MI:SS' ),to_date ( '2007-12-21 18:31:34' , 'YYYY-MM-DD HH24:MI:SS' ),'清华大学出版社','421000');
+
+insert into orderitem values(1,1,'0001',20);
+insert into orderitem values(2,2,'0002',20);
+</code></pre>
+<h2 id="查询">查询</h2>
+<p>以下查询基于图书销售系统表</p>
+<p>（1） 查询当前所有客户信息。</p>
+<pre><code class="language-sql">select * from customers;
+</code></pre>
+<p>（2） 查询图书ISBN、书名、批发价以及零售价信息。</p>
+<pre><code class="language-sql">select isbn,title,cost,retail from books;
+</code></pre>
+<p>（3） 查询所有图书的种类。</p>
+<pre><code class="language-sql">select DISTINCT category from books;
+</code></pre>
+<p>（4） 查询图书ISBN、图书名及作者名信息。</p>
+<pre><code class="language-sql">select books.isbn,books.title,authors.name from books inner join bookauthor on books.isbn=bookauthor.isbn join authors on authors.author_id=bookauthor.author_id;
+</code></pre>
+<p>（5） 查询所有订单信息。</p>
+<pre><code class="language-sql">select * from orders;
+</code></pre>
+<p>（6） 查询所有出版社信息。</p>
+<pre><code class="language-sql">select * from publishers;
+</code></pre>
+<p>（7） 查询所有订单明细信息。</p>
+<pre><code class="language-sql">select * from orderitem;
+</code></pre>
+<p>（8） 查询出版日期在2009年1月1日之后的图书信息。</p>
+<pre><code class="language-sql">select * from books where pubdate &gt; to_date('2009-01-01','yyyy-mm-dd');
+</code></pre>
+<p>（9） 查询所有图书ISBN、图书名、出版日期，并按出版日期降序排序。</p>
+<pre><code class="language-sql">select isbn,title,pubdate from books order by pubdate desc;
+</code></pre>
+<p>（10）  查询所有图书ISBN、图书名、出版社、出版日期，按批发价格排序，对于批发价相同的，再按零售价排序。</p>
+<pre><code class="language-sql">select * from books inner join publishers on books.publisher_id=publishers.publisher_id order by cost,retail;
+</code></pre>
+<p>（11）  查询图书名以“数据库”开头的图书信息。</p>
+<pre><code class="language-sql">select * from books where title like '数据库%';
+</code></pre>
+<p>（12）  查询所有书名中包含“Oracle”的图书信息。</p>
+<pre><code class="language-sql">select * from books where title like '%Oracle%';
+</code></pre>
+<p>（13）  查询出版日期在2007年1月至2009年1月的所有图书。</p>
+<pre><code class="language-sql">select * from books where pubdate &gt;= to_date('2007-01-01','yyyy-mm-dd') and pubdate &lt;= to_date('2009-1-31','yyyy-mm-dd');
+</code></pre>
+<p>（14）  查询“电子工业出版社”和“清华大学出版社”出版的图书。</p>
+<pre><code class="language-sql">select * from books join publishers on books.publisher_id=publishers.publisher_id and (publishers.name like '清华大学出版社' or publishers.name like '电子工业出版社');
+</code></pre>
+<p>（15）  查询所有订单信息，按订单日期排序。对于订单日期相同的，再按发货日期排序。</p>
+<pre><code class="language-sql">select * from orders order by orderdate,shipdate; 
+</code></pre>
+<p>（16）  查询所有发货日期比订货日期晚７天的订单信息。</p>
+<pre><code class="language-sql">select * from orders where (to_number(shipdate-orderdate))&gt;=7; 
+</code></pre>
+<p>（17）  统计各类图书的数量，平均零售价格、平均批发价格。</p>
+<pre><code class="language-sql">select category,count(*),avg(retail),avg(cost) from books GROUP BY category;
+</code></pre>
+<p>（18）  统计各个出版社出版图书的数量、最高批发价格、最高零售价格、最低批发价格和最低零售价格。</p>
+<pre><code class="language-sql">select name,count(*),max(cost),max(retail),min(cost),min(retail) from books join publishers on books.publisher_id =publishers.publisher_id GROUP BY name;
+</code></pre>
+<p>（19）  统计每个客户的订单数量。</p>
+<pre><code class="language-sql">select name,count(*) from orders join customers on orders.customer_id=customers.customer_id group by name;
+</code></pre>
+<p>（20）  统计每个作者编写的图书数量。</p>
+<pre><code class="language-sql">select name,count(*) from bookauthor join authors on authors.author_id=bookauthor.author_id group by name;
+</code></pre>
+
+                          </div>
+                        </div>
+                        <div class="layout-post-social">
+                          <div class="item reader">
+                            <div id="/post/oracle-xue-xi-xiao-jie/" class="leancloud-visitors view"
+                              data-flag-title="Oracle学习小结">
+                              <span class="post-meta-item-text">阅读 </span>
+                              <span class="leancloud-visitors-count"></span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="layout-post-navigation">
+                          <div class="navigation-list">
+                            
+                            <div class="post-card row">
+                              
+                              <div class="card-content col-8 col-md-9">
+                                <div class="card-body">
+                                  <div class="header">
+                                    <a href="https://tooyi.github.io/post/zai-xian-xue-xi-sql/" class="title">
+                                      <h4>在线学习SQL</h4>
+                                    </a>
+                                  </div>
+                                  <div class="inner d-none d-sm-block">
+                                    <div class="abstract">
+                                      <p>推荐几个在线学习SQL的网页</p>
+
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card-footer">
+                                  <div class="item"><span>上一篇</span></div>
+                                  <div class="item">2019-03-28</div>
+                                </div>
+                              </div>
+                              <div class="card-thumb col-4 col-md-3">
+                                <div class="thumb">
+                                  <a href="https://tooyi.github.io/post/zai-xian-xue-xi-sql/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/zai-xian-xue-xi-sql.jpg');"></a>
+                                </div>
+                              </div>
+                              
+                            </div>
+
+                            <div class="post-card row">
+                              
+                              <div class="card-content col-8 col-md-9">
+                                <div class="card-body">
+                                  <div class="header">
+                                    <a href="https://tooyi.github.io/post/nginx/" class="title">
+                                      <h4>Nginx 命令</h4>
+                                    </a>
+                                  </div>
+                                  <div class="inner d-none d-sm-block">
+                                    <div class="abstract">
+                                      <p>Windows下Nginx的启动、停止等命令</p>
+
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card-footer">
+                                  <div class="item"><span>下一篇</span></div>
+                                  <div class="item">2019-03-03</div>
+                                </div>
+                              </div>
+                              <div class="card-thumb col-4 col-md-3">
+                                <div class="thumb">
+                                  <a href="https://tooyi.github.io/post/nginx/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/nginx.png');"></a>
+                                </div>
+                              </div>
+                              
+                            </div>
+
+                            
+                          </div>
+                        </div>
+
+                        <div class="layout-comments"></div>
+                        
+                        <script type="text/javascript" src='https://tooyi.github.io/media/scripts/zan.js'></script>
+<script type="text/javascript" src='https://tooyi.github.io/media/scripts/av-min.js'></script>
+<script type="text/javascript" src='https://tooyi.github.io/media/scripts/Valine.min.js'></script>
+
+<script>
+  var valine = new Valine();
+  valine.init({
+    el: '.layout-comments',
+    appId: 'S5mybpyN8KDDMNhnfhBw4Bn3-gzGzoHsz',
+    appKey: 'Xo2RmbkdRblp4vsgIHpen0lf',
+    notify: false,
+    verify: false,
+    visitor: true,
+    avatar: 'mp',
+    placeholder: '加入讨论...'
+  })
+</script>
+                        
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-lg-2 d-none d-lg-block">
+                      <div class="layout-post-sidebar">
+                        <div class="layout-sidebar-item">
+                          <ul class="markdownIt-TOC">
+<li><a href="#oracle-%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86">Oracle 预备知识</a>
+<ul>
+<li><a href="#1oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95">1.Oracle数据库中查询操作的基本语法</a></li>
+<li><a href="#2%E5%B8%B8%E7%94%A8%E7%9A%84%E7%BB%9F%E8%AE%A1%E8%81%9A%E9%9B%86%E5%87%BD%E6%95%B0">2.常用的统计（聚集）函数</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%92%8C%E6%95%B0%E6%8D%AE">创建表和数据</a></li>
+<li><a href="#%E7%9E%8E%E5%86%99%E7%9A%84%E6%95%B0%E6%8D%AE">瞎写的数据</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2">查询</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="layout-totop d-none"><i class="fa fa-angle-up" aria-hidden="true"></i></div>
+
+    	<div class="layout-footer">
+
+		<div class="container">
+			<div class="row justify-content-lg-center">
+				<div class="col-12 col-lg-9">
+					<div class="footer">
+						<div class="row">
+							<div class="col-12 col-md-9">
+								<div class="footer-copy">
+									
+									<span>© 2018-2020 </span>
+									<a href="https://tooyi.github.io" title="涂诣">涂诣</a>
+									<span class="px-2">⋅</span>
+									
+									Themes by <a href="https://github.com/insdram/gridea-theme-vant" target="_blank">Vant</a>. Powered by <a href="https://github.com" target="_blank">GitHub</a>
+									<div class="footer-icp d-none d-sm-inline-block">
+										<span class="px-2">⋅</span>
+										
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 d-none d-md-block">
+								<div class="footer-links">
+									
+									
+									
+									
+									<span class="footer-links-item">
+										<a href="https://github.com/tooyi" target="_blank">
+											<i class="fa fa-github" aria-hidden="true"></i>
+										</a>
+									</span>
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									<span class="footer-links-item">
+										<a href="https://weibo.com/smartbber" target="_blank">
+											<i class="fa fa-weibo" aria-hidden="true"></i>
+										</a>
+									</span>
+									
+									
+									
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src='https://tooyi.github.io/media/scripts/main.js'></script>
+	
+	<script>
+		var _hmt = _hmt || [];
+		(function () {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?tooyi.github.io";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	
+
+  </div>
+</body>
+
+</html>
