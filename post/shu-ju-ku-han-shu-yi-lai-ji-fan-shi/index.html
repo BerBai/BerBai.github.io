@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+<title>数据库-函数依赖及范式 - 涂诣</title>
+<meta name="description" content="温故而知新">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link type='text/css' rel='stylesheet' href='https://tooyi.github.io/styles/main.css' media='screen' />
+<link type="text/css" rel="stylesheet" href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css">
+<link type="text/css" rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript" src='https://tooyi.github.io/media/scripts/jquery.js'></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</head>
+
+<body>
+  <div class="layout theme-dark">
+    <div class="layout-header">
+
+	<div class="layout-header-main">
+		<div class="container">
+			<div class="row justify-content-lg-center">
+				<div class="col-12 col-lg-9">
+
+					<div class="navbar">
+
+						<div class="logo">
+							<a href="https://tooyi.github.io">
+								<img class="logo"
+									src="https://tooyi.github.io/media/images/site_avatar.png?v=1590542694847"
+									alt="">
+							</a>
+						</div>
+
+						<div class="menu d-md-inline-block d-none">
+							<ul class="layout-navigation-list">
+								
+								<li class="layout-navigation-item"><a title="首页"
+										href="/">首页</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="归档"
+										href="/archives">归档</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="标签"
+										href="/tags">标签</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="关于"
+										href="/post/about">关于</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="WeXYZ - 微信小程序"
+										href="https://xyz.125520.xyz">WeXYZ - 微信小程序</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="旧博客"
+										href="/blog-old">旧博客</a>
+								</li>
+								
+							</ul>
+						</div>
+
+						<div class="item d-md-inline-block d-none">
+							<div class="search-icon">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</div>
+						</div>
+
+
+
+						<div class="d-md-inline-block d-none">
+							<div class="search-lightbox">
+								<div class="search-body">
+
+									<form id="gridea-search-form" data-update="1590542694847" action="/search/" class="search-form">
+										<input type="text" name="q" id="s" value="" class="search-field" placeholder="请输入搜索关键词" aria-label="请输入搜索关键词" required="">
+										<button type="submit" class="submit" aria-label="Submit">
+											<i class="fa fa-search" aria-hidden="true"></i>
+										</button>
+									</form>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="nav d-md-none d-inline-block">
+							<div class="trigger">
+								<i class="fa fa-bars layout-btn-toggle" aria-hidden="true"></i>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+
+
+
+		</div>
+	</div>
+
+</div>
+    <div class="layout-collapse d-md-none">
+	<div class="layout-collapse-main">
+		<ul class="layout-collapse-list">
+			
+			<li class="layout-collapse-item"><a title="首页" href="/">首页</a></li>
+			
+			<li class="layout-collapse-item"><a title="归档" href="/archives">归档</a></li>
+			
+			<li class="layout-collapse-item"><a title="标签" href="/tags">标签</a></li>
+			
+			<li class="layout-collapse-item"><a title="关于" href="/post/about">关于</a></li>
+			
+			<li class="layout-collapse-item"><a title="WeXYZ - 微信小程序" href="https://xyz.125520.xyz">WeXYZ - 微信小程序</a></li>
+			
+			<li class="layout-collapse-item"><a title="旧博客" href="/blog-old">旧博客</a></li>
+			
+
+		</ul>
+	</div>
+</div>
+
+    <div class="layout-content">
+      <div class="layout-content-main">
+        <div class="container">
+          <div class="row justify-content-lg-center">
+            <div class="col-12 col-lg-9">
+              <div class="layout-post">
+                <div class="layout-post-body">
+                  <div class="row">
+
+                    <div class="col-12 col-lg-10">
+                      <div class="layout-post-main m-right m-md-right">
+                        <div class="layout-post-header">
+                          <h1 class="layout-post-title">数据库-函数依赖及范式</h1>
+                          <div class="layout-post-meta">
+                            <div class="item">
+                               <a href="https://tooyi.github.io/tag/SooEvoRwT/" class="post--keyword"
+                                data-title="Sql" data-type="post_tag" data-term-id="39">Sql</a>
+                              
+                            </div>
+                            <div class="item">
+                              <span>2020-04-27</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="layout-post-content">
+                          <div class="layout-post-item">
+                            
+                            <p class="with-img"><img src="https://tooyi.github.io/post-images/shu-ju-ku-han-shu-yi-lai-ji-fan-shi.jpg"
+                                class="attachment-full size-full wp-post-image" alt="数据库-函数依赖及范式" /></p>
+                            
+                            <p>通俗讲解</p>
+<!-- more -->
+<h1 id="数据库-函数依赖及范式通俗易懂">数据库-函数依赖及范式（通俗易懂）</h1>
+<h2 id="一-基础概念">一、基础概念</h2>
+<p>要理解范式，首先必须对知道什么是关系数据库，如果你不知道，我可以简单的不能再简单的说一下：关系数据库就是用二维表来保存数据。表和表之间可以……（省略10W字）。<br>
+　　然后你应该理解以下概念：<br>
+　　**实体：**现实世界中客观存在并可以被区别的事物。比如“一个学生”、“一本书”、“一门课”等等。值得强调的是这里所说的“事物”不仅仅是看得见摸得着的“东西”，它也可以是虚拟的，不如说“老师与学校的关系”。<br>
+　　**属性：**教科书上解释为：“实体所具有的某一特性”，由此可见，属性一开始是个逻辑概念，比如说，“性别”是“人”的一个属性。在关系数据库中，属性又是个物理概念，属性可以看作是“表的一列”。<br>
+　　**元组：**表中的一行就是一个元组。<br>
+　　**分量：**元组的某个属性值。在一个关系数据库中，它是一个操作原子，即关系数据库在做任何操作的时候，属性是“不可分的”。否则就不是关系数据库了。<br>
+　　**码：**表中可以唯一确定一个元组的某个属性（或者属性组），如果这样的码有不止一个，那么大家都叫候选码，我们从候选码中挑一个出来做老大，它就叫主码。<br>
+　　**全码：**如果一个码包含了所有的属性，这个码就是全码。<br>
+　　**主属性：**一个属性只要在任何一个候选码中出现过，这个属性就是主属性。<br>
+　　**非主属性：**与上面相反，没有在任何候选码中出现过，这个属性就是非主属性。<br>
+　　**外码：**一个属性（或属性组），它不是码，但是它别的表的码，它就是外码。</p>
+<h2 id="二-6个范式">二、6个范式</h2>
+<p>好了，上面已经介绍了我们掌握范式所需要的全部基础概念，下面我们就来讲范式。首先要明白，范式的包含关系。一个数据库设计如果符合第二范式，一定也符合第一范式。如果符合第三范式，一定也符合第二范式…</p>
+<h3 id="第一范式1nf">第一范式（1NF）</h3>
+<p><strong>属性不可分。</strong></p>
+<p>在前面我们已经介绍了属性值的概念，我们说，它是“不可分的”。而第一范式要求属性也不可分。那么它和属性值不可分有什么区别呢？给一个例子：</p>
+<table>
+   <tr>
+      <th>name</td>
+      <th colspan='2'>tel</td>
+      <th>age</td>
+   </tr>
+   <tr>
+      <td>大宝</td>
+      <td colspan='2'>13612345678</td>
+      <td>22</td>
+   </tr>
+   <tr>
+      <td>小明</td>
+      <td>13988776655</td>
+      <td>010－1234567</td>
+      <td>21</td>
+   </tr>
+</table>
+<p>Ps：这个表中，属性值“分”了。</p>
+<table>
+	<tr>
+		<th rowspan='2'>name</td>
+		<th colspan='2'>tel</td>
+		<th colspan='2'>age</td>
+	</tr>
+	<tr>
+        <td>手机</td>
+		<td>座机</td>
+	</tr>
+	<tr>
+		<td>大宝</td>
+		<td>13612345678</td>
+		<td>021－9876543</td>
+		<td>22</td>
+	</tr>
+	<tr>
+		<td>小明</td>
+		<td>13988776655</td>
+		<td>010－1234567</td>
+		<td>21</td>
+	</tr>
+</table>
+<p>Ps：这个表中，属性 “分”了。</p>
+<p>这两种情况都不满足第一范式。不满足第一范式的数据库，不是关系数据库！所以，我们在任何关系数据库管理系统中，做不出这样的“表”来。（也就是说，<strong>只要是关系数据库就是第一范式</strong>）</p>
+<h3 id="第二范式2nf">第二范式（2NF）</h3>
+<p><strong>符合1NF，并且，非主属性完全依赖于码，消除部分依赖。</strong></p>
+<p>听起来好像很神秘，其实真的没什么。<br>
+　　一个候选码中的主属性也可能是好几个。如果一个主属性，它不能单独做为一个候选码，那么它也不能确定任何一个非主属性。给一个反例：我们考虑一个小学的教务 管理系统，学生上课指定一个老师，一本教材，一个教室，一个时间，大家都上课去吧，没有问题。那么数据库怎么设计？（学生上课表）</p>
+<table>
+<thead>
+<tr>
+<th>学生</th>
+<th>课程</th>
+<th>老师</th>
+<th>老师职称</th>
+<th>教材</th>
+<th>教室</th>
+<th>上课时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小明</td>
+<td>一年级语文（上）</td>
+<td>大宝</td>
+<td>副教授</td>
+<td>《小学语文1》</td>
+<td>101</td>
+<td>14：30</td>
+</tr>
+</tbody>
+</table>
+<p>一个学生上一门课，一定在特定某个教室。所以有（学生，课程）－&gt;教室<br>
+一个学生上一门课，一定是特定某个老师教。所以有（学生，课程）－&gt;老师<br>
+一个学生上一门课，他老师的职称可以确定。所以有（学生，课程）－&gt;老师职称<br>
+一个学生上一门课，一定是特定某个教材。所以有（学生，课程）－&gt;教材<br>
+一个学生上一门课，一定在特定时间。所以有（学生，课程）－&gt;上课时间</p>
+<p>因此（学生，课程）是一个码。<br>
+　　然而，一个课程，一定指定了某个教材，一年级语文肯定用的是《小学语文1》，那么就有课程－&gt;教材。（学生，课程）是个码，课程却决定了教材，这就叫做不完全依赖，或者说部分依赖。出现这样的情况，就不满足第二范式！<br>
+　　有什么不好吗？你可以想想：<br>
+　　1、校长要新增加一门课程叫“微积分”，教材是《大学数学》，怎么办？学生还没选课，而学生又是主属性，主属性不能空，课程怎么记录呢，教材记到哪呢? ……郁闷了吧?(插入异常)<br>
+　　2、下学期没学生学一年级语文（上）了，学一年级语文（下）去了，那么表中将不存在一年级语文（上），也就没了《小学语文1》。这时候，校长问：一年级语文（上）用的什么教材啊？……郁闷了吧?(删除异常)<br>
+　　3、校长说：一年级语文（上）换教材，换成《大学语文》。有10000个学生选了这么课，改动好大啊！改累死了……郁闷了吧？（修改异常）<br>
+　　那应该怎么解决呢？投影分解，将一个表分解成两个或若干个表</p>
+<table>
+<thead>
+<tr>
+<th>学生</th>
+<th>课程</th>
+<th>老师</th>
+<th>老师职称</th>
+<th>教室</th>
+<th>上课时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小明</td>
+<td>一年级语文（上）</td>
+<td>大宝</td>
+<td>副教授</td>
+<td>101</td>
+<td>14：30</td>
+</tr>
+</tbody>
+</table>
+<p>学生上课表新</p>
+<table>
+<thead>
+<tr>
+<th>课程</th>
+<th>教材</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一年级语文（上）</td>
+<td>《小学语文1》</td>
+</tr>
+</tbody>
+</table>
+<p>课程的表</p>
+<h3 id="第三范式3nf">第三范式（3NF）</h3>
+<p><strong>符合2NF，并且，消除传递依赖</strong></p>
+<p>上面的“学生上课表新”符合2NF，可以这样验证：两个主属性单独使用，不用确定其它四个非主属性的任何一个。但是它有传递依赖！<br>
+　　在哪呢？问题就出在“老师”和“老师职称”这里。一个老师一定能确定一个老师职称。有什么问题吗？想想：<br>
+　　1、老师升级了，变教授了，要改数据库，表中有N条，改了N次……（修改异常）<br>
+　　2、没人选这个老师的课了，老师的职称也没了记录……（删除异常）<br>
+　　3、新来一个老师，还没分配教什么课，他的职称记到哪？……（插入异常）<br>
+　　那应该怎么解决呢？和上面一样，投影分解：</p>
+<table>
+<thead>
+<tr>
+<th>学生</th>
+<th>课程</th>
+<th>老师</th>
+<th>教室</th>
+<th>上课时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小明</td>
+<td>一年级语文（上）</td>
+<td>大宝</td>
+<td>101</td>
+<td>14：30</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>老师</th>
+<th>老师职称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>大宝</td>
+<td>副教授</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bc范式bcnf">BC范式（BCNF）</h3>
+<p><strong>符合3NF，并且，主属性不依赖于主属性</strong></p>
+<p><strong>若关系模式属于第三范式，且每个属性都不传递依赖于键码，则属于BC范式。</strong></p>
+<p>​		若某公司有若干个仓库；每个仓库只能有一名管理员，一名管理员只能在一个仓库中工作；一个仓库中可以存放多种物品，一种物品也可以存放在不同的仓库中。每种物品在每个仓库中都有对应的数量。<br>
+那么关系模式 仓库（仓库名，管理员，物品名，数量） 属于哪一级范式？</p>
+<p>​		已知函数依赖集：仓库名 → 管理员，管理员 → 仓库名，（仓库名，物品名）→ 数量<br>
+​		码：（管理员，物品名），（仓库名，物品名）<br>
+​		主属性：仓库名、管理员、物品名非主属性：数量<br>
+​		∵ 不存在非主属性对码的部分函数依赖和传递函数依赖。<br>
+​		∴ 此关系模式属于3NF。</p>
+<p>​		好，既然此关系模式已经属于了 3NF，那么这个关系模式是否存在问题呢？我们来看以下几种操作：<br>
+​		1.先新增加一个仓库，但尚未存放任何物品，是否可以为该仓库指派管理员？——不可以，因为物品名也是主属性，根据实体完整性的要求，主属性不能为空。<br>
+某仓库被清空后，需要删除所有与这个仓库相关的物品存放记录，会带来什么问题？——仓库本身与管理员的信息也被随之删除了。<br>
+​		2.如果某仓库更换了管理员，会带来什么问题？——这个仓库有几条物品存放记录，就要修改多少次管理员信息。<br>
+​		从这里我们可以得出结论，在某些特殊情况下，即使关系模式符合 3NF 的要求，仍然存在着插入异常，修改异常与删除异常的问题，仍然不是 ”好“ 的设计。<br>
+​		造成此问题的原因：存在着主属性对于码的部分函数依赖与传递函数依赖。（在此例中就是存在<strong>主属性</strong>【仓库名】对于<strong>码</strong>【（管理员，物品名）】的<strong>部分函数依赖</strong>。</p>
+<p>​		解决办法就是要在 3NF 的基础上消除主属性对于码的部分与传递函数依赖。<br>
+​		1.仓库表（仓库名，管理员）<br>
+​		2.库存表（仓库名，物品名，数量）<br>
+​		这样，之前的插入异常，修改异常与删除异常的问题就被解决了。</p>
+<p>通常BC范式的条件有多种等价的表述：每个非平凡依赖的左边必须包含键码；每个决定因素必须包含键码。BC范式既检查非主属性，又检查主属性。当只检查非主属性时，就成了第三范式。满足BC范式的关系都必然满足第三范式。还可以这么说：<strong>若一个关系达到了第三范式，并且它只有一个候选码，或者它的每个候选码都是单属性，则该关系自然达到BC范式</strong>。</p>
+<p>一般，一个数据库设计符合3NF或BCNF就可以了。在BC范式以上还有第四范式、第五范式。</p>
+<h3 id="第四范式">第四范式</h3>
+<p>​		<strong>要求把同一表内的多对多关系删除。</strong></p>
+<h3 id="第五范式">第五范式</h3>
+<p>​		<strong>从最终结构重新建立原始结构。</strong></p>
+
+                          </div>
+                        </div>
+                        <div class="layout-post-social">
+                          <div class="item reader">
+                            <div id="/post/shu-ju-ku-han-shu-yi-lai-ji-fan-shi/" class="leancloud-visitors view"
+                              data-flag-title="数据库-函数依赖及范式">
+                              <span class="post-meta-item-text">阅读 </span>
+                              <span class="leancloud-visitors-count"></span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="layout-post-navigation">
+                          <div class="navigation-list">
+                            
+                            <div class="post-card row">
+                              
+                              <div class="card-content col-8 col-md-9">
+                                <div class="card-body">
+                                  <div class="header">
+                                    <a href="https://tooyi.github.io/post/hello-gridea/" class="title">
+                                      <h4>换一个新主题 - Gridea Themes Vant</h4>
+                                    </a>
+                                  </div>
+                                  <div class="inner d-none d-sm-block">
+                                    <div class="abstract">
+                                      <h2 id="访问旧博客">访问旧博客</h2>
+<p><strong>新博客使用Gridea管理，旧博客文章暂时未全部搬运。若访问旧博客，请访问</strong><a href="https://tooyi.github.io/blog-old/">涂诣的官方网站</a></p>
+<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card-footer">
+                                  <div class="item"><span>上一篇</span></div>
+                                  <div class="item">2020-05-26</div>
+                                </div>
+                              </div>
+                              <div class="card-thumb col-4 col-md-3">
+                                <div class="thumb">
+                                  <a href="https://tooyi.github.io/post/hello-gridea/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/hello-gridea.png');"></a>
+                                </div>
+                              </div>
+                              
+                            </div>
+
+                            <div class="post-card row">
+                              
+                              <div class="card-content col-8 col-md-9">
+                                <div class="card-body">
+                                  <div class="header">
+                                    <a href="https://tooyi.github.io/post/wei-xin-wxhl/" class="title">
+                                      <h4>微信小程序 WXHL 中截取字符串</h4>
+                                    </a>
+                                  </div>
+                                  <div class="inner d-none d-sm-block">
+                                    <div class="abstract">
+                                      <p>代码记录</p>
+
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card-footer">
+                                  <div class="item"><span>下一篇</span></div>
+                                  <div class="item">2019-07-02</div>
+                                </div>
+                              </div>
+                              <div class="card-thumb col-4 col-md-3">
+                                <div class="thumb">
+                                  <a href="https://tooyi.github.io/post/wei-xin-wxhl/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/wei-xin-wxhl.jpg');"></a>
+                                </div>
+                              </div>
+                              
+                            </div>
+
+                            
+                          </div>
+                        </div>
+
+                        <div class="layout-comments"></div>
+                        
+                        <script type="text/javascript" src='https://tooyi.github.io/media/scripts/zan.js'></script>
+<script type="text/javascript" src='https://tooyi.github.io/media/scripts/av-min.js'></script>
+<script type="text/javascript" src='https://tooyi.github.io/media/scripts/Valine.min.js'></script>
+
+<script>
+  var valine = new Valine();
+  valine.init({
+    el: '.layout-comments',
+    appId: 'S5mybpyN8KDDMNhnfhBw4Bn3-gzGzoHsz',
+    appKey: 'Xo2RmbkdRblp4vsgIHpen0lf',
+    notify: false,
+    verify: false,
+    visitor: true,
+    avatar: 'mp',
+    placeholder: '加入讨论...'
+  })
+</script>
+                        
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-lg-2 d-none d-lg-block">
+                      <div class="layout-post-sidebar">
+                        <div class="layout-sidebar-item">
+                          <ul class="markdownIt-TOC">
+<li><a href="#%E6%95%B0%E6%8D%AE%E5%BA%93-%E5%87%BD%E6%95%B0%E4%BE%9D%E8%B5%96%E5%8F%8A%E8%8C%83%E5%BC%8F%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82">数据库-函数依赖及范式（通俗易懂）</a>
+<ul>
+<li><a href="#%E4%B8%80-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5">一、基础概念</a></li>
+<li><a href="#%E4%BA%8C-6%E4%B8%AA%E8%8C%83%E5%BC%8F">二、6个范式</a>
+<ul>
+<li><a href="#%E7%AC%AC%E4%B8%80%E8%8C%83%E5%BC%8F1nf">第一范式（1NF）</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%8C%E8%8C%83%E5%BC%8F2nf">第二范式（2NF）</a></li>
+<li><a href="#%E7%AC%AC%E4%B8%89%E8%8C%83%E5%BC%8F3nf">第三范式（3NF）</a></li>
+<li><a href="#bc%E8%8C%83%E5%BC%8Fbcnf">BC范式（BCNF）</a></li>
+<li><a href="#%E7%AC%AC%E5%9B%9B%E8%8C%83%E5%BC%8F">第四范式</a></li>
+<li><a href="#%E7%AC%AC%E4%BA%94%E8%8C%83%E5%BC%8F">第五范式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="layout-totop d-none"><i class="fa fa-angle-up" aria-hidden="true"></i></div>
+
+    	<div class="layout-footer">
+
+		<div class="container">
+			<div class="row justify-content-lg-center">
+				<div class="col-12 col-lg-9">
+					<div class="footer">
+						<div class="row">
+							<div class="col-12 col-md-9">
+								<div class="footer-copy">
+									
+									<span>© 2018-2020 </span>
+									<a href="https://tooyi.github.io" title="涂诣">涂诣</a>
+									<span class="px-2">⋅</span>
+									
+									Themes by <a href="https://github.com/insdram/gridea-theme-vant" target="_blank">Vant</a>. Powered by <a href="https://github.com" target="_blank">GitHub</a>
+									<div class="footer-icp d-none d-sm-inline-block">
+										<span class="px-2">⋅</span>
+										
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 d-none d-md-block">
+								<div class="footer-links">
+									
+									
+									
+									
+									<span class="footer-links-item">
+										<a href="https://github.com/tooyi" target="_blank">
+											<i class="fa fa-github" aria-hidden="true"></i>
+										</a>
+									</span>
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									<span class="footer-links-item">
+										<a href="https://weibo.com/smartbber" target="_blank">
+											<i class="fa fa-weibo" aria-hidden="true"></i>
+										</a>
+									</span>
+									
+									
+									
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src='https://tooyi.github.io/media/scripts/main.js'></script>
+	
+	<script>
+		var _hmt = _hmt || [];
+		(function () {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?tooyi.github.io";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	
+
+  </div>
+</body>
+
+</html>

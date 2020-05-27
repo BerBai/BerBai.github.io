@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tooyi.github.io</id>
     <title>涂诣</title>
-    <updated>2020-05-27T01:18:20.896Z</updated>
+    <updated>2020-05-27T01:25:00.588Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tooyi.github.io"/>
     <link rel="self" href="https://tooyi.github.io/atom.xml"/>
@@ -44,6 +44,560 @@
 <p>未来，它一定会成为你离不开的伙伴</p>
 <p>尽情发挥你的才华吧！</p>
 <p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[数据库-函数依赖及范式]]></title>
+        <id>https://tooyi.github.io/post/shu-ju-ku-han-shu-yi-lai-ji-fan-shi/</id>
+        <link href="https://tooyi.github.io/post/shu-ju-ku-han-shu-yi-lai-ji-fan-shi/">
+        </link>
+        <updated>2020-04-27T01:23:52.000Z</updated>
+        <summary type="html"><![CDATA[<p>通俗讲解</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>通俗讲解</p>
+<!-- more -->
+<h1 id="数据库-函数依赖及范式通俗易懂">数据库-函数依赖及范式（通俗易懂）</h1>
+<h2 id="一-基础概念">一、基础概念</h2>
+<p>要理解范式，首先必须对知道什么是关系数据库，如果你不知道，我可以简单的不能再简单的说一下：关系数据库就是用二维表来保存数据。表和表之间可以……（省略10W字）。<br>
+　　然后你应该理解以下概念：<br>
+　　**实体：**现实世界中客观存在并可以被区别的事物。比如“一个学生”、“一本书”、“一门课”等等。值得强调的是这里所说的“事物”不仅仅是看得见摸得着的“东西”，它也可以是虚拟的，不如说“老师与学校的关系”。<br>
+　　**属性：**教科书上解释为：“实体所具有的某一特性”，由此可见，属性一开始是个逻辑概念，比如说，“性别”是“人”的一个属性。在关系数据库中，属性又是个物理概念，属性可以看作是“表的一列”。<br>
+　　**元组：**表中的一行就是一个元组。<br>
+　　**分量：**元组的某个属性值。在一个关系数据库中，它是一个操作原子，即关系数据库在做任何操作的时候，属性是“不可分的”。否则就不是关系数据库了。<br>
+　　**码：**表中可以唯一确定一个元组的某个属性（或者属性组），如果这样的码有不止一个，那么大家都叫候选码，我们从候选码中挑一个出来做老大，它就叫主码。<br>
+　　**全码：**如果一个码包含了所有的属性，这个码就是全码。<br>
+　　**主属性：**一个属性只要在任何一个候选码中出现过，这个属性就是主属性。<br>
+　　**非主属性：**与上面相反，没有在任何候选码中出现过，这个属性就是非主属性。<br>
+　　**外码：**一个属性（或属性组），它不是码，但是它别的表的码，它就是外码。</p>
+<h2 id="二-6个范式">二、6个范式</h2>
+<p>好了，上面已经介绍了我们掌握范式所需要的全部基础概念，下面我们就来讲范式。首先要明白，范式的包含关系。一个数据库设计如果符合第二范式，一定也符合第一范式。如果符合第三范式，一定也符合第二范式…</p>
+<h3 id="第一范式1nf">第一范式（1NF）</h3>
+<p><strong>属性不可分。</strong></p>
+<p>在前面我们已经介绍了属性值的概念，我们说，它是“不可分的”。而第一范式要求属性也不可分。那么它和属性值不可分有什么区别呢？给一个例子：</p>
+<table>
+   <tr>
+      <th>name</td>
+      <th colspan='2'>tel</td>
+      <th>age</td>
+   </tr>
+   <tr>
+      <td>大宝</td>
+      <td colspan='2'>13612345678</td>
+      <td>22</td>
+   </tr>
+   <tr>
+      <td>小明</td>
+      <td>13988776655</td>
+      <td>010－1234567</td>
+      <td>21</td>
+   </tr>
+</table>
+<p>Ps：这个表中，属性值“分”了。</p>
+<table>
+	<tr>
+		<th rowspan='2'>name</td>
+		<th colspan='2'>tel</td>
+		<th colspan='2'>age</td>
+	</tr>
+	<tr>
+        <td>手机</td>
+		<td>座机</td>
+	</tr>
+	<tr>
+		<td>大宝</td>
+		<td>13612345678</td>
+		<td>021－9876543</td>
+		<td>22</td>
+	</tr>
+	<tr>
+		<td>小明</td>
+		<td>13988776655</td>
+		<td>010－1234567</td>
+		<td>21</td>
+	</tr>
+</table>
+<p>Ps：这个表中，属性 “分”了。</p>
+<p>这两种情况都不满足第一范式。不满足第一范式的数据库，不是关系数据库！所以，我们在任何关系数据库管理系统中，做不出这样的“表”来。（也就是说，<strong>只要是关系数据库就是第一范式</strong>）</p>
+<h3 id="第二范式2nf">第二范式（2NF）</h3>
+<p><strong>符合1NF，并且，非主属性完全依赖于码，消除部分依赖。</strong></p>
+<p>听起来好像很神秘，其实真的没什么。<br>
+　　一个候选码中的主属性也可能是好几个。如果一个主属性，它不能单独做为一个候选码，那么它也不能确定任何一个非主属性。给一个反例：我们考虑一个小学的教务 管理系统，学生上课指定一个老师，一本教材，一个教室，一个时间，大家都上课去吧，没有问题。那么数据库怎么设计？（学生上课表）</p>
+<table>
+<thead>
+<tr>
+<th>学生</th>
+<th>课程</th>
+<th>老师</th>
+<th>老师职称</th>
+<th>教材</th>
+<th>教室</th>
+<th>上课时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小明</td>
+<td>一年级语文（上）</td>
+<td>大宝</td>
+<td>副教授</td>
+<td>《小学语文1》</td>
+<td>101</td>
+<td>14：30</td>
+</tr>
+</tbody>
+</table>
+<p>一个学生上一门课，一定在特定某个教室。所以有（学生，课程）－&gt;教室<br>
+一个学生上一门课，一定是特定某个老师教。所以有（学生，课程）－&gt;老师<br>
+一个学生上一门课，他老师的职称可以确定。所以有（学生，课程）－&gt;老师职称<br>
+一个学生上一门课，一定是特定某个教材。所以有（学生，课程）－&gt;教材<br>
+一个学生上一门课，一定在特定时间。所以有（学生，课程）－&gt;上课时间</p>
+<p>因此（学生，课程）是一个码。<br>
+　　然而，一个课程，一定指定了某个教材，一年级语文肯定用的是《小学语文1》，那么就有课程－&gt;教材。（学生，课程）是个码，课程却决定了教材，这就叫做不完全依赖，或者说部分依赖。出现这样的情况，就不满足第二范式！<br>
+　　有什么不好吗？你可以想想：<br>
+　　1、校长要新增加一门课程叫“微积分”，教材是《大学数学》，怎么办？学生还没选课，而学生又是主属性，主属性不能空，课程怎么记录呢，教材记到哪呢? ……郁闷了吧?(插入异常)<br>
+　　2、下学期没学生学一年级语文（上）了，学一年级语文（下）去了，那么表中将不存在一年级语文（上），也就没了《小学语文1》。这时候，校长问：一年级语文（上）用的什么教材啊？……郁闷了吧?(删除异常)<br>
+　　3、校长说：一年级语文（上）换教材，换成《大学语文》。有10000个学生选了这么课，改动好大啊！改累死了……郁闷了吧？（修改异常）<br>
+　　那应该怎么解决呢？投影分解，将一个表分解成两个或若干个表</p>
+<table>
+<thead>
+<tr>
+<th>学生</th>
+<th>课程</th>
+<th>老师</th>
+<th>老师职称</th>
+<th>教室</th>
+<th>上课时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小明</td>
+<td>一年级语文（上）</td>
+<td>大宝</td>
+<td>副教授</td>
+<td>101</td>
+<td>14：30</td>
+</tr>
+</tbody>
+</table>
+<p>学生上课表新</p>
+<table>
+<thead>
+<tr>
+<th>课程</th>
+<th>教材</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一年级语文（上）</td>
+<td>《小学语文1》</td>
+</tr>
+</tbody>
+</table>
+<p>课程的表</p>
+<h3 id="第三范式3nf">第三范式（3NF）</h3>
+<p><strong>符合2NF，并且，消除传递依赖</strong></p>
+<p>上面的“学生上课表新”符合2NF，可以这样验证：两个主属性单独使用，不用确定其它四个非主属性的任何一个。但是它有传递依赖！<br>
+　　在哪呢？问题就出在“老师”和“老师职称”这里。一个老师一定能确定一个老师职称。有什么问题吗？想想：<br>
+　　1、老师升级了，变教授了，要改数据库，表中有N条，改了N次……（修改异常）<br>
+　　2、没人选这个老师的课了，老师的职称也没了记录……（删除异常）<br>
+　　3、新来一个老师，还没分配教什么课，他的职称记到哪？……（插入异常）<br>
+　　那应该怎么解决呢？和上面一样，投影分解：</p>
+<table>
+<thead>
+<tr>
+<th>学生</th>
+<th>课程</th>
+<th>老师</th>
+<th>教室</th>
+<th>上课时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小明</td>
+<td>一年级语文（上）</td>
+<td>大宝</td>
+<td>101</td>
+<td>14：30</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>老师</th>
+<th>老师职称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>大宝</td>
+<td>副教授</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bc范式bcnf">BC范式（BCNF）</h3>
+<p><strong>符合3NF，并且，主属性不依赖于主属性</strong></p>
+<p><strong>若关系模式属于第三范式，且每个属性都不传递依赖于键码，则属于BC范式。</strong></p>
+<p>​		若某公司有若干个仓库；每个仓库只能有一名管理员，一名管理员只能在一个仓库中工作；一个仓库中可以存放多种物品，一种物品也可以存放在不同的仓库中。每种物品在每个仓库中都有对应的数量。<br>
+那么关系模式 仓库（仓库名，管理员，物品名，数量） 属于哪一级范式？</p>
+<p>​		已知函数依赖集：仓库名 → 管理员，管理员 → 仓库名，（仓库名，物品名）→ 数量<br>
+​		码：（管理员，物品名），（仓库名，物品名）<br>
+​		主属性：仓库名、管理员、物品名非主属性：数量<br>
+​		∵ 不存在非主属性对码的部分函数依赖和传递函数依赖。<br>
+​		∴ 此关系模式属于3NF。</p>
+<p>​		好，既然此关系模式已经属于了 3NF，那么这个关系模式是否存在问题呢？我们来看以下几种操作：<br>
+​		1.先新增加一个仓库，但尚未存放任何物品，是否可以为该仓库指派管理员？——不可以，因为物品名也是主属性，根据实体完整性的要求，主属性不能为空。<br>
+某仓库被清空后，需要删除所有与这个仓库相关的物品存放记录，会带来什么问题？——仓库本身与管理员的信息也被随之删除了。<br>
+​		2.如果某仓库更换了管理员，会带来什么问题？——这个仓库有几条物品存放记录，就要修改多少次管理员信息。<br>
+​		从这里我们可以得出结论，在某些特殊情况下，即使关系模式符合 3NF 的要求，仍然存在着插入异常，修改异常与删除异常的问题，仍然不是 ”好“ 的设计。<br>
+​		造成此问题的原因：存在着主属性对于码的部分函数依赖与传递函数依赖。（在此例中就是存在<strong>主属性</strong>【仓库名】对于<strong>码</strong>【（管理员，物品名）】的<strong>部分函数依赖</strong>。</p>
+<p>​		解决办法就是要在 3NF 的基础上消除主属性对于码的部分与传递函数依赖。<br>
+​		1.仓库表（仓库名，管理员）<br>
+​		2.库存表（仓库名，物品名，数量）<br>
+​		这样，之前的插入异常，修改异常与删除异常的问题就被解决了。</p>
+<p>通常BC范式的条件有多种等价的表述：每个非平凡依赖的左边必须包含键码；每个决定因素必须包含键码。BC范式既检查非主属性，又检查主属性。当只检查非主属性时，就成了第三范式。满足BC范式的关系都必然满足第三范式。还可以这么说：<strong>若一个关系达到了第三范式，并且它只有一个候选码，或者它的每个候选码都是单属性，则该关系自然达到BC范式</strong>。</p>
+<p>一般，一个数据库设计符合3NF或BCNF就可以了。在BC范式以上还有第四范式、第五范式。</p>
+<h3 id="第四范式">第四范式</h3>
+<p>​		<strong>要求把同一表内的多对多关系删除。</strong></p>
+<h3 id="第五范式">第五范式</h3>
+<p>​		<strong>从最终结构重新建立原始结构。</strong></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[微信小程序 WXHL 中截取字符串]]></title>
+        <id>https://tooyi.github.io/post/wei-xin-wxhl/</id>
+        <link href="https://tooyi.github.io/post/wei-xin-wxhl/">
+        </link>
+        <updated>2019-07-02T01:21:52.000Z</updated>
+        <summary type="html"><![CDATA[<p>代码记录</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>代码记录</p>
+<!-- more -->
+<p>1.首先 在对应页面下新建  “  center.wxs   ” 文件 这个文件是小程序自身 一套脚本语言</p>
+<p>2.在 .wxs  文件中 写 截取字符串的 方法</p>
+<pre><code>// 小程序页面中 如何截取字符串
+var substr = function(val) {
+if (val.length == 0 || val == undefined) {
+return false;
+} else if (val.length &gt; 12) {
+return val.substring(0,12) + &quot;...&quot;;
+}else{
+return val;
+}
+}
+//暴露substr方法
+module.exports.substr =substr
+</code></pre>
+<p>3.在center.wxml页面中 引入 <wxs src="./center.wxs" module="intercept" /></p>
+<p>然后在  “   {{}}   ” 中  使用  ，如下</p>
+<pre><code>&lt;view class='p'&gt;{{intercept.substr(item.evaluation.name)}}&lt;/view&gt;
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[MySQL读写分离]]></title>
+        <id>https://tooyi.github.io/post/mysql-du-xie-fen-chi/</id>
+        <link href="https://tooyi.github.io/post/mysql-du-xie-fen-chi/">
+        </link>
+        <updated>2019-06-20T01:20:43.000Z</updated>
+        <summary type="html"><![CDATA[<p>Java高级面试必问系列</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Java高级面试必问系列</p>
+<!-- more -->
+<h2 id="为什么要读写分离">为什么要读写分离？</h2>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/20190620213528.png" alt="读写分离" loading="lazy"></figure>
+<h2 id="mysql主从复制">Mysql主从复制</h2>
+<figure data-type="image" tabindex="2"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/20190620213833.png" alt="Mysql主从复制" loading="lazy"></figure>
+<h2 id="mysql主从延迟导致的生产环境的问题">MySQL主从延迟导致的生产环境的问题</h2>
+<figure data-type="image" tabindex="3"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/20190620213941.png" alt="MySQL主从延迟导致的生产环境的问题" loading="lazy"></figure>
+<p>进入正题，开始撞壁！</p>
+<h2 id="1-面试题">1、面试题</h2>
+<p>你们有没有做MySQL读写分离？<br>
+如何实现mysql的读写分离？MySQL主从分离原理的是啥？如何解决mysql主从同步的延时问题？</p>
+<h2 id="2-面试官心里分析">2、面试官心里分析</h2>
+<p>这个，高并发这个阶段，那肯定是需要做读写分离的，啥意思？因为实际上大部分的互联网公司，一些网站，或者是app，其实都是读多写少。所以针对这个情况，就是写一个主库，但是主库挂多个从库，然后从多个从库来读，那不就可以支撑更高的读并发压力了吗？</p>
+<h2 id="3-面试题剖析">3、面试题剖析</h2>
+<h3 id="1如何实现mysql的读写分离">（1）如何实现mysql的读写分离？</h3>
+<p>其实很简单，就是基于主从复制架构，简单来说，就搞一个主库，挂多个从库，然后我们就单单只是写主库，然后主库会自动把数据给同步到从库上去。</p>
+<h3 id="2mysql主从复制原理的是啥">（2）MySQL主从复制原理的是啥？</h3>
+<p>主库将变更写binlog日志，然后从库连接到主库之后，从库有一个IO线程，将主库的binlog日志拷贝到自己本地，写入一个中继日志中。接着从库中有一个SQL线程会从中继日志读取binlog，然后执行binlog日志中的内容，也就是在自己本地再次执行一遍SQL，这样就可以保证自己跟主库的数据是一样的。</p>
+<p>这里有一个非常重要的一点，就是从库同步主库数据的过程是串行化的，也就是说主库上并行的操作，在从库上会串行执行。所以这就是一个非常重要的点了，由于从库从主库拷贝日志以及串行执行SQL的特点，在高并发场景下，从库的数据一定会比主库慢一些，是有延时的。</p>
+<p>所以经常出现，刚写入主库的数据可能是读不到的，要过几十毫秒，甚至几百毫秒才能读取到。</p>
+<p>而且这里还有另外一个问题，就是如果主库突然宕机，然后恰好数据还没同步到从库，那么有些数据可能在从库上是没有的，有些数据可能就丢失了。</p>
+<p>所以mysql实际上在这一块有两个机制，一个是半同步复制，用来解决主库数据丢失问题；一个是并行复制，用来解决主从同步延时问题。 这个所谓半同步复制，semi-sync复制，指的就是主库写入binlog日志之后，就会将强制此时立即将数据同步到从库，从库将日志写入自己本地的relay log之后，接着会返回一个ack给主库，主库接收到至少一个从库的ack之后才会认为写操作完成了。 所谓并行复制，指的是从库开启多个线程，并行读取relay log中不同库的日志，然后并行重放不同库的日志，这是库级别的并行。</p>
+<ol>
+<li>主从复制的原理</li>
+<li>主从延迟问题产生的原因</li>
+<li>主从复制的数据丢失问题，以及半同步复制的原理</li>
+<li>并行复制的原理，多库并发重放relay日志，缓解主从延迟问题</li>
+</ol>
+<h3 id="3mysql主从同步延时问题精华">（3）mysql主从同步延时问题（精华）</h3>
+<p>线上确实处理过因为主从同步延时问题，导致的线上的bug，小型的生产事故 show status，Seconds_Behind_Master，你可以看到从库复制主库的数据落后了几ms 其实这块东西我们经常会碰到，就比如说用了mysql主从架构之后，可能会发现，刚写入库的数据结果没查到，结果就完蛋了。。。。</p>
+<p>所以实际上你要考虑好应该在什么场景下来用这个mysql主从同步，建议是一般在读远远多于写，而且读的时候一般对数据时效性要求没那么高的时候，用mysql主从同步 所以这个时候，我们可以考虑的一个事情就是，你可以用mysql的并行复制，但是问题是那是库级别的并行，所以有时候作用不是很大</p>
+<p>所以这个时候。。</p>
+<p>通常来说，我们会对于那种写了之后立马就要保证可以查到的场景，采用强制读主库的方式，这样就可以保证你肯定的可以读到数据了吧。其实用一些数据库中间件是没问题的。</p>
+<p>一般来说，如果主从延迟较为严重：</p>
+<ol>
+<li>分库，将一个主库拆分为4个主库，每个主库的写并发就500/s，此时主从延迟可以忽略不计</li>
+<li>打开mysql支持的并行复制，多个库并行复制，如果说某个库的写入并发就是特别高，单库写并发达到了2000/s，并行复制还是没意义。28法则，很多时候比如说，就是少数的几个订单表，写入了2000/s，其他几十个表10/s。</li>
+<li>重写代码，写代码的同学，要慎重，当时我们其实短期是让那个同学重写了一下代码，插入数据之后，直接就更新，不要查询</li>
+<li>如果确实是存在必须先插入，立马要求就查询到，然后立马就要反过来执行一些操作，对这个查询设置直连主库。不推荐这种方法，你这么搞导致读写分离的意义就丧失了</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[前端学习路线]]></title>
+        <id>https://tooyi.github.io/post/qian-duan-xue-xi-lu-xian/</id>
+        <link href="https://tooyi.github.io/post/qian-duan-xue-xi-lu-xian/">
+        </link>
+        <updated>2019-04-05T01:18:35.000Z</updated>
+        <summary type="html"><![CDATA[<p>维尔工作室卓子分享</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>维尔工作室卓子分享</p>
+<!-- more -->
+<h2 id="成长路线">成长路线：</h2>
+<h3 id="1熟悉开发环境">1.熟悉开发环境</h3>
+<h4 id="a前端工具">a.前端工具：</h4>
+<ul>
+<li>Git
+<ul>
+<li>廖雪峰Git教程(https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/)</li>
+<li>Git简明指南（http://www.bootcss.com/p/git-guide/）</li>
+<li>Git基础教程（http://www.shouce.ren/api/view/a/7484）</li>
+<li>Git教程（https://www.w3cschool.cn/git/）</li>
+</ul>
+</li>
+<li>Github
+<ul>
+<li>Github学习--慕课网（http://www.imooc.com/learn/390）</li>
+<li>Github简明教程（http://www.runoob.com/w3cnote/git-guide.html）</li>
+</ul>
+</li>
+<li>sublime/WebStorm/Visual Studio Code
+<ul>
+<li>Sublime Text前端必备插件（根据自己需要安装）（https://www.jianshu.com/p/edbc2a13494b）</li>
+<li>Sublime使用手册（https://www.w3cschool.cn/sublimetext/）</li>
+<li>WebStorm的配置和使用（https://www.jianshu.com/p/f72dfac254ac）</li>
+<li>Visual Studio Code简明教程（https://wenku.baidu.com/view/58c64e3ff02d2af90242a8956bec0975f465a43b.html）</li>
+<li>Visual Studio Code插件（https://segmentfault.com/a/1190000006697219）</li>
+</ul>
+</li>
+<li>Chrome DevTools
+<ul>
+<li>Chrome开发者工具不完全指南（http://web.jobbole.com/82558/）</li>
+<li>Chrome开发者工具指南（https://www.w3cschool.cn/chromedevtools/）</li>
+</ul>
+</li>
+<li>扩展：Markdown和SVN
+<ul>
+<li>Markdown--入门指南（https://www.jianshu.com/p/1e402922ee32/）</li>
+<li>Github上README写法暨markdown语法解读（https://www.tuicool.com/articles/zIJrEjn）</li>
+<li>SVN教程（http://www.runoob.com/svn/svn-tutorial.html）</li>
+</ul>
+</li>
+</ul>
+<h3 id="2熟悉页面切图">2.熟悉页面切图：</h3>
+<h4 id="a前期准备ps切图">a.前期准备（PS切图）</h4>
+<ul>
+<li>i.慕课网切图学习（http://www.imooc.com/learn/506）</li>
+<li>ii.PS切图教程（https://blog.csdn.net/obkoro1/article/details/69817571）</li>
+</ul>
+<h4 id="bhtml基础-css基础">b.HTML基础、CSS基础</h4>
+<h5 id="ihtml">i.HTML</h5>
+<h6 id="1学习目标">1.学习目标：</h6>
+<p>a.熟悉HTML文档结构和文档类型<br>
+b.熟悉块级元素和内联元素以及之间区别<br>
+c.熟悉html表单元素及使用<br>
+d.熟悉HTML注释<br>
+e.熟悉代码规范：</p>
+<ul>
+<li>HTML规范（http://www.runoob.com/w3cnote/html-css-guide.html#html）</li>
+<li>勤奋蜂前端编码规范（转载https://proyang.gitbooks.io/codeguide/）</li>
+<li>HTML页面渲染机制、重绘和回流（http://blog.codingplayboy.com/2017/03/29/webpage_render/）<br>
+g.自主学习HTML基础</li>
+</ul>
+<h6 id="2参考资料">2.参考资料</h6>
+<p>a.HTML+CSS基础课程（http://www.imooc.com/learn/9）<br>
+b.W3CSchool HTML教程（http://www.w3school.com.cn/html/index.asp）<br>
+c.更多参考学习资料可自行网上查询</p>
+<h6 id="3练习">3.练习</h6>
+<p>a.百度前端学院任务一：零基础HTML编码（http://ife.baidu.com/2016/task/all）</p>
+<h5 id="iicss">ii.CSS</h5>
+<h6 id="1css相关知识及学习目标">1.CSS相关知识及学习目标</h6>
+<p>a.熟悉CSS样式的语法<br>
+b.熟悉内联样式、嵌入样式、外部样式、以及优先级<br>
+c.熟悉CSS继承、层叠，样式<br>
+d.熟悉CSS选择器<br>
+e.熟悉CSS盒子模型<br>
+f.熟悉CSS定位和浮动<br>
+g.熟悉常用CSS样式的表现<br>
+h.熟悉基本的布局方式<br>
+i.Grid，Flexbox等布局方式<br>
+j.熟悉使用CSS3 transform、transtion、animation<br>
+k.熟悉厂商前缀</p>
+<h6 id="2参考资料-2">2.参考资料</h6>
+<ul>
+<li>张鑫旭的CSS教程（http://www.imooc.com/u/197450/courses?sort=publish）</li>
+<li>W3CSchool-CSS教程（http://www.w3school.com.cn/css/index.asp）</li>
+<li>MDN盒模型(https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Getting_started/Boxes)</li>
+<li>学习CSS布局（http://zh.learnlayout.com/no-layout.html）</li>
+<li>双飞翼布局介绍-始于淘宝UED（http://www.imooc.com/wenda/detail/254035）</li>
+<li>那些年我们一起清除过的浮动（http://www.iyunlu.com/view/css-xhtml/55.html）</li>
+<li>BFC和hasLayout（http://www.cnblogs.com/pigtail/archive/2013/01/23/2871627.html）</li>
+<li>熟悉CSS规范（http://www.runoob.com/w3cnote/html-css-guide.html#css）</li>
+<li>.....其余可自行百度</li>
+</ul>
+<h6 id="3练习-2">3.练习</h6>
+<ul>
+<li>百度前端学院任务二--任务八（http://ife.baidu.com/2016/task/all）</li>
+</ul>
+<h5 id="iii前端切图总结-综合练习">iii.前端切图总结---综合练习</h5>
+<ul>
+<li>完善自身，总结并做百度任务九（http://ife.baidu.com/2016/task/all）</li>
+<li>附加（有兴趣可以做）：百度前端学院任务十--十二</li>
+<li>在学习过程中最好不写JavaScript，当然控住不住，还是可以适当写一下的。</li>
+</ul>
+<h4 id="c附加">c.附加：</h4>
+<ul>
+<li>Sass和Less学习视频（http://www.imooc.com/course/list?c=sassless）</li>
+<li>游戏化学习display：flex（http://flexboxfroggy.com/#zh-cn）</li>
+<li>css弹性Flex布局（http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html）</li>
+<li>Flexbox属性大全（https://note.youdao.com/share/?id=71219e0def4cb6ca5afbb69c7c408c76&amp;type=note#/）</li>
+</ul>
+<h3 id="3javascript">3.JavaScript</h3>
+<h4 id="ajavascript基础">a.JavaScript基础</h4>
+<h5 id="学习目标">学习目标：</h5>
+<ul>
+<li>熟悉js基础</li>
+<li>常见的DOM树操作</li>
+<li>熟悉window下的常用全局对象</li>
+<li>熟悉json数据</li>
+<li>熟悉ES6语法</li>
+<li>熟悉代码规范</li>
+</ul>
+<h5 id="参考资料">参考资料</h5>
+<ul>
+<li>阮一峰的es6(http://es6.ruanyifeng.com/)和js(http://javascript.ruanyifeng.com/#toc1)</li>
+<li>慕课网js基础（https://www.imooc.com/learn/36）</li>
+</ul>
+<h5 id="参考书籍">参考书籍</h5>
+<ul>
+<li>JavaScript DOM编程艺术</li>
+<li>JavaScript高级程序设计（链接: https://pan.baidu.com/s/1fONBCOeS30rkHBU0mR8NdQ 密码: qriq）</li>
+<li>JavaScript精粹</li>
+<li>你不知道的JavaScript</li>
+<li>JavaScript忍者秘籍</li>
+<li>JavaScript函数式编程</li>
+<li>高性能JavaScript（链接: https://pan.baidu.com/s/1UsDTSBuBDngCcuMsZKWXEw 密码: pw3s）</li>
+<li>自主学习，网上诸多资料</li>
+</ul>
+<h4 id="必做练习">必做练习</h4>
+<ul>
+<li>百度前端学院任务十四--十七</li>
+<li>JavaScript基本特效</li>
+<li>轮播图</li>
+<li>弹出层、手风琴菜单</li>
+<li>瀑布流布局</li>
+<li>....等</li>
+</ul>
+<h4 id="javascript高级特性">JavaScript高级特性</h4>
+<ul>
+<li>正则表达式</li>
+<li>JavaScrip原型和闭包（http://www.cnblogs.com/wangfupeng1988/p/3977924.html）</li>
+<li>JavaScript内存泄漏（http://www.ruanyifeng.com/blog/2017/04/memory-leak.html）</li>
+<li>JavaScript的this用法和指向（http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html）</li>
+<li>JavaScript的作用域（http://www.cnblogs.com/kikiwu/p/4474074.html）</li>
+</ul>
+<h4 id="必做练习-2">必做练习</h4>
+<ul>
+<li>百度前端学院任务十九---二十一</li>
+<li>下拉菜单</li>
+<li>分页组件</li>
+<li>倒计时效果</li>
+<li>简易计算器</li>
+<li>tab选项卡切换</li>
+</ul>
+<h4 id="http和ajax编程">HTTP和Ajax编程</h4>
+<h5 id="学习目标-2">学习目标</h5>
+<ul>
+<li>web基础知识</li>
+<li>http极少</li>
+<li>ajax基本原理<br>
+<img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/007vdmn3gy1g1s4ritcy0j30bj0e5mxd.jpg" alt="" loading="lazy"></li>
+</ul>
+<h4 id="javascript面向对象进阶">JavaScript面向对象进阶</h4>
+<h5 id="参考书籍-2">参考书籍</h5>
+<ul>
+<li>JavaScript面向对象编程指南（链接: https://pan.baidu.com/s/1PSswVssDsn6tfLXkRd1nqA 密码: zdmt）</li>
+<li>JavaScript设计模式（链接: https://pan.baidu.com/s/18gF0hzC9xcmyBwHcKydAZA 密码: mgd2）</li>
+<li>一张图理解prototype、proto和constructor的三角关系（http://www.cnblogs.com/xiaohuochai/p/5721552.html）</li>
+<li>JavaScript高级程序设计相关章节</li>
+</ul>
+<h3 id="javascript运动动画">JavaScript运动/动画</h3>
+<h4 id="参考资料-2">参考资料</h4>
+<ul>
+<li>js动画效果（http://www.imooc.com/learn/167）</li>
+<li>自行网上查阅并学习</li>
+</ul>
+<h3 id="jquery基础">jQuery基础</h3>
+<h4 id="参考资料-3">参考资料</h4>
+<ul>
+<li>书籍：锋利的jQuery（最好必看吧）（链接: https://pan.baidu.com/s/19Y-aUqFvHykakWCiBoH7Vg 密码: ajs2）</li>
+<li>慕课网jQuery（http://www.imooc.com/course/list?c=jquery&amp;type=1）</li>
+<li>李炎恢老师jQuery视频教程（http://study.163.com/course/introduction.htm?courseId=501006）</li>
+</ul>
+<h3 id="模块化组件开发">模块化组件开发</h3>
+<h4 id="参考资料-4">参考资料</h4>
+<ul>
+<li>require.js官网（http://requirejs.org/）（https://blog.csdn.net/sanxian_li/article/details/39394097）</li>
+<li>sea.js官网（http://www.zhangxinxu.com/sp/seajs/）</li>
+<li>JavaScript中的模块化之AMD和CMD（https://blog.csdn.net/tyro_java/article/details/51314674）</li>
+</ul>
+<h3 id="总结练习">总结练习</h3>
+<h4 id="实战">实战</h4>
+<ul>
+<li>响应式网页制作实战项目（链接: https://pan.baidu.com/s/1vsvuj6MYNMVXQeXeFPlxIg 密码: swfe）</li>
+<li>webapp书城开发（链接: https://pan.baidu.com/s/1vQHBm0zTEbbQycwEDs59SQ 密码: mqt9）</li>
+<li>初级开发工程师实战（链接: https://pan.baidu.com/s/133-pJKChi_OePmql6Xx87w 密码: hj8e）</li>
+<li>中级实战（链接: https://pan.baidu.com/s/1dZr-g-j6RozQTVMu6C4Vzw 密码: h5vf）</li>
+</ul>
+<h3 id="扩展掌握">扩展掌握</h3>
+<ul>
+<li>canvas和svg</li>
+<li>React和redux（http://www.runoob.com/react/react-tutorial.html）</li>
+<li>vue（饿了么开发（http://www.runoob.com/react/react-tutorial.html））</li>
+<li>7天搞定nodejs微信公众号开发（链接: https://pan.baidu.com/s/12VVtyZIKTSnazA-cJueMYg 密码: wudg）</li>
+<li>....等自主网上学习</li>
+<li>学习视频
+<ul>
+<li>链接: https://pan.baidu.com/s/1HxJH6Y6fYblkf9hQcmEXXg 密码: i6fd</li>
+<li>链接: https://pan.baidu.com/s/1e49NOJVwgd7XMCo-odHFdw 密码: ymad</li>
+<li>链接: https://pan.baidu.com/s/1B0Kn2t50kLlZcxVYWPqgsg 密码: c9ks</li>
+<li>链接: https://pan.baidu.com/s/1ouJqfv2qIE0x_AQ6BlKEtg 密码: twrv</li>
+</ul>
+</li>
+</ul>
+<h3 id="扩展学习资料汇总">扩展学习资料汇总</h3>
+<ul>
+<li>https://github.com/jsfront/src/blob/master/qq.md（学习资料汇总）</li>
+<li>https://github.com/airyland/Jsource（学习图谱）</li>
+<li>https://zhuanlan.zhihu.com/p/23968878?refer=full-stack（面向未来的跨界开发技术）</li>
+</ul>
+<h3 id="基本学习视频网站">基本学习视频网站</h3>
+<ul>
+<li>慕课网（https://www.imooc.com/）</li>
+<li>极客学院（http://www.jikexueyuan.com/）</li>
+<li>网易云课堂（http://study.163.com/category/it）</li>
+<li>W3CSchool（https://www.w3cschool.cn/）</li>
+<li>菜鸟教程（http://www.runoob.com/）</li>
+<li>牛客网（https://www.nowcoder.com/）</li>
+<li>火狐开发社区（https://developer.mozilla.org/zh-CN/）</li>
+<li>自强学堂（https://code.ziqiangxuetang.com/）</li>
+<li>妙味课堂（https://miaov.com/）</li>
+</ul>
 ]]></content>
     </entry>
     <entry>
@@ -568,405 +1122,6 @@ location ~ \.php$ {
 <h3 id="4浏览器中输入-a-hrefhttplocalhostphpinfophp-target_blanklocalhostphpinfophpa-或者-a-hrefhttp127001phpinfophp-target_blank127001phpinfophpa出现下面内容则说明php在nginx中运行成功了">4）浏览器中输入 <a href='http://localhost/phpinfo.php' target='_blank'>localhost/phpinfo.php</a> 或者 <a href='http://127.0.0.1/phpinfo.php' target='_blank'>127.0.0.1/phpinfo.php</a>，出现下面内容则说明php在nginx中运行成功了。</h3>
 <figure data-type="image" tabindex="1"><img src="http://ww1.sinaimg.cn/large/006KCUaNgy1g0og4i2gzfj30qi0gl77i.jpg" alt="成功啦" loading="lazy"></figure>
 <p>本文参考 <a href="http://www.cnblogs.com/huayangmeng/archive/2011/06/15/2081337.html">http://www.cnblogs.com/huayangmeng/archive/2011/06/15/2081337.html</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[composer 脱坑记]]></title>
-        <id>https://tooyi.github.io/post/composer-tuo-keng-ji/</id>
-        <link href="https://tooyi.github.io/post/composer-tuo-keng-ji/">
-        </link>
-        <updated>2019-03-02T01:04:16.000Z</updated>
-        <summary type="html"><![CDATA[<p>解决composer update太慢</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>解决composer update太慢</p>
-<!-- more -->
-<h3 id="composer-介绍">composer 介绍</h3>
-<p>Composer 是 PHP5.3以上 的一个依赖管理工具。它允许你声明项目所依赖的代码库，它会在你的项目中为你安装他们。Composer 不是一个包管理器。是的，它涉及 &quot;packages&quot; 和 &quot;libraries&quot;，但它在每个项目的基础上进行管理，在你项目的某个目录中（例如 vendor）进行安装。默认情况下它不会在全局安装任何东西。因此，这仅仅是一个依赖管理。</p>
-<h3 id="那么问题来了">那么，问题来了</h3>
-<blockquote>
-<p>composer update 太慢，怎么解决</p>
-</blockquote>
-<blockquote>
-<p>卡在这里怎么办</p>
-</blockquote>
-<pre><code>Loading composer repositories with package information
-Updating dependencies (including require-dev)
-</code></pre>
-<p>后来看到这里：</p>
-<p>https://pkg.phpcomposer.com/#how-to-install-composer</p>
-<h3 id="方法一">方法一</h3>
-<p>打开命令行窗口（windows用户）或控制台（Linux、Mac 用户）并执行如下命令</p>
-<pre><code>composer config -g repo.packagist composer https://packagist.phpcomposer.com
-</code></pre>
-<h3 id="方法二-修改当前项目的-composerjson-配置文件">方法二： 修改当前项目的 composer.json 配置文件：</h3>
-<p>打开命令行窗口（windows用户）或控制台（Linux、Mac 用户），进入你的项目的根目录（也就是 composer.json 文件所在目录），执行如下命令：</p>
-<pre><code>composer config repo.packagist composer https://packagist.phpcomposer.com
-</code></pre>
-<p>上述命令将会在当前项目中的 composer.json 文件的末尾自动添加镜像的配置信息（你也可以自己手工添加）：</p>
-<pre><code class="language-js">&quot;repositories&quot;: {
-    &quot;packagist&quot;: {
-        &quot;type&quot;: &quot;composer&quot;,
-        &quot;url&quot;: &quot;https://packagist.phpcomposer.com&quot;
-    }
-}
-</code></pre>
-<p><strong>如果方法一不管用，尝试下方法二。</strong></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[懒加载与预加载]]></title>
-        <id>https://tooyi.github.io/post/lan-jia-zai-yu-yu-jia-zai/</id>
-        <link href="https://tooyi.github.io/post/lan-jia-zai-yu-yu-jia-zai/">
-        </link>
-        <updated>2019-02-20T01:02:39.000Z</updated>
-        <summary type="html"><![CDATA[<p>什么是懒加载、预加载？</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>什么是懒加载、预加载？</p>
-<!-- more -->
-<h1 id="懒加载">懒加载</h1>
-<h2 id="1什么是懒加载">1.什么是懒加载？</h2>
-<p>懒加载也就是<strong>延迟加载</strong>。<br>
-当访问一个页面的时候，先把img元素或是其他元素的背景图片路径替换成一张大小为1*1px图片的路径（这样就只需请求一次，俗称占位图），只有当图片出现在浏览器的可视区域内时，才设置图片正真的路径，让图片显示出来。这就是图片懒加载。</p>
-<h2 id="2为什么要使用懒加载">2.为什么要使用懒加载？</h2>
-<p>很多页面，内容很丰富，页面很长，图片较多。比如说各种商城页面。这些页面图片数量多，而且比较大，少说百来K，多则上兆。要是页面载入就一次性加载完毕。估计大家都会等到黄花变成黄花菜了。</p>
-<h2 id="3懒加载的原理是什么">3.懒加载的原理是什么？</h2>
-<p>页面中的img元素，如果没有src属性，浏览器就不会发出请求去下载图片，只有通过javascript设置了图片路径，浏览器才会发送请求。<br>
-懒加载的原理就是先在页面中把所有的图片统一使用一张占位图进行占位，把正真的路径存在元素的“data-url”（这个名字起个自己认识好记的就行）属性里，要用的时候就取出来，再设置；</p>
-<h2 id="4懒加载的实现步骤">4.懒加载的实现步骤？</h2>
-<p>1)首先，不要将图片地址放到src属性中，而是放到其它属性(data-original)中。<br>
-2)页面加载完成后，根据scrollTop判断图片是否在用户的视野内，如果在，则将data-original属性中的值取出存放到src属性中。<br>
-3)在滚动事件中重复判断图片是否进入视野，如果进入，则将data-original属性中的值取出存放到src属性中。</p>
-<h2 id="5懒加载的优点是什么">5.懒加载的优点是什么？</h2>
-<p>页面加载速度快、可以减轻服务器的压力、节约了流量,用户体验好</p>
-<pre><code class="language-js">//懒加载代码实现
-var viewHeight = document.documentElement.clientHeight // 可视区域的高度
-
-function lazyload () {
-  // 获取所有要进行懒加载的图片
-  var eles = document.querySelectorAll('img[data-original][lazyload]')
-  Array.prototype.forEach.call(eles, function (item, index) {
-    var rect
-    if (item.dataset.original === '')
-      return
-    rect = item.getBoundingClientRect()
-    // 图片一进入可视区，动态加载
-    if (rect.bottom &gt;= 0 &amp;&amp; rect.top &lt; viewHeight) {
-      !function () {
-        var img = new Image()
-        img.src = item.dataset.original
-        img.onload = function () {
-          item.src = img.src
-        }
-        item.removeAttribute('data-original')
-        item.removeAttribute('lazyload')
-      }()
-    }
-  })
-}
-// 首屏要人为的调用，否则刚进入页面不显示图片
-lazyload()
-
-document.addEventListener('scroll', lazyload)
-
-</code></pre>
-<h1 id="预加载">预加载</h1>
-<p>预加载的<strong>核心要点</strong>如下：</p>
-<p>1.图片等静态资源在使用之前的提前请求；</p>
-<p>2.资源后续使用时可以从缓存中加载，提升用户体验；</p>
-<p>3.页面展示的依赖关系维护（必需的资源加载完才可以展示页面，防止白屏等）；</p>
-<p>实现预加载主要有三个方法：</p>
-<p>1.html中img标签最初设置为display:none；</p>
-<p>2.js脚本中使用image对象动态创建好图片；</p>
-<p>3.使用XMLHttpRequest对象可以更加精细的控制预加载过程，缺点是无法跨域：</p>
-<h2 id="1什么是预加载">1.什么是预加载？</h2>
-<p>提前加载图片，当用户需要查看时可直接从本地缓存中渲染</p>
-<h2 id="2为什么要使用预加载">2.为什么要使用预加载？</h2>
-<p>图片预先加载到浏览器中，访问者便可顺利地在你的网站上冲浪，并享受到极快的加载速度。这对图片画廊及图片占据很大比例的网站来说十分有利，它保证了图片快速、无缝地发布，也可帮助用户在浏览你网站内容时获得更好的用户体验。</p>
-<h2 id="3实现预加载的方法有哪些">3.实现预加载的方法有哪些？</h2>
-<p>方法一：用CSS和JavaScript实现预加载<br>
-方法二：仅使用JavaScript实现预加载<br>
-方法三：使用Ajax实现预加载</p>
-<p>详见：<a href="http://web.jobbole.com/86785/">Javascript图片预加载详解</a></p>
-<h2 id="3-懒加载和预加载的对比">3、懒加载和预加载的对比</h2>
-<h3 id="1概念">1)概念：</h3>
-<p>懒加载也叫延迟加载：JS图片延迟加载,延迟加载图片或符合某些条件时才加载某些图片。<br>
-预加载：提前加载图片，当用户需要查看时可直接从本地缓存中渲染。</p>
-<h3 id="2区别">2)区别：</h3>
-<p>两种技术的本质：两者的行为是相反的，一个是提前加载，一个是迟缓甚至不加载。懒加载对服务器前端有一定的缓解压力作用，预加载则会增加服务器前端压力。</p>
-<h3 id="3懒加载的意义及实现方式有">3)懒加载的意义及实现方式有：</h3>
-<p>意义：<br>
-懒加载的主要目的是作为服务器前端的优化，减少请求数或延迟请求数。<br>
-实现方式：<br>
-1.第一种是纯粹的延迟加载，使用setTimeOut或setInterval进行加载延迟.<br>
-2.第二种是条件加载，符合某些条件，或触发了某些事件才开始异步下载。<br>
-3.第三种是可视区加载，即仅加载用户可以看到的区域，这个主要由监控滚动条来实现，一般会在距用户看到某图片前一定距离遍开始加载，这样能保证用户拉下时正好能看到图片。</p>
-<h3 id="4预加载的意义及实现方式有">4)预加载的意义及实现方式有：</h3>
-<p>意义:<br>
-预加载可以说是牺牲服务器前端性能，换取更好的用户体验，这样可以使用户的操作得到最快的反映。<br>
-实现方式：<br>
-实现预载的方法非常多，比如：用CSS和JavaScript实现预加载；仅使用JavaScript实现预加载；使用Ajax实现预加载。<br>
-常用的是new Image();设置其src来实现预载，再使用onload方法回调预载完成事件。只要浏览器把图片下载到本地，同样的src就会使用缓存，这是最基本也是最实用的预载方法。当Image下载完图片头后，会得到宽和高，因此可以在预载前得到图片的大小(方法是用记时器轮循宽高变化)。</p>
-<h2 id="4-补充知识">4、补充知识</h2>
-<p>屏幕可视窗口大小</p>
-<pre><code class="language-js">  原生方法： 
-
-        window.innerHeight 标准浏览器及IE9+ || 
-
-        document.documentElement.clientHeight 标准浏览器及低版本IE标准模式 || 
-
-        document.body.clientHeight  低版本混杂模式 
-
-    jQuery方法：  
-
-        $(window).height();
-</code></pre>
-<p>浏览器窗口顶部与文档顶部之间的距离，也就是滚动条滚动的距离：</p>
-<pre><code class="language-js"> 原生方法： 
-
-          window.pagYoffset 标准浏览器及IE9+ || 
-
-          document.documentElement.scrollTop 兼容ie低版本的标准模式 || 
-
-          document.body.scrollTop 兼容混杂模式； 
-
-    jQuery方法： 
-
-          $(document).scrollTop();
-</code></pre>
-<p>获取元素的尺寸</p>
-<pre><code class="language-js">$(o).width() = o.style.width;
-$(o).innerWidth() = o.style.width+o.style.padding;
-$(o).outerWidth() = o.offsetWidth = o.style.width+o.style.padding+o.style.border；
-$(o).outerWidth(true) = o.style.width+o.style.padding+o.style.border+o.style.margin；
-</code></pre>
-<p><strong>注意</strong><br>
-要使用原生的style.xxx方法获取属性，这个元素必须已经有内嵌的样式，如果原先是通过外部或内部样式表定义css样式，必须使用o.currentStyle[xxx] || document.defaultView.getComputedStyle(0)[xxx]来获取样式值。</p>
-<p>获取元素的位置信息</p>
-<pre><code class="language-js">jQuery：
-$(o).offset().top&lt;/code&gt;元素距离文档顶的距离&lt;br&gt;&lt;code&gt;$(o).offset().left元素距离文档左边缘的距离。
-原生：getoffsetTop();
-顺便提一下返回元素相对于第一个以定位的父元素的偏移距离，注意与上面偏移距的区别；
-jQuery：position()返回一个对象
-$(o).position().left = o.style.left;&lt;/code&gt;&lt;br&gt;&lt;code&gt;$(o).position().top = o.style.top； 
-</code></pre>
-<p>来源：<a href="http://www.jianshu.com/p/4876a4fe7731">懒加载和预加载</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[微信小程序---flex布局]]></title>
-        <id>https://tooyi.github.io/post/wei-xin-xiao-cheng-xu-flex-bu-ju/</id>
-        <link href="https://tooyi.github.io/post/wei-xin-xiao-cheng-xu-flex-bu-ju/">
-        </link>
-        <updated>2019-02-16T00:59:35.000Z</updated>
-        <summary type="html"><![CDATA[<p>代码记录</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>代码记录</p>
-<!-- more -->
-<h2 id="微信小程序-flex布局">微信小程序---flex布局</h2>
-<h3 id="基础代码">基础代码</h3>
-<pre><code class="language-html">&lt;!-- .wxml --&gt;
-&lt;view class='container'&gt;
-  &lt;view class='chunk color1'&gt;1&lt;/view&gt;
-  &lt;view class='chunk color2'&gt;2&lt;/view&gt;
-  &lt;view class='chunk color3'&gt;3&lt;/view&gt;
-&lt;/view&gt;
-</code></pre>
-<pre><code class="language-css">/* .wxss */
-.chunk{
-  height: 100px;
-  width: 100px;
-}
-.container {
-  height: 400px;
-  background: #898989;
-}
-.color1{
-  background-color: red;
-}
-.color2{
-  background-color: blue;
-}
-.color3{
-  background-color: pink;
-}
-</code></pre>
-<h3 id="view-组件">view 组件</h3>
-<p>使用 view 组件时，默认是<strong>列向</strong>排列</p>
-<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1g08b6atmocj30af0ih0st.jpg" alt="默认view布局" loading="lazy"></figure>
-<h4 id="view-组件更改排列方向">view 组件更改排列方向</h4>
-<ol>
-<li>display: inline;</li>
-</ol>
-<p>使用 display: inline; 可以实现横向排列，但是<strong>不能设置高度和宽度</strong>，代码中虽然设置，但是无作用。</p>
-<figure data-type="image" tabindex="2"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1g08bkji2uqj30af0ih74b.jpg" alt="display: inline;" loading="lazy"></figure>
-<pre><code class="language-css">/* .wxss */
-/* 增加 display: inline; */
-.chunk{
-  height: 100px;
-  width: 100px;
-  display: inline;
-}
-.container {
-  height: 400px;
-  background: #898989;
-}
-.color1{
-  background-color: red;
-}
-.color2{
-  background-color: blue;
-}
-.color3{
-  background-color: pink;
-}
-</code></pre>
-<ol start="2">
-<li>display: inline-block;</li>
-</ol>
-<p>inline-block 可以设置高度和宽度。</p>
-<figure data-type="image" tabindex="3"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1g08blqsls0j30af0iit8q.jpg" alt="display: inline-block;" loading="lazy"></figure>
-<pre><code class="language-css">/* .wxss */
-/* 增加 display: inline-block; */
-.chunk{
-  height: 100px;
-  width: 100px;
-  display: inline-block;
-}
-.container {
-  height: 400px;
-  background: #898989;
-}
-.color1{
-  background-color: red;
-}
-.color2{
-  background-color: blue;
-}
-.color3{
-  background-color: pink;
-}
-</code></pre>
-<h3 id="flex">flex</h3>
-<p>而当使用 flex 布局时，默认是<strong>横向</strong>排列</p>
-<figure data-type="image" tabindex="4"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1g08bc0r8eoj30af0ifdfq.jpg" alt="flex默认布局" loading="lazy"></figure>
-<pre><code class="language-css">/* .wxss */
-/* 使用flex布局 */
-.chunk{
-  height: 100px;
-  width: 100px;
-}
-.container {
-  height: 400px;
-  display: flex;
-  background: #898989;
-}
-.color1{
-  background-color: red;
-}
-.color2{
-  background-color: blue;
-}
-.color3{
-  background-color: pink;
-}
-</code></pre>
-<h4 id="更改排列方向">更改排列方向</h4>
-<figure data-type="image" tabindex="5"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1g08bt0zmt6j30af0i73yl.jpg" alt="flex-direction: column;" loading="lazy"></figure>
-<pre><code class="language-css">/* .wxss */
-/* flex-direction: row; 实现行内排列， column实现列内排列*/
-.chunk{
-  height: 100px;
-  width: 100px;
-}
-.container {
-  height: 400px;
-  display: flex;
-  background: #898989;
-}
-.color1{
-  background-color: red;
-}
-.color2{
-  background-color: blue;
-}
-.color3{
-  background-color: pink;
-}
-</code></pre>
-<p>使用 flex 布局还有一个方便实现的功能 ————实现 view 组件的倒序排列<br>
-只需要加一个 flex-direction: row-reverse;</p>
-<figure data-type="image" tabindex="6"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1g08c5qhavgj30af0ieq30.jpg" alt="flex-direction: row-reverse;" loading="lazy"></figure>
-<pre><code class="language-css">/* .wxss */
-/* flex-direction: row-reverse;  实现行内倒序排列 column-reverse;*/
-.chunk{
-  height: 100px;
-  width: 100px;
-}
-.container {
-  height: 400px;
-  display: flex;
-  background: #898989;
-  flex-direction: column-reverse;
-}
-.color1{
-  background-color: red;
-}
-.color2{
-  background-color: blue;
-}
-.color3{
-  background-color: pink;
-}
-</code></pre>
-<p>这时候发现一个问题，现在是从底部开始排列的，想要在顶部开始排列，加上 justify-content: flex-end;</p>
-<figure data-type="image" tabindex="7"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1g08c8wxg6pj30af0ijjrh.jpg" alt="justify-content: flex-end;" loading="lazy"></figure>
-<pre><code class="language-css">/* .wxss */
-/*   justify-content: flex-end;*/
-/* justify-content: space-between; 平均分布  center 剧中分布  space-around 等距分布 */
-.chunk{
-  height: 100px;
-  width: 100px;
-}
-.container {
-  height: 400px;
-  display: flex;
-  background: #898989;
-  flex-direction: column-reverse;
-  justify-content: flex-end;
-}
-.color1{
-  background-color: red;
-}
-.color2{
-  background-color: blue;
-}
-.color3{
-  background-color: pink;
-}
-</code></pre>
-<p>这时仔细的你发现，flex-end 不是应该是从底部开始排列的？</p>
-<p>再仔细的你就会发现，前面加入了 flex-direction: column-reverse; 反转了一下，所以 flex-end 就变成 flex-start 的效果了。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[json格式化插件]]></title>
-        <id>https://tooyi.github.io/post/json-ge-shi-hua-cha-jian/</id>
-        <link href="https://tooyi.github.io/post/json-ge-shi-hua-cha-jian/">
-        </link>
-        <updated>2019-01-23T00:57:33.000Z</updated>
-        <summary type="html"><![CDATA[<p>chrome浏览器-json格式化插件</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>chrome浏览器-json格式化插件</p>
-<!-- more -->
-<h3 id="第一步">第一步</h3>
-<p>下载json 的JSON-Handle插件：地址：<a href="http://jsonhandle.sinaapp.com/">http://jsonhandle.sinaapp.com/</a></p>
-<h3 id="第二步">第二步</h3>
-<p>打开浏览器—&gt;右键点击三个点—&gt;更多工具—&gt;扩展程序—&gt;将crx插件拖入浏览器</p>
-<h3 id="这时候你运行你的程序">这时候你运行你的程序</h3>
-<p>出现以下结果说明已经成功安装成功。</p>
-<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fzgln4pwpaj313g0vgmzq.jpg" alt="效果图" loading="lazy"></figure>
-<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
-<figure data-type="image" tabindex="2"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
