@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tooyi.github.io</id>
     <title>涂诣</title>
-    <updated>2020-05-27T00:26:59.239Z</updated>
+    <updated>2020-05-27T00:32:23.050Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tooyi.github.io"/>
     <link rel="self" href="https://tooyi.github.io/atom.xml"/>
@@ -10,6 +10,23 @@
     <logo>https://tooyi.github.io/images/avatar.png</logo>
     <icon>https://tooyi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 涂诣</rights>
+    <entry>
+        <title type="html"><![CDATA[Visual Studio Code 使用技巧]]></title>
+        <id>https://tooyi.github.io/post/visual-studio-code/</id>
+        <link href="https://tooyi.github.io/post/visual-studio-code/">
+        </link>
+        <updated>2020-05-27T00:28:36.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="visual-studio-code-使用技巧">Visual Studio Code 使用技巧</h1>
+<h2 id="一窗口打开多项目">一窗口打开多项目</h2>
+<blockquote>
+<p>文件 -&gt; 将文件添加到工作区</p>
+</blockquote>
+<p>添加多个文件项目即可</p>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/tooyi/picBox/master/img/006KCUaNgy1fvo94f9915j307c09174e.jpg" alt="工作区" loading="lazy"></figure>
+<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
+<figure data-type="image" tabindex="2"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[换一个新主题 - Gridea Themes Vant]]></title>
         <id>https://tooyi.github.io/post/hello-gridea/</id>
