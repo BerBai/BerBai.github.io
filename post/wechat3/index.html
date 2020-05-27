@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+<title>微信小程序开发 - 涂诣</title>
+<meta name="description" content="温故而知新">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link type='text/css' rel='stylesheet' href='https://tooyi.github.io/styles/main.css' media='screen' />
+<link type="text/css" rel="stylesheet" href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css">
+<link type="text/css" rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript" src='https://tooyi.github.io/media/scripts/jquery.js'></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</head>
+
+<body>
+  <div class="layout theme-dark">
+    <div class="layout-header">
+
+	<div class="layout-header-main">
+		<div class="container">
+			<div class="row justify-content-lg-center">
+				<div class="col-12 col-lg-9">
+
+					<div class="navbar">
+
+						<div class="logo">
+							<a href="https://tooyi.github.io">
+								<img class="logo"
+									src="https://tooyi.github.io/media/images/site_avatar.png?v=1590539214215"
+									alt="">
+							</a>
+						</div>
+
+						<div class="menu d-md-inline-block d-none">
+							<ul class="layout-navigation-list">
+								
+								<li class="layout-navigation-item"><a title="首页"
+										href="/">首页</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="归档"
+										href="/archives">归档</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="标签"
+										href="/tags">标签</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="关于"
+										href="/post/about">关于</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="WeXYZ - 微信小程序"
+										href="https://xyz.125520.xyz">WeXYZ - 微信小程序</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="旧博客"
+										href="/blog-old">旧博客</a>
+								</li>
+								
+							</ul>
+						</div>
+
+						<div class="item d-md-inline-block d-none">
+							<div class="search-icon">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</div>
+						</div>
+
+
+
+						<div class="d-md-inline-block d-none">
+							<div class="search-lightbox">
+								<div class="search-body">
+
+									<form id="gridea-search-form" data-update="1590539214215" action="/search/" class="search-form">
+										<input type="text" name="q" id="s" value="" class="search-field" placeholder="请输入搜索关键词" aria-label="请输入搜索关键词" required="">
+										<button type="submit" class="submit" aria-label="Submit">
+											<i class="fa fa-search" aria-hidden="true"></i>
+										</button>
+									</form>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="nav d-md-none d-inline-block">
+							<div class="trigger">
+								<i class="fa fa-bars layout-btn-toggle" aria-hidden="true"></i>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+
+
+
+		</div>
+	</div>
+
+</div>
+    <div class="layout-collapse d-md-none">
+	<div class="layout-collapse-main">
+		<ul class="layout-collapse-list">
+			
+			<li class="layout-collapse-item"><a title="首页" href="/">首页</a></li>
+			
+			<li class="layout-collapse-item"><a title="归档" href="/archives">归档</a></li>
+			
+			<li class="layout-collapse-item"><a title="标签" href="/tags">标签</a></li>
+			
+			<li class="layout-collapse-item"><a title="关于" href="/post/about">关于</a></li>
+			
+			<li class="layout-collapse-item"><a title="WeXYZ - 微信小程序" href="https://xyz.125520.xyz">WeXYZ - 微信小程序</a></li>
+			
+			<li class="layout-collapse-item"><a title="旧博客" href="/blog-old">旧博客</a></li>
+			
+
+		</ul>
+	</div>
+</div>
+
+    <div class="layout-content">
+      <div class="layout-content-main">
+        <div class="container">
+          <div class="row justify-content-lg-center">
+            <div class="col-12 col-lg-9">
+              <div class="layout-post">
+                <div class="layout-post-body">
+                  <div class="row">
+
+                    <div class="col-12 col-lg-10">
+                      <div class="layout-post-main m-right m-md-right">
+                        <div class="layout-post-header">
+                          <h1 class="layout-post-title">微信小程序开发</h1>
+                          <div class="layout-post-meta">
+                            <div class="item">
+                               <a href="https://tooyi.github.io/tag/jRjM7Qrpl/" class="post--keyword"
+                                data-title="WeChat" data-type="post_tag" data-term-id="39">WeChat</a>
+                              
+                            </div>
+                            <div class="item">
+                              <span>2019-09-25</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="layout-post-content">
+                          <div class="layout-post-item">
+                            
+                            <p class="with-img"><img src="https://tooyi.github.io/post-images/wechat3.jpg"
+                                class="attachment-full size-full wp-post-image" alt="微信小程序开发" /></p>
+                            
+                            <h1 id="微信小程序开发">微信小程序开发</h1>
+<h2 id="小程序文档">小程序文档</h2>
+<p>注册账号、代码构成、小程序上线等请参考<a href="https://developers.weixin.qq.com/miniprogram/dev/">官方文档</a></p>
+<h2 id="ide选择">IDE选择</h2>
+<p><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html?t=18092022">官方开发工具</a></p>
+<p><a href="">VScode + wept</a></p>
+<p><a href="https://egret.com/products/wing.html">Egret Wing</a></p>
+<table>
+<thead>
+<tr>
+<th>环境</th>
+<th>简述</th>
+<th>代码高亮</th>
+<th>代码提示</th>
+<th>调试</th>
+<th>实时预览</th>
+<th>软件/插件下载</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>官方工具</td>
+<td>微信小程序官方工具</td>
+<td>支持</td>
+<td>极其弱</td>
+<td>支持</td>
+<td>支持</td>
+<td><a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html?t=18092022">软件</a></td>
+</tr>
+<tr>
+<td>Egret Wing</td>
+<td>首款支持微信小程序开发的IDE</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td><a href="https://egret.com/products/wing.html">软件</a></td>
+</tr>
+<tr>
+<td>VScode + wept</td>
+<td>插件作者已不在维护</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td><a href="https://chemzqm.github.io/wept/#/">插件</a></td>
+</tr>
+<tr>
+<td>Sublime Text 3</td>
+<td>代码编辑器，需要安装插件</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+<td>不支持</td>
+<td><a href="https://github.com/Abbotton/weapp-snippet-for-sublime-text-2-3">插件</a></td>
+</tr>
+<tr>
+<td>WebStorm</td>
+<td>重量级IDE</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+<td>不支持</td>
+<td><a href="https://github.com/lypeer/Matchmaker">插件</a></td>
+</tr>
+</tbody>
+</table>
+<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/tooyi/picBox/master/img/006KCUaNgy1fvm5h0v6uej30rs06x0sy.jpg" alt="IDE对比" loading="lazy"></figure>
+<h2 id="小程序组件">小程序组件</h2>
+<h3 id="weui">Weui</h3>
+<p>WeUI 是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信 Web 开发量身设计，可以令用户的使用感知更加统一。包含 button、cell、dialog、 progress、 toast、article、actionsheet、icon 等各式元素。</p>
+<p>GitHub 地址：<a href="https://github.com/Tencent/Weui">Weui</a></p>
+<p>演示：<a href="https://weui.io">https://weui.io</a></p>
+<h3 id="wx-charts">wx-charts</h3>
+<p>微信小程序图表工具，charts for WeChat small app</p>
+<p>基于 canvas 绘制，体积小巧</p>
+<p>GitHub 地址：<a href="https://github.com/xiaolin3303/wx-charts">wx-charts</a></p>
+<p><img src="https://ws1.sinaimg.cn/large/006KCUaNgy1fvn52y1somj30b409tt93.jpg" alt="饼图" loading="lazy"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fvn53s02c0j30b408djrf.jpg" alt="环图" loading="lazy"></p>
+<h3 id="wemark">wemark</h3>
+<p>微信小程序 Markdown 渲染库</p>
+<p>用于在小程序中渲染 Markdown 文本。</p>
+<p>在小程序诞生之前，Markdown 的渲染一般需要解析成HTML，然后渲染解析后的 HTML。然而小程序并没有提供 HTML 渲染的功能，因此在 wemark 诞生之前，几乎所有的 Markdown 渲染库全部无法在小程序下正常工作。</p>
+<p>wemark可以实现在小程序下渲染Markdown内容，支持图片、表格在内的大部分Markdown特性。</p>
+<figure data-type="image" tabindex="2"><img src="https://github.com/TooBug/wemark/blob/2.0/screenshot.png" alt="示例图" loading="lazy"></figure>
+<h3 id="wezrender">WeZRender</h3>
+<p>微信小程序 Canvas 开发</p>
+<h4 id="使用-zrender-实现">使用 ZRender 实现</h4>
+<figure data-type="image" tabindex="3"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fvn4rb938zg308v0fwhdt.gif" alt="演示图" loading="lazy"></figure>
+<p>ZRender 是二维绘图引擎，它提供 Canvas、SVG、VML 等多种渲染方式。ZRender 也是 ECharts 的渲染器。</p>
+<p>GitHub 地址：<a href="https://github.com/guyoung/WeZRender/tree/master/apps/zrenderapp">ZRender 实现</a></p>
+<h4 id="使用-echarts-实现">使用 ECharts 实现</h4>
+<figure data-type="image" tabindex="4"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fvn4w0xf8rg308w0fre81.gif" alt="演示图" loading="lazy"></figure>
+<p>ECharts 是使用 JavaScript 实现的开源可视化库，可以流畅的运行在 PC 和移动设备上，兼容当前绝大部分浏览器，底层依赖轻量级的矢量图形库 ZRender，提供直观，交互丰富，可高度个性化定制的数据可视化图表。</p>
+<p>GitHub地址：<a href="https://github.com/guyoung/WeZRender/tree/master/apps/echartsapp">ECharts 实现</a></p>
+<h3 id="wetoast">WeToast</h3>
+<p>WeToast 是仿照微信小程序提供的 showToast 功能，提供视觉一致的增强插件，弥补小程序showToast功能上的不足（如只能显示 success、loading 两种 icon ，且 icon 不可去除，持续时间最大10秒等）。</p>
+<figure data-type="image" tabindex="5"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fvn5bzacxoj308t0fqdfr.jpg" alt="演示图" loading="lazy"></figure>
+<p>GitHub 地址：<a href="https://github.com/kiinlam/wetoast">WeToast</a></p>
+<h3 id="wxapp-charts">wxapp-charts</h3>
+<p>微信小程序图表charts组件</p>
+<figure data-type="image" tabindex="6"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fvn5hn32khj309e0go0t8.jpg" alt="演示图" loading="lazy"></figure>
+<h3 id="weixinproject">WeiXinProject</h3>
+<p>微信小程序实现--列表的上拉刷新和上拉加载</p>
+<p>GitHub 地址：<a href="https://github.com/lidong1665/WeiXinProject">WeiXinProject</a></p>
+<h3 id="cityselect">citySelect</h3>
+<p>基于微信小程序的城市选择</p>
+<figure data-type="image" tabindex="7"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fvn5q4oevpj30k00zkt9k.jpg" alt="演示图" loading="lazy"></figure>
+<h2 id="小程序框架">小程序框架</h2>
+<h3 id="wepy">Wepy</h3>
+<blockquote>
+<p>微信小程序组件化开发框架</p>
+</blockquote>
+<p>通过预编译的手段让开发者可以选择自己喜欢的开发风格去开发小程序。框架的细节优化，Promise，Async Functions的引入都是为了能让开发小程序项目变得更加简单，高效。</p>
+<p>GitHub 地址：<a href="https://github.com/tencent/wepy">Wepy</a></p>
+<p>体验：<a href="https://tencent.github.io/wepy/">https://tencent.github.io/wepy/</a></p>
+<h3 id="labrador">Labrador</h3>
+<p>微信小程序组件化开发框架</p>
+<p>GitHub 地址：<a href="https://github.com/maichong/labrador">Labrador</a></p>
+<h3 id="wxapp-devframe">wxapp-devFrame</h3>
+<p>小程序基本的开发框架抽取</p>
+<p>GitHub 地址：<a href="https://github.com/hss01248/wxapp-devFrame">wxapp-devFrame</a></p>
+<h3 id="westore">Westore</h3>
+<p>受 <a href="https://github.com/Tencent/omi">Omi</a> 框架 的启发，且专门为小程序开发的 <a href="https://github.com/dntzhang/westore/blob/master/utils/diff.js">JSON Diff 库</a>，所以有了 westore 全局状态管理和跨页通讯框架让一切尽在掌握中，且受高性能 JSON Diff 库的利好，长列表滚动加载显示变得轻松可驾驭。总结下来有如下特性和优势:</p>
+<ul>
+<li>和 Omi 同样简洁的 Store API</li>
+<li>超小的代码尺寸(包括 json diff 共100多行)</li>
+<li>尊重且顺从小程序的设计(其他转译库相当于反其道行)</li>
+<li>this.update 比原生 setData 的性能更优，更加智能</li>
+</ul>
+<p>GitHub地址：<a href="https://github.com/dntzhang/westore">westore</a></p>
+<h2 id="库">库</h2>
+<h3 id="wxparse">wxParse</h3>
+<p>wxParse-微信小程序富文本解析自定义组件，支持HTML及markdown解析</p>
+<p>GitHub 地址：<a href="https://github.com/icindy/wxParse">wxParse</a></p>
+<h3 id="wechat-weapp-redux">wechat-weapp-redux</h3>
+<p>微信小程序 Redux 绑定，用于在微信小程序为页面绑定 Redux Store。</p>
+<p>代码是基于 <a href="https://github.com/reduxjs/react-redux">react-redux</a> 修改的</p>
+<p>GitHub 地址：<a href="https://github.com/charleyw/wechat-weapp-redux">wechat-weapp-redux</a></p>
+<h3 id="wilddog-weapp">wilddog-weapp</h3>
+<p>野狗微信小程序客户SDK</p>
+<blockquote>
+<p>野狗是什么?</p>
+</blockquote>
+<blockquote>
+<p>野狗科技(北京)有限公司（简称：野狗）是安全可靠的实时通信云。野狗为企业和开发者提供了可编程的实时数据、音视频通信能力，以及短信服务，可以安全地构建丰富场景化的实时通信业务。</p>
+</blockquote>
+<p>GitHub 地址：<a href="https://github.com/WildDogTeam/wilddog-weapp">wilddog-weapp</a></p>
+<h3 id="wafer-client-sdk">wafer-client-sdk</h3>
+<p>本项目是 <a href="https://github.com/tencentyun/wafer">Wafer</a> 的组成部分，为小程序客户端开发提供 SDK 支持会话服务和信道服务。</p>
+<p>GitHub 地址：<a href="https://github.com/tencentyun/wafer-client-sdk">wafer-client-sdk</a></p>
+<h3 id="wxnotificationcenter">WxNotificationCenter</h3>
+<p>微信小程序通知广播模式类,降低小程序之间的耦合度</p>
+<p>GitHub 地址：<a href="https://github.com/icindy/WxNotificationCenter">WxNotificationCenter</a></p>
+<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
+<figure data-type="image" tabindex="8"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
+
+                          </div>
+                        </div>
+                        <div class="layout-post-social">
+                          <div class="item reader">
+                            <div id="/post/wechat3/" class="leancloud-visitors view"
+                              data-flag-title="微信小程序开发">
+                              <span class="post-meta-item-text">阅读 </span>
+                              <span class="leancloud-visitors-count"></span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="layout-post-navigation">
+                          <div class="navigation-list">
+                            
+                            <div class="post-card row">
+                              
+                              <div class="card-content col-8 col-md-9">
+                                <div class="card-body">
+                                  <div class="header">
+                                    <a href="https://tooyi.github.io/post/hello-gridea/" class="title">
+                                      <h4>换一个新主题 - Gridea Themes Vant</h4>
+                                    </a>
+                                  </div>
+                                  <div class="inner d-none d-sm-block">
+                                    <div class="abstract">
+                                      <h2 id="访问旧博客">访问旧博客</h2>
+<p><strong>新博客使用Gridea管理，旧博客文章暂时未全部搬运。若访问旧博客，请访问</strong><a href="https://tooyi.github.io/blog-old/">涂诣的官方网站</a></p>
+<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card-footer">
+                                  <div class="item"><span>上一篇</span></div>
+                                  <div class="item">2020-05-26</div>
+                                </div>
+                              </div>
+                              <div class="card-thumb col-4 col-md-3">
+                                <div class="thumb">
+                                  <a href="https://tooyi.github.io/post/hello-gridea/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/hello-gridea.png');"></a>
+                                </div>
+                              </div>
+                              
+                            </div>
+
+                            <div class="post-card row">
+                              
+                              <div class="card-content col-8 col-md-9">
+                                <div class="card-body">
+                                  <div class="header">
+                                    <a href="https://tooyi.github.io/post/visual-studio/" class="title">
+                                      <h4>Visual Studio Code 主题及插件推荐</h4>
+                                    </a>
+                                  </div>
+                                  <div class="inner d-none d-sm-block">
+                                    <div class="abstract">
+                                      
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card-footer">
+                                  <div class="item"><span>下一篇</span></div>
+                                  <div class="item">2018-09-25</div>
+                                </div>
+                              </div>
+                              <div class="card-thumb col-4 col-md-3">
+                                <div class="thumb">
+                                  <a href="https://tooyi.github.io/post/visual-studio/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/visual-studio.jpg');"></a>
+                                </div>
+                              </div>
+                              
+                            </div>
+
+                            
+                          </div>
+                        </div>
+
+                        <div class="layout-comments"></div>
+                        
+                        <script type="text/javascript" src='https://tooyi.github.io/media/scripts/zan.js'></script>
+<script type="text/javascript" src='https://tooyi.github.io/media/scripts/av-min.js'></script>
+<script type="text/javascript" src='https://tooyi.github.io/media/scripts/Valine.min.js'></script>
+
+<script>
+  var valine = new Valine();
+  valine.init({
+    el: '.layout-comments',
+    appId: 'S5mybpyN8KDDMNhnfhBw4Bn3-gzGzoHsz',
+    appKey: 'Xo2RmbkdRblp4vsgIHpen0lf',
+    notify: false,
+    verify: false,
+    visitor: true,
+    avatar: 'mp',
+    placeholder: '加入讨论...'
+  })
+</script>
+                        
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-lg-2 d-none d-lg-block">
+                      <div class="layout-post-sidebar">
+                        <div class="layout-sidebar-item">
+                          <ul class="markdownIt-TOC">
+<li><a href="#%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91">微信小程序开发</a>
+<ul>
+<li><a href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%96%87%E6%A1%A3">小程序文档</a></li>
+<li><a href="#ide%E9%80%89%E6%8B%A9">IDE选择</a></li>
+<li><a href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%BB%84%E4%BB%B6">小程序组件</a>
+<ul>
+<li><a href="#weui">Weui</a></li>
+<li><a href="#wx-charts">wx-charts</a></li>
+<li><a href="#wemark">wemark</a></li>
+<li><a href="#wezrender">WeZRender</a>
+<ul>
+<li><a href="#%E4%BD%BF%E7%94%A8-zrender-%E5%AE%9E%E7%8E%B0">使用 ZRender 实现</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8-echarts-%E5%AE%9E%E7%8E%B0">使用 ECharts 实现</a></li>
+</ul>
+</li>
+<li><a href="#wetoast">WeToast</a></li>
+<li><a href="#wxapp-charts">wxapp-charts</a></li>
+<li><a href="#weixinproject">WeiXinProject</a></li>
+<li><a href="#cityselect">citySelect</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6">小程序框架</a>
+<ul>
+<li><a href="#wepy">Wepy</a></li>
+<li><a href="#labrador">Labrador</a></li>
+<li><a href="#wxapp-devframe">wxapp-devFrame</a></li>
+<li><a href="#westore">Westore</a></li>
+</ul>
+</li>
+<li><a href="#%E5%BA%93">库</a>
+<ul>
+<li><a href="#wxparse">wxParse</a></li>
+<li><a href="#wechat-weapp-redux">wechat-weapp-redux</a></li>
+<li><a href="#wilddog-weapp">wilddog-weapp</a></li>
+<li><a href="#wafer-client-sdk">wafer-client-sdk</a></li>
+<li><a href="#wxnotificationcenter">WxNotificationCenter</a></li>
+<li><a href="#%E6%AC%A2%E8%BF%8E%E5%85%B3%E6%B3%A8%E6%88%91%E7%9A%84%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7">欢迎关注我的微信公众号</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="layout-totop d-none"><i class="fa fa-angle-up" aria-hidden="true"></i></div>
+
+    	<div class="layout-footer">
+
+		<div class="container">
+			<div class="row justify-content-lg-center">
+				<div class="col-12 col-lg-9">
+					<div class="footer">
+						<div class="row">
+							<div class="col-12 col-md-9">
+								<div class="footer-copy">
+									
+									<span>© 2018-2020 </span>
+									<a href="https://tooyi.github.io" title="涂诣">涂诣</a>
+									<span class="px-2">⋅</span>
+									
+									Themes by <a href="https://github.com/insdram/gridea-theme-vant" target="_blank">Vant</a>. Powered by <a href="https://github.com" target="_blank">GitHub</a>
+									<div class="footer-icp d-none d-sm-inline-block">
+										<span class="px-2">⋅</span>
+										
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 d-none d-md-block">
+								<div class="footer-links">
+									
+									
+									
+									
+									<span class="footer-links-item">
+										<a href="https://github.com/tooyi" target="_blank">
+											<i class="fa fa-github" aria-hidden="true"></i>
+										</a>
+									</span>
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									<span class="footer-links-item">
+										<a href="https://weibo.com/smartbber" target="_blank">
+											<i class="fa fa-weibo" aria-hidden="true"></i>
+										</a>
+									</span>
+									
+									
+									
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src='https://tooyi.github.io/media/scripts/main.js'></script>
+	
+	<script>
+		var _hmt = _hmt || [];
+		(function () {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?tooyi.github.io";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	
+
+  </div>
+</body>
+
+</html>
