@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-<title>Java indexOf()实现 - 涂诣</title>
+<title>WNMP 配置 - 涂诣</title>
 <meta name="description" content="温故而知新">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -142,140 +142,121 @@
                     <div class="col-12 col-lg-10">
                       <div class="layout-post-main m-right m-md-right">
                         <div class="layout-post-header">
-                          <h1 class="layout-post-title">Java indexOf()实现</h1>
+                          <h1 class="layout-post-title">WNMP 配置</h1>
                           <div class="layout-post-meta">
                             <div class="item">
-                               <a href="https://tooyi.github.io/tag/9HhUh71Y9/" class="post--keyword"
-                                data-title="Java" data-type="post_tag" data-term-id="39">Java</a>
+                               <a href="https://tooyi.github.io/tag/lR4II0q5k/" class="post--keyword"
+                                data-title="Web" data-type="post_tag" data-term-id="39">Web</a>
                               
                             </div>
                             <div class="item">
-                              <span>2018-10-25</span>
+                              <span>2019-03-03</span>
                             </div>
                           </div>
                         </div>
                         <div class="layout-post-content">
                           <div class="layout-post-item">
                             
-                            <p class="with-img"><img src="https://tooyi.github.io/post-images/java-indexof.jpg"
-                                class="attachment-full size-full wp-post-image" alt="Java indexOf()实现" /></p>
+                            <p class="with-img"><img src="https://tooyi.github.io/post-images/wnmp.jpg"
+                                class="attachment-full size-full wp-post-image" alt="WNMP 配置" /></p>
                             
-                            <p>代码记录</p>
+                            <p>win10 + nginx + php7 + mysql</p>
 <!-- more -->
-<h3 id="indexof源码解析">indexOf源码解析</h3>
-<pre><code class="language-java">public int indexOf(String str) {
-    return indexOf(str, 0);
-}
- 
-public int indexOf(String str, int fromIndex) {
-    return indexOf(value, 0, value.length,str.value, 0, str.value.length, fromIndex);
+<h2 id="1首先需要的应用程序包">1.首先需要的应用程序包。</h2>
+<p>PHP: <a href='https://windows.php.net/download' target='_blank'>VC15 x64 Non Thread Safe (2019-Feb-06 02:14:41)</a>（nginx 下 php 是以 FastCGI 的方式运行，所以我们下载非线程安全也就是nts的php包）</p>
+<p>Nginx: <a href = 'http://nginx.org/en/download.html' target='_blank'>nginx/Windows-1.14.2</a> （下载 stable version）</p>
+<p>MySql：<a href='https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-8.0.15-winx64.zip' target='_blank'>mysql-8.0.15-winx64.zip</a></p>
+<p>MySql8.xx 的可以参考这个贴 <a href='https://blog.csdn.net/qq_37350706/article/details/81707862' target='_blank'>MySQL 8.0.15安装教程(windows 64位)</a></p>
+<p>附一个用了比较久的 MySql 界面管理器</p>
+<p>免费的 Navicat Premium 非商业版许可证：<a href = 'https://www.navicat.com.cn/sponsorship/education/student' target = '_blank'>学术伙伴计划 - 学生</a> 有一个教育邮箱就可以申请</p>
+<h2 id="2安装与配置">2.安装与配置。</h2>
+<h3 id="1php安装与配置">1）php安装与配置。</h3>
+<p>将下载好的 php 包文件解压到某一个目录下，例如我的是：D:\wnmp。把解压后的文件目录改为 php7，将里面的 php.ini-production 文件复制一份并改名为 php.ini，用文本编辑器将它打开。</p>
+<pre><code class="language-ini">;将里面的
+; On windows:
+
+extension_dir = &quot;./txt&quot;
+;改为
+
+; On windows:
+
+extension_dir = &quot;D:/wnmp/php7/ext&quot;
+</code></pre>
+<p>将下面两个扩展前面的“;”去掉。（因为 php7 不支持 mysql 扩展了，所以这里只有 mysqli 和 pdo 扩展)</p>
+<pre><code class="language-ini">;extension=mysqli 
+
+;extension=pdo_mysql
+
+;extension=openssl
+</code></pre>
+<p>最后让PHP支持 nginx，将下面一行前面的“;”去掉。</p>
+<pre><code class="language-ini">;cgi.fix_pathinfo=1
+</code></pre>
+<h3 id="2nginx-安装与配置">2）nginx 安装与配置。</h3>
+<p>先在 D:/wnmp 目录下新建一个 www 文件夹，作为服务器的根目录。</p>
+<p>将下载好的 nginx 包文件解压到D:\wnmp目录下，重命名为 nginx。打开 nginx\conf 下的 nginx.conf 文件来配置 nginx。</p>
+<pre><code class="language-conf">#将一下代码
+
+location/ {
+    root html;
+    index index.html index.htm;
 }
 
-static int indexOf(char[] source, int sourceOffset, int sourceCount, char[] target, int targetOffset, int targetCount, int fromIndex) {
-    //1、当开始查找位置 大于等于 源字符串长度时,如果[查找字符串]为空,则:
-    //返回字符串的长度,否则返回-1.
-    if (fromIndex &gt;= sourceCount) { 
-        return (targetCount == 0 ? sourceCount : -1);
-    }
-    //2、如果fromIndex 小于 0,则从 0开始查找。
-    if (fromIndex &lt; 0) { 
-        fromIndex = 0;
-    }
-    //3、如果[查找字符串]为空,则返回fromIndex
-    if (targetCount == 0) { 
-        return fromIndex;
-    }
-    //4、开始查找,从[查找字符串]中得到第一个字符,标记为first
-    char first = target[targetOffset];
-    //4.1、计算[源字符串最大长度]
-    int max = sourceOffset + (sourceCount - targetCount);
-    //4.2、遍历查找
-    for (int i = sourceOffset + fromIndex; i &lt;= max; i++) { 
-        //4.2.1、从[源字符串]中,查找到第一个匹配到[目标字符串]first的位置 
-        //for循环中,增加while循环 
-        /* Look for first character. */ 
-        if (source[i] != first) { 
-            while (++i &lt;= max &amp;&amp; source[i] != first); 
-        } 
-        //4.2.2、如果在[源字符串]中,找到首个[目标字符串], 
-        //则匹配是否等于[目标字符串] 
-        /* Found first character, now look at the rest of v2 */ 
-        if (i &lt;= max) { 
-            //4.2.2.1、得到下一个要匹配的位置,标记为j 
-            int j = i + 1; 
-            //4.2.2.2、得到其余[目标字符串]的长度,标记为end 
-            int end = j + targetCount - 1; 
-            //4.2.2.3、遍历,其余[目标字符串],从k开始, 
-            //如果j不越界(小于end,表示:其余[目标字符串]的范围), 
-            //同时[源字符串]==[目标字符串],则 //自增,继续查找匹配。j++、k++ 
-            for (int k = targetOffset + 1; j &lt; end &amp;&amp; source[j] == target[k]; j++, k++); 
-            //4.2.2.4、如果j与end相等,则表示: 
-            //源字符串中匹配到目标字符串,匹配结束,返回i。 
-            if (j == end) { 
-                /* Found whole string. */ 
-                return i - sourceOffset; 
-            } 
-        }
-    }
-    //其余情况,返回-1.return -1; 
-    return -1;
-} 
+#改为
+
+location/ {
+root D:/wnmp/www; #将站点的根目录定位到 D:/wnmp/www
+
+index index.html index.htm;
+}  
+
+#再将一下代码
+
+# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+#
+#location ~ \.php$ {
+# root html;
+# fastcgi_pass 127.0.0.1:9000;
+# fastcgi_index index.php;
+# fastcgi_param SCRIPT_FILENAME /scripts$fastcgi_script_name;
+# include fastcgi_params;
+#}
+
+#改为
+# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+#
+
+location ~ \.php$ {
+    root           D:/wnmp/www;
+    fastcgi_pass   localhost:9000;
+    fastcgi_index  index.php;
+    
+    # 这里$document_root指的是上面定义好的nginx根目录：D:/wnmp/www
+
+    fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+    include        fastcgi_params;
+}
+#保存好配置即可。
 </code></pre>
-<h3 id="实现">实现</h3>
-<blockquote>
-<p>给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回  -1。</p>
-</blockquote>
-<pre><code class="language-java">public int strStr(String haystack, String needle) {
-        if(needle.length() == 0) { //当noodle为空应该返回0
-            return 0;
-        } else if(needle.length() &gt; haystack.length()) { //当needle长度大于haystack，返回-1
-            return -1;
-        } else {
-            char first = needle.charAt(0);
-            int max = haystack.length() - needle.length();
-            for(int i = 0; i &lt;= max; i++) {
-                if(haystack.charAt(i) != first) {
-                    while(++i &lt;= max &amp;&amp; haystack.charAt(i) != first);
-                }
-                if(i &lt;= max) {
-                    int j = i + 1;
-                    int end = j + needle.length() - 1;
-                    for(int k = 1; j &lt; end &amp;&amp; haystack.charAt(j) == needle.charAt(k); j++, k++);
-                    if(j == end) {
-                        return i;
-                    }
-                }
-            }
-            return -1;
-        }
-    }
-    public int strStr2(String haystack, String needle) {
-        if(needle.equals(&quot;&quot;)||haystack.equals(needle)){
-            return 0;
-        }
-        int index=-1;
-        if(haystack.contains(needle)){
-            String[] str=haystack.split(needle); 
-            if(str.length&gt;=1){
-                index=str[0].length();
-            }else {
-                index=0;
-            }
-        }else{
-                index=-1;
-            }
-        return index;
-    }
+<h2 id="3启动">3.启动。</h2>
+<p>手动启动 php 和 nginx 来跑一下。</p>
+<h3 id="1命令行php目录下键入-php-cgiexe-b-1270019000-c-dwnmpphp7phpini输入以后没有反应但是不能关掉命令行">1）命令行php目录下键入 php-cgi.exe -b 127.0.0.1:9000 -c D:/wnmp/php7/php.ini（输入以后没有反应，但是不能关掉命令行）</h3>
+<h3 id="2命令行nginx目录下-start-nginx">2）命令行nginx目录下 start nginx</h3>
+<h3 id="3在www目录下新建一个-phpinfophp-文件">3）在www目录下新建一个 phpinfo.php 文件</h3>
+<pre><code>&lt;?php 
+    phpinfo();
+?&gt;
 </code></pre>
-<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
-<figure data-type="image" tabindex="1"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
+<h3 id="4浏览器中输入-a-hrefhttplocalhostphpinfophp-target_blanklocalhostphpinfophpa-或者-a-hrefhttp127001phpinfophp-target_blank127001phpinfophpa出现下面内容则说明php在nginx中运行成功了">4）浏览器中输入 <a href='http://localhost/phpinfo.php' target='_blank'>localhost/phpinfo.php</a> 或者 <a href='http://127.0.0.1/phpinfo.php' target='_blank'>127.0.0.1/phpinfo.php</a>，出现下面内容则说明php在nginx中运行成功了。</h3>
+<figure data-type="image" tabindex="1"><img src="http://ww1.sinaimg.cn/large/006KCUaNgy1g0og4i2gzfj30qi0gl77i.jpg" alt="成功啦" loading="lazy"></figure>
+<p>本文参考 <a href="http://www.cnblogs.com/huayangmeng/archive/2011/06/15/2081337.html">http://www.cnblogs.com/huayangmeng/archive/2011/06/15/2081337.html</a></p>
 
                           </div>
                         </div>
                         <div class="layout-post-social">
                           <div class="item reader">
-                            <div id="/post/java-indexof/" class="leancloud-visitors view"
-                              data-flag-title="Java indexOf()实现">
+                            <div id="/post/wnmp/" class="leancloud-visitors view"
+                              data-flag-title="WNMP 配置">
                               <span class="post-meta-item-text">阅读 </span>
                               <span class="leancloud-visitors-count"></span>
                             </div>
@@ -290,25 +271,26 @@ static int indexOf(char[] source, int sourceOffset, int sourceCount, char[] targ
                               <div class="card-content col-8 col-md-9">
                                 <div class="card-body">
                                   <div class="header">
-                                    <a href="https://tooyi.github.io/post/eclipse-diao-jiao/" class="title">
-                                      <h4>Eclipse 调教</h4>
+                                    <a href="https://tooyi.github.io/post/nginx/" class="title">
+                                      <h4>Nginx 命令</h4>
                                     </a>
                                   </div>
                                   <div class="inner d-none d-sm-block">
                                     <div class="abstract">
-                                      
+                                      <p>Windows下Nginx的启动、停止等命令</p>
+
                                     </div>
                                   </div>
                                 </div>
                                 <div class="card-footer">
                                   <div class="item"><span>上一篇</span></div>
-                                  <div class="item">2018-10-27</div>
+                                  <div class="item">2019-03-03</div>
                                 </div>
                               </div>
                               <div class="card-thumb col-4 col-md-3">
                                 <div class="thumb">
-                                  <a href="https://tooyi.github.io/post/eclipse-diao-jiao/"
-                                    style="background-image: url('https://tooyi.github.io/post-images/eclipse-diao-jiao.jpg');"></a>
+                                  <a href="https://tooyi.github.io/post/nginx/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/nginx.png');"></a>
                                 </div>
                               </div>
                               
@@ -319,25 +301,26 @@ static int indexOf(char[] source, int sourceOffset, int sourceCount, char[] targ
                               <div class="card-content col-8 col-md-9">
                                 <div class="card-body">
                                   <div class="header">
-                                    <a href="https://tooyi.github.io/post/java-zong-jie/" class="title">
-                                      <h4>Java框架总结</h4>
+                                    <a href="https://tooyi.github.io/post/composer-tuo-keng-ji/" class="title">
+                                      <h4>composer 脱坑记</h4>
                                     </a>
                                   </div>
                                   <div class="inner d-none d-sm-block">
                                     <div class="abstract">
-                                      
+                                      <p>解决composer update太慢</p>
+
                                     </div>
                                   </div>
                                 </div>
                                 <div class="card-footer">
                                   <div class="item"><span>下一篇</span></div>
-                                  <div class="item">2018-10-12</div>
+                                  <div class="item">2019-03-02</div>
                                 </div>
                               </div>
                               <div class="card-thumb col-4 col-md-3">
                                 <div class="thumb">
-                                  <a href="https://tooyi.github.io/post/java-zong-jie/"
-                                    style="background-image: url('https://tooyi.github.io/post-images/java-zong-jie.jpg');"></a>
+                                  <a href="https://tooyi.github.io/post/composer-tuo-keng-ji/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/composer-tuo-keng-ji.png');"></a>
                                 </div>
                               </div>
                               
@@ -376,11 +359,19 @@ static int indexOf(char[] source, int sourceOffset, int sourceCount, char[] targ
                           <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li>
+<li><a href="#1%E9%A6%96%E5%85%88%E9%9C%80%E8%A6%81%E7%9A%84%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%8C%85">1.首先需要的应用程序包。</a></li>
+<li><a href="#2%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE">2.安装与配置。</a>
 <ul>
-<li><a href="#indexof%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90">indexOf源码解析</a></li>
-<li><a href="#%E5%AE%9E%E7%8E%B0">实现</a></li>
-<li><a href="#%E6%AC%A2%E8%BF%8E%E5%85%B3%E6%B3%A8%E6%88%91%E7%9A%84%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7">欢迎关注我的微信公众号</a></li>
+<li><a href="#1php%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE">1）php安装与配置。</a></li>
+<li><a href="#2nginx-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE">2）nginx 安装与配置。</a></li>
+</ul>
+</li>
+<li><a href="#3%E5%90%AF%E5%8A%A8">3.启动。</a>
+<ul>
+<li><a href="#1%E5%91%BD%E4%BB%A4%E8%A1%8Cphp%E7%9B%AE%E5%BD%95%E4%B8%8B%E9%94%AE%E5%85%A5-php-cgiexe-b-1270019000-c-dwnmpphp7phpini%E8%BE%93%E5%85%A5%E4%BB%A5%E5%90%8E%E6%B2%A1%E6%9C%89%E5%8F%8D%E5%BA%94%E4%BD%86%E6%98%AF%E4%B8%8D%E8%83%BD%E5%85%B3%E6%8E%89%E5%91%BD%E4%BB%A4%E8%A1%8C">1）命令行php目录下键入 php-cgi.exe -b 127.0.0.1:9000 -c D:/wnmp/php7/php.ini（输入以后没有反应，但是不能关掉命令行）</a></li>
+<li><a href="#2%E5%91%BD%E4%BB%A4%E8%A1%8Cnginx%E7%9B%AE%E5%BD%95%E4%B8%8B-start-nginx">2）命令行nginx目录下 start nginx</a></li>
+<li><a href="#3%E5%9C%A8www%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA-phpinfophp-%E6%96%87%E4%BB%B6">3）在www目录下新建一个 phpinfo.php 文件</a></li>
+<li><a href="#4%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E8%BE%93%E5%85%A5-a-hrefhttplocalhostphpinfophp-target_blanklocalhostphpinfophpa-%E6%88%96%E8%80%85-a-hrefhttp127001phpinfophp-target_blank127001phpinfophpa%E5%87%BA%E7%8E%B0%E4%B8%8B%E9%9D%A2%E5%86%85%E5%AE%B9%E5%88%99%E8%AF%B4%E6%98%8Ephp%E5%9C%A8nginx%E4%B8%AD%E8%BF%90%E8%A1%8C%E6%88%90%E5%8A%9F%E4%BA%86">4）浏览器中输入 <a href='http://localhost/phpinfo.php' target='_blank'>localhost/phpinfo.php</a> 或者 <a href='http://127.0.0.1/phpinfo.php' target='_blank'>127.0.0.1/phpinfo.php</a>，出现下面内容则说明php在nginx中运行成功了。</a></li>
 </ul>
 </li>
 </ul>

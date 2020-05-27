@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tooyi.github.io</id>
     <title>涂诣</title>
-    <updated>2020-05-27T01:02:23.648Z</updated>
+    <updated>2020-05-27T01:10:44.273Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tooyi.github.io"/>
     <link rel="self" href="https://tooyi.github.io/atom.xml"/>
@@ -44,6 +44,322 @@
 <p>未来，它一定会成为你离不开的伙伴</p>
 <p>尽情发挥你的才华吧！</p>
 <p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Nginx 命令]]></title>
+        <id>https://tooyi.github.io/post/nginx/</id>
+        <link href="https://tooyi.github.io/post/nginx/">
+        </link>
+        <updated>2019-03-03T01:05:54.000Z</updated>
+        <summary type="html"><![CDATA[<p>Windows下Nginx的启动、停止等命令</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Windows下Nginx的启动、停止等命令</p>
+<!-- more -->
+<h2 id="windows下nginx的启动-停止等命令">Windows下Nginx的启动、停止等命令</h2>
+<p>在Windows下使用Nginx，我们需要掌握一些基本的操作命令，比如：启动、停止Nginx服务，重新载入Nginx等，下面我就进行一些简单的介绍。</p>
+<h3 id="1-启动">1、启动：</h3>
+<p>C:\server\nginx-1.0.2&gt;start nginx或<br>
+C:\server\nginx-1.0.2&gt;nginx.exe</p>
+<h3 id="2-停止">2、停止：</h3>
+<p>C:\server\nginx-1.0.2&gt;nginx.exe -s stop或<br>
+C:\server\nginx-1.0.2&gt;nginx.exe -s quit</p>
+<blockquote>
+<p>注：stop是快速停止nginx，可能并不保存相关信息；quit是完整有序的停止nginx，并保存相关信息。</p>
+</blockquote>
+<h3 id="3-配置文件修改重新载入nginx">3、配置文件修改重新载入Nginx：</h3>
+<p>C:\server\nginx-1.0.2&gt;nginx.exe -s reload<br>
+当配置信息修改，需要重新载入这些配置时使用此命令。</p>
+<h3 id="4-重新打开日志文件">4、重新打开日志文件：</h3>
+<p>C:\server\nginx-1.0.2&gt;nginx.exe -s reopen</p>
+<h3 id="5-查看nginx版本">5、查看Nginx版本：</h3>
+<p>C:\server\nginx-1.0.2&gt;nginx -v</p>
+<h3 id="6-验证配置是否正确">6、验证配置是否正确:</h3>
+<p>C:\server\nginx-1.0.2&gt;nginx -t</p>
+<h3 id="7查看是否启动成功">7.查看是否启动成功：</h3>
+<p>C:\server\nginx-1.0.2&gt;tasklist /fi &quot;imagename eq nginx.exe&quot;</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[WNMP 配置]]></title>
+        <id>https://tooyi.github.io/post/wnmp/</id>
+        <link href="https://tooyi.github.io/post/wnmp/">
+        </link>
+        <updated>2019-03-03T01:05:54.000Z</updated>
+        <summary type="html"><![CDATA[<p>win10 + nginx + php7 + mysql</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>win10 + nginx + php7 + mysql</p>
+<!-- more -->
+<h2 id="1首先需要的应用程序包">1.首先需要的应用程序包。</h2>
+<p>PHP: <a href='https://windows.php.net/download' target='_blank'>VC15 x64 Non Thread Safe (2019-Feb-06 02:14:41)</a>（nginx 下 php 是以 FastCGI 的方式运行，所以我们下载非线程安全也就是nts的php包）</p>
+<p>Nginx: <a href = 'http://nginx.org/en/download.html' target='_blank'>nginx/Windows-1.14.2</a> （下载 stable version）</p>
+<p>MySql：<a href='https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-8.0.15-winx64.zip' target='_blank'>mysql-8.0.15-winx64.zip</a></p>
+<p>MySql8.xx 的可以参考这个贴 <a href='https://blog.csdn.net/qq_37350706/article/details/81707862' target='_blank'>MySQL 8.0.15安装教程(windows 64位)</a></p>
+<p>附一个用了比较久的 MySql 界面管理器</p>
+<p>免费的 Navicat Premium 非商业版许可证：<a href = 'https://www.navicat.com.cn/sponsorship/education/student' target = '_blank'>学术伙伴计划 - 学生</a> 有一个教育邮箱就可以申请</p>
+<h2 id="2安装与配置">2.安装与配置。</h2>
+<h3 id="1php安装与配置">1）php安装与配置。</h3>
+<p>将下载好的 php 包文件解压到某一个目录下，例如我的是：D:\wnmp。把解压后的文件目录改为 php7，将里面的 php.ini-production 文件复制一份并改名为 php.ini，用文本编辑器将它打开。</p>
+<pre><code class="language-ini">;将里面的
+; On windows:
+
+extension_dir = &quot;./txt&quot;
+;改为
+
+; On windows:
+
+extension_dir = &quot;D:/wnmp/php7/ext&quot;
+</code></pre>
+<p>将下面两个扩展前面的“;”去掉。（因为 php7 不支持 mysql 扩展了，所以这里只有 mysqli 和 pdo 扩展)</p>
+<pre><code class="language-ini">;extension=mysqli 
+
+;extension=pdo_mysql
+
+;extension=openssl
+</code></pre>
+<p>最后让PHP支持 nginx，将下面一行前面的“;”去掉。</p>
+<pre><code class="language-ini">;cgi.fix_pathinfo=1
+</code></pre>
+<h3 id="2nginx-安装与配置">2）nginx 安装与配置。</h3>
+<p>先在 D:/wnmp 目录下新建一个 www 文件夹，作为服务器的根目录。</p>
+<p>将下载好的 nginx 包文件解压到D:\wnmp目录下，重命名为 nginx。打开 nginx\conf 下的 nginx.conf 文件来配置 nginx。</p>
+<pre><code class="language-conf">#将一下代码
+
+location/ {
+    root html;
+    index index.html index.htm;
+}
+
+#改为
+
+location/ {
+root D:/wnmp/www; #将站点的根目录定位到 D:/wnmp/www
+
+index index.html index.htm;
+}  
+
+#再将一下代码
+
+# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+#
+#location ~ \.php$ {
+# root html;
+# fastcgi_pass 127.0.0.1:9000;
+# fastcgi_index index.php;
+# fastcgi_param SCRIPT_FILENAME /scripts$fastcgi_script_name;
+# include fastcgi_params;
+#}
+
+#改为
+# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+#
+
+location ~ \.php$ {
+    root           D:/wnmp/www;
+    fastcgi_pass   localhost:9000;
+    fastcgi_index  index.php;
+    
+    # 这里$document_root指的是上面定义好的nginx根目录：D:/wnmp/www
+
+    fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+    include        fastcgi_params;
+}
+#保存好配置即可。
+</code></pre>
+<h2 id="3启动">3.启动。</h2>
+<p>手动启动 php 和 nginx 来跑一下。</p>
+<h3 id="1命令行php目录下键入-php-cgiexe-b-1270019000-c-dwnmpphp7phpini输入以后没有反应但是不能关掉命令行">1）命令行php目录下键入 php-cgi.exe -b 127.0.0.1:9000 -c D:/wnmp/php7/php.ini（输入以后没有反应，但是不能关掉命令行）</h3>
+<h3 id="2命令行nginx目录下-start-nginx">2）命令行nginx目录下 start nginx</h3>
+<h3 id="3在www目录下新建一个-phpinfophp-文件">3）在www目录下新建一个 phpinfo.php 文件</h3>
+<pre><code>&lt;?php 
+    phpinfo();
+?&gt;
+</code></pre>
+<h3 id="4浏览器中输入-a-hrefhttplocalhostphpinfophp-target_blanklocalhostphpinfophpa-或者-a-hrefhttp127001phpinfophp-target_blank127001phpinfophpa出现下面内容则说明php在nginx中运行成功了">4）浏览器中输入 <a href='http://localhost/phpinfo.php' target='_blank'>localhost/phpinfo.php</a> 或者 <a href='http://127.0.0.1/phpinfo.php' target='_blank'>127.0.0.1/phpinfo.php</a>，出现下面内容则说明php在nginx中运行成功了。</h3>
+<figure data-type="image" tabindex="1"><img src="http://ww1.sinaimg.cn/large/006KCUaNgy1g0og4i2gzfj30qi0gl77i.jpg" alt="成功啦" loading="lazy"></figure>
+<p>本文参考 <a href="http://www.cnblogs.com/huayangmeng/archive/2011/06/15/2081337.html">http://www.cnblogs.com/huayangmeng/archive/2011/06/15/2081337.html</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[composer 脱坑记]]></title>
+        <id>https://tooyi.github.io/post/composer-tuo-keng-ji/</id>
+        <link href="https://tooyi.github.io/post/composer-tuo-keng-ji/">
+        </link>
+        <updated>2019-03-02T01:04:16.000Z</updated>
+        <summary type="html"><![CDATA[<p>解决composer update太慢</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>解决composer update太慢</p>
+<!-- more -->
+<h3 id="composer-介绍">composer 介绍</h3>
+<p>Composer 是 PHP5.3以上 的一个依赖管理工具。它允许你声明项目所依赖的代码库，它会在你的项目中为你安装他们。Composer 不是一个包管理器。是的，它涉及 &quot;packages&quot; 和 &quot;libraries&quot;，但它在每个项目的基础上进行管理，在你项目的某个目录中（例如 vendor）进行安装。默认情况下它不会在全局安装任何东西。因此，这仅仅是一个依赖管理。</p>
+<h3 id="那么问题来了">那么，问题来了</h3>
+<blockquote>
+<p>composer update 太慢，怎么解决</p>
+</blockquote>
+<blockquote>
+<p>卡在这里怎么办</p>
+</blockquote>
+<pre><code>Loading composer repositories with package information
+Updating dependencies (including require-dev)
+</code></pre>
+<p>后来看到这里：</p>
+<p>https://pkg.phpcomposer.com/#how-to-install-composer</p>
+<h3 id="方法一">方法一</h3>
+<p>打开命令行窗口（windows用户）或控制台（Linux、Mac 用户）并执行如下命令</p>
+<pre><code>composer config -g repo.packagist composer https://packagist.phpcomposer.com
+</code></pre>
+<h3 id="方法二-修改当前项目的-composerjson-配置文件">方法二： 修改当前项目的 composer.json 配置文件：</h3>
+<p>打开命令行窗口（windows用户）或控制台（Linux、Mac 用户），进入你的项目的根目录（也就是 composer.json 文件所在目录），执行如下命令：</p>
+<pre><code>composer config repo.packagist composer https://packagist.phpcomposer.com
+</code></pre>
+<p>上述命令将会在当前项目中的 composer.json 文件的末尾自动添加镜像的配置信息（你也可以自己手工添加）：</p>
+<pre><code class="language-js">&quot;repositories&quot;: {
+    &quot;packagist&quot;: {
+        &quot;type&quot;: &quot;composer&quot;,
+        &quot;url&quot;: &quot;https://packagist.phpcomposer.com&quot;
+    }
+}
+</code></pre>
+<p><strong>如果方法一不管用，尝试下方法二。</strong></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[懒加载与预加载]]></title>
+        <id>https://tooyi.github.io/post/lan-jia-zai-yu-yu-jia-zai/</id>
+        <link href="https://tooyi.github.io/post/lan-jia-zai-yu-yu-jia-zai/">
+        </link>
+        <updated>2019-02-20T01:02:39.000Z</updated>
+        <summary type="html"><![CDATA[<p>什么是懒加载、预加载？</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>什么是懒加载、预加载？</p>
+<!-- more -->
+<h1 id="懒加载">懒加载</h1>
+<h2 id="1什么是懒加载">1.什么是懒加载？</h2>
+<p>懒加载也就是<strong>延迟加载</strong>。<br>
+当访问一个页面的时候，先把img元素或是其他元素的背景图片路径替换成一张大小为1*1px图片的路径（这样就只需请求一次，俗称占位图），只有当图片出现在浏览器的可视区域内时，才设置图片正真的路径，让图片显示出来。这就是图片懒加载。</p>
+<h2 id="2为什么要使用懒加载">2.为什么要使用懒加载？</h2>
+<p>很多页面，内容很丰富，页面很长，图片较多。比如说各种商城页面。这些页面图片数量多，而且比较大，少说百来K，多则上兆。要是页面载入就一次性加载完毕。估计大家都会等到黄花变成黄花菜了。</p>
+<h2 id="3懒加载的原理是什么">3.懒加载的原理是什么？</h2>
+<p>页面中的img元素，如果没有src属性，浏览器就不会发出请求去下载图片，只有通过javascript设置了图片路径，浏览器才会发送请求。<br>
+懒加载的原理就是先在页面中把所有的图片统一使用一张占位图进行占位，把正真的路径存在元素的“data-url”（这个名字起个自己认识好记的就行）属性里，要用的时候就取出来，再设置；</p>
+<h2 id="4懒加载的实现步骤">4.懒加载的实现步骤？</h2>
+<p>1)首先，不要将图片地址放到src属性中，而是放到其它属性(data-original)中。<br>
+2)页面加载完成后，根据scrollTop判断图片是否在用户的视野内，如果在，则将data-original属性中的值取出存放到src属性中。<br>
+3)在滚动事件中重复判断图片是否进入视野，如果进入，则将data-original属性中的值取出存放到src属性中。</p>
+<h2 id="5懒加载的优点是什么">5.懒加载的优点是什么？</h2>
+<p>页面加载速度快、可以减轻服务器的压力、节约了流量,用户体验好</p>
+<pre><code class="language-js">//懒加载代码实现
+var viewHeight = document.documentElement.clientHeight // 可视区域的高度
+
+function lazyload () {
+  // 获取所有要进行懒加载的图片
+  var eles = document.querySelectorAll('img[data-original][lazyload]')
+  Array.prototype.forEach.call(eles, function (item, index) {
+    var rect
+    if (item.dataset.original === '')
+      return
+    rect = item.getBoundingClientRect()
+    // 图片一进入可视区，动态加载
+    if (rect.bottom &gt;= 0 &amp;&amp; rect.top &lt; viewHeight) {
+      !function () {
+        var img = new Image()
+        img.src = item.dataset.original
+        img.onload = function () {
+          item.src = img.src
+        }
+        item.removeAttribute('data-original')
+        item.removeAttribute('lazyload')
+      }()
+    }
+  })
+}
+// 首屏要人为的调用，否则刚进入页面不显示图片
+lazyload()
+
+document.addEventListener('scroll', lazyload)
+
+</code></pre>
+<h1 id="预加载">预加载</h1>
+<p>预加载的<strong>核心要点</strong>如下：</p>
+<p>1.图片等静态资源在使用之前的提前请求；</p>
+<p>2.资源后续使用时可以从缓存中加载，提升用户体验；</p>
+<p>3.页面展示的依赖关系维护（必需的资源加载完才可以展示页面，防止白屏等）；</p>
+<p>实现预加载主要有三个方法：</p>
+<p>1.html中img标签最初设置为display:none；</p>
+<p>2.js脚本中使用image对象动态创建好图片；</p>
+<p>3.使用XMLHttpRequest对象可以更加精细的控制预加载过程，缺点是无法跨域：</p>
+<h2 id="1什么是预加载">1.什么是预加载？</h2>
+<p>提前加载图片，当用户需要查看时可直接从本地缓存中渲染</p>
+<h2 id="2为什么要使用预加载">2.为什么要使用预加载？</h2>
+<p>图片预先加载到浏览器中，访问者便可顺利地在你的网站上冲浪，并享受到极快的加载速度。这对图片画廊及图片占据很大比例的网站来说十分有利，它保证了图片快速、无缝地发布，也可帮助用户在浏览你网站内容时获得更好的用户体验。</p>
+<h2 id="3实现预加载的方法有哪些">3.实现预加载的方法有哪些？</h2>
+<p>方法一：用CSS和JavaScript实现预加载<br>
+方法二：仅使用JavaScript实现预加载<br>
+方法三：使用Ajax实现预加载</p>
+<p>详见：<a href="http://web.jobbole.com/86785/">Javascript图片预加载详解</a></p>
+<h2 id="3-懒加载和预加载的对比">3、懒加载和预加载的对比</h2>
+<h3 id="1概念">1)概念：</h3>
+<p>懒加载也叫延迟加载：JS图片延迟加载,延迟加载图片或符合某些条件时才加载某些图片。<br>
+预加载：提前加载图片，当用户需要查看时可直接从本地缓存中渲染。</p>
+<h3 id="2区别">2)区别：</h3>
+<p>两种技术的本质：两者的行为是相反的，一个是提前加载，一个是迟缓甚至不加载。懒加载对服务器前端有一定的缓解压力作用，预加载则会增加服务器前端压力。</p>
+<h3 id="3懒加载的意义及实现方式有">3)懒加载的意义及实现方式有：</h3>
+<p>意义：<br>
+懒加载的主要目的是作为服务器前端的优化，减少请求数或延迟请求数。<br>
+实现方式：<br>
+1.第一种是纯粹的延迟加载，使用setTimeOut或setInterval进行加载延迟.<br>
+2.第二种是条件加载，符合某些条件，或触发了某些事件才开始异步下载。<br>
+3.第三种是可视区加载，即仅加载用户可以看到的区域，这个主要由监控滚动条来实现，一般会在距用户看到某图片前一定距离遍开始加载，这样能保证用户拉下时正好能看到图片。</p>
+<h3 id="4预加载的意义及实现方式有">4)预加载的意义及实现方式有：</h3>
+<p>意义:<br>
+预加载可以说是牺牲服务器前端性能，换取更好的用户体验，这样可以使用户的操作得到最快的反映。<br>
+实现方式：<br>
+实现预载的方法非常多，比如：用CSS和JavaScript实现预加载；仅使用JavaScript实现预加载；使用Ajax实现预加载。<br>
+常用的是new Image();设置其src来实现预载，再使用onload方法回调预载完成事件。只要浏览器把图片下载到本地，同样的src就会使用缓存，这是最基本也是最实用的预载方法。当Image下载完图片头后，会得到宽和高，因此可以在预载前得到图片的大小(方法是用记时器轮循宽高变化)。</p>
+<h2 id="4-补充知识">4、补充知识</h2>
+<p>屏幕可视窗口大小</p>
+<pre><code class="language-js">  原生方法： 
+
+        window.innerHeight 标准浏览器及IE9+ || 
+
+        document.documentElement.clientHeight 标准浏览器及低版本IE标准模式 || 
+
+        document.body.clientHeight  低版本混杂模式 
+
+    jQuery方法：  
+
+        $(window).height();
+</code></pre>
+<p>浏览器窗口顶部与文档顶部之间的距离，也就是滚动条滚动的距离：</p>
+<pre><code class="language-js"> 原生方法： 
+
+          window.pagYoffset 标准浏览器及IE9+ || 
+
+          document.documentElement.scrollTop 兼容ie低版本的标准模式 || 
+
+          document.body.scrollTop 兼容混杂模式； 
+
+    jQuery方法： 
+
+          $(document).scrollTop();
+</code></pre>
+<p>获取元素的尺寸</p>
+<pre><code class="language-js">$(o).width() = o.style.width;
+$(o).innerWidth() = o.style.width+o.style.padding;
+$(o).outerWidth() = o.offsetWidth = o.style.width+o.style.padding+o.style.border；
+$(o).outerWidth(true) = o.style.width+o.style.padding+o.style.border+o.style.margin；
+</code></pre>
+<p><strong>注意</strong><br>
+要使用原生的style.xxx方法获取属性，这个元素必须已经有内嵌的样式，如果原先是通过外部或内部样式表定义css样式，必须使用o.currentStyle[xxx] || document.defaultView.getComputedStyle(0)[xxx]来获取样式值。</p>
+<p>获取元素的位置信息</p>
+<pre><code class="language-js">jQuery：
+$(o).offset().top&lt;/code&gt;元素距离文档顶的距离&lt;br&gt;&lt;code&gt;$(o).offset().left元素距离文档左边缘的距离。
+原生：getoffsetTop();
+顺便提一下返回元素相对于第一个以定位的父元素的偏移距离，注意与上面偏移距的区别；
+jQuery：position()返回一个对象
+$(o).position().left = o.style.left;&lt;/code&gt;&lt;br&gt;&lt;code&gt;$(o).position().top = o.style.top； 
+</code></pre>
+<p>来源：<a href="http://www.jianshu.com/p/4876a4fe7731">懒加载和预加载</a></p>
 ]]></content>
     </entry>
     <entry>
@@ -809,529 +1125,6 @@ public class LinkedListSummary {
 </code></pre>
 <h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
 <figure data-type="image" tabindex="1"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Java 关于链表的基本算法]]></title>
-        <id>https://tooyi.github.io/post/java-suan-fa/</id>
-        <link href="https://tooyi.github.io/post/java-suan-fa/">
-        </link>
-        <updated>2018-12-23T00:47:26.000Z</updated>
-        <summary type="html"><![CDATA[<p>算法代码记录</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>算法代码记录</p>
-<!-- more -->
-<pre><code class="language-java">import java.util.HashMap;
-import java.util.Scanner;
-import java.util.Stack;
- 
-/**
- * 
- * @author smartBBer
- * 关于java中链表的操作
- * 1. 求单链表中结点的个数: getListLength 
- * 2. 将单链表反转: reverseList（遍历），reverseListRec（递归） 
- * 3. 查找单链表中的倒数第K个结点（k &gt; 0）: reGetKthNode 
- * 4. 查找单链表的中间结点: getMiddleNode 
- * 5. 从尾到头打印单链表: reversePrintListStack，reversePrintListRec（递归） 
- * 6. 已知两个单链表pHead1 和pHead2 各自有序，把它们合并成一个链表依然有序: mergeSortedList, mergeSortedListRec 
- * 7. 对单链表进行排序,listSort（归并）,insertionSortList（插入）
- * 8. 判断一个单链表中是否有环: hasCycle 
- * 9. 判断两个单链表是否相交: isIntersect 
- * 10. 已知一个单链表中存在环，求进入环中的第一个节点: getFirstNodeInCycle, getFirstNodeInCycleHashMap 
- * 11. 给出一单链表头指针head和一节点指针delete，O(1)时间复杂度删除节点delete: deleteNode
- */
-public class LinkedListSummary {
-	/**
-	 * @param args
-	 * 
-	 */
-	public static class Node{
-		int value;
-		Node next;
-		public Node(int n){
-			this.value=n;
-			this.next=null;
-		}
-	}
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Scanner in=new Scanner(System.in);
-		Node head=null;
-		if(in.hasNextInt()){
-			head=new Node(in.nextInt());
-		}
-		Node temp=head;
-		while(in.hasNextInt()){
-			temp.next=new Node(in.nextInt());
-			temp=temp.next;
-		}
-		in.close();
-		//int len=getListLength(head);
-		//Node reHead=reverseList(head);
-		//reHead=reverseListRec(reHead);
-		//Node node_k=reGetKthNode(head,3);
-		//Node mid=getMiddleNode(head);
-		//reversePrintListRec(head);
-		//reversePrintListStack(head);
-		//Node mergeHead=mergeSortedList(head,null);
-		//Node sortHead=listSort(head);
-		
-	}
-	//求单链表中结点的个数: getListLength 
-	public static int getListLength(Node head){
-		int len=0;
-		while(head!=null){
-			len++;
-			head=head.next;
-		}
-		return len;
-	}
-	//将单链表反转,循环
-	public static Node reverseList(Node head){
-		if(head==null||head.next==null)return head;
-		Node pre=null;
-		Node nex=null;
-		while(head!=null){
-			nex=head.next;
-			head.next=pre;
-			pre=head;
-			head=nex;
-		}
-		return pre;
-	}
-	//将单链表反转,递归
-	public static Node reverseListRec(Node head){
-		if(head==null||head.next==null)return head;
-		Node reHead=reverseListRec(head.next);
-		head.next.next=head;
-		head.next=null;
-		return reHead;
-	}
-	//查找单链表中的倒数第K个结点（k &gt; 0）
-	public static Node reGetKthNode(Node head,int k){
-		if(head==null)return head;
-		int len=getListLength(head);
-		if(k&gt;len)return null;
-		Node target=head;
-		Node nexk=head;
-		for(int i=0;i&lt;k;i++){
-			nexk=nexk.next;
-		}
-		while(nexk!=null){
-			target=target.next;
-			nexk=nexk.next;
-		}
-		return target;
-	}
-	//查找单链表的中间结点 
-	public static Node getMiddleNode(Node head){
-		if(head==null||head.next==null)return head;
-		Node target=head;
-		Node temp=head;
-		while(temp!=null&amp;&amp;temp.next!=null){
-			target=target.next;
-			temp=temp.next.next;
-		}
-		return target;
-	}
-	//从尾到头打印单链表,递归
-	public static void reversePrintListRec(Node head){
-		if(head==null)return;
-		else{
-			reversePrintListRec(head.next);
-			System.out.println(head.value);
-		}
-	}
-	//从尾到头打印单链表,栈
-	public static void reversePrintListStack(Node head){
-		Stack&lt;Node&gt; s=new Stack&lt;Node&gt;();
-		while(head!=null){
-			s.push(head);
-			head=head.next;
-		}
-		while(!s.isEmpty()){
-			System.out.println(s.pop().value);
-		}
-	}
-	//合并两个有序的单链表head1和head2，循环
-	public static Node mergeSortedList(Node head1,Node head2){
-		if(head1==null)return head2;
-		if(head2==null)return head1;
-		Node target=null;
-		if(head1.value&gt;head2.value){
-			target=head2;
-			head2=head2.next;
-		}
-		else{
-			target=head1;
-			head1=head1.next;
-		}
-		target.next=null;
-		Node mergeHead=target;
-		while(head1!=null &amp;&amp; head2!=null){
-			if(head1.value&gt;head2.value){
-				target.next=head2;
-				head2=head2.next;
-			}
-			else{
-				target.next=head1;
-				head1=head1.next;
-			}
-			target=target.next;
-			target.next=null;
-		}
-		if(head1==null)target.next=head2;
-		else target.next=head1;
-		return mergeHead;
-	}
-	//合并两个有序的单链表head1和head2，递归
-	public static Node mergeSortedListRec(Node head1,Node head2){
-		if(head1==null)return head2;
-		if(head2==null)return head1;
-		if(head1.value&gt;head2.value){
-			head2.next=mergeSortedListRec(head2.next,head1);
-			return head2;
-		}
-		else{
-			head1.next=mergeSortedListRec(head1.next,head2);
-			return head1;
-		}
-	}
-	//对单链表进行排序,归并排序,在排序里面不建议选用递归的合并有序链表算法，如果链表长度较长，很容易出现栈溢出
-	public static Node listSort(Node head){
-		Node nex=null;
-		if(head==null||head.next==null)return head;
-		else if(head.next.next==null){
-			nex=head.next;
-			head.next=null;
-		}
-		else{
-			Node mid=getMiddleNode(head);
-			nex=mid.next;
-			mid.next=null;
-		}
-		return mergeSortedList(listSort(head),listSort(nex));//合并两个有序链表，不建议递归
-	}
-	//对单链表进行排序,插入排序
-	public Node insertionSortList(Node head) {
-        if(head==null||head.next==null)return head;
-        Node pnex=head.next;
-        Node pnex_nex=null;
-        head.next=null;
-        while(pnex!=null){
-            pnex_nex=pnex.next;
-            Node temp=head;
-            Node temp_pre=null;
-            while(temp!=null){
-                if(temp.value&gt;pnex.value)break;
-                temp_pre=temp;
-                temp=temp.next;
-            }
-            if(temp_pre==null){
-                head=pnex;
-                pnex.next=temp;
-            }
-            else{
-                temp_pre.next=pnex;
-                pnex.next=temp;
-            }
-            pnex=pnex_nex;
-        }
-        return head;
-    }
-	//判断一个单链表中是否有环,快慢指针
-	public static boolean hasCycle(Node head){
-		boolean flag=false;
-		Node p1=head;
-		Node p2=head;
-		while(p1!=null&amp;&amp;p2!=null){
-			p1=p1.next;
-			p2=p2.next.next;
-			if(p2==p1){
-				flag=true;
-				break;
-			}
-		}
-		return flag;
-	}
-	//判断两个单链表是否相交,如果相交返回第一个节点，否则返回null
-	//如果单纯的判断是否相交，只需要看最后一个指针是否相等
-	public static Node isIntersect(Node head1,Node head2){
-		Node target=null;
-		if(head1==null||head2==null)return target;
-		int len1=getListLength(head1);
-		int len2=getListLength(head2);
-		if(len1&gt;=len2){
-			for(int i=0;i&lt;len1-len2;i++){
-				head1=head1.next;
-			}
-		}else{
-			for(int i=0;i&lt;len2-len1;i++){
-				head2=head2.next;
-			}
-		}
-		while(head1!=null&amp;&amp;head2!=null){
-			if(head1==head2){
-				target=head1;
-				break;
-			}
-			else{
-				head1=head1.next;
-				head2=head2.next;
-			}
-		}
-		return target;
-	}
-	//已知一个单链表中存在环，求进入环中的第一个节点,利用hashmap，不要用ArrayList，因为判断ArrayList是否包含某个元素的效率不高
-	public static Node getFirstNodeInCycleHashMap(Node head){
-		Node target=null;
-		HashMap&lt;Node,Boolean&gt; map=new HashMap&lt;Node,Boolean&gt;();
-		while(head!=null){
-			if(map.containsKey(head)) {
-                target=head;
-                break;
-            }
-			else{
-				map.put(head, true);
-			}
-			head=head.next;
-		}
-		return target;
-	}
-	//已知一个单链表中存在环，求进入环中的第一个节点,不用hashmap
-	//用快慢指针，与判断一个单链表中是否有环一样，找到快慢指针第一次相交的节点，此时这个节点距离环开始节点的长度和链表投距离环开始的节点的长度相等
-	public static Node getFirstNodeInCycle(Node head){
-		Node fast=head;
-		Node slow=head;
-		while(fast!=null&amp;&amp;fast.next!=null){
-			slow=slow.next;
-			fast=fast.next.next;
-			if(slow==fast)
-                break;
-		}
-		if(fast==null||fast.next==null)return null;//判断是否包含环
-		//相遇节点距离环开始节点的长度和链表投距离环开始的节点的长度相等
-		slow=head;
-		while(slow!=fast){
-			slow=slow.next;
-			fast=fast.next;
-		}//同步走
-		return slow;
-		
-	}
-	//给出一单链表头指针head和一节点指针delete，O(1)时间复杂度删除节点delete
-	//可惜采用将delete节点value值与它下个节点的值互换的方法，但是如果delete是最后一个节点，则不行，但是总得复杂度还是O(1)
-	public static void deleteNode(Node head,Node delete){
-		//首先处理delete节点为最后一个节点的情况
-		if(delete==null)return;
-		if(delete.next==null){
-			if(head==delete)head=null;
-			else{
-				Node temp=head;
-				while(temp.next!=delete){
-					temp=temp.next;
-				}
-				temp.next=null;
-			}
-		}
-		else{
-			delete.value=delete.next.value;
-			delete.next=delete.next.next;
-		}
-		return;
-	}
-}
-</code></pre>
-<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
-<figure data-type="image" tabindex="1"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Eclipse 调教]]></title>
-        <id>https://tooyi.github.io/post/eclipse-diao-jiao/</id>
-        <link href="https://tooyi.github.io/post/eclipse-diao-jiao/">
-        </link>
-        <updated>2018-10-27T00:44:28.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="版本对比">版本对比</h2>
-<p>如果不知道安装什么版本，可以选择 Java EE 版本安装。</p>
-<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fwmq8pmmm1j30un0h5gop.jpg" alt="Eclipse 个版本对比" loading="lazy"></figure>
-<h2 id="常用配置设置">常用配置设置</h2>
-<p>以下为梓涵自用配置设置，可供参考。</p>
-<h3 id="设置-utf-8-编码">设置 UTF-8 编码</h3>
-<p>设置 UTF-8 编码方式，中文才可以正常显示。</p>
-<ul>
-<li>window -&gt; preferences -&gt; General -&gt; workspace中text file encoding改为utf-8</li>
-</ul>
-<figure data-type="image" tabindex="2"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fwmqb0g13uj30lp0jlgpp.jpg" alt="设置UTF-8" loading="lazy"></figure>
-<h3 id="设置国际化资源编码">设置国际化资源编码</h3>
-<p>设置properties文件编码。</p>
-<ul>
-<li>window -&gt; preferences -&gt; General -&gt; Content Types —&gt; Text —&gt; Java Properties File选中，然后下面default encoding改为 utf-8</li>
-</ul>
-<figure data-type="image" tabindex="3"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fwmqgdpm0rj30lp0jl77e.jpg" alt="国际化编码设置" loading="lazy"></figure>
-<h3 id="设置jsp编码">设置jsp编码</h3>
-<p>设置为 UTF-8 编码，不然显示页面可能出现乱码。</p>
-<ul>
-<li>window -&gt; preferences -&gt; web -&gt; jsp files中 encoding 改为 utf-8</li>
-</ul>
-<figure data-type="image" tabindex="4"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fwmqjx8e2nj30lp0jltaw.jpg" alt="jsp文件编码方式" loading="lazy"></figure>
-<h2 id="优化文本编辑器显示">优化文本编辑器显示</h2>
-<p>让界面交互更直观。</p>
-<h3 id="显示行号显示空白字符">显示行号，显示空白字符</h3>
-<ul>
-<li>window -&gt; preferences -&gt; General -&gt; editor -&gt; text editors -&gt; show line numbers show whitespace characters ，然后点击configure visibility 设置如下图。</li>
-</ul>
-<figure data-type="image" tabindex="5"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fwmqqvhck3j30lp0kb784.jpg" alt="显示行号和空白字符" loading="lazy"></figure>
-<h3 id="调整编辑器字体和大小">调整编辑器字体和大小</h3>
-<ul>
-<li>window -&gt; preferences -&gt; General -&gt; appearance -&gt; colors and fonts，在点开 Basic 、 Java 等下，找到 Text Font 字样，在选择 Edit 进行调整。</li>
-</ul>
-<figure data-type="image" tabindex="6"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fwmr22b3wsj30lp0kbn0a.jpg" alt="设置字体" loading="lazy"></figure>
-<h3 id="设置java默认风格每行最大字符数量">设置java默认风格每行最大字符数量</h3>
-<p>在使用ctrl + shift + f格式化java代码时，经常会遇到换行的问题，默认风格一行最大为80个字符，</p>
-<ul>
-<li>window -&gt; preferences -&gt; java -&gt; code style -&gt; formatter -&gt; edit... -&gt; line wrapping -&gt; maximum line width 可以根据需要修改.</li>
-</ul>
-<figure data-type="image" tabindex="7"><img src="https://raw.githubusercontent.com/smartBBer/picBox/master/img/006KCUaNgy1fwmrepii6tj30lp0kb0wk.jpg" alt="最大行显示数" loading="lazy"></figure>
-<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
-<figure data-type="image" tabindex="8"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Java indexOf()实现]]></title>
-        <id>https://tooyi.github.io/post/java-indexof/</id>
-        <link href="https://tooyi.github.io/post/java-indexof/">
-        </link>
-        <updated>2018-10-25T00:50:43.000Z</updated>
-        <summary type="html"><![CDATA[<p>代码记录</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>代码记录</p>
-<!-- more -->
-<h3 id="indexof源码解析">indexOf源码解析</h3>
-<pre><code class="language-java">public int indexOf(String str) {
-    return indexOf(str, 0);
-}
- 
-public int indexOf(String str, int fromIndex) {
-    return indexOf(value, 0, value.length,str.value, 0, str.value.length, fromIndex);
-}
-
-static int indexOf(char[] source, int sourceOffset, int sourceCount, char[] target, int targetOffset, int targetCount, int fromIndex) {
-    //1、当开始查找位置 大于等于 源字符串长度时,如果[查找字符串]为空,则:
-    //返回字符串的长度,否则返回-1.
-    if (fromIndex &gt;= sourceCount) { 
-        return (targetCount == 0 ? sourceCount : -1);
-    }
-    //2、如果fromIndex 小于 0,则从 0开始查找。
-    if (fromIndex &lt; 0) { 
-        fromIndex = 0;
-    }
-    //3、如果[查找字符串]为空,则返回fromIndex
-    if (targetCount == 0) { 
-        return fromIndex;
-    }
-    //4、开始查找,从[查找字符串]中得到第一个字符,标记为first
-    char first = target[targetOffset];
-    //4.1、计算[源字符串最大长度]
-    int max = sourceOffset + (sourceCount - targetCount);
-    //4.2、遍历查找
-    for (int i = sourceOffset + fromIndex; i &lt;= max; i++) { 
-        //4.2.1、从[源字符串]中,查找到第一个匹配到[目标字符串]first的位置 
-        //for循环中,增加while循环 
-        /* Look for first character. */ 
-        if (source[i] != first) { 
-            while (++i &lt;= max &amp;&amp; source[i] != first); 
-        } 
-        //4.2.2、如果在[源字符串]中,找到首个[目标字符串], 
-        //则匹配是否等于[目标字符串] 
-        /* Found first character, now look at the rest of v2 */ 
-        if (i &lt;= max) { 
-            //4.2.2.1、得到下一个要匹配的位置,标记为j 
-            int j = i + 1; 
-            //4.2.2.2、得到其余[目标字符串]的长度,标记为end 
-            int end = j + targetCount - 1; 
-            //4.2.2.3、遍历,其余[目标字符串],从k开始, 
-            //如果j不越界(小于end,表示:其余[目标字符串]的范围), 
-            //同时[源字符串]==[目标字符串],则 //自增,继续查找匹配。j++、k++ 
-            for (int k = targetOffset + 1; j &lt; end &amp;&amp; source[j] == target[k]; j++, k++); 
-            //4.2.2.4、如果j与end相等,则表示: 
-            //源字符串中匹配到目标字符串,匹配结束,返回i。 
-            if (j == end) { 
-                /* Found whole string. */ 
-                return i - sourceOffset; 
-            } 
-        }
-    }
-    //其余情况,返回-1.return -1; 
-    return -1;
-} 
-</code></pre>
-<h3 id="实现">实现</h3>
-<blockquote>
-<p>给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回  -1。</p>
-</blockquote>
-<pre><code class="language-java">public int strStr(String haystack, String needle) {
-        if(needle.length() == 0) { //当noodle为空应该返回0
-            return 0;
-        } else if(needle.length() &gt; haystack.length()) { //当needle长度大于haystack，返回-1
-            return -1;
-        } else {
-            char first = needle.charAt(0);
-            int max = haystack.length() - needle.length();
-            for(int i = 0; i &lt;= max; i++) {
-                if(haystack.charAt(i) != first) {
-                    while(++i &lt;= max &amp;&amp; haystack.charAt(i) != first);
-                }
-                if(i &lt;= max) {
-                    int j = i + 1;
-                    int end = j + needle.length() - 1;
-                    for(int k = 1; j &lt; end &amp;&amp; haystack.charAt(j) == needle.charAt(k); j++, k++);
-                    if(j == end) {
-                        return i;
-                    }
-                }
-            }
-            return -1;
-        }
-    }
-    public int strStr2(String haystack, String needle) {
-        if(needle.equals(&quot;&quot;)||haystack.equals(needle)){
-            return 0;
-        }
-        int index=-1;
-        if(haystack.contains(needle)){
-            String[] str=haystack.split(needle); 
-            if(str.length&gt;=1){
-                index=str[0].length();
-            }else {
-                index=0;
-            }
-        }else{
-                index=-1;
-            }
-        return index;
-    }
-</code></pre>
-<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
-<figure data-type="image" tabindex="1"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Java框架总结]]></title>
-        <id>https://tooyi.github.io/post/java-zong-jie/</id>
-        <link href="https://tooyi.github.io/post/java-zong-jie/">
-        </link>
-        <updated>2018-10-12T00:42:06.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="java框架总结">Java框架总结</h2>
-<p>使用SpringMVC + Spring + Mybatis （SSM）框架</p>
-<p>使用Struts2 + Spring + Hibernate （SSH）框架</p>
-<p>相当于 页面 -&gt; Servlet -&gt; Java（接口类） -&gt; JDBC -&gt; 数据库</p>
-<p>SpringPost</p>
-<figure data-type="image" tabindex="1"><img src="https://raw.githubusercontent.com/tooyi/picBox/master/img/006KCUaNgy1fwaf90g4snj311h0kvwhn.jpg" alt="图示" loading="lazy"></figure>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2018/10/16/5bc5f2cb2ac77.jpg" alt="SSM SSH框架总结.jpg" loading="lazy"></figure>
-<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
-<figure data-type="image" tabindex="3"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>

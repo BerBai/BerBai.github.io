@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+<title>懒加载与预加载 - 涂诣</title>
+<meta name="description" content="温故而知新">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link type='text/css' rel='stylesheet' href='https://tooyi.github.io/styles/main.css' media='screen' />
+<link type="text/css" rel="stylesheet" href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css">
+<link type="text/css" rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript" src='https://tooyi.github.io/media/scripts/jquery.js'></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</head>
+
+<body>
+  <div class="layout theme-dark">
+    <div class="layout-header">
+
+	<div class="layout-header-main">
+		<div class="container">
+			<div class="row justify-content-lg-center">
+				<div class="col-12 col-lg-9">
+
+					<div class="navbar">
+
+						<div class="logo">
+							<a href="https://tooyi.github.io">
+								<img class="logo"
+									src="https://tooyi.github.io/media/images/site_avatar.png?v=1590541804874"
+									alt="">
+							</a>
+						</div>
+
+						<div class="menu d-md-inline-block d-none">
+							<ul class="layout-navigation-list">
+								
+								<li class="layout-navigation-item"><a title="首页"
+										href="/">首页</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="归档"
+										href="/archives">归档</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="标签"
+										href="/tags">标签</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="关于"
+										href="/post/about">关于</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="WeXYZ - 微信小程序"
+										href="https://xyz.125520.xyz">WeXYZ - 微信小程序</a>
+								</li>
+								
+								<li class="layout-navigation-item"><a title="旧博客"
+										href="/blog-old">旧博客</a>
+								</li>
+								
+							</ul>
+						</div>
+
+						<div class="item d-md-inline-block d-none">
+							<div class="search-icon">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</div>
+						</div>
+
+
+
+						<div class="d-md-inline-block d-none">
+							<div class="search-lightbox">
+								<div class="search-body">
+
+									<form id="gridea-search-form" data-update="1590541804874" action="/search/" class="search-form">
+										<input type="text" name="q" id="s" value="" class="search-field" placeholder="请输入搜索关键词" aria-label="请输入搜索关键词" required="">
+										<button type="submit" class="submit" aria-label="Submit">
+											<i class="fa fa-search" aria-hidden="true"></i>
+										</button>
+									</form>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="nav d-md-none d-inline-block">
+							<div class="trigger">
+								<i class="fa fa-bars layout-btn-toggle" aria-hidden="true"></i>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+
+
+
+		</div>
+	</div>
+
+</div>
+    <div class="layout-collapse d-md-none">
+	<div class="layout-collapse-main">
+		<ul class="layout-collapse-list">
+			
+			<li class="layout-collapse-item"><a title="首页" href="/">首页</a></li>
+			
+			<li class="layout-collapse-item"><a title="归档" href="/archives">归档</a></li>
+			
+			<li class="layout-collapse-item"><a title="标签" href="/tags">标签</a></li>
+			
+			<li class="layout-collapse-item"><a title="关于" href="/post/about">关于</a></li>
+			
+			<li class="layout-collapse-item"><a title="WeXYZ - 微信小程序" href="https://xyz.125520.xyz">WeXYZ - 微信小程序</a></li>
+			
+			<li class="layout-collapse-item"><a title="旧博客" href="/blog-old">旧博客</a></li>
+			
+
+		</ul>
+	</div>
+</div>
+
+    <div class="layout-content">
+      <div class="layout-content-main">
+        <div class="container">
+          <div class="row justify-content-lg-center">
+            <div class="col-12 col-lg-9">
+              <div class="layout-post">
+                <div class="layout-post-body">
+                  <div class="row">
+
+                    <div class="col-12 col-lg-10">
+                      <div class="layout-post-main m-right m-md-right">
+                        <div class="layout-post-header">
+                          <h1 class="layout-post-title">懒加载与预加载</h1>
+                          <div class="layout-post-meta">
+                            <div class="item">
+                               <a href="https://tooyi.github.io/tag/lR4II0q5k/" class="post--keyword"
+                                data-title="Web" data-type="post_tag" data-term-id="39">Web</a>
+                              
+                            </div>
+                            <div class="item">
+                              <span>2019-02-20</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="layout-post-content">
+                          <div class="layout-post-item">
+                            
+                            <p class="with-img"><img src="https://tooyi.github.io/post-images/lan-jia-zai-yu-yu-jia-zai.jpg"
+                                class="attachment-full size-full wp-post-image" alt="懒加载与预加载" /></p>
+                            
+                            <p>什么是懒加载、预加载？</p>
+<!-- more -->
+<h1 id="懒加载">懒加载</h1>
+<h2 id="1什么是懒加载">1.什么是懒加载？</h2>
+<p>懒加载也就是<strong>延迟加载</strong>。<br>
+当访问一个页面的时候，先把img元素或是其他元素的背景图片路径替换成一张大小为1*1px图片的路径（这样就只需请求一次，俗称占位图），只有当图片出现在浏览器的可视区域内时，才设置图片正真的路径，让图片显示出来。这就是图片懒加载。</p>
+<h2 id="2为什么要使用懒加载">2.为什么要使用懒加载？</h2>
+<p>很多页面，内容很丰富，页面很长，图片较多。比如说各种商城页面。这些页面图片数量多，而且比较大，少说百来K，多则上兆。要是页面载入就一次性加载完毕。估计大家都会等到黄花变成黄花菜了。</p>
+<h2 id="3懒加载的原理是什么">3.懒加载的原理是什么？</h2>
+<p>页面中的img元素，如果没有src属性，浏览器就不会发出请求去下载图片，只有通过javascript设置了图片路径，浏览器才会发送请求。<br>
+懒加载的原理就是先在页面中把所有的图片统一使用一张占位图进行占位，把正真的路径存在元素的“data-url”（这个名字起个自己认识好记的就行）属性里，要用的时候就取出来，再设置；</p>
+<h2 id="4懒加载的实现步骤">4.懒加载的实现步骤？</h2>
+<p>1)首先，不要将图片地址放到src属性中，而是放到其它属性(data-original)中。<br>
+2)页面加载完成后，根据scrollTop判断图片是否在用户的视野内，如果在，则将data-original属性中的值取出存放到src属性中。<br>
+3)在滚动事件中重复判断图片是否进入视野，如果进入，则将data-original属性中的值取出存放到src属性中。</p>
+<h2 id="5懒加载的优点是什么">5.懒加载的优点是什么？</h2>
+<p>页面加载速度快、可以减轻服务器的压力、节约了流量,用户体验好</p>
+<pre><code class="language-js">//懒加载代码实现
+var viewHeight = document.documentElement.clientHeight // 可视区域的高度
+
+function lazyload () {
+  // 获取所有要进行懒加载的图片
+  var eles = document.querySelectorAll('img[data-original][lazyload]')
+  Array.prototype.forEach.call(eles, function (item, index) {
+    var rect
+    if (item.dataset.original === '')
+      return
+    rect = item.getBoundingClientRect()
+    // 图片一进入可视区，动态加载
+    if (rect.bottom &gt;= 0 &amp;&amp; rect.top &lt; viewHeight) {
+      !function () {
+        var img = new Image()
+        img.src = item.dataset.original
+        img.onload = function () {
+          item.src = img.src
+        }
+        item.removeAttribute('data-original')
+        item.removeAttribute('lazyload')
+      }()
+    }
+  })
+}
+// 首屏要人为的调用，否则刚进入页面不显示图片
+lazyload()
+
+document.addEventListener('scroll', lazyload)
+
+</code></pre>
+<h1 id="预加载">预加载</h1>
+<p>预加载的<strong>核心要点</strong>如下：</p>
+<p>1.图片等静态资源在使用之前的提前请求；</p>
+<p>2.资源后续使用时可以从缓存中加载，提升用户体验；</p>
+<p>3.页面展示的依赖关系维护（必需的资源加载完才可以展示页面，防止白屏等）；</p>
+<p>实现预加载主要有三个方法：</p>
+<p>1.html中img标签最初设置为display:none；</p>
+<p>2.js脚本中使用image对象动态创建好图片；</p>
+<p>3.使用XMLHttpRequest对象可以更加精细的控制预加载过程，缺点是无法跨域：</p>
+<h2 id="1什么是预加载">1.什么是预加载？</h2>
+<p>提前加载图片，当用户需要查看时可直接从本地缓存中渲染</p>
+<h2 id="2为什么要使用预加载">2.为什么要使用预加载？</h2>
+<p>图片预先加载到浏览器中，访问者便可顺利地在你的网站上冲浪，并享受到极快的加载速度。这对图片画廊及图片占据很大比例的网站来说十分有利，它保证了图片快速、无缝地发布，也可帮助用户在浏览你网站内容时获得更好的用户体验。</p>
+<h2 id="3实现预加载的方法有哪些">3.实现预加载的方法有哪些？</h2>
+<p>方法一：用CSS和JavaScript实现预加载<br>
+方法二：仅使用JavaScript实现预加载<br>
+方法三：使用Ajax实现预加载</p>
+<p>详见：<a href="http://web.jobbole.com/86785/">Javascript图片预加载详解</a></p>
+<h2 id="3-懒加载和预加载的对比">3、懒加载和预加载的对比</h2>
+<h3 id="1概念">1)概念：</h3>
+<p>懒加载也叫延迟加载：JS图片延迟加载,延迟加载图片或符合某些条件时才加载某些图片。<br>
+预加载：提前加载图片，当用户需要查看时可直接从本地缓存中渲染。</p>
+<h3 id="2区别">2)区别：</h3>
+<p>两种技术的本质：两者的行为是相反的，一个是提前加载，一个是迟缓甚至不加载。懒加载对服务器前端有一定的缓解压力作用，预加载则会增加服务器前端压力。</p>
+<h3 id="3懒加载的意义及实现方式有">3)懒加载的意义及实现方式有：</h3>
+<p>意义：<br>
+懒加载的主要目的是作为服务器前端的优化，减少请求数或延迟请求数。<br>
+实现方式：<br>
+1.第一种是纯粹的延迟加载，使用setTimeOut或setInterval进行加载延迟.<br>
+2.第二种是条件加载，符合某些条件，或触发了某些事件才开始异步下载。<br>
+3.第三种是可视区加载，即仅加载用户可以看到的区域，这个主要由监控滚动条来实现，一般会在距用户看到某图片前一定距离遍开始加载，这样能保证用户拉下时正好能看到图片。</p>
+<h3 id="4预加载的意义及实现方式有">4)预加载的意义及实现方式有：</h3>
+<p>意义:<br>
+预加载可以说是牺牲服务器前端性能，换取更好的用户体验，这样可以使用户的操作得到最快的反映。<br>
+实现方式：<br>
+实现预载的方法非常多，比如：用CSS和JavaScript实现预加载；仅使用JavaScript实现预加载；使用Ajax实现预加载。<br>
+常用的是new Image();设置其src来实现预载，再使用onload方法回调预载完成事件。只要浏览器把图片下载到本地，同样的src就会使用缓存，这是最基本也是最实用的预载方法。当Image下载完图片头后，会得到宽和高，因此可以在预载前得到图片的大小(方法是用记时器轮循宽高变化)。</p>
+<h2 id="4-补充知识">4、补充知识</h2>
+<p>屏幕可视窗口大小</p>
+<pre><code class="language-js">  原生方法： 
+
+        window.innerHeight 标准浏览器及IE9+ || 
+
+        document.documentElement.clientHeight 标准浏览器及低版本IE标准模式 || 
+
+        document.body.clientHeight  低版本混杂模式 
+
+    jQuery方法：  
+
+        $(window).height();
+</code></pre>
+<p>浏览器窗口顶部与文档顶部之间的距离，也就是滚动条滚动的距离：</p>
+<pre><code class="language-js"> 原生方法： 
+
+          window.pagYoffset 标准浏览器及IE9+ || 
+
+          document.documentElement.scrollTop 兼容ie低版本的标准模式 || 
+
+          document.body.scrollTop 兼容混杂模式； 
+
+    jQuery方法： 
+
+          $(document).scrollTop();
+</code></pre>
+<p>获取元素的尺寸</p>
+<pre><code class="language-js">$(o).width() = o.style.width;
+$(o).innerWidth() = o.style.width+o.style.padding;
+$(o).outerWidth() = o.offsetWidth = o.style.width+o.style.padding+o.style.border；
+$(o).outerWidth(true) = o.style.width+o.style.padding+o.style.border+o.style.margin；
+</code></pre>
+<p><strong>注意</strong><br>
+要使用原生的style.xxx方法获取属性，这个元素必须已经有内嵌的样式，如果原先是通过外部或内部样式表定义css样式，必须使用o.currentStyle[xxx] || document.defaultView.getComputedStyle(0)[xxx]来获取样式值。</p>
+<p>获取元素的位置信息</p>
+<pre><code class="language-js">jQuery：
+$(o).offset().top&lt;/code&gt;元素距离文档顶的距离&lt;br&gt;&lt;code&gt;$(o).offset().left元素距离文档左边缘的距离。
+原生：getoffsetTop();
+顺便提一下返回元素相对于第一个以定位的父元素的偏移距离，注意与上面偏移距的区别；
+jQuery：position()返回一个对象
+$(o).position().left = o.style.left;&lt;/code&gt;&lt;br&gt;&lt;code&gt;$(o).position().top = o.style.top； 
+</code></pre>
+<p>来源：<a href="http://www.jianshu.com/p/4876a4fe7731">懒加载和预加载</a></p>
+
+                          </div>
+                        </div>
+                        <div class="layout-post-social">
+                          <div class="item reader">
+                            <div id="/post/lan-jia-zai-yu-yu-jia-zai/" class="leancloud-visitors view"
+                              data-flag-title="懒加载与预加载">
+                              <span class="post-meta-item-text">阅读 </span>
+                              <span class="leancloud-visitors-count"></span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="layout-post-navigation">
+                          <div class="navigation-list">
+                            
+                            <div class="post-card row">
+                              
+                              <div class="card-content col-8 col-md-9">
+                                <div class="card-body">
+                                  <div class="header">
+                                    <a href="https://tooyi.github.io/post/composer-tuo-keng-ji/" class="title">
+                                      <h4>composer 脱坑记</h4>
+                                    </a>
+                                  </div>
+                                  <div class="inner d-none d-sm-block">
+                                    <div class="abstract">
+                                      <p>解决composer update太慢</p>
+
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card-footer">
+                                  <div class="item"><span>上一篇</span></div>
+                                  <div class="item">2019-03-02</div>
+                                </div>
+                              </div>
+                              <div class="card-thumb col-4 col-md-3">
+                                <div class="thumb">
+                                  <a href="https://tooyi.github.io/post/composer-tuo-keng-ji/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/composer-tuo-keng-ji.png');"></a>
+                                </div>
+                              </div>
+                              
+                            </div>
+
+                            <div class="post-card row">
+                              
+                              <div class="card-content col-8 col-md-9">
+                                <div class="card-body">
+                                  <div class="header">
+                                    <a href="https://tooyi.github.io/post/wei-xin-xiao-cheng-xu-flex-bu-ju/" class="title">
+                                      <h4>微信小程序---flex布局</h4>
+                                    </a>
+                                  </div>
+                                  <div class="inner d-none d-sm-block">
+                                    <div class="abstract">
+                                      <p>代码记录</p>
+
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card-footer">
+                                  <div class="item"><span>下一篇</span></div>
+                                  <div class="item">2019-02-16</div>
+                                </div>
+                              </div>
+                              <div class="card-thumb col-4 col-md-3">
+                                <div class="thumb">
+                                  <a href="https://tooyi.github.io/post/wei-xin-xiao-cheng-xu-flex-bu-ju/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/wei-xin-xiao-cheng-xu-flex-bu-ju.jpg');"></a>
+                                </div>
+                              </div>
+                              
+                            </div>
+
+                            
+                          </div>
+                        </div>
+
+                        <div class="layout-comments"></div>
+                        
+                        <script type="text/javascript" src='https://tooyi.github.io/media/scripts/zan.js'></script>
+<script type="text/javascript" src='https://tooyi.github.io/media/scripts/av-min.js'></script>
+<script type="text/javascript" src='https://tooyi.github.io/media/scripts/Valine.min.js'></script>
+
+<script>
+  var valine = new Valine();
+  valine.init({
+    el: '.layout-comments',
+    appId: 'S5mybpyN8KDDMNhnfhBw4Bn3-gzGzoHsz',
+    appKey: 'Xo2RmbkdRblp4vsgIHpen0lf',
+    notify: false,
+    verify: false,
+    visitor: true,
+    avatar: 'mp',
+    placeholder: '加入讨论...'
+  })
+</script>
+                        
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-lg-2 d-none d-lg-block">
+                      <div class="layout-post-sidebar">
+                        <div class="layout-sidebar-item">
+                          <ul class="markdownIt-TOC">
+<li><a href="#%E6%87%92%E5%8A%A0%E8%BD%BD">懒加载</a>
+<ul>
+<li><a href="#1%E4%BB%80%E4%B9%88%E6%98%AF%E6%87%92%E5%8A%A0%E8%BD%BD">1.什么是懒加载？</a></li>
+<li><a href="#2%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E6%87%92%E5%8A%A0%E8%BD%BD">2.为什么要使用懒加载？</a></li>
+<li><a href="#3%E6%87%92%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88">3.懒加载的原理是什么？</a></li>
+<li><a href="#4%E6%87%92%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4">4.懒加载的实现步骤？</a></li>
+<li><a href="#5%E6%87%92%E5%8A%A0%E8%BD%BD%E7%9A%84%E4%BC%98%E7%82%B9%E6%98%AF%E4%BB%80%E4%B9%88">5.懒加载的优点是什么？</a></li>
+</ul>
+</li>
+<li><a href="#%E9%A2%84%E5%8A%A0%E8%BD%BD">预加载</a>
+<ul>
+<li><a href="#1%E4%BB%80%E4%B9%88%E6%98%AF%E9%A2%84%E5%8A%A0%E8%BD%BD">1.什么是预加载？</a></li>
+<li><a href="#2%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E9%A2%84%E5%8A%A0%E8%BD%BD">2.为什么要使用预加载？</a></li>
+<li><a href="#3%E5%AE%9E%E7%8E%B0%E9%A2%84%E5%8A%A0%E8%BD%BD%E7%9A%84%E6%96%B9%E6%B3%95%E6%9C%89%E5%93%AA%E4%BA%9B">3.实现预加载的方法有哪些？</a></li>
+<li><a href="#3-%E6%87%92%E5%8A%A0%E8%BD%BD%E5%92%8C%E9%A2%84%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%AF%B9%E6%AF%94">3、懒加载和预加载的对比</a>
+<ul>
+<li><a href="#1%E6%A6%82%E5%BF%B5">1)概念：</a></li>
+<li><a href="#2%E5%8C%BA%E5%88%AB">2)区别：</a></li>
+<li><a href="#3%E6%87%92%E5%8A%A0%E8%BD%BD%E7%9A%84%E6%84%8F%E4%B9%89%E5%8F%8A%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%E6%9C%89">3)懒加载的意义及实现方式有：</a></li>
+<li><a href="#4%E9%A2%84%E5%8A%A0%E8%BD%BD%E7%9A%84%E6%84%8F%E4%B9%89%E5%8F%8A%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%E6%9C%89">4)预加载的意义及实现方式有：</a></li>
+</ul>
+</li>
+<li><a href="#4-%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86">4、补充知识</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="layout-totop d-none"><i class="fa fa-angle-up" aria-hidden="true"></i></div>
+
+    	<div class="layout-footer">
+
+		<div class="container">
+			<div class="row justify-content-lg-center">
+				<div class="col-12 col-lg-9">
+					<div class="footer">
+						<div class="row">
+							<div class="col-12 col-md-9">
+								<div class="footer-copy">
+									
+									<span>© 2018-2020 </span>
+									<a href="https://tooyi.github.io" title="涂诣">涂诣</a>
+									<span class="px-2">⋅</span>
+									
+									Themes by <a href="https://github.com/insdram/gridea-theme-vant" target="_blank">Vant</a>. Powered by <a href="https://github.com" target="_blank">GitHub</a>
+									<div class="footer-icp d-none d-sm-inline-block">
+										<span class="px-2">⋅</span>
+										
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3 d-none d-md-block">
+								<div class="footer-links">
+									
+									
+									
+									
+									<span class="footer-links-item">
+										<a href="https://github.com/tooyi" target="_blank">
+											<i class="fa fa-github" aria-hidden="true"></i>
+										</a>
+									</span>
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									<span class="footer-links-item">
+										<a href="https://weibo.com/smartbber" target="_blank">
+											<i class="fa fa-weibo" aria-hidden="true"></i>
+										</a>
+									</span>
+									
+									
+									
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src='https://tooyi.github.io/media/scripts/main.js'></script>
+	
+	<script>
+		var _hmt = _hmt || [];
+		(function () {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?tooyi.github.io";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	
+
+  </div>
+</body>
+
+</html>

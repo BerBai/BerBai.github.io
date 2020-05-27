@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-<title>Java indexOf()实现 - 涂诣</title>
+<title>Nginx 命令 - 涂诣</title>
 <meta name="description" content="温故而知新">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -142,140 +142,55 @@
                     <div class="col-12 col-lg-10">
                       <div class="layout-post-main m-right m-md-right">
                         <div class="layout-post-header">
-                          <h1 class="layout-post-title">Java indexOf()实现</h1>
+                          <h1 class="layout-post-title">Nginx 命令</h1>
                           <div class="layout-post-meta">
                             <div class="item">
-                               <a href="https://tooyi.github.io/tag/9HhUh71Y9/" class="post--keyword"
-                                data-title="Java" data-type="post_tag" data-term-id="39">Java</a>
+                               <a href="https://tooyi.github.io/tag/lR4II0q5k/" class="post--keyword"
+                                data-title="Web" data-type="post_tag" data-term-id="39">Web</a>
                               
                             </div>
                             <div class="item">
-                              <span>2018-10-25</span>
+                              <span>2019-03-03</span>
                             </div>
                           </div>
                         </div>
                         <div class="layout-post-content">
                           <div class="layout-post-item">
                             
-                            <p class="with-img"><img src="https://tooyi.github.io/post-images/java-indexof.jpg"
-                                class="attachment-full size-full wp-post-image" alt="Java indexOf()实现" /></p>
+                            <p class="with-img"><img src="https://tooyi.github.io/post-images/nginx.png"
+                                class="attachment-full size-full wp-post-image" alt="Nginx 命令" /></p>
                             
-                            <p>代码记录</p>
+                            <p>Windows下Nginx的启动、停止等命令</p>
 <!-- more -->
-<h3 id="indexof源码解析">indexOf源码解析</h3>
-<pre><code class="language-java">public int indexOf(String str) {
-    return indexOf(str, 0);
-}
- 
-public int indexOf(String str, int fromIndex) {
-    return indexOf(value, 0, value.length,str.value, 0, str.value.length, fromIndex);
-}
-
-static int indexOf(char[] source, int sourceOffset, int sourceCount, char[] target, int targetOffset, int targetCount, int fromIndex) {
-    //1、当开始查找位置 大于等于 源字符串长度时,如果[查找字符串]为空,则:
-    //返回字符串的长度,否则返回-1.
-    if (fromIndex &gt;= sourceCount) { 
-        return (targetCount == 0 ? sourceCount : -1);
-    }
-    //2、如果fromIndex 小于 0,则从 0开始查找。
-    if (fromIndex &lt; 0) { 
-        fromIndex = 0;
-    }
-    //3、如果[查找字符串]为空,则返回fromIndex
-    if (targetCount == 0) { 
-        return fromIndex;
-    }
-    //4、开始查找,从[查找字符串]中得到第一个字符,标记为first
-    char first = target[targetOffset];
-    //4.1、计算[源字符串最大长度]
-    int max = sourceOffset + (sourceCount - targetCount);
-    //4.2、遍历查找
-    for (int i = sourceOffset + fromIndex; i &lt;= max; i++) { 
-        //4.2.1、从[源字符串]中,查找到第一个匹配到[目标字符串]first的位置 
-        //for循环中,增加while循环 
-        /* Look for first character. */ 
-        if (source[i] != first) { 
-            while (++i &lt;= max &amp;&amp; source[i] != first); 
-        } 
-        //4.2.2、如果在[源字符串]中,找到首个[目标字符串], 
-        //则匹配是否等于[目标字符串] 
-        /* Found first character, now look at the rest of v2 */ 
-        if (i &lt;= max) { 
-            //4.2.2.1、得到下一个要匹配的位置,标记为j 
-            int j = i + 1; 
-            //4.2.2.2、得到其余[目标字符串]的长度,标记为end 
-            int end = j + targetCount - 1; 
-            //4.2.2.3、遍历,其余[目标字符串],从k开始, 
-            //如果j不越界(小于end,表示:其余[目标字符串]的范围), 
-            //同时[源字符串]==[目标字符串],则 //自增,继续查找匹配。j++、k++ 
-            for (int k = targetOffset + 1; j &lt; end &amp;&amp; source[j] == target[k]; j++, k++); 
-            //4.2.2.4、如果j与end相等,则表示: 
-            //源字符串中匹配到目标字符串,匹配结束,返回i。 
-            if (j == end) { 
-                /* Found whole string. */ 
-                return i - sourceOffset; 
-            } 
-        }
-    }
-    //其余情况,返回-1.return -1; 
-    return -1;
-} 
-</code></pre>
-<h3 id="实现">实现</h3>
+<h2 id="windows下nginx的启动-停止等命令">Windows下Nginx的启动、停止等命令</h2>
+<p>在Windows下使用Nginx，我们需要掌握一些基本的操作命令，比如：启动、停止Nginx服务，重新载入Nginx等，下面我就进行一些简单的介绍。</p>
+<h3 id="1-启动">1、启动：</h3>
+<p>C:\server\nginx-1.0.2&gt;start nginx或<br>
+C:\server\nginx-1.0.2&gt;nginx.exe</p>
+<h3 id="2-停止">2、停止：</h3>
+<p>C:\server\nginx-1.0.2&gt;nginx.exe -s stop或<br>
+C:\server\nginx-1.0.2&gt;nginx.exe -s quit</p>
 <blockquote>
-<p>给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回  -1。</p>
+<p>注：stop是快速停止nginx，可能并不保存相关信息；quit是完整有序的停止nginx，并保存相关信息。</p>
 </blockquote>
-<pre><code class="language-java">public int strStr(String haystack, String needle) {
-        if(needle.length() == 0) { //当noodle为空应该返回0
-            return 0;
-        } else if(needle.length() &gt; haystack.length()) { //当needle长度大于haystack，返回-1
-            return -1;
-        } else {
-            char first = needle.charAt(0);
-            int max = haystack.length() - needle.length();
-            for(int i = 0; i &lt;= max; i++) {
-                if(haystack.charAt(i) != first) {
-                    while(++i &lt;= max &amp;&amp; haystack.charAt(i) != first);
-                }
-                if(i &lt;= max) {
-                    int j = i + 1;
-                    int end = j + needle.length() - 1;
-                    for(int k = 1; j &lt; end &amp;&amp; haystack.charAt(j) == needle.charAt(k); j++, k++);
-                    if(j == end) {
-                        return i;
-                    }
-                }
-            }
-            return -1;
-        }
-    }
-    public int strStr2(String haystack, String needle) {
-        if(needle.equals(&quot;&quot;)||haystack.equals(needle)){
-            return 0;
-        }
-        int index=-1;
-        if(haystack.contains(needle)){
-            String[] str=haystack.split(needle); 
-            if(str.length&gt;=1){
-                index=str[0].length();
-            }else {
-                index=0;
-            }
-        }else{
-                index=-1;
-            }
-        return index;
-    }
-</code></pre>
-<h3 id="欢迎关注我的微信公众号">欢迎关注我的微信公众号</h3>
-<figure data-type="image" tabindex="1"><img src="http://upload-images.jianshu.io/upload_images/3990834-c91d28f8be4121e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="微信公众号：柏战不殆" loading="lazy"></figure>
+<h3 id="3-配置文件修改重新载入nginx">3、配置文件修改重新载入Nginx：</h3>
+<p>C:\server\nginx-1.0.2&gt;nginx.exe -s reload<br>
+当配置信息修改，需要重新载入这些配置时使用此命令。</p>
+<h3 id="4-重新打开日志文件">4、重新打开日志文件：</h3>
+<p>C:\server\nginx-1.0.2&gt;nginx.exe -s reopen</p>
+<h3 id="5-查看nginx版本">5、查看Nginx版本：</h3>
+<p>C:\server\nginx-1.0.2&gt;nginx -v</p>
+<h3 id="6-验证配置是否正确">6、验证配置是否正确:</h3>
+<p>C:\server\nginx-1.0.2&gt;nginx -t</p>
+<h3 id="7查看是否启动成功">7.查看是否启动成功：</h3>
+<p>C:\server\nginx-1.0.2&gt;tasklist /fi &quot;imagename eq nginx.exe&quot;</p>
 
                           </div>
                         </div>
                         <div class="layout-post-social">
                           <div class="item reader">
-                            <div id="/post/java-indexof/" class="leancloud-visitors view"
-                              data-flag-title="Java indexOf()实现">
+                            <div id="/post/nginx/" class="leancloud-visitors view"
+                              data-flag-title="Nginx 命令">
                               <span class="post-meta-item-text">阅读 </span>
                               <span class="leancloud-visitors-count"></span>
                             </div>
@@ -290,25 +205,29 @@ static int indexOf(char[] source, int sourceOffset, int sourceCount, char[] targ
                               <div class="card-content col-8 col-md-9">
                                 <div class="card-body">
                                   <div class="header">
-                                    <a href="https://tooyi.github.io/post/eclipse-diao-jiao/" class="title">
-                                      <h4>Eclipse 调教</h4>
+                                    <a href="https://tooyi.github.io/post/hello-gridea/" class="title">
+                                      <h4>换一个新主题 - Gridea Themes Vant</h4>
                                     </a>
                                   </div>
                                   <div class="inner d-none d-sm-block">
                                     <div class="abstract">
-                                      
+                                      <h2 id="访问旧博客">访问旧博客</h2>
+<p><strong>新博客使用Gridea管理，旧博客文章暂时未全部搬运。若访问旧博客，请访问</strong><a href="https://tooyi.github.io/blog-old/">涂诣的官方网站</a></p>
+<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+
                                     </div>
                                   </div>
                                 </div>
                                 <div class="card-footer">
                                   <div class="item"><span>上一篇</span></div>
-                                  <div class="item">2018-10-27</div>
+                                  <div class="item">2020-05-26</div>
                                 </div>
                               </div>
                               <div class="card-thumb col-4 col-md-3">
                                 <div class="thumb">
-                                  <a href="https://tooyi.github.io/post/eclipse-diao-jiao/"
-                                    style="background-image: url('https://tooyi.github.io/post-images/eclipse-diao-jiao.jpg');"></a>
+                                  <a href="https://tooyi.github.io/post/hello-gridea/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/hello-gridea.png');"></a>
                                 </div>
                               </div>
                               
@@ -319,25 +238,26 @@ static int indexOf(char[] source, int sourceOffset, int sourceCount, char[] targ
                               <div class="card-content col-8 col-md-9">
                                 <div class="card-body">
                                   <div class="header">
-                                    <a href="https://tooyi.github.io/post/java-zong-jie/" class="title">
-                                      <h4>Java框架总结</h4>
+                                    <a href="https://tooyi.github.io/post/wnmp/" class="title">
+                                      <h4>WNMP 配置</h4>
                                     </a>
                                   </div>
                                   <div class="inner d-none d-sm-block">
                                     <div class="abstract">
-                                      
+                                      <p>win10 + nginx + php7 + mysql</p>
+
                                     </div>
                                   </div>
                                 </div>
                                 <div class="card-footer">
                                   <div class="item"><span>下一篇</span></div>
-                                  <div class="item">2018-10-12</div>
+                                  <div class="item">2019-03-03</div>
                                 </div>
                               </div>
                               <div class="card-thumb col-4 col-md-3">
                                 <div class="thumb">
-                                  <a href="https://tooyi.github.io/post/java-zong-jie/"
-                                    style="background-image: url('https://tooyi.github.io/post-images/java-zong-jie.jpg');"></a>
+                                  <a href="https://tooyi.github.io/post/wnmp/"
+                                    style="background-image: url('https://tooyi.github.io/post-images/wnmp.jpg');"></a>
                                 </div>
                               </div>
                               
@@ -376,11 +296,15 @@ static int indexOf(char[] source, int sourceOffset, int sourceCount, char[] targ
                           <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li>
+<li><a href="#windows%E4%B8%8Bnginx%E7%9A%84%E5%90%AF%E5%8A%A8-%E5%81%9C%E6%AD%A2%E7%AD%89%E5%91%BD%E4%BB%A4">Windows下Nginx的启动、停止等命令</a>
 <ul>
-<li><a href="#indexof%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90">indexOf源码解析</a></li>
-<li><a href="#%E5%AE%9E%E7%8E%B0">实现</a></li>
-<li><a href="#%E6%AC%A2%E8%BF%8E%E5%85%B3%E6%B3%A8%E6%88%91%E7%9A%84%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7">欢迎关注我的微信公众号</a></li>
+<li><a href="#1-%E5%90%AF%E5%8A%A8">1、启动：</a></li>
+<li><a href="#2-%E5%81%9C%E6%AD%A2">2、停止：</a></li>
+<li><a href="#3-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BF%AE%E6%94%B9%E9%87%8D%E6%96%B0%E8%BD%BD%E5%85%A5nginx">3、配置文件修改重新载入Nginx：</a></li>
+<li><a href="#4-%E9%87%8D%E6%96%B0%E6%89%93%E5%BC%80%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6">4、重新打开日志文件：</a></li>
+<li><a href="#5-%E6%9F%A5%E7%9C%8Bnginx%E7%89%88%E6%9C%AC">5、查看Nginx版本：</a></li>
+<li><a href="#6-%E9%AA%8C%E8%AF%81%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE">6、验证配置是否正确:</a></li>
+<li><a href="#7%E6%9F%A5%E7%9C%8B%E6%98%AF%E5%90%A6%E5%90%AF%E5%8A%A8%E6%88%90%E5%8A%9F">7.查看是否启动成功：</a></li>
 </ul>
 </li>
 </ul>
