@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tooyi.github.io</id>
     <title>涂诣</title>
-    <updated>2020-05-27T01:26:24.921Z</updated>
+    <updated>2020-05-30T13:47:42.489Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tooyi.github.io"/>
     <link rel="self" href="https://tooyi.github.io/atom.xml"/>
@@ -10,6 +10,48 @@
     <logo>https://tooyi.github.io/images/avatar.png</logo>
     <icon>https://tooyi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 涂诣</rights>
+    <entry>
+        <title type="html"><![CDATA[【通俗解读】TCP 三次握手]]></title>
+        <id>https://tooyi.github.io/post/TCP001/</id>
+        <link href="https://tooyi.github.io/post/TCP001/">
+        </link>
+        <updated>2020-05-30T13:35:38.000Z</updated>
+        <summary type="html"><![CDATA[<p>关于TCP协议三次握手的问题，在面试中是最为常见的知识点之一</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>关于TCP协议三次握手的问题，在面试中是最为常见的知识点之一</p>
+<!-- more -->
+<h2 id="为什么建立连接需要三次握手">为什么建立连接需要三次握手？</h2>
+<p>首先非常明确的是两次握手是最基本的。第一次握手，客户端发了个连接请求消息到服务端，服务端收到信息后知道自己与客户端是可以连接成功的，但此时客户端并不知道服务端是否已经接收到了它的请求，所以服务端接收到消息后的应答，客户端得到服务端的反馈后，才确定自己与服务端是可以连接上的，这就是第二次握手。</p>
+<p>客户端只有确定了自己能与服务端连接上才能开始发数据。所以两次握手肯定是最基本的。</p>
+<p>看到这里，你或许会问，那么为什么需要第三次握手呢？我们来看一下，假设一下如果没有第三次握手，而是两次握手后我们就认为连接成功了，那么会发生什么？<strong>第三次握手是为了防止已经失效的连接请求报文段突然又传到服务端，因而产生错误。</strong></p>
+<p>譬如发起请求遇到类似这样的情况：客户端发出去的第一个连接请求由于某些原因在网络节点中滞留了导致延迟，直到连接释放的某个时间点才到达服务端，这是一个早已失效的报文，但是此时服务端仍然认为这是客户端的建立连接请求第一次握手，于是服务端回应了客户端，第二次握手。</p>
+<figure data-type="image" tabindex="1"><img src="https://tooyi.github.io/post-images/1590846035334.png" alt="" loading="lazy"></figure>
+<h2 id="通俗理解">通俗理解</h2>
+<p>TCP 三次握手好比在一个夜高风黑的夜晚，你一个人在小区里散步，不远处看见小区里的一位漂亮妹子迎面而来，但是因为路灯有点暗等原因不能100%确认，所以要通过招手的方式来确定对方是否认识自己。</p>
+<p>你首先向妹子招手(syn)，妹子看到你向自己招手后，向你点了点头挤出了一个微笑(ack)。你看到妹子微笑后确认了妹子成功辨认出了自己(进入estalished状态)。</p>
+<p>但是妹子有点不好意思，向四周看了一看，有没有可能你是在看别人呢，她也需要确认一下。妹子也向你招了招手(syn)，你看到妹子向自己招手后知道对方是在寻求自己的确认，于是也点了点头挤出了微笑(ack)，妹子看到对方的微笑后确认了你就是在向自己打招呼(进入established状态)。</p>
+<p>于是两人加快步伐，走到了一起，彼此之间相互拥抱。</p>
+<p>我们来回顾一下，这个过程中总共有四个动作，</p>
+<ul>
+<li>你招手</li>
+<li>妹子点头微笑</li>
+<li>妹子招手</li>
+<li>你点头微笑</li>
+</ul>
+<p>其中妹子连续进行了两个动作，先是点头微笑(回复对方)，然后再次招手(寻求确认)，实际上我们可以将这两个动作合成一个动作，招手的同时点头和微笑(syn+ack)。于是这四个动作就简化成了三个动作。</p>
+<ul>
+<li>你招手</li>
+<li>妹子点头微笑并招手</li>
+<li>你点头微笑</li>
+</ul>
+<p>这就是三次握手的本质，中间的一次动作是两个动作的合并。通过这个案例，不知你对TCP三次握手，有没有进一步的理解。</p>
+<h2 id="握手完成后开始tcp-数据传输">握手完成后，开始TCP 数据传输</h2>
+<p>TCP 数据传输就是两个人隔空交流，有一定的距离，需要对方反复确认听见了自己的话。</p>
+<p>你喊了一句话(data)，妹子听见了之后要向你回复自己听见了(ack)。如果你喊了一句，半天没听到妹子回复，你会很低落，好比谈恋爱的时候，你满腔热情，而妹子忽冷忽热，所以你锲而不舍，一次不行，就两次，两次不行就三次，这就是tcp重传。</p>
+<p>也有可能是妹子知道你的本意了，但是妹子有点害羞，迟迟没有回复亦或是妹子回复了你没收到，以至于你没收到妹子的回复。你不能判断究竟到底妹子喜不喜欢你，对你有没有好感，没关系，男人嘛？要主动点，重传一下就好。</p>
+<p>既然会重传，妹子就有可能同一句话听见了两次，这就是去重。对于重传和去重这两项工作操作系统的网络内核模块都已经帮我们处理好了，我们不用理会。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[换一个新主题 - Gridea Themes Vant]]></title>
         <id>https://tooyi.github.io/post/hello-gridea/</id>
@@ -870,49 +912,6 @@ location ~ \.php$ {
 <h3 id="4浏览器中输入-a-hrefhttplocalhostphpinfophp-target_blanklocalhostphpinfophpa-或者-a-hrefhttp127001phpinfophp-target_blank127001phpinfophpa出现下面内容则说明php在nginx中运行成功了">4）浏览器中输入 <a href='http://localhost/phpinfo.php' target='_blank'>localhost/phpinfo.php</a> 或者 <a href='http://127.0.0.1/phpinfo.php' target='_blank'>127.0.0.1/phpinfo.php</a>，出现下面内容则说明php在nginx中运行成功了。</h3>
 <figure data-type="image" tabindex="1"><img src="http://ww1.sinaimg.cn/large/006KCUaNgy1g0og4i2gzfj30qi0gl77i.jpg" alt="成功啦" loading="lazy"></figure>
 <p>本文参考 <a href="http://www.cnblogs.com/huayangmeng/archive/2011/06/15/2081337.html">http://www.cnblogs.com/huayangmeng/archive/2011/06/15/2081337.html</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[composer 脱坑记]]></title>
-        <id>https://tooyi.github.io/post/composer-tuo-keng-ji/</id>
-        <link href="https://tooyi.github.io/post/composer-tuo-keng-ji/">
-        </link>
-        <updated>2019-03-02T01:04:16.000Z</updated>
-        <summary type="html"><![CDATA[<p>解决composer update太慢</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>解决composer update太慢</p>
-<!-- more -->
-<h3 id="composer-介绍">composer 介绍</h3>
-<p>Composer 是 PHP5.3以上 的一个依赖管理工具。它允许你声明项目所依赖的代码库，它会在你的项目中为你安装他们。Composer 不是一个包管理器。是的，它涉及 &quot;packages&quot; 和 &quot;libraries&quot;，但它在每个项目的基础上进行管理，在你项目的某个目录中（例如 vendor）进行安装。默认情况下它不会在全局安装任何东西。因此，这仅仅是一个依赖管理。</p>
-<h3 id="那么问题来了">那么，问题来了</h3>
-<blockquote>
-<p>composer update 太慢，怎么解决</p>
-</blockquote>
-<blockquote>
-<p>卡在这里怎么办</p>
-</blockquote>
-<pre><code>Loading composer repositories with package information
-Updating dependencies (including require-dev)
-</code></pre>
-<p>后来看到这里：</p>
-<p>https://pkg.phpcomposer.com/#how-to-install-composer</p>
-<h3 id="方法一">方法一</h3>
-<p>打开命令行窗口（windows用户）或控制台（Linux、Mac 用户）并执行如下命令</p>
-<pre><code>composer config -g repo.packagist composer https://packagist.phpcomposer.com
-</code></pre>
-<h3 id="方法二-修改当前项目的-composerjson-配置文件">方法二： 修改当前项目的 composer.json 配置文件：</h3>
-<p>打开命令行窗口（windows用户）或控制台（Linux、Mac 用户），进入你的项目的根目录（也就是 composer.json 文件所在目录），执行如下命令：</p>
-<pre><code>composer config repo.packagist composer https://packagist.phpcomposer.com
-</code></pre>
-<p>上述命令将会在当前项目中的 composer.json 文件的末尾自动添加镜像的配置信息（你也可以自己手工添加）：</p>
-<pre><code class="language-js">&quot;repositories&quot;: {
-    &quot;packagist&quot;: {
-        &quot;type&quot;: &quot;composer&quot;,
-        &quot;url&quot;: &quot;https://packagist.phpcomposer.com&quot;
-    }
-}
-</code></pre>
-<p><strong>如果方法一不管用，尝试下方法二。</strong></p>
 ]]></content>
     </entry>
 </feed>
