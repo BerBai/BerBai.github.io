@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://tooyi.github.io</id>
     <title>涂诣</title>
-    <updated>2020-05-31T01:49:20.764Z</updated>
+    <updated>2020-05-31T03:06:37.379Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://tooyi.github.io"/>
     <link rel="self" href="https://tooyi.github.io/atom.xml"/>
@@ -10,6 +10,286 @@
     <logo>https://tooyi.github.io/images/avatar.png</logo>
     <icon>https://tooyi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 涂诣</rights>
+    <entry>
+        <title type="html"><![CDATA[HTTP协议]]></title>
+        <id>https://tooyi.github.io/post/http-xie-yi/</id>
+        <link href="https://tooyi.github.io/post/http-xie-yi/">
+        </link>
+        <updated>2020-05-31T02:45:02.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="请求响应的步骤">请求/响应的步骤</h2>
+<ol>
+<li>客户端连接到Web服务器</li>
+<li>发送HTTP请求</li>
+<li>服务器接收请求并返回HTTO响应</li>
+<li>释放TCP连接</li>
+<li>客户端浏览器解析HTML内容</li>
+</ol>
+<h2 id="浏览器中键入url后回车会发生什么">浏览器中键入URL后回车，会发生什么？</h2>
+<ol>
+<li>
+<p>DNS域名解析<br>
+解析URL对应的IP</p>
+</li>
+<li>
+<p>建立TCP连接<br>
+根据IP:80与服务器建立TCP连接，详见<a href="/post/TCP001/">TCP三次握手</a></p>
+</li>
+<li>
+<p>发送HTTP请求<br>
+三次握手成功后，开始通讯，根据HTTP协议的要求，组织一个请求的数据包，里面含有请求的资源路径、身份信息等。</p>
+</li>
+</ol>
+<p>请求报文是由请求方法、请求URL、协议版本、可选的请求首部字段和内容实体构成的。</p>
+<ol start="4">
+<li>服务器响应HTTP请求<br>
+发送请求后，服务器响应请求，将数据返回给浏览器，数据可以是根据HTML协议组织的网页，里面包含页面的布局、文字等，也可以是图片或脚本程序。</li>
+</ol>
+<p>响应报文基本上是由版本协议、状态码、用以解释状态码的原因短语、可选的响应首部字段以及实体主题构成。</p>
+<ol start="5">
+<li>返回响应结果<br>
+响应码</li>
+</ol>
+<table>
+   <tr>
+      <th>HTTP响应码</th>
+      <th>类别</th>
+      <th>原因短语</th>
+   </tr>
+   <tr>
+      <td>1XX</td>
+      <td>Informational(信息状态码)</td>
+      <td>接受的请求正在处理</td>
+   </tr>
+   <tr>
+      <td>2XX</td>
+      <td>Success(成功状态码)</td>
+      <td>请求正常处理完毕</td>
+   </tr>
+   <tr>
+      <td>3XX</td>
+      <td>Redirection(重定向状态码)</td>
+      <td>需要进行附加操作以完成请求</td>
+   </tr>
+   <tr>
+      <td>4XX</td>
+      <td>Client Error(客户端错误状态码)</td>
+      <td>服务器无法处理请求</td>
+   </tr>
+   <tr>
+      <td>5XX</td>
+      <td>Server Error(服务器错误状态码)</td>
+      <td>服务器处理请求出错</td>
+   </tr>
+</table>
+<ol start="6">
+<li>
+<p>关闭TCP连接<br>
+TCP四次挥手</p>
+</li>
+<li>
+<p>浏览器解析HTML<br>
+浏览器按顺序解析html文件，构建DOM树，在解析到外部的css和js文件时，向服务器发起请求下载资源。</p>
+</li>
+</ol>
+<h2 id="常见的状态码">常见的状态码</h2>
+<p>200 OK：客户端请求成功<br>
+301 Moved Permanently（永久移除）：请求的URL已经移走。Response中应该包含一个Location URL，说明资源现在所处的位置<br>
+302 found：重定向<br>
+400 Bad Request：客户端请求有语法错误，不能被服务器所理解<br>
+401 Unaythorized：请求未经授权，这个状态码必须和WWW-Authenticate报头域一起使用<br>
+403 Forbidden：服务端禁止访问该资源<br>
+404 Not Found：请求资源不存在，输入了错误的URL<br>
+500 Internal Server Error：服务器发生了不可预期的错误<br>
+503 Server Unavaliable：服务器当前不能处理客户端的请求，一段时间后可能恢复正常</p>
+<h2 id="http中重定向和转发的区别">HTTP中重定向和转发的区别</h2>
+<p><strong>本质区别</strong>：转发是服务器行为，重定向是客户端行为</p>
+<p><strong>重定向</strong>：两次请求，浏览器地址发生变化，可访问自身web之外的资源，传输的数据会丢失</p>
+<p><strong>请求转发</strong>：一次请求，地址不变，访问自身web资源，传输的数据不会丢失</p>
+<h2 id="get请求和post请求的区别">GET请求和POST请求的区别</h2>
+<ul>
+<li>GET将请求信息放在URL，POST放在报文体
+<ul>
+<li>GET请求的数据会附在URL之后，以?分割URL和传输数据，参数之间以&amp;相连</li>
+<li>POST请求把提交的数据放放再HTTP包的包体中</li>
+</ul>
+</li>
+<li>GET提交的数据最多只能是1024字节，理论上POST没有限制</li>
+<li>POST的安全性要比GET高
+<ul>
+<li>通过GET提交数据，那么用户名和密码将出现在URL上，登录页面也能被浏览器缓存，其他人查看浏览器的历史记录就可能拿到用户名和密码，除此之外，使用GET提交数据可能会造成Cross-site request forgery攻击</li>
+</ul>
+</li>
+</ul>
+<h2 id="cookie和session的区别">Cookie和Session的区别</h2>
+<h3 id="cookie">Cookie</h3>
+<ul>
+<li>是由服务器发送给客户端的特殊信息，以文本的形式存放在客户端</li>
+<li>客户端再次请求时，会把Cookie回发</li>
+<li>服务器接收到后， 会解析Cookie生成与客户端相对应的内容<br>
+Cookie的设置以及发送过程<br>
+<img src="https://tooyi.github.io/post-images/1590894085862.png" alt="" loading="lazy"></li>
+</ul>
+<h3 id="session">Session</h3>
+<ul>
+<li>服务器端的机制，在服务器上保存的信息</li>
+<li>解析客户端请求并操作session id，按需保存状态信息</li>
+</ul>
+<h4 id="session的实现方式">Session的实现方式</h4>
+<ol>
+<li>使用Cookie来实现<br>
+<img src="https://tooyi.github.io/post-images/1590894225737.png" alt="" loading="lazy"></li>
+<li>使用URL回写来实现</li>
+</ol>
+<p>服务器发送给浏览器所有页面都携带SessionId的参数，客户端点击任何一个连接，都会使SessionId带回给服务器，......</p>
+<p>HTTP协议是构建在TCP/IP协议之上的，是TCP/IP协议的一个子集，所以要理解HTTP协议，有必要先了解下TCP/IP协议相关的知识。</p>
+<p><strong>不同点</strong></p>
+<ul>
+<li>无论客户端怎么设置，session都能正常工作，当客户端仅用cookie时将无法使用cookie</li>
+<li>session可存储任意的java对象，cookie只能存储String类型的对象</li>
+</ul>
+<p><a href="https://www.cnblogs.com/echola/p/11094695.html?tdsourcetag=s_pcqq_aiomsg">more</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[HTTP协议]]></title>
+        <id>https://tooyi.github.io/post/http/</id>
+        <link href="https://tooyi.github.io/post/http/">
+        </link>
+        <updated>2020-05-31T02:45:02.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="请求响应的步骤">请求/响应的步骤</h2>
+<ol>
+<li>客户端连接到Web服务器</li>
+<li>发送HTTP请求</li>
+<li>服务器接收请求并返回HTTO响应</li>
+<li>释放TCP连接</li>
+<li>客户端浏览器解析HTML内容</li>
+</ol>
+<h2 id="浏览器中键入url后回车会发生什么">浏览器中键入URL后回车，会发生什么？</h2>
+<ol>
+<li>
+<p>DNS域名解析<br>
+解析URL对应的IP</p>
+</li>
+<li>
+<p>建立TCP连接<br>
+根据IP:80与服务器建立TCP连接，详见<a href="/post/TCP001/">TCP三次握手</a></p>
+</li>
+<li>
+<p>发送HTTP请求<br>
+三次握手成功后，开始通讯，根据HTTP协议的要求，组织一个请求的数据包，里面含有请求的资源路径、身份信息等。</p>
+</li>
+</ol>
+<p>请求报文是由请求方法、请求URL、协议版本、可选的请求首部字段和内容实体构成的。</p>
+<ol start="4">
+<li>服务器响应HTTP请求<br>
+发送请求后，服务器响应请求，将数据返回给浏览器，数据可以是根据HTML协议组织的网页，里面包含页面的布局、文字等，也可以是图片或脚本程序。</li>
+</ol>
+<p>响应报文基本上是由版本协议、状态码、用以解释状态码的原因短语、可选的响应首部字段以及实体主题构成。</p>
+<ol start="5">
+<li>返回响应结果<br>
+响应码</li>
+</ol>
+<table>
+   <tr>
+      <th>HTTP响应码</th>
+      <th>类别</th>
+      <th>原因短语</th>
+   </tr>
+   <tr>
+      <td>1XX</td>
+      <td>Informational(信息状态码)</td>
+      <td>接受的请求正在处理</td>
+   </tr>
+   <tr>
+      <td>2XX</td>
+      <td>Success(成功状态码)</td>
+      <td>请求正常处理完毕</td>
+   </tr>
+   <tr>
+      <td>3XX</td>
+      <td>Redirection(重定向状态码)</td>
+      <td>需要进行附加操作以完成请求</td>
+   </tr>
+   <tr>
+      <td>4XX</td>
+      <td>Client Error(客户端错误状态码)</td>
+      <td>服务器无法处理请求</td>
+   </tr>
+   <tr>
+      <td>5XX</td>
+      <td>Server Error(服务器错误状态码)</td>
+      <td>服务器处理请求出错</td>
+   </tr>
+</table>
+<ol start="6">
+<li>
+<p>关闭TCP连接<br>
+TCP四次挥手</p>
+</li>
+<li>
+<p>浏览器解析HTML<br>
+浏览器按顺序解析html文件，构建DOM树，在解析到外部的css和js文件时，向服务器发起请求下载资源。</p>
+</li>
+</ol>
+<h2 id="常见的状态码">常见的状态码</h2>
+<p>200 OK：客户端请求成功<br>
+301 Moved Permanently（永久移除）：请求的URL已经移走。Response中应该包含一个Location URL，说明资源现在所处的位置<br>
+302 found：重定向<br>
+400 Bad Request：客户端请求有语法错误，不能被服务器所理解<br>
+401 Unaythorized：请求未经授权，这个状态码必须和WWW-Authenticate报头域一起使用<br>
+403 Forbidden：服务端禁止访问该资源<br>
+404 Not Found：请求资源不存在，输入了错误的URL<br>
+500 Internal Server Error：服务器发生了不可预期的错误<br>
+503 Server Unavaliable：服务器当前不能处理客户端的请求，一段时间后可能恢复正常</p>
+<h2 id="http中重定向和转发的区别">HTTP中重定向和转发的区别</h2>
+<p><strong>本质区别</strong>：转发是服务器行为，重定向是客户端行为</p>
+<p><strong>重定向</strong>：两次请求，浏览器地址发生变化，可访问自身web之外的资源，传输的数据会丢失</p>
+<p><strong>请求转发</strong>：一次请求，地址不变，访问自身web资源，传输的数据不会丢失</p>
+<h2 id="get请求和post请求的区别">GET请求和POST请求的区别</h2>
+<ul>
+<li>GET将请求信息放在URL，POST放在报文体
+<ul>
+<li>GET请求的数据会附在URL之后，以?分割URL和传输数据，参数之间以&amp;相连</li>
+<li>POST请求把提交的数据放放再HTTP包的包体中</li>
+</ul>
+</li>
+<li>GET提交的数据最多只能是1024字节，理论上POST没有限制</li>
+<li>POST的安全性要比GET高
+<ul>
+<li>通过GET提交数据，那么用户名和密码将出现在URL上，登录页面也能被浏览器缓存，其他人查看浏览器的历史记录就可能拿到用户名和密码，除此之外，使用GET提交数据可能会造成Cross-site request forgery攻击</li>
+</ul>
+</li>
+</ul>
+<h2 id="cookie和session的区别">Cookie和Session的区别</h2>
+<h3 id="cookie">Cookie</h3>
+<ul>
+<li>是由服务器发送给客户端的特殊信息，以文本的形式存放在客户端</li>
+<li>客户端再次请求时，会把Cookie回发</li>
+<li>服务器接收到后， 会解析Cookie生成与客户端相对应的内容<br>
+Cookie的设置以及发送过程<br>
+<img src="https://tooyi.github.io/post-images/1590894085862.png" alt="" loading="lazy"></li>
+</ul>
+<h3 id="session">Session</h3>
+<ul>
+<li>服务器端的机制，在服务器上保存的信息</li>
+<li>解析客户端请求并操作session id，按需保存状态信息</li>
+</ul>
+<h4 id="session的实现方式">Session的实现方式</h4>
+<ol>
+<li>使用Cookie来实现<br>
+<img src="https://tooyi.github.io/post-images/1590894225737.png" alt="" loading="lazy"></li>
+<li>使用URL回写来实现</li>
+</ol>
+<p>服务器发送给浏览器所有页面都携带SessionId的参数，客户端点击任何一个连接，都会使SessionId带回给服务器，......</p>
+<p>HTTP协议是构建在TCP/IP协议之上的，是TCP/IP协议的一个子集，所以要理解HTTP协议，有必要先了解下TCP/IP协议相关的知识。</p>
+<p><strong>不同点</strong></p>
+<ul>
+<li>无论客户端怎么设置，session都能正常工作，当客户端仅用cookie时将无法使用cookie</li>
+<li>session可存储任意的java对象，cookie只能存储String类型的对象</li>
+</ul>
+<p><a href="https://www.cnblogs.com/echola/p/11094695.html?tdsourcetag=s_pcqq_aiomsg">more</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[【通俗解读】TCP 三次握手]]></title>
         <id>https://tooyi.github.io/post/TCP001/</id>
@@ -778,140 +1058,6 @@ insert into orderitem values(2,2,'0002',20);
 <p>（20）  统计每个作者编写的图书数量。</p>
 <pre><code class="language-sql">select name,count(*) from bookauthor join authors on authors.author_id=bookauthor.author_id group by name;
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Nginx 命令]]></title>
-        <id>https://tooyi.github.io/post/nginx/</id>
-        <link href="https://tooyi.github.io/post/nginx/">
-        </link>
-        <updated>2019-03-03T01:05:54.000Z</updated>
-        <summary type="html"><![CDATA[<p>Windows下Nginx的启动、停止等命令</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>Windows下Nginx的启动、停止等命令</p>
-<!-- more -->
-<h2 id="windows下nginx的启动-停止等命令">Windows下Nginx的启动、停止等命令</h2>
-<p>在Windows下使用Nginx，我们需要掌握一些基本的操作命令，比如：启动、停止Nginx服务，重新载入Nginx等，下面我就进行一些简单的介绍。</p>
-<h3 id="1-启动">1、启动：</h3>
-<p>C:\server\nginx-1.0.2&gt;start nginx或<br>
-C:\server\nginx-1.0.2&gt;nginx.exe</p>
-<h3 id="2-停止">2、停止：</h3>
-<p>C:\server\nginx-1.0.2&gt;nginx.exe -s stop或<br>
-C:\server\nginx-1.0.2&gt;nginx.exe -s quit</p>
-<blockquote>
-<p>注：stop是快速停止nginx，可能并不保存相关信息；quit是完整有序的停止nginx，并保存相关信息。</p>
-</blockquote>
-<h3 id="3-配置文件修改重新载入nginx">3、配置文件修改重新载入Nginx：</h3>
-<p>C:\server\nginx-1.0.2&gt;nginx.exe -s reload<br>
-当配置信息修改，需要重新载入这些配置时使用此命令。</p>
-<h3 id="4-重新打开日志文件">4、重新打开日志文件：</h3>
-<p>C:\server\nginx-1.0.2&gt;nginx.exe -s reopen</p>
-<h3 id="5-查看nginx版本">5、查看Nginx版本：</h3>
-<p>C:\server\nginx-1.0.2&gt;nginx -v</p>
-<h3 id="6-验证配置是否正确">6、验证配置是否正确:</h3>
-<p>C:\server\nginx-1.0.2&gt;nginx -t</p>
-<h3 id="7查看是否启动成功">7.查看是否启动成功：</h3>
-<p>C:\server\nginx-1.0.2&gt;tasklist /fi &quot;imagename eq nginx.exe&quot;</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[WNMP 配置]]></title>
-        <id>https://tooyi.github.io/post/wnmp/</id>
-        <link href="https://tooyi.github.io/post/wnmp/">
-        </link>
-        <updated>2019-03-03T01:05:54.000Z</updated>
-        <summary type="html"><![CDATA[<p>win10 + nginx + php7 + mysql</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>win10 + nginx + php7 + mysql</p>
-<!-- more -->
-<h2 id="1首先需要的应用程序包">1.首先需要的应用程序包。</h2>
-<p>PHP: <a href='https://windows.php.net/download' target='_blank'>VC15 x64 Non Thread Safe (2019-Feb-06 02:14:41)</a>（nginx 下 php 是以 FastCGI 的方式运行，所以我们下载非线程安全也就是nts的php包）</p>
-<p>Nginx: <a href = 'http://nginx.org/en/download.html' target='_blank'>nginx/Windows-1.14.2</a> （下载 stable version）</p>
-<p>MySql：<a href='https://cdn.mysql.com//Downloads/MySQL-8.0/mysql-8.0.15-winx64.zip' target='_blank'>mysql-8.0.15-winx64.zip</a></p>
-<p>MySql8.xx 的可以参考这个贴 <a href='https://blog.csdn.net/qq_37350706/article/details/81707862' target='_blank'>MySQL 8.0.15安装教程(windows 64位)</a></p>
-<p>附一个用了比较久的 MySql 界面管理器</p>
-<p>免费的 Navicat Premium 非商业版许可证：<a href = 'https://www.navicat.com.cn/sponsorship/education/student' target = '_blank'>学术伙伴计划 - 学生</a> 有一个教育邮箱就可以申请</p>
-<h2 id="2安装与配置">2.安装与配置。</h2>
-<h3 id="1php安装与配置">1）php安装与配置。</h3>
-<p>将下载好的 php 包文件解压到某一个目录下，例如我的是：D:\wnmp。把解压后的文件目录改为 php7，将里面的 php.ini-production 文件复制一份并改名为 php.ini，用文本编辑器将它打开。</p>
-<pre><code class="language-ini">;将里面的
-; On windows:
-
-extension_dir = &quot;./txt&quot;
-;改为
-
-; On windows:
-
-extension_dir = &quot;D:/wnmp/php7/ext&quot;
-</code></pre>
-<p>将下面两个扩展前面的“;”去掉。（因为 php7 不支持 mysql 扩展了，所以这里只有 mysqli 和 pdo 扩展)</p>
-<pre><code class="language-ini">;extension=mysqli 
-
-;extension=pdo_mysql
-
-;extension=openssl
-</code></pre>
-<p>最后让PHP支持 nginx，将下面一行前面的“;”去掉。</p>
-<pre><code class="language-ini">;cgi.fix_pathinfo=1
-</code></pre>
-<h3 id="2nginx-安装与配置">2）nginx 安装与配置。</h3>
-<p>先在 D:/wnmp 目录下新建一个 www 文件夹，作为服务器的根目录。</p>
-<p>将下载好的 nginx 包文件解压到D:\wnmp目录下，重命名为 nginx。打开 nginx\conf 下的 nginx.conf 文件来配置 nginx。</p>
-<pre><code class="language-conf">#将一下代码
-
-location/ {
-    root html;
-    index index.html index.htm;
-}
-
-#改为
-
-location/ {
-root D:/wnmp/www; #将站点的根目录定位到 D:/wnmp/www
-
-index index.html index.htm;
-}  
-
-#再将一下代码
-
-# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-#
-#location ~ \.php$ {
-# root html;
-# fastcgi_pass 127.0.0.1:9000;
-# fastcgi_index index.php;
-# fastcgi_param SCRIPT_FILENAME /scripts$fastcgi_script_name;
-# include fastcgi_params;
-#}
-
-#改为
-# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-#
-
-location ~ \.php$ {
-    root           D:/wnmp/www;
-    fastcgi_pass   localhost:9000;
-    fastcgi_index  index.php;
-    
-    # 这里$document_root指的是上面定义好的nginx根目录：D:/wnmp/www
-
-    fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-    include        fastcgi_params;
-}
-#保存好配置即可。
-</code></pre>
-<h2 id="3启动">3.启动。</h2>
-<p>手动启动 php 和 nginx 来跑一下。</p>
-<h3 id="1命令行php目录下键入-php-cgiexe-b-1270019000-c-dwnmpphp7phpini输入以后没有反应但是不能关掉命令行">1）命令行php目录下键入 php-cgi.exe -b 127.0.0.1:9000 -c D:/wnmp/php7/php.ini（输入以后没有反应，但是不能关掉命令行）</h3>
-<h3 id="2命令行nginx目录下-start-nginx">2）命令行nginx目录下 start nginx</h3>
-<h3 id="3在www目录下新建一个-phpinfophp-文件">3）在www目录下新建一个 phpinfo.php 文件</h3>
-<pre><code>&lt;?php 
-    phpinfo();
-?&gt;
-</code></pre>
-<h3 id="4浏览器中输入-a-hrefhttplocalhostphpinfophp-target_blanklocalhostphpinfophpa-或者-a-hrefhttp127001phpinfophp-target_blank127001phpinfophpa出现下面内容则说明php在nginx中运行成功了">4）浏览器中输入 <a href='http://localhost/phpinfo.php' target='_blank'>localhost/phpinfo.php</a> 或者 <a href='http://127.0.0.1/phpinfo.php' target='_blank'>127.0.0.1/phpinfo.php</a>，出现下面内容则说明php在nginx中运行成功了。</h3>
-<figure data-type="image" tabindex="1"><img src="http://ww1.sinaimg.cn/large/006KCUaNgy1g0og4i2gzfj30qi0gl77i.jpg" alt="成功啦" loading="lazy"></figure>
-<p>本文参考 <a href="http://www.cnblogs.com/huayangmeng/archive/2011/06/15/2081337.html">http://www.cnblogs.com/huayangmeng/archive/2011/06/15/2081337.html</a></p>
 ]]></content>
     </entry>
 </feed>

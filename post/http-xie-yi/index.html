@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-<title>Visual Studio Code 主题及插件推荐 - 涂诣</title>
+<title>HTTP协议 - 涂诣</title>
 <meta name="description" content="温故而知新">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -154,44 +154,158 @@
                     <div class="col-12 col-lg-10">
                       <div class="layout-post-main m-right m-md-right">
                         <div class="layout-post-header">
-                          <h1 class="layout-post-title">Visual Studio Code 主题及插件推荐</h1>
+                          <h1 class="layout-post-title">HTTP协议</h1>
                           <div class="layout-post-meta">
                             <div class="item">
-                               <a href="https://tooyi.github.io/tag/x4-k0TQ3p/" class="post--keyword"
-                                data-title="tool" data-type="post_tag" data-term-id="39">tool</a>
                               
                             </div>
                             <div class="item">
-                              <span>2018-09-25</span>
+                              <span>2020-05-31</span>
                             </div>
                           </div>
                         </div>
                         <div class="layout-post-content">
                           <div class="layout-post-item">
                             
-                            <p class="with-img"><img src="https://tooyi.github.io/post-images/visual-studio.jpg"
-                                class="attachment-full size-full wp-post-image" alt="Visual Studio Code 主题及插件推荐" /></p>
-                            
-                            <h1 id="visual-studio-code-主题及插件推荐">Visual Studio Code 主题及插件推荐</h1>
-<h2 id="主题">主题</h2>
-<p>One Dark Pro</p>
-<p>Atom One Dark Theme</p>
-<p>Eva Theme</p>
-<h2 id="插件">插件</h2>
-<p><a href="https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek">CSS Peek</a>： html和css中关联css的跳转</p>
-<h3 id="快捷键">快捷键</h3>
+                            <h2 id="请求响应的步骤">请求/响应的步骤</h2>
+<ol>
+<li>客户端连接到Web服务器</li>
+<li>发送HTTP请求</li>
+<li>服务器接收请求并返回HTTO响应</li>
+<li>释放TCP连接</li>
+<li>客户端浏览器解析HTML内容</li>
+</ol>
+<h2 id="浏览器中键入url后回车会发生什么">浏览器中键入URL后回车，会发生什么？</h2>
+<ol>
+<li>
+<p>DNS域名解析<br>
+解析URL对应的IP</p>
+</li>
+<li>
+<p>建立TCP连接<br>
+根据IP:80与服务器建立TCP连接，详见<a href="/post/TCP001/">TCP三次握手</a></p>
+</li>
+<li>
+<p>发送HTTP请求<br>
+三次握手成功后，开始通讯，根据HTTP协议的要求，组织一个请求的数据包，里面含有请求的资源路径、身份信息等。</p>
+</li>
+</ol>
+<p>请求报文是由请求方法、请求URL、协议版本、可选的请求首部字段和内容实体构成的。</p>
+<ol start="4">
+<li>服务器响应HTTP请求<br>
+发送请求后，服务器响应请求，将数据返回给浏览器，数据可以是根据HTML协议组织的网页，里面包含页面的布局、文字等，也可以是图片或脚本程序。</li>
+</ol>
+<p>响应报文基本上是由版本协议、状态码、用以解释状态码的原因短语、可选的响应首部字段以及实体主题构成。</p>
+<ol start="5">
+<li>返回响应结果<br>
+响应码</li>
+</ol>
+<table>
+   <tr>
+      <th>HTTP响应码</th>
+      <th>类别</th>
+      <th>原因短语</th>
+   </tr>
+   <tr>
+      <td>1XX</td>
+      <td>Informational(信息状态码)</td>
+      <td>接受的请求正在处理</td>
+   </tr>
+   <tr>
+      <td>2XX</td>
+      <td>Success(成功状态码)</td>
+      <td>请求正常处理完毕</td>
+   </tr>
+   <tr>
+      <td>3XX</td>
+      <td>Redirection(重定向状态码)</td>
+      <td>需要进行附加操作以完成请求</td>
+   </tr>
+   <tr>
+      <td>4XX</td>
+      <td>Client Error(客户端错误状态码)</td>
+      <td>服务器无法处理请求</td>
+   </tr>
+   <tr>
+      <td>5XX</td>
+      <td>Server Error(服务器错误状态码)</td>
+      <td>服务器处理请求出错</td>
+   </tr>
+</table>
+<ol start="6">
+<li>
+<p>关闭TCP连接<br>
+TCP四次挥手</p>
+</li>
+<li>
+<p>浏览器解析HTML<br>
+浏览器按顺序解析html文件，构建DOM树，在解析到外部的css和js文件时，向服务器发起请求下载资源。</p>
+</li>
+</ol>
+<h2 id="常见的状态码">常见的状态码</h2>
+<p>200 OK：客户端请求成功<br>
+301 Moved Permanently（永久移除）：请求的URL已经移走。Response中应该包含一个Location URL，说明资源现在所处的位置<br>
+302 found：重定向<br>
+400 Bad Request：客户端请求有语法错误，不能被服务器所理解<br>
+401 Unaythorized：请求未经授权，这个状态码必须和WWW-Authenticate报头域一起使用<br>
+403 Forbidden：服务端禁止访问该资源<br>
+404 Not Found：请求资源不存在，输入了错误的URL<br>
+500 Internal Server Error：服务器发生了不可预期的错误<br>
+503 Server Unavaliable：服务器当前不能处理客户端的请求，一段时间后可能恢复正常</p>
+<h2 id="http中重定向和转发的区别">HTTP中重定向和转发的区别</h2>
+<p><strong>本质区别</strong>：转发是服务器行为，重定向是客户端行为</p>
+<p><strong>重定向</strong>：两次请求，浏览器地址发生变化，可访问自身web之外的资源，传输的数据会丢失</p>
+<p><strong>请求转发</strong>：一次请求，地址不变，访问自身web资源，传输的数据不会丢失</p>
+<h2 id="get请求和post请求的区别">GET请求和POST请求的区别</h2>
 <ul>
-<li><code>F12</code>：跳转 css 文件，jump directly to the css file or open it in a new editor</li>
-<li><code>Ctrl+Shift+F12</code>： load the css file inline and make quick edits right there.</li>
-<li><code>Ctrl+hover</code>：show the definition in a hover over the symbol</li>
+<li>GET将请求信息放在URL，POST放在报文体
+<ul>
+<li>GET请求的数据会附在URL之后，以?分割URL和传输数据，参数之间以&amp;相连</li>
+<li>POST请求把提交的数据放放再HTTP包的包体中</li>
 </ul>
+</li>
+<li>GET提交的数据最多只能是1024字节，理论上POST没有限制</li>
+<li>POST的安全性要比GET高
+<ul>
+<li>通过GET提交数据，那么用户名和密码将出现在URL上，登录页面也能被浏览器缓存，其他人查看浏览器的历史记录就可能拿到用户名和密码，除此之外，使用GET提交数据可能会造成Cross-site request forgery攻击</li>
+</ul>
+</li>
+</ul>
+<h2 id="cookie和session的区别">Cookie和Session的区别</h2>
+<h3 id="cookie">Cookie</h3>
+<ul>
+<li>是由服务器发送给客户端的特殊信息，以文本的形式存放在客户端</li>
+<li>客户端再次请求时，会把Cookie回发</li>
+<li>服务器接收到后， 会解析Cookie生成与客户端相对应的内容<br>
+Cookie的设置以及发送过程<br>
+<img src="https://tooyi.github.io/post-images/1590894085862.png" alt="" loading="lazy"></li>
+</ul>
+<h3 id="session">Session</h3>
+<ul>
+<li>服务器端的机制，在服务器上保存的信息</li>
+<li>解析客户端请求并操作session id，按需保存状态信息</li>
+</ul>
+<h4 id="session的实现方式">Session的实现方式</h4>
+<ol>
+<li>使用Cookie来实现<br>
+<img src="https://tooyi.github.io/post-images/1590894225737.png" alt="" loading="lazy"></li>
+<li>使用URL回写来实现</li>
+</ol>
+<p>服务器发送给浏览器所有页面都携带SessionId的参数，客户端点击任何一个连接，都会使SessionId带回给服务器，......</p>
+<p>HTTP协议是构建在TCP/IP协议之上的，是TCP/IP协议的一个子集，所以要理解HTTP协议，有必要先了解下TCP/IP协议相关的知识。</p>
+<p><strong>不同点</strong></p>
+<ul>
+<li>无论客户端怎么设置，session都能正常工作，当客户端仅用cookie时将无法使用cookie</li>
+<li>session可存储任意的java对象，cookie只能存储String类型的对象</li>
+</ul>
+<p><a href="https://www.cnblogs.com/echola/p/11094695.html?tdsourcetag=s_pcqq_aiomsg">more</a></p>
 
                           </div>
                         </div>
                         <div class="layout-post-social">
                           <div class="item reader">
-                            <div id="/post/visual-studio/" class="leancloud-visitors view"
-                              data-flag-title="Visual Studio Code 主题及插件推荐">
+                            <div id="/post/http-xie-yi/" class="leancloud-visitors view"
+                              data-flag-title="HTTP协议">
                               <span class="post-meta-item-text">阅读 </span>
                               <span class="leancloud-visitors-count"></span>
                             </div>
@@ -206,37 +320,8 @@
                               <div class="card-content col-8 col-md-9">
                                 <div class="card-body">
                                   <div class="header">
-                                    <a href="https://tooyi.github.io/post/visual-studio-code/" class="title">
-                                      <h4>Visual Studio Code 使用技巧</h4>
-                                    </a>
-                                  </div>
-                                  <div class="inner d-none d-sm-block">
-                                    <div class="abstract">
-                                      
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="card-footer">
-                                  <div class="item"><span>上一篇</span></div>
-                                  <div class="item">2018-09-29</div>
-                                </div>
-                              </div>
-                              <div class="card-thumb col-4 col-md-3">
-                                <div class="thumb">
-                                  <a href="https://tooyi.github.io/post/visual-studio-code/"
-                                    style="background-image: url('https://tooyi.github.io/post-images/visual-studio-code.jpg');"></a>
-                                </div>
-                              </div>
-                              
-                            </div>
-
-                            <div class="post-card row">
-                              
-                              <div class="card-content col-8 col-md-9">
-                                <div class="card-body">
-                                  <div class="header">
-                                    <a href="https://tooyi.github.io/post/wechat3/" class="title">
-                                      <h4>微信小程序开发</h4>
+                                    <a href="https://tooyi.github.io/post/http/" class="title">
+                                      <h4>HTTP协议</h4>
                                     </a>
                                   </div>
                                   <div class="inner d-none d-sm-block">
@@ -247,18 +332,17 @@
                                 </div>
                                 <div class="card-footer">
                                   <div class="item"><span>下一篇</span></div>
-                                  <div class="item">2018-09-25</div>
+                                  <div class="item">2020-05-31</div>
                                 </div>
                               </div>
                               <div class="card-thumb col-4 col-md-3">
                                 <div class="thumb">
-                                  <a href="https://tooyi.github.io/post/wechat3/"
-                                    style="background-image: url('https://tooyi.github.io/post-images/wechat3.jpg');"></a>
+                                  <a href="https://tooyi.github.io/post/http/"
+                                    style="background-image: url('/post-images/http.jfif');"></a>
                                 </div>
                               </div>
                               
                             </div>
-
                             
                           </div>
                         </div>
@@ -290,12 +374,21 @@
                       <div class="layout-post-sidebar">
                         <div class="layout-sidebar-item">
                           <ul class="markdownIt-TOC">
-<li><a href="#visual-studio-code-%E4%B8%BB%E9%A2%98%E5%8F%8A%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90">Visual Studio Code 主题及插件推荐</a>
+<li>
 <ul>
-<li><a href="#%E4%B8%BB%E9%A2%98">主题</a></li>
-<li><a href="#%E6%8F%92%E4%BB%B6">插件</a>
+<li><a href="#%E8%AF%B7%E6%B1%82%E5%93%8D%E5%BA%94%E7%9A%84%E6%AD%A5%E9%AA%A4">请求/响应的步骤</a></li>
+<li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E9%94%AE%E5%85%A5url%E5%90%8E%E5%9B%9E%E8%BD%A6%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88">浏览器中键入URL后回车，会发生什么？</a></li>
+<li><a href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E7%8A%B6%E6%80%81%E7%A0%81">常见的状态码</a></li>
+<li><a href="#http%E4%B8%AD%E9%87%8D%E5%AE%9A%E5%90%91%E5%92%8C%E8%BD%AC%E5%8F%91%E7%9A%84%E5%8C%BA%E5%88%AB">HTTP中重定向和转发的区别</a></li>
+<li><a href="#get%E8%AF%B7%E6%B1%82%E5%92%8Cpost%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8C%BA%E5%88%AB">GET请求和POST请求的区别</a></li>
+<li><a href="#cookie%E5%92%8Csession%E7%9A%84%E5%8C%BA%E5%88%AB">Cookie和Session的区别</a>
 <ul>
-<li><a href="#%E5%BF%AB%E6%8D%B7%E9%94%AE">快捷键</a></li>
+<li><a href="#cookie">Cookie</a></li>
+<li><a href="#session">Session</a>
+<ul>
+<li><a href="#session%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F">Session的实现方式</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
