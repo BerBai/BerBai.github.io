@@ -33,7 +33,7 @@
 						<div class="logo">
 							<a href="https://tooyi.github.io">
 								<img class="logo"
-									src="https://tooyi.github.io/media/images/site_avatar.png?v=1590847356182"
+									src="https://tooyi.github.io/media/images/site_avatar.png?v=1590889753190"
 									alt="">
 							</a>
 						</div>
@@ -88,7 +88,7 @@
 							<div class="search-lightbox">
 								<div class="search-body">
 
-									<form id="gridea-search-form" data-update="1590847356182" action="/search/" class="search-form">
+									<form id="gridea-search-form" data-update="1590889753190" action="/search/" class="search-form">
 										<input type="text" name="q" id="s" value="" class="search-field" placeholder="请输入搜索关键词" aria-label="请输入搜索关键词" required="">
 										<button type="submit" class="submit" aria-label="Submit">
 											<i class="fa fa-search" aria-hidden="true"></i>
@@ -178,8 +178,8 @@
 <p>首先非常明确的是两次握手是最基本的。第一次握手，客户端发了个连接请求消息到服务端，服务端收到信息后知道自己与客户端是可以连接成功的，但此时客户端并不知道服务端是否已经接收到了它的请求，所以服务端接收到消息后的应答，客户端得到服务端的反馈后，才确定自己与服务端是可以连接上的，这就是第二次握手。</p>
 <p>客户端只有确定了自己能与服务端连接上才能开始发数据。所以两次握手肯定是最基本的。</p>
 <p>看到这里，你或许会问，那么为什么需要第三次握手呢？我们来看一下，假设一下如果没有第三次握手，而是两次握手后我们就认为连接成功了，那么会发生什么？<strong>第三次握手是为了防止已经失效的连接请求报文段突然又传到服务端，因而产生错误。</strong></p>
-<p>譬如发起请求遇到类似这样的情况：客户端发出去的第一个连接请求由于某些原因在网络节点中滞留了导致延迟，直到连接释放的某个时间点才到达服务端，这是一个早已失效的报文，但是此时服务端仍然认为这是客户端的建立连接请求第一次握手，于是服务端回应了客户端，第二次握手。</p>
-<figure data-type="image" tabindex="1"><img src="https://tooyi.github.io/post-images/1590846035334.png" alt="" loading="lazy"></figure>
+<p>譬如发起请求遇到类似这样的情况：客户端发出去的第一个连接请求由于某些原因在网络节点中滞留了导致延迟，直到连接释放的某个时间点才到达服务端，这是一个早已失效的报文，但是此时服务端仍然认为这是客户端的建立连接请求第一次握手，于是服务端回应了客户端，第二次握手。<br>
+<img src="https://tooyi.github.io/post-images/1590889711270.png" alt="" loading="lazy"></p>
 <h2 id="通俗理解">通俗理解</h2>
 <p>TCP 三次握手好比在一个夜高风黑的夜晚，你一个人在小区里散步，不远处看见小区里的一位漂亮妹子迎面而来，但是因为路灯有点暗等原因不能100%确认，所以要通过招手的方式来确定对方是否认识自己。</p>
 <p>你首先向妹子招手(syn)，妹子看到你向自己招手后，向你点了点头挤出了一个微笑(ack)。你看到妹子微笑后确认了妹子成功辨认出了自己(进入estalished状态)。</p>
