@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://tooyi.github.io</id>
-    <title>涂诣</title>
+    <id>https://BerBai.github.io</id>
+    <title>Ber</title>
     <updated>2020-05-31T03:06:37.379Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://tooyi.github.io"/>
-    <link rel="self" href="https://tooyi.github.io/atom.xml"/>
+    <link rel="alternate" href="https://BerBai.github.io"/>
+    <link rel="self" href="https://BerBai.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>https://tooyi.github.io/images/avatar.png</logo>
-    <icon>https://tooyi.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, 涂诣</rights>
+    <logo>https://BerBai.github.io/images/avatar.png</logo>
+    <icon>https://BerBai.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2020, Ber</rights>
     <entry>
         <title type="html"><![CDATA[HTTP协议]]></title>
-        <id>https://tooyi.github.io/post/http-xie-yi/</id>
-        <link href="https://tooyi.github.io/post/http-xie-yi/">
+        <id>https://BerBai.github.io/post/http-xie-yi/</id>
+        <link href="https://BerBai.github.io/post/http-xie-yi/">
         </link>
         <updated>2020-05-31T02:45:02.000Z</updated>
         <content type="html"><![CDATA[<h2 id="请求响应的步骤">请求/响应的步骤</h2>
@@ -127,7 +127,7 @@ TCP四次挥手</p>
 <li>客户端再次请求时，会把Cookie回发</li>
 <li>服务器接收到后， 会解析Cookie生成与客户端相对应的内容<br>
 Cookie的设置以及发送过程<br>
-<img src="https://tooyi.github.io/post-images/1590894085862.png" alt="" loading="lazy"></li>
+<img src="https://BerBai.github.io/post-images/1590894085862.png" alt="" loading="lazy"></li>
 </ul>
 <h3 id="session">Session</h3>
 <ul>
@@ -137,7 +137,7 @@ Cookie的设置以及发送过程<br>
 <h4 id="session的实现方式">Session的实现方式</h4>
 <ol>
 <li>使用Cookie来实现<br>
-<img src="https://tooyi.github.io/post-images/1590894225737.png" alt="" loading="lazy"></li>
+<img src="https://BerBai.github.io/post-images/1590894225737.png" alt="" loading="lazy"></li>
 <li>使用URL回写来实现</li>
 </ol>
 <p>服务器发送给浏览器所有页面都携带SessionId的参数，客户端点击任何一个连接，都会使SessionId带回给服务器，......</p>
@@ -152,8 +152,8 @@ Cookie的设置以及发送过程<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[HTTP协议]]></title>
-        <id>https://tooyi.github.io/post/http/</id>
-        <link href="https://tooyi.github.io/post/http/">
+        <id>https://BerBai.github.io/post/http/</id>
+        <link href="https://BerBai.github.io/post/http/">
         </link>
         <updated>2020-05-31T02:45:02.000Z</updated>
         <content type="html"><![CDATA[<h2 id="请求响应的步骤">请求/响应的步骤</h2>
@@ -267,7 +267,7 @@ TCP四次挥手</p>
 <li>客户端再次请求时，会把Cookie回发</li>
 <li>服务器接收到后， 会解析Cookie生成与客户端相对应的内容<br>
 Cookie的设置以及发送过程<br>
-<img src="https://tooyi.github.io/post-images/1590894085862.png" alt="" loading="lazy"></li>
+<img src="https://BerBai.github.io/post-images/1590894085862.png" alt="" loading="lazy"></li>
 </ul>
 <h3 id="session">Session</h3>
 <ul>
@@ -277,7 +277,7 @@ Cookie的设置以及发送过程<br>
 <h4 id="session的实现方式">Session的实现方式</h4>
 <ol>
 <li>使用Cookie来实现<br>
-<img src="https://tooyi.github.io/post-images/1590894225737.png" alt="" loading="lazy"></li>
+<img src="https://BerBai.github.io/post-images/1590894225737.png" alt="" loading="lazy"></li>
 <li>使用URL回写来实现</li>
 </ol>
 <p>服务器发送给浏览器所有页面都携带SessionId的参数，客户端点击任何一个连接，都会使SessionId带回给服务器，......</p>
@@ -292,8 +292,8 @@ Cookie的设置以及发送过程<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[【通俗解读】TCP 三次握手]]></title>
-        <id>https://tooyi.github.io/post/TCP001/</id>
-        <link href="https://tooyi.github.io/post/TCP001/">
+        <id>https://BerBai.github.io/post/TCP001/</id>
+        <link href="https://BerBai.github.io/post/TCP001/">
         </link>
         <updated>2020-05-30T13:35:38.000Z</updated>
         <summary type="html"><![CDATA[<p>关于TCP协议三次握手的问题，在面试中是最为常见的知识点之一</p>
@@ -305,7 +305,7 @@ Cookie的设置以及发送过程<br>
 <p>客户端只有确定了自己能与服务端连接上才能开始发数据。所以两次握手肯定是最基本的。</p>
 <p>看到这里，你或许会问，那么为什么需要第三次握手呢？我们来看一下，假设一下如果没有第三次握手，而是两次握手后我们就认为连接成功了，那么会发生什么？<strong>第三次握手是为了防止已经失效的连接请求报文段突然又传到服务端，因而产生错误。</strong></p>
 <p>譬如发起请求遇到类似这样的情况：客户端发出去的第一个连接请求由于某些原因在网络节点中滞留了导致延迟，直到连接释放的某个时间点才到达服务端，这是一个早已失效的报文，但是此时服务端仍然认为这是客户端的建立连接请求第一次握手，于是服务端回应了客户端，第二次握手。<br>
-<img src="https://tooyi.github.io/post-images/1590889711270.png" alt="" loading="lazy"></p>
+<img src="https://BerBai.github.io/post-images/1590889711270.png" alt="" loading="lazy"></p>
 <h2 id="通俗理解">通俗理解</h2>
 <p>TCP 三次握手好比在一个夜高风黑的夜晚，你一个人在小区里散步，不远处看见小区里的一位漂亮妹子迎面而来，但是因为路灯有点暗等原因不能100%确认，所以要通过招手的方式来确定对方是否认识自己。</p>
 <p>你首先向妹子招手(syn)，妹子看到你向自己招手后，向你点了点头挤出了一个微笑(ack)。你看到妹子微笑后确认了妹子成功辨认出了自己(进入estalished状态)。</p>
@@ -334,17 +334,17 @@ Cookie的设置以及发送过程<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[换一个新主题 - Gridea Themes Vant]]></title>
-        <id>https://tooyi.github.io/post/hello-gridea/</id>
-        <link href="https://tooyi.github.io/post/hello-gridea/">
+        <id>https://BerBai.github.io/post/hello-gridea/</id>
+        <link href="https://BerBai.github.io/post/hello-gridea/">
         </link>
         <updated>2020-05-26T11:00:00.000Z</updated>
         <summary type="html"><![CDATA[<h2 id="访问旧博客">访问旧博客</h2>
-<p><strong>新博客使用Gridea管理，旧博客文章暂时未全部搬运。若访问旧博客，请访问</strong><a href="https://tooyi.github.io/blog-old/">涂诣的官方网站</a></p>
+<p><strong>新博客使用Gridea管理，旧博客文章暂时未全部搬运。若访问旧博客，请访问</strong><a href="https://BerBai.github.io/blog-old/">Ber的官方网站</a></p>
 <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
 ✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
 ]]></summary>
         <content type="html"><![CDATA[<h2 id="访问旧博客">访问旧博客</h2>
-<p><strong>新博客使用Gridea管理，旧博客文章暂时未全部搬运。若访问旧博客，请访问</strong><a href="https://tooyi.github.io/blog-old/">涂诣的官方网站</a></p>
+<p><strong>新博客使用Gridea管理，旧博客文章暂时未全部搬运。若访问旧博客，请访问</strong><a href="https://BerBai.github.io/blog-old/">Ber的官方网站</a></p>
 <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
 ✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
 <!-- more -->
@@ -370,8 +370,8 @@ Cookie的设置以及发送过程<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[数据库-函数依赖及范式]]></title>
-        <id>https://tooyi.github.io/post/shu-ju-ku-han-shu-yi-lai-ji-fan-shi/</id>
-        <link href="https://tooyi.github.io/post/shu-ju-ku-han-shu-yi-lai-ji-fan-shi/">
+        <id>https://BerBai.github.io/post/shu-ju-ku-han-shu-yi-lai-ji-fan-shi/</id>
+        <link href="https://BerBai.github.io/post/shu-ju-ku-han-shu-yi-lai-ji-fan-shi/">
         </link>
         <updated>2020-04-27T01:23:52.000Z</updated>
         <summary type="html"><![CDATA[<p>通俗讲解</p>
@@ -590,8 +590,8 @@ Cookie的设置以及发送过程<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[微信小程序 WXHL 中截取字符串]]></title>
-        <id>https://tooyi.github.io/post/wei-xin-wxhl/</id>
-        <link href="https://tooyi.github.io/post/wei-xin-wxhl/">
+        <id>https://BerBai.github.io/post/wei-xin-wxhl/</id>
+        <link href="https://BerBai.github.io/post/wei-xin-wxhl/">
         </link>
         <updated>2019-07-02T01:21:52.000Z</updated>
         <summary type="html"><![CDATA[<p>代码记录</p>
@@ -621,8 +621,8 @@ module.exports.substr =substr
     </entry>
     <entry>
         <title type="html"><![CDATA[MySQL读写分离]]></title>
-        <id>https://tooyi.github.io/post/mysql-du-xie-fen-chi/</id>
-        <link href="https://tooyi.github.io/post/mysql-du-xie-fen-chi/">
+        <id>https://BerBai.github.io/post/mysql-du-xie-fen-chi/</id>
+        <link href="https://BerBai.github.io/post/mysql-du-xie-fen-chi/">
         </link>
         <updated>2019-06-20T01:20:43.000Z</updated>
         <summary type="html"><![CDATA[<p>Java高级面试必问系列</p>
@@ -672,8 +672,8 @@ module.exports.substr =substr
     </entry>
     <entry>
         <title type="html"><![CDATA[PHP 爬虫]]></title>
-        <id>https://tooyi.github.io/post/php-pa-chong/</id>
-        <link href="https://tooyi.github.io/post/php-pa-chong/">
+        <id>https://BerBai.github.io/post/php-pa-chong/</id>
+        <link href="https://BerBai.github.io/post/php-pa-chong/">
         </link>
         <updated>2019-04-02T01:14:30.000Z</updated>
         <summary type="html"><![CDATA[<p>学习参考小结</p>
@@ -752,8 +752,8 @@ foreach ($new_arr as $key) {
     </entry>
     <entry>
         <title type="html"><![CDATA[在线学习SQL]]></title>
-        <id>https://tooyi.github.io/post/zai-xian-xue-xi-sql/</id>
-        <link href="https://tooyi.github.io/post/zai-xian-xue-xi-sql/">
+        <id>https://BerBai.github.io/post/zai-xian-xue-xi-sql/</id>
+        <link href="https://BerBai.github.io/post/zai-xian-xue-xi-sql/">
         </link>
         <updated>2019-03-28T01:12:52.000Z</updated>
         <summary type="html"><![CDATA[<p>推荐几个在线学习SQL的网页</p>
@@ -835,8 +835,8 @@ foreach ($new_arr as $key) {
     </entry>
     <entry>
         <title type="html"><![CDATA[Oracle学习小结]]></title>
-        <id>https://tooyi.github.io/post/oracle-xue-xi-xiao-jie/</id>
-        <link href="https://tooyi.github.io/post/oracle-xue-xi-xiao-jie/">
+        <id>https://BerBai.github.io/post/oracle-xue-xi-xiao-jie/</id>
+        <link href="https://BerBai.github.io/post/oracle-xue-xi-xiao-jie/">
         </link>
         <updated>2019-03-28T01:10:46.000Z</updated>
         <summary type="html"><![CDATA[<p>最近学习Oracle，做个小总结</p>
